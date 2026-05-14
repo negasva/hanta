@@ -18,6 +18,7 @@ const { scrapeAllSources } = require('./scraper');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+console.log('[SERVER] Starting Hantavirus Monitoring Application...');
 
 // Middleware
 app.use(cors());
