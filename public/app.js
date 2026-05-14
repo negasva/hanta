@@ -5,11 +5,18 @@ let chart;
 let lastUpdate = null;
 let nextUpdateTime = null;
 
+console.log('App.js loaded');
+console.log('Leaflet available:', typeof L !== 'undefined');
+console.log('Chart available:', typeof Chart !== 'undefined');
+
 // Initialize the application
 async function init() {
   try {
+    console.log('Init starting...');
     // Initialize map
+    console.log('Initializing map...');
     initializeMap();
+    console.log('Map initialized successfully');
 
     // Load initial data
     await loadData();
@@ -62,33 +69,58 @@ async function loadData() {
       fetch('/api/all-history')
     ]);
 
-    if (!casosRes.ok || !paisesRes.ok || !historialRes.ok) {
-      throw new Error('API request failed');
+    if (!casosRes.ok) {
+      throw new Error(`/api/casos failed: ${casosRes.status}`);
+    }
+    if (!paisesRes.ok) {
+      throw new Error(`/api/paises failed: ${paisesRes.status}`);
+    }
+    if (!historialRes.ok) {
+      throw new Error(`/api/all-history failed: ${historialRes.status}`);
     }
 
     const casosData = await casosRes.json();
     const paisesData = await paisesRes.json();
     const historialData = await historialRes.json();
 
+    console.log('Loaded casos:', casosData);
+    console.log('Loaded paises:', paisesData);
+    console.log('Loaded historial:', historialData);
+
     // Update sidebar statistics
-    updateStatistics(casosData);
+    if (casosData) {
+      updateStatistics(casosData);
+    }
 
     // Update map with country data
-    updateMap(paisesData);
+    if (paisesData && paisesData.length > 0) {
+      updateMap(paisesData);
+    } else {
+      console.warn('No paises data available');
+    }
 
     // Update chart
-    updateChart(historialData);
+    if (historialData && historialData.length > 0) {
+      updateChart(historialData);
+    } else {
+      console.warn('No historial data available');
+    }
 
     // Update countries list
-    updateCountriesList(paisesData);
+    if (paisesData && paisesData.length > 0) {
+      updateCountriesList(paisesData);
+    }
 
     // Update last update time
-    lastUpdate = new Date(casosData.timestamp);
-    updateLastUpdateTime();
+    if (casosData && casosData.timestamp) {
+      lastUpdate = new Date(casosData.timestamp);
+      updateLastUpdateTime();
+    }
 
     setStatus('ok');
   } catch (error) {
     console.error('Data loading error:', error);
+    console.error('Stack:', error.stack);
     setStatus('error');
   }
 }
@@ -366,8 +398,14 @@ function setStatus(status) {
 }
 
 // Start the application when DOM is ready
+console.log('Document readyState:', document.readyState);
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', init);
+  console.log('Waiting for DOMContentLoaded...');
+  document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOMContentLoaded fired');
+    init();
+  });
 } else {
+  console.log('DOM already loaded, calling init immediately');
   init();
 }
