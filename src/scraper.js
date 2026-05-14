@@ -160,18 +160,6 @@ async function scrapeAllSources() {
   try {
     await insertOutbreakData(aggregated);
 
-    // Delete old country data and insert new batch
-    await new Promise((resolve, reject) => {
-      const { db } = require('./db');
-      db.run(
-        'DELETE FROM country_data WHERE timestamp = (SELECT MAX(timestamp) FROM country_data)',
-        (err) => {
-          if (err) reject(err);
-          else resolve();
-        }
-      );
-    });
-
     for (const country of aggregated.affected_countries) {
       const coords = countryCoordinates[country];
       if (coords) {
