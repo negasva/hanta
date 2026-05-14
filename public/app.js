@@ -14,8 +14,8 @@ async function init() {
     // Load initial data
     await loadData();
 
-    // Start auto-refresh (every 60 minutes)
-    setInterval(loadData, 60 * 60 * 1000);
+    // Start auto-refresh (every 15 minutes)
+    setInterval(loadData, 15 * 60 * 1000);
 
     // Update countdown timer
     setInterval(updateNextUpdateTime, 1000);
@@ -334,9 +334,9 @@ function updateLastUpdateTime() {
 function updateNextUpdateTime() {
   if (!lastUpdate) return;
 
-  // Next update is 60 minutes after last update
+  // Next update is 15 minutes after last update
   const now = new Date();
-  nextUpdateTime = new Date(lastUpdate.getTime() + 60 * 60 * 1000);
+  nextUpdateTime = new Date(lastUpdate.getTime() + 15 * 60 * 1000);
 
   const diff = nextUpdateTime - now;
 
