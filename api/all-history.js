@@ -1,23 +1,4 @@
-function generateHistoricalData() {
-  const now = new Date();
-  const data = [];
-
-  for (let i = 20; i >= 0; i--) {
-    const timestamp = new Date(now.getTime() - i * 60 * 60 * 1000);
-    const multiplier = 1 - (i / 20) * 0.3;
-
-    data.push({
-      timestamp: timestamp.toISOString(),
-      confirmed_cases: Math.floor(487 * multiplier),
-      suspected_cases: Math.floor(156 * multiplier),
-      deaths: Math.floor(92 * multiplier)
-    });
-  }
-
-  return data;
-}
-
-module.exports = (req, res) => {
+module.exports = async (req, res) => {
   res.setHeader('Access-Control-Allow-Credentials', 'true');
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
@@ -29,10 +10,39 @@ module.exports = (req, res) => {
   }
 
   try {
+    const supabaseUrl = process.env.SUPABASE_URL;
+    const supabaseKey = process.env.SUPABASE_ANON_KEY;
     const limit = parseInt(req.query.limit) || 100;
-    const data = generateHistoricalData();
-    const limited = data.slice(-limit);
-    res.status(200).json(limited);
+
+    if (!supabaseUrl || !supabaseKey) {
+      throw new Error('Supabase credentials not configured');
+    }
+
+    const response = await fetch(
+      `${supabaseUrl}/rest/v1/outbreak_data?select=*&order=timestamp.asc&limit=${limit}`,
+      {
+        headers: {
+          'Authorization': `Bearer ${supabaseKey}`,
+          'apikey': supabaseKey,
+          'Content-Type': 'application/json'
+        }
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(`Supabase error: ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    const formatted = data.map(record => ({
+      timestamp: record.timestamp,
+      confirmed_cases: record.confirmed_cases,
+      suspected_cases: record.suspected_cases,
+      deaths: record.deaths
+    }));
+
+    res.status(200).json(formatted);
   } catch (error) {
     console.error('API error:', error);
     res.status(500).json({ error: error.message });

@@ -1,34 +1,4 @@
-const DEMO_COUNTRIES = {
-  'Chile':     { confirmed: 98,  suspected: 32, deaths: 18 },
-  'Argentina': { confirmed: 112, suspected: 41, deaths: 21 },
-  'Peru':      { confirmed: 74,  suspected: 28, deaths: 15 },
-  'Colombia':  { confirmed: 53,  suspected: 19, deaths: 10 },
-  'Bolivia':   { confirmed: 45,  suspected: 14, deaths:  9 },
-  'Ecuador':   { confirmed: 38,  suspected: 11, deaths:  7 },
-  'Paraguay':  { confirmed: 27,  suspected:  6, deaths:  5 },
-  'Uruguay':   { confirmed: 18,  suspected:  3, deaths:  4 },
-  'Brazil':    { confirmed: 14,  suspected:  2, deaths:  2 },
-  'Venezuela': { confirmed:  8,  suspected:  0, deaths:  1 }
-};
-
-function getLatestStats() {
-  const total = Object.values(DEMO_COUNTRIES).reduce((acc, country) => ({
-    confirmed: acc.confirmed + country.confirmed,
-    suspected: acc.suspected + country.suspected,
-    deaths: acc.deaths + country.deaths
-  }), { confirmed: 0, suspected: 0, deaths: 0 });
-
-  return {
-    timestamp: new Date().toISOString(),
-    confirmed_cases: total.confirmed,
-    suspected_cases: total.suspected,
-    deaths: total.deaths,
-    affected_countries: Object.keys(DEMO_COUNTRIES),
-    source: 'Demo Data'
-  };
-}
-
-module.exports = (req, res) => {
+module.exports = async (req, res) => {
   res.setHeader('Access-Control-Allow-Credentials', 'true');
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
@@ -40,8 +10,47 @@ module.exports = (req, res) => {
   }
 
   try {
-    const data = getLatestStats();
-    res.status(200).json(data);
+    const supabaseUrl = process.env.SUPABASE_URL;
+    const supabaseKey = process.env.SUPABASE_ANON_KEY;
+
+    if (!supabaseUrl || !supabaseKey) {
+      throw new Error('Supabase credentials not configured');
+    }
+
+    const response = await fetch(
+      `${supabaseUrl}/rest/v1/outbreak_data?select=*&order=timestamp.desc&limit=1`,
+      {
+        headers: {
+          'Authorization': `Bearer ${supabaseKey}`,
+          'apikey': supabaseKey,
+          'Content-Type': 'application/json'
+        }
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(`Supabase error: ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    if (!data || data.length === 0) {
+      return res.status(404).json({ error: 'No data available' });
+    }
+
+    const latest = data[0];
+    const affectedCountries = typeof latest.affected_countries === 'string'
+      ? JSON.parse(latest.affected_countries)
+      : latest.affected_countries || [];
+
+    res.status(200).json({
+      timestamp: latest.timestamp,
+      confirmed_cases: latest.confirmed_cases,
+      suspected_cases: latest.suspected_cases,
+      deaths: latest.deaths,
+      affected_countries: affectedCountries,
+      source: latest.source
+    });
   } catch (error) {
     console.error('API error:', error);
     res.status(500).json({ error: error.message });
