@@ -10,7 +10,9 @@ const {
   getHistoricalData,
   getCountryData,
   getAllHistoricalData,
-  clearOldData
+  clearOldData,
+  insertOutbreakData,
+  insertCountryData
 } = require('./db');
 const { scrapeAllSources } = require('./scraper');
 
@@ -23,15 +25,50 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-// Initialize database
-initializeDatabase().catch(err => {
-  console.error('Failed to initialize database:', err);
-  process.exit(1);
-});
+const DEMO_COUNTRIES = {
+  'Chile':     { lat: -35.6751, lng: -71.5430, confirmed: 98,  suspected: 32, deaths: 18 },
+  'Argentina': { lat: -38.4161, lng: -63.6167, confirmed: 112, suspected: 41, deaths: 21 },
+  'Peru':      { lat: -9.1900,  lng: -75.0152, confirmed: 74,  suspected: 28, deaths: 15 },
+  'Colombia':  { lat: 4.5709,   lng: -74.2973, confirmed: 53,  suspected: 19, deaths: 10 },
+  'Bolivia':   { lat: -16.2902, lng: -63.5887, confirmed: 45,  suspected: 14, deaths:  9 },
+  'Ecuador':   { lat: -1.8312,  lng: -78.1834, confirmed: 38,  suspected: 11, deaths:  7 },
+  'Paraguay':  { lat: -23.4425, lng: -58.4438, confirmed: 27,  suspected:  6, deaths:  5 },
+  'Uruguay':   { lat: -32.5228, lng: -55.7658, confirmed: 18,  suspected:  3, deaths:  4 },
+  'Brazil':    { lat: -14.2350, lng: -51.9253, confirmed: 14,  suspected:  2, deaths:  2 },
+  'Venezuela': { lat: 6.4238,   lng: -66.5897, confirmed:  8,  suspected:  0, deaths:  1 }
+};
 
-// Initial scrape on startup
-console.log('Performing initial scrape...');
-scrapeAllSources().catch(console.error);
+async function seedDemoDataIfEmpty() {
+  const existing = await getLatestData();
+  if (existing) return;
+
+  console.log('No data found — seeding demo data...');
+  await insertOutbreakData({
+    confirmed_cases: 487,
+    suspected_cases: 156,
+    deaths: 92,
+    affected_countries: Object.keys(DEMO_COUNTRIES),
+    source: 'Demo Data (External sources unavailable)'
+  });
+  for (const [country, d] of Object.entries(DEMO_COUNTRIES)) {
+    await insertCountryData(country, d.lat, d.lng, {
+      confirmed: d.confirmed, suspected: d.suspected, deaths: d.deaths
+    });
+  }
+  console.log('Demo data seeded successfully.');
+}
+
+// Initialize database, seed demo data, then scrape in background
+initializeDatabase()
+  .then(() => seedDemoDataIfEmpty())
+  .then(() => {
+    console.log('Performing background scrape...');
+    scrapeAllSources().catch(console.error);
+  })
+  .catch(err => {
+    console.error('Failed to initialize:', err);
+    process.exit(1);
+  });
 
 // Schedule scraping every hour
 cron.schedule('0 * * * *', async () => {
