@@ -16,6 +16,15 @@ const countryCoordinates = {
   'Venezuela': { lat: 6.4238, lng: -66.5897, name: 'Venezuela' }
 };
 
+// Demo data for when external scraping fails
+const demoData = {
+  confirmed_cases: 487,
+  suspected_cases: 156,
+  deaths: 92,
+  affected_countries: Object.keys(countryCoordinates),
+  source: 'Demo Data (External sources unavailable)'
+};
+
 async function scrapeWHO() {
   try {
     const url = 'https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON599';
@@ -126,7 +135,7 @@ async function scrapeAllSources() {
   ]);
 
   // Aggregate data - take highest values
-  const aggregated = {
+  let aggregated = {
     confirmed_cases: Math.max(...results.map(r => r.confirmed || 0)),
     suspected_cases: Math.max(...results.map(r => r.suspected || 0)),
     deaths: Math.max(...results.map(r => r.deaths || 0)),
@@ -137,6 +146,12 @@ async function scrapeAllSources() {
   // If no affected countries found in scraping, use all as fallback
   if (aggregated.affected_countries.length === 0) {
     aggregated.affected_countries = Object.keys(countryCoordinates);
+  }
+
+  // If all scraping failed (no data), use demo data
+  if (aggregated.confirmed_cases === 0 && aggregated.suspected_cases === 0 && aggregated.deaths === 0) {
+    console.log('External sources unavailable, using demo data');
+    aggregated = { ...demoData };
   }
 
   console.log('Aggregated data:', aggregated);
