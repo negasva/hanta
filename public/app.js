@@ -5,11 +5,18 @@ let chart;
 let lastUpdate = null;
 let nextUpdateTime = null;
 
+console.log('App.js loaded');
+console.log('Leaflet available:', typeof L !== 'undefined');
+console.log('Chart available:', typeof Chart !== 'undefined');
+
 // Initialize the application
 async function init() {
   try {
+    console.log('Init starting...');
     // Initialize map
+    console.log('Initializing map...');
     initializeMap();
+    console.log('Map initialized successfully');
 
     // Load initial data
     await loadData();
@@ -391,8 +398,14 @@ function setStatus(status) {
 }
 
 // Start the application when DOM is ready
+console.log('Document readyState:', document.readyState);
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', init);
+  console.log('Waiting for DOMContentLoaded...');
+  document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOMContentLoaded fired');
+    init();
+  });
 } else {
+  console.log('DOM already loaded, calling init immediately');
   init();
 }
