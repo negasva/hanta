@@ -1,170 +1,186 @@
-const sqlite3 = require('sqlite3').verbose();
-const path = require('path');
+const { createClient } = require('@supabase/supabase-js');
 
-const dbPath = path.join(__dirname, '../data/hantavirus.db');
-const db = new sqlite3.Database(dbPath, (err) => {
-  if (err) {
-    console.error('Database connection error:', err);
-  } else {
-    console.log('Connected to SQLite database');
-    db.run('PRAGMA journal_mode = WAL');
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseKey = process.env.SUPABASE_ANON_KEY;
+
+console.log('[DB] Checking environment variables...');
+console.log('[DB] SUPABASE_URL:', supabaseUrl ? 'SET' : 'MISSING');
+console.log('[DB] SUPABASE_ANON_KEY:', supabaseKey ? 'SET' : 'MISSING');
+
+if (!supabaseUrl || !supabaseKey) {
+  console.error('[DB] ERROR: Missing SUPABASE_URL or SUPABASE_ANON_KEY environment variables');
+  process.exit(1);
+}
+
+const supabase = createClient(supabaseUrl, supabaseKey);
+
+async function initializeDatabase() {
+  try {
+    const { data, error } = await supabase
+      .from('outbreak_data')
+      .select('id')
+      .limit(1);
+
+    if (error) {
+      console.error('Database check error:', error);
+      throw error;
+    }
+
+    console.log('Connected to Supabase database');
+  } catch (error) {
+    console.error('Failed to connect to database:', error);
+    throw error;
   }
-});
-
-function initializeDatabase() {
-  return new Promise((resolve, reject) => {
-    const schema = `
-      CREATE TABLE IF NOT EXISTS outbreak_data (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
-        confirmed_cases INTEGER,
-        suspected_cases INTEGER,
-        deaths INTEGER,
-        affected_countries TEXT,
-        source TEXT
-      );
-
-      CREATE TABLE IF NOT EXISTS country_data (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
-        country TEXT NOT NULL,
-        latitude REAL NOT NULL,
-        longitude REAL NOT NULL,
-        confirmed_cases INTEGER,
-        suspected_cases INTEGER,
-        deaths INTEGER
-      );
-
-      CREATE INDEX IF NOT EXISTS idx_outbreak_timestamp ON outbreak_data(timestamp DESC);
-      CREATE INDEX IF NOT EXISTS idx_country_timestamp ON country_data(timestamp DESC);
-    `;
-
-    db.exec(schema, (err) => {
-      if (err) reject(err);
-      else resolve();
-    });
-  });
 }
 
-function getLatestData() {
-  return new Promise((resolve, reject) => {
-    db.get(
-      'SELECT * FROM outbreak_data ORDER BY timestamp DESC LIMIT 1',
-      (err, row) => {
-        if (err) reject(err);
-        else resolve(row);
-      }
-    );
-  });
+async function getLatestData() {
+  try {
+    const { data, error } = await supabase
+      .from('outbreak_data')
+      .select('*')
+      .order('created_at', { ascending: false })
+      .limit(1)
+      .single();
+
+    if (error && error.code !== 'PGRST116') {
+      throw error;
+    }
+
+    return data;
+  } catch (error) {
+    console.error('Error getting latest data:', error);
+    return null;
+  }
 }
 
-function getHistoricalData(hours = 24) {
-  return new Promise((resolve, reject) => {
-    db.all(
-      `SELECT * FROM outbreak_data
-       WHERE timestamp > datetime('now', '-' || ? || ' hours')
-       ORDER BY timestamp ASC`,
-      [hours],
-      (err, rows) => {
-        if (err) reject(err);
-        else resolve(rows || []);
-      }
-    );
-  });
+async function getHistoricalData(hours = 24) {
+  try {
+    const cutoffDate = new Date(Date.now() - hours * 60 * 60 * 1000).toISOString();
+
+    const { data, error } = await supabase
+      .from('outbreak_data')
+      .select('*')
+      .gte('created_at', cutoffDate)
+      .order('created_at', { ascending: true });
+
+    if (error) throw error;
+
+    return data || [];
+  } catch (error) {
+    console.error('Error getting historical data:', error);
+    return [];
+  }
 }
 
-function getCountryData() {
-  return new Promise((resolve, reject) => {
-    db.all(
-      `SELECT DISTINCT
-        country,
-        latitude,
-        longitude,
-        SUM(confirmed_cases) as confirmed_cases,
-        SUM(suspected_cases) as suspected_cases,
-        SUM(deaths) as deaths
-       FROM country_data
-       WHERE timestamp = (SELECT MAX(timestamp) FROM country_data)
-       GROUP BY country
-       ORDER BY confirmed_cases DESC`,
-      (err, rows) => {
-        if (err) reject(err);
-        else resolve(rows || []);
-      }
-    );
-  });
+async function getCountryData() {
+  try {
+    const { data, error } = await supabase
+      .from('country_data')
+      .select('country, latitude, longitude, confirmed_cases, suspected_cases, deaths')
+      .order('confirmed_cases', { ascending: false });
+
+    if (error) throw error;
+
+    return data || [];
+  } catch (error) {
+    console.error('Error getting country data:', error);
+    return [];
+  }
 }
 
-function insertOutbreakData(data) {
-  return new Promise((resolve, reject) => {
-    db.run(
-      `INSERT INTO outbreak_data (confirmed_cases, suspected_cases, deaths, affected_countries, source)
-       VALUES (?, ?, ?, ?, ?)`,
-      [
-        data.confirmed_cases || 0,
-        data.suspected_cases || 0,
-        data.deaths || 0,
-        JSON.stringify(data.affected_countries || []),
-        data.source || 'unknown'
-      ],
-      function(err) {
-        if (err) reject(err);
-        else resolve({ id: this.lastID });
-      }
-    );
-  });
+async function insertOutbreakData(data) {
+  try {
+    const { data: result, error } = await supabase
+      .from('outbreak_data')
+      .insert([
+        {
+          confirmed_cases: data.confirmed_cases || 0,
+          suspected_cases: data.suspected_cases || 0,
+          deaths: data.deaths || 0,
+          affected_countries: data.affected_countries ? JSON.stringify(data.affected_countries) : '[]',
+          source: data.source || 'unknown'
+        }
+      ])
+      .select();
+
+    if (error) throw error;
+
+    return result?.[0] || { id: null };
+  } catch (error) {
+    console.error('Error inserting outbreak data:', error);
+    throw error;
+  }
 }
 
-function insertCountryData(countryName, lat, lng, cases) {
-  return new Promise((resolve, reject) => {
-    db.run(
-      `INSERT INTO country_data (country, latitude, longitude, confirmed_cases, suspected_cases, deaths)
-       VALUES (?, ?, ?, ?, ?, ?)`,
-      [
-        countryName,
-        lat,
-        lng,
-        cases.confirmed || 0,
-        cases.suspected || 0,
-        cases.deaths || 0
-      ],
-      function(err) {
-        if (err) reject(err);
-        else resolve({ id: this.lastID });
-      }
-    );
-  });
+async function insertCountryData(countryName, lat, lng, cases) {
+  try {
+    const { data, error } = await supabase
+      .from('country_data')
+      .insert([
+        {
+          country: countryName,
+          latitude: lat,
+          longitude: lng,
+          confirmed_cases: cases.confirmed || 0,
+          suspected_cases: cases.suspected || 0,
+          deaths: cases.deaths || 0
+        }
+      ])
+      .select();
+
+    if (error) throw error;
+
+    return data?.[0] || { id: null };
+  } catch (error) {
+    console.error('Error inserting country data:', error);
+    throw error;
+  }
 }
 
-function getAllHistoricalData(limit = 100) {
-  return new Promise((resolve, reject) => {
-    db.all(
-      `SELECT * FROM outbreak_data ORDER BY timestamp DESC LIMIT ?`,
-      [limit],
-      (err, rows) => {
-        if (err) reject(err);
-        else resolve(rows || []);
-      }
-    );
-  });
+async function getAllHistoricalData(limit = 100) {
+  try {
+    const { data, error } = await supabase
+      .from('outbreak_data')
+      .select('*')
+      .order('created_at', { ascending: false })
+      .limit(limit);
+
+    if (error) throw error;
+
+    return data || [];
+  } catch (error) {
+    console.error('Error getting all historical data:', error);
+    return [];
+  }
 }
 
-function clearOldData(daysToKeep = 30) {
-  return new Promise((resolve, reject) => {
-    db.run(
-      `DELETE FROM outbreak_data
-       WHERE timestamp < datetime('now', '-' || ? || ' days')`,
-      [daysToKeep],
-      function(err) {
-        if (err) reject(err);
-        else resolve({ changes: this.changes });
-      }
-    );
-  });
+async function clearOldData(daysToKeep = 30) {
+  try {
+    const cutoffDate = new Date(Date.now() - daysToKeep * 24 * 60 * 60 * 1000).toISOString();
+
+    const { data: deletedOutbreak, error: error1 } = await supabase
+      .from('outbreak_data')
+      .delete()
+      .lt('created_at', cutoffDate);
+
+    const { data: deletedCountry, error: error2 } = await supabase
+      .from('country_data')
+      .delete()
+      .lt('created_at', cutoffDate);
+
+    if (error1 || error2) {
+      throw error1 || error2;
+    }
+
+    return { changes: (deletedOutbreak?.length || 0) + (deletedCountry?.length || 0) };
+  } catch (error) {
+    console.error('Error clearing old data:', error);
+    return { changes: 0 };
+  }
 }
 
 module.exports = {
-  db,
+  supabase,
   initializeDatabase,
   getLatestData,
   getHistoricalData,
