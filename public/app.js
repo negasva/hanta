@@ -19,7 +19,9 @@ async function init() {
     console.log('Map initialized successfully');
 
     // Load initial data
+    console.log('About to load initial data...');
     await loadData();
+    console.log('Initial data loaded');
 
     // Start auto-refresh (every 15 minutes)
     setInterval(loadData, 15 * 60 * 1000);
@@ -127,6 +129,8 @@ async function loadData() {
 
 // Update statistics in sidebar
 function updateStatistics(data) {
+  console.log('updateStatistics called with:', data);
+  console.log('stat-confirmed element:', document.getElementById('stat-confirmed'));
   document.getElementById('stat-confirmed').textContent = data.confirmed_cases.toLocaleString();
   document.getElementById('stat-suspected').textContent = data.suspected_cases.toLocaleString();
   document.getElementById('stat-deaths').textContent = data.deaths.toLocaleString();
