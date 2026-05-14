@@ -143,16 +143,24 @@ async function scrapeAllSources() {
 
   // Save to database
   try {
-    insertOutbreakData(aggregated);
+    await insertOutbreakData(aggregated);
 
-    // Insert or update country-level data
-    const stmt = db.prepare('DELETE FROM country_data WHERE timestamp = (SELECT MAX(timestamp) FROM country_data)');
-    stmt.run();
+    // Delete old country data and insert new batch
+    await new Promise((resolve, reject) => {
+      const { db } = require('./db');
+      db.run(
+        'DELETE FROM country_data WHERE timestamp = (SELECT MAX(timestamp) FROM country_data)',
+        (err) => {
+          if (err) reject(err);
+          else resolve();
+        }
+      );
+    });
 
     for (const country of aggregated.affected_countries) {
       const coords = countryCoordinates[country];
       if (coords) {
-        insertCountryData(country, coords.lat, coords.lng, {
+        await insertCountryData(country, coords.lat, coords.lng, {
           confirmed: Math.floor(aggregated.confirmed_cases / aggregated.affected_countries.length),
           suspected: Math.floor(aggregated.suspected_cases / aggregated.affected_countries.length),
           deaths: Math.floor(aggregated.deaths / aggregated.affected_countries.length)

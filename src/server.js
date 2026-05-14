@@ -24,7 +24,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 // Initialize database
-initializeDatabase();
+initializeDatabase().catch(err => {
+  console.error('Failed to initialize database:', err);
+  process.exit(1);
+});
 
 // Initial scrape on startup
 console.log('Performing initial scrape...');
@@ -41,10 +44,11 @@ cron.schedule('0 * * * *', async () => {
 });
 
 // Clean old data daily
-cron.schedule('0 0 * * *', () => {
+cron.schedule('0 0 * * *', async () => {
   console.log('Cleaning old data...');
   try {
-    clearOldData(30);
+    await clearOldData(30);
+    console.log('Data cleanup completed');
   } catch (error) {
     console.error('Cleanup error:', error.message);
   }
@@ -53,9 +57,9 @@ cron.schedule('0 0 * * *', () => {
 // API Endpoints
 
 // GET latest cases data
-app.get('/api/casos', (req, res) => {
+app.get('/api/casos', async (req, res) => {
   try {
-    const data = getLatestData();
+    const data = await getLatestData();
     if (!data) {
       return res.status(404).json({ error: 'No data available' });
     }
@@ -76,10 +80,10 @@ app.get('/api/casos', (req, res) => {
 });
 
 // GET historical data
-app.get('/api/historial', (req, res) => {
+app.get('/api/historial', async (req, res) => {
   try {
     const hours = parseInt(req.query.hours) || 24;
-    const data = getHistoricalData(hours);
+    const data = await getHistoricalData(hours);
 
     const formatted = data.map(record => ({
       timestamp: record.timestamp,
@@ -96,9 +100,9 @@ app.get('/api/historial', (req, res) => {
 });
 
 // GET affected countries with coordinates
-app.get('/api/paises', (req, res) => {
+app.get('/api/paises', async (req, res) => {
   try {
-    const data = getCountryData();
+    const data = await getCountryData();
     res.json(data);
   } catch (error) {
     console.error('API error:', error);
@@ -107,10 +111,10 @@ app.get('/api/paises', (req, res) => {
 });
 
 // GET all historical data (for charting)
-app.get('/api/all-history', (req, res) => {
+app.get('/api/all-history', async (req, res) => {
   try {
     const limit = parseInt(req.query.limit) || 100;
-    const data = getAllHistoricalData(limit);
+    const data = await getAllHistoricalData(limit);
 
     const formatted = data.reverse().map(record => ({
       timestamp: record.timestamp,
@@ -133,7 +137,7 @@ app.post('/api/scrape', async (req, res) => {
     res.json({ success: true, data: result });
   } catch (error) {
     console.error('Manual scrape error:', error);
-    res.status(500).json({ error: error.message });
+    res.status(500).json({ success: false, error: error.message });
   }
 });
 
