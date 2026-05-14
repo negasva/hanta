@@ -3,8 +3,12 @@ const { createClient } = require('@supabase/supabase-js');
 const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_ANON_KEY;
 
+console.log('[DB] Checking environment variables...');
+console.log('[DB] SUPABASE_URL:', supabaseUrl ? 'SET' : 'MISSING');
+console.log('[DB] SUPABASE_ANON_KEY:', supabaseKey ? 'SET' : 'MISSING');
+
 if (!supabaseUrl || !supabaseKey) {
-  console.error('Missing SUPABASE_URL or SUPABASE_ANON_KEY environment variables');
+  console.error('[DB] ERROR: Missing SUPABASE_URL or SUPABASE_ANON_KEY environment variables');
   process.exit(1);
 }
 

@@ -59,14 +59,19 @@ async function seedDemoDataIfEmpty() {
 }
 
 // Initialize database, seed demo data, then scrape in background
+console.log('[SERVER] Starting database initialization...');
 initializeDatabase()
-  .then(() => seedDemoDataIfEmpty())
   .then(() => {
-    console.log('Performing background scrape...');
+    console.log('[SERVER] Database initialized successfully');
+    return seedDemoDataIfEmpty();
+  })
+  .then(() => {
+    console.log('[SERVER] Demo data check completed');
+    console.log('[SERVER] Performing background scrape...');
     scrapeAllSources().catch(console.error);
   })
   .catch(err => {
-    console.error('Failed to initialize:', err);
+    console.error('[SERVER] FATAL: Failed to initialize:', err);
     process.exit(1);
   });
 
