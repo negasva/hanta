@@ -1,4 +1,21 @@
-const { generateHistoricalData } = require('./lib/demoData');
+function generateHistoricalData() {
+  const now = new Date();
+  const data = [];
+
+  for (let i = 20; i >= 0; i--) {
+    const timestamp = new Date(now.getTime() - i * 60 * 60 * 1000);
+    const multiplier = 1 - (i / 20) * 0.3;
+
+    data.push({
+      timestamp: timestamp.toISOString(),
+      confirmed_cases: Math.floor(487 * multiplier),
+      suspected_cases: Math.floor(156 * multiplier),
+      deaths: Math.floor(92 * multiplier)
+    });
+  }
+
+  return data;
+}
 
 module.exports = (req, res) => {
   res.setHeader('Access-Control-Allow-Credentials', 'true');
