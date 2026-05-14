@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hantavirus Andes Monitor - MV Hondius 2026</title>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+
+  <!-- Chart.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Left Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h1>Hantavirus Andes</h1>
+        <p class="subtitle">MV Hondius Outbreak 2026</p>
+      </div>
+
+      <div class="stats-section">
+        <h2>Estadísticas Actuales</h2>
+
+        <div class="stat-card confirmed">
+          <div class="stat-label">Casos Confirmados</div>
+          <div class="stat-value" id="stat-confirmed">-</div>
+        </div>
+
+        <div class="stat-card suspected">
+          <div class="stat-label">Casos Sospechosos</div>
+          <div class="stat-value" id="stat-suspected">-</div>
+        </div>
+
+        <div class="stat-card deaths">
+          <div class="stat-label">Muertes</div>
+          <div class="stat-value" id="stat-deaths">-</div>
+        </div>
+
+        <div class="stat-card countries">
+          <div class="stat-label">Países Afectados</div>
+          <div class="stat-value" id="stat-countries">-</div>
+        </div>
+      </div>
+
+      <div class="info-section">
+        <div class="info-item">
+          <span class="label">Última actualización:</span>
+          <span class="value" id="last-update">-</span>
+        </div>
+        <div class="info-item">
+          <span class="label">Estado:</span>
+          <span class="value status" id="status">Cargando...</span>
+        </div>
+        <div class="info-item">
+          <span class="label">Próxima actualización:</span>
+          <span class="value" id="next-update">-</span>
+        </div>
+      </div>
+
+      <div class="countries-list">
+        <h3>Países Afectados</h3>
+        <ul id="countries-list">
+          <li>Cargando...</li>
+        </ul>
+      </div>
+
+      <div class="footer-text">
+        <p>Datos obtenidos de:</p>
+        <ul>
+          <li>WHO</li>
+          <li>CDC</li>
+          <li>ECDC</li>
+          <li>Wikipedia</li>
+        </ul>
+        <p class="refresh-info">Auto-actualización cada 60 minutos</p>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Map Container -->
+      <section class="map-section">
+        <div id="map"></div>
+        <div class="map-info">
+          <p>Haz clic en los marcadores para ver detalles de cada país</p>
+        </div>
+      </section>
+
+      <!-- Chart Section -->
+      <section class="chart-section">
+        <h2>Evolución Temporal</h2>
+        <div class="chart-container">
+          <canvas id="evolutionChart"></canvas>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
