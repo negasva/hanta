@@ -1,0 +1,32 @@
+name: Recalcular estadísticas por evento (StatsBomb)
+
+# Manual: descarga los eventos de StatsBomb (~360 MB) y regenera
+# data/event_rates.json. No corre a diario porque las tasas por selección
+# son estables entre torneos; basta correrlo cuando haya un torneo nuevo.
+on:
+  workflow_dispatch:
+
+jobs:
+  eventos:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Agregar eventos StatsBomb
+        run: python3 agregar_eventos.py
+
+      - name: Publicar event_rates.json
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/event_rates.json
+          git diff --staged --quiet && echo "Sin cambios" || \
+            (git commit -m "chore: recalcular event_rates.json (StatsBomb)" && \
+             git push origin HEAD)

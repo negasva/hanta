@@ -6,6 +6,15 @@ data/goalscorers.csv
 data/shootouts.csv
 data/former_names.csv
 data/wc_history.csv
+data/wc_squads.csv
+data/worldcup_2022.json
+data/wc_goals.csv
+data/wc_standings.csv
+data/euro_2024.json
+data/wc_bookings.csv
+
+# NOTA: data/event_rates.json SÍ se versiona (lo genera agregar_eventos.py
+# desde StatsBomb; es pequeño y evita descargar ~360 MB en cada corrida).
 
 # Python
 __pycache__/
