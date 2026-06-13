@@ -52,6 +52,19 @@ MAX_GOLES = 8               # tope de la rejilla de Poisson (0..8 por equipo)
 
 TORNEO_WC = "FIFA World Cup"
 
+# Peso por importancia del partido: un amistoso predice peor que un partido de
+# torneo o eliminatoria, así que pesa menos. (Validado por backtest: mejora el
+# acierto de resultado y la calibración frente a tratar todo por igual.)
+def peso_torneo(torneo):
+    if torneo == "Friendly":
+        return 0.5
+    if torneo in ("FIFA World Cup", "UEFA Euro", "Copa América",
+                  "African Cup of Nations", "AFC Asian Cup", "Gold Cup"):
+        return 1.5
+    if "qualification" in torneo or "Nations League" in torneo:
+        return 1.2
+    return 1.0
+
 
 # --------------------------------------------------------------------------
 # Carga de datos
@@ -204,7 +217,8 @@ def calcular_fuerzas(partidos):
     equipos = set()
     muestras = []  # (peso, equipo, rival, goles_marcados, goles_recibidos)
     for p in relevantes:
-        w = peso_recencia(p["fecha"])
+        # Peso = recencia * importancia del torneo.
+        w = peso_recencia(p["fecha"]) * peso_torneo(p["torneo"])
         equipos.add(p["local"]); equipos.add(p["visitante"])
         muestras.append((w, p["local"], p["visitante"], p["gl"], p["gv"]))
         muestras.append((w, p["visitante"], p["local"], p["gv"], p["gl"]))

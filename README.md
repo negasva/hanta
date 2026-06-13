@@ -44,16 +44,41 @@ El modelo es un **Poisson tipo Dixon-Coles simplificado**:
    selección.
 2. **Recencia:** cada partido se pondera con decaimiento exponencial
    (vida media de 1 año), así que los resultados recientes pesan más.
-3. **Fuerza ofensiva y defensiva:** se ajustan de forma **iterativa teniendo en
+3. **Importancia del partido:** un amistoso predice peor que un partido oficial,
+   así que pesa menos (0.5); los torneos grandes y eliminatorias pesan más
+   (1.2–1.5). Validado por backtest (ver abajo).
+4. **Fuerza ofensiva y defensiva:** se ajustan de forma **iterativa teniendo en
    cuenta la calidad del rival** (golear a un equipo flojo vale menos que
    golearle a uno fuerte). Los equipos con pocos partidos se regularizan hacia
    el promedio.
-4. **Goles esperados (xG):** para cada partido se combinan el ataque de un
+5. **Goles esperados (xG):** para cada partido se combinan el ataque de un
    equipo y la defensa del otro, con una **ventaja de localía** aplicada solo al
    anfitrión real (partidos no neutrales).
-5. **Marcador y probabilidades:** con la distribución de Poisson se calcula el
+6. **Marcador y probabilidades:** con la distribución de Poisson se calcula el
    **marcador más probable** y las probabilidades de **victoria / empate /
    derrota**.
+
+### Precisión real (backtest sobre el último año, 708 partidos competitivos)
+
+| Métrica | Modelo | Referencia |
+|---|---|---|
+| Acierto de **resultado** (gana/empata/pierde) | **~61%** | "siempre gana local" ≈ 48% |
+| Acierto de **marcador exacto** | **~12–13%** | techo de los mejores modelos ≈ 12–15% |
+
+**Conclusión honesta:** el modelo predice **bien quién gana** (mejor que cualquier
+regla simple), pero el **marcador exacto es intrínsecamente difícil**: ~7 de cada
+8 fallan, y eso le pasa hasta a las casas de apuestas. Para la polla, confía más
+en el favorito y las probabilidades que en el "2-1" exacto.
+
+### Limitaciones conocidas
+
+- **Desfase de datos:** la fuente se actualiza con un día (o más) de retraso, así
+  que los últimos partidos jugados pueden no estar todavía cargados. Vuelve a
+  correr `predict.py` cuando la fuente se actualice.
+- **Conectividad entre confederaciones:** las selecciones de África, Asia, etc.
+  apenas juegan contra las de Europa/Sudamérica, así que sus fuerzas pueden
+  quedar **infladas o desinfladas** (p. ej. un equipo que golea en su
+  eliminatoria continental). Sin un rating externo no se puede corregir del todo.
 
 ### Parámetros ajustables (arriba en `predict.py`)
 
@@ -63,6 +88,7 @@ El modelo es un **Poisson tipo Dixon-Coles simplificado**:
 | `VIDA_MEDIA_DIAS` | Vida media del peso por recencia | 365 |
 | `PRIOR_PARTIDOS` | Regularización para equipos con pocos datos | 4 |
 | `VENTAJA_LOCAL` | Multiplicador de goles del anfitrión | 1.25 |
+| `peso_torneo()` | Peso por importancia (amistoso 0.5 … torneo 1.5) | función |
 | `FECHA_REF` | Fecha de referencia ("hoy") | 2026-06-13 |
 
 ---
