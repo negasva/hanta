@@ -73,9 +73,12 @@ Banderas: [flagcdn.com](https://flagcdn.com).
      en partidos **parejos** (más intensos, según el 1X2) y en cruces entre
      equipos **fauleros** (media de faltas de ambos respecto a la liga).
    - **Goleador más probable:** usa el **xG real por jugador** (StatsBomb),
-     mezclando calidad de tiro (60%) y goles convertidos (40%) para repartir el
-     xG del equipo: `P(marca) = 1 − e^(−xG_equipo · cuota_jugador)`. Cae a
-     `goalscorers.csv` cuando no hay datos de StatsBomb.
+     mezclando calidad de tiro (60%) y goles convertidos (40%), **ponderado por
+     posición** (un defensa o arquero rara vez es goleador: pesos fwd 1.0, mid
+     0.75, def 0.30, gk 0.03) y renormalizado para que el peso se redistribuya
+     hacia los atacantes. Reparte el xG del equipo:
+     `P(marca) = 1 − e^(−xG_equipo · cuota_jugador)`. Cae a `goalscorers.csv`
+     cuando no hay datos de StatsBomb.
    - Todas las tasas se **regularizan hacia el promedio de liga** para
      selecciones con pocos partidos (evita valores ruidosos).
 
