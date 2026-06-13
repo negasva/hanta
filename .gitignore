@@ -1,5 +1,11 @@
-# Datos descargados (se regeneran con predict.py)
+# Datos crudos descargados (regenerables con predict.py)
 data/results.csv
+data/fifa_ranking.csv
+data/worldcup_2026.json
+data/goalscorers.csv
+data/shootouts.csv
+data/former_names.csv
+data/wc_history.csv
 
 # Python
 __pycache__/

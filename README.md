@@ -1,106 +1,92 @@
-# ⚽ Predictor de Marcadores — Mundial 2026
+# ⚽ Polla Mundial 2026 — Predictor de marcadores
 
-App sencilla y autocontenida para proyectar los marcadores de la **fase de
-grupos del Mundial 2026**, pensada para una polla de oficina.
-
-No usa dependencias externas: **solo la librería estándar de Python 3**.
+App autocontenida (**solo librería estándar de Python**) que proyecta los
+marcadores de la **fase de grupos del Mundial 2026** combinando **8 fuentes de
+datos** y un modelo Elo + Poisson. Genera una tabla para enviar y un tablero
+visual con banderas.
 
 ---
 
 ## Cómo usarlo
 
 ```bash
-python3 predict.py
+python3 predict.py            # descarga las 8 fuentes y regenera todo
+python3 predict.py --offline  # usa los archivos ya descargados en data/
 ```
 
-Esto:
+Genera:
+- **`predicciones.txt`** — tabla en texto plano (horario Colombia) lista para enviar.
+- **`index.html`** — tablero visual con banderas; ábrelo con doble clic.
+- **`data/predictions.json`** — datos crudos.
 
-1. Descarga el dataset abierto de resultados internacionales.
-2. Extrae el fixture oficial del Mundial 2026 y reconstruye los 12 grupos
-   automáticamente.
-3. Calcula la fuerza de cada selección y predice cada partido.
-4. Genera tres salidas:
-   - **`predicciones.txt`** → tabla en texto plano, lista para copiar y enviar.
-   - **`index.html`** → tablero visual; ábrelo con doble clic (datos embebidos,
-     no necesita servidor ni internet).
-   - **`data/predictions.json`** → datos crudos por si quieres reusarlos.
+Vuelve a correrlo a medida que se juegan partidos: las fuentes se actualizan y
+los partidos restantes se recalculan solos.
 
-Para volver a generar sin descargar de nuevo (usa la copia ya bajada):
+---
 
-```bash
-python3 predict.py --offline
-```
+## Las 8 fuentes de datos
 
-Vuelve a correrlo a medida que se juegan partidos: el dataset se actualiza y
-las predicciones de los partidos restantes se recalculan solas.
+| # | Fuente | Qué aporta |
+|---|---|---|
+| 1 | [martj42/international_results](https://github.com/martj42/international_results) | Historial de partidos (1872–2026) — forma reciente |
+| 2 | [Dato-Futbol/fifa-ranking](https://github.com/Dato-Futbol/fifa-ranking) | Ranking FIFA histórico |
+| 3 | [openfootball/worldcup.json](https://github.com/openfootball/worldcup.json) | Fixture oficial 2026, grupos A–L, horas, resultados ya jugados |
+| 4 | **Elo mundial** (computado del historial) | Fuerza global calibrada y actual — **ancla principal** |
+| 5 | martj42/goalscorers | Goleadores, profundidad ofensiva y % de penaltis |
+| 6 | martj42/shootouts | Récord histórico en tandas de penaltis |
+| 7 | [jfjelstul/worldcup](https://github.com/jfjelstul/worldcup) | Pedigrí mundialista (partidos jugados/ganados) |
+| 8 | martj42/former_names | Normaliza nombres a lo largo de la historia (clave para el Elo) |
+
+Banderas: [flagcdn.com](https://flagcdn.com).
 
 ---
 
 ## Metodología
 
-El modelo es un **Poisson tipo Dixon-Coles simplificado**:
+1. **Elo mundial:** se recalcula desde **todo** el historial en orden
+   cronológico (fórmula *World Football Elo*: K según importancia del torneo,
+   multiplicador por diferencia de goles y ventaja de local). Resuelve la
+   comparación **entre confederaciones** — un equipo que golea rivales débiles
+   ya no se sobreestima.
+2. **Poisson tipo Dixon-Coles:** ataque y defensa por selección, ajustados de
+   forma iterativa según la calidad del rival, **anclados al Elo y al ranking
+   FIFA**, y ponderados por recencia (últimos 24 meses) e importancia del
+   partido (amistosos pesan menos).
+3. **Predicción:** con la distribución de Poisson, el **marcador más probable**
+   y las probabilidades de **victoria / empate / derrota** de cada partido.
 
-1. **Ventana de datos:** solo partidos de los **últimos 24 meses** de cada
-   selección.
-2. **Recencia:** cada partido se pondera con decaimiento exponencial
-   (vida media de 1 año), así que los resultados recientes pesan más.
-3. **Importancia del partido:** un amistoso predice peor que un partido oficial,
-   así que pesa menos (0.5); los torneos grandes y eliminatorias pesan más
-   (1.2–1.5). Validado por backtest (ver abajo).
-4. **Fuerza ofensiva y defensiva:** se ajustan de forma **iterativa teniendo en
-   cuenta la calidad del rival** (golear a un equipo flojo vale menos que
-   golearle a uno fuerte). Los equipos con pocos partidos se regularizan hacia
-   el promedio.
-5. **Goles esperados (xG):** para cada partido se combinan el ataque de un
-   equipo y la defensa del otro, con una **ventaja de localía** aplicada solo al
-   anfitrión real (partidos no neutrales).
-6. **Marcador y probabilidades:** con la distribución de Poisson se calcula el
-   **marcador más probable** y las probabilidades de **victoria / empate /
-   derrota**.
+### Precisión real (backtest, 710 partidos competitivos del último año)
 
-### Precisión real (backtest sobre el último año, 708 partidos competitivos)
+| Métrica | Este modelo | Versión previa | Referencia |
+|---|---|---|---|
+| Resultado (1X2) | **63.2%** | 61.7% | "siempre gana local" ≈ 48% |
+| Marcador exacto | **13.0%** | 12.1% | mejores modelos ≈ 12–15% |
+| Brier (menor = mejor) | **0.467** | 0.502 | — |
 
-| Métrica | Modelo | Referencia |
-|---|---|---|
-| Acierto de **resultado** (gana/empata/pierde) | **~61%** | "siempre gana local" ≈ 48% |
-| Acierto de **marcador exacto** | **~12–13%** | techo de los mejores modelos ≈ 12–15% |
+**Conclusión honesta:** el modelo predice **bien quién gana**, pero el
+**marcador exacto es intrínsecamente difícil** (~7 de cada 8 fallan, incluso
+para las casas de apuestas). Para la polla, confía más en el favorito y las
+probabilidades que en el "2-1" exacto.
 
-**Conclusión honesta:** el modelo predice **bien quién gana** (mejor que cualquier
-regla simple), pero el **marcador exacto es intrínsecamente difícil**: ~7 de cada
-8 fallan, y eso le pasa hasta a las casas de apuestas. Para la polla, confía más
-en el favorito y las probabilidades que en el "2-1" exacto.
+### Limitaciones
 
-### Limitaciones conocidas
-
-- **Desfase de datos:** la fuente se actualiza con un día (o más) de retraso, así
-  que los últimos partidos jugados pueden no estar todavía cargados. Vuelve a
-  correr `predict.py` cuando la fuente se actualice.
-- **Conectividad entre confederaciones:** las selecciones de África, Asia, etc.
-  apenas juegan contra las de Europa/Sudamérica, así que sus fuerzas pueden
-  quedar **infladas o desinfladas** (p. ej. un equipo que golea en su
-  eliminatoria continental). Sin un rating externo no se puede corregir del todo.
+- **Desfase de datos:** las fuentes se actualizan con un día o más de retraso;
+  vuelve a correr `predict.py` cuando se actualicen.
+- El marcador mostrado es el **modal** (más probable); por eso muchos terminan
+  en marcadores bajos, que es lo correcto estadísticamente en fútbol.
 
 ### Parámetros ajustables (arriba en `predict.py`)
 
 | Parámetro | Significado | Valor |
 |---|---|---|
-| `VENTANA_DIAS` | Historial considerado | 730 (24 meses) |
-| `VIDA_MEDIA_DIAS` | Vida media del peso por recencia | 365 |
-| `PRIOR_PARTIDOS` | Regularización para equipos con pocos datos | 4 |
-| `VENTAJA_LOCAL` | Multiplicador de goles del anfitrión | 1.25 |
-| `peso_torneo()` | Peso por importancia (amistoso 0.5 … torneo 1.5) | función |
-| `FECHA_REF` | Fecha de referencia ("hoy") | 2026-06-13 |
+| `VENTANA_DIAS` | Historial para el modelo de goles | 730 |
+| `ALFA_ANCLA` | Mezcla fuerza-ancla (Elo+FIFA) vs goles | 0.45 |
+| `VENTAJA_LOCAL` | Multiplicador del anfitrión | 1.18 |
+| `ELO_HFA` | Ventaja de local en puntos Elo | 70 |
 
 ---
 
 ## ⚠️ Aviso
 
-Esto es una **estimación estadística** basada en la forma reciente, **no una
-certeza**. Ningún modelo acierta marcadores exactos de forma fiable; lo más
-robusto son los favoritos y las probabilidades, no el resultado exacto.
-Úsalo como guía divertida para la polla. 🍀
-
-## Fuente de datos
-
-[`martj42/international_results`](https://github.com/martj42/international_results)
-— resultados de partidos internacionales desde 1872, dominio público.
+Es una **estimación estadística**, no una certeza. Úsala como guía divertida
+para la polla. 🍀

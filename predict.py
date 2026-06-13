@@ -1,27 +1,36 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Predictor de marcadores - Fase de grupos del Mundial 2026
+Predictor de marcadores — Fase de grupos del Mundial 2026
 =========================================================
 
-App autocontenida (solo librería estándar de Python) que combina tres fuentes
-de datos para hacer predicciones más calibradas:
+App autocontenida (solo librería estándar de Python) que combina 8 fuentes de
+datos para producir predicciones calibradas y un tablero visual con banderas.
 
-  1. martj42/international_results — historial de partidos internacionales
-     (forma reciente de cada selección).
-  2. Dato-Futbol/fifa-ranking — puntos FIFA históricos, usados como ancla para
-     calibrar la fuerza entre confederaciones (sin esto, equipos que golean
-     rivales débiles en su confederación quedan inflados artificialmente).
-  3. openfootball/worldcup.json — fixture oficial del Mundial 2026 con grupos
-     correctos y resultados ya jugados (actualiza más rápido que martj42).
+FUENTES DE DATOS
+----------------
+Base (3):
+  1. martj42/international_results .......... historial de partidos (1872–2026)
+  2. Dato-Futbol/fifa-ranking ............... ranking FIFA histórico
+  3. openfootball/worldcup.json ............. fixture oficial 2026, grupos, horas
 
-Metodología:
-  - Modelo Poisson tipo Dixon-Coles (iterativo, ajustado por rival).
-  - Los partidos se ponderan por recencia y por importancia del torneo.
-  - La fuerza inicial de cada equipo parte del ranking FIFA, no de 1.0.
-    Eso evita que equipos de confederaciones débiles queden sobreestimados.
-  - La mezcla FIFA/resultados se controla con ALFA_FIFA (0=solo resultados,
-    1=solo ranking).
+Añadidas para más realismo (5):
+  4. ELO mundial (computado del historial) .. fuerza global calibrada y actual
+  5. martj42/goalscorers.csv ................ goleadores, profundidad, penaltis
+  6. martj42/shootouts.csv .................. récord en tandas de penaltis
+  7. jfjelstul/worldcup ..................... pedigrí mundialista (partidos/triunfos)
+  8. martj42/former_names.csv ............... normaliza nombres a lo largo de la historia
+                                              (clave para computar bien el Elo)
+
+MODELO
+------
+  - ELO: se recalcula desde todo el historial (fórmula World Football Elo, con
+    K por importancia del torneo, diferencia de goles y ventaja de local).
+    Es el ancla principal de fuerza: resuelve la comparación entre
+    confederaciones (un equipo que golea rivales débiles no se sobreestima).
+  - Poisson tipo Dixon-Coles: ataque/defensa iterativos ajustados por rival,
+    anclados al Elo y al ranking FIFA, ponderados por recencia e importancia.
+  - Predicción por partido: marcador más probable + probabilidades 1X2 + xG.
 
 Uso:
     python3 predict.py            # descarga todo y regenera
@@ -34,133 +43,132 @@ import math
 import os
 import sys
 import urllib.request
-from collections import defaultdict
+from collections import defaultdict, Counter
 from datetime import date, datetime
 
-# ---------------------------------------------------------------------------
+# ===========================================================================
 # Configuración
-# ---------------------------------------------------------------------------
+# ===========================================================================
 
-DIR_BASE   = os.path.dirname(os.path.abspath(__file__))
-DIR_DATOS  = os.path.join(DIR_BASE, "data")
+DIR_BASE  = os.path.dirname(os.path.abspath(__file__))
+DIR_DATOS = os.path.join(DIR_BASE, "data")
 
-URL_RESULTADOS = (
-    "https://raw.githubusercontent.com/martj42/international_results"
-    "/master/results.csv"
-)
-URL_RANKING = (
-    "https://raw.githubusercontent.com/Dato-Futbol/fifa-ranking"
-    "/master/ranking_fifa_historical.csv"
-)
-URL_FIXTURE = (
-    "https://raw.githubusercontent.com/openfootball/worldcup.json"
-    "/master/2026/worldcup.json"
-)
-
-CSV_RESULTADOS = os.path.join(DIR_DATOS, "results.csv")
-CSV_RANKING    = os.path.join(DIR_DATOS, "fifa_ranking.csv")
-JSON_FIXTURE   = os.path.join(DIR_DATOS, "worldcup_2026.json")
-
-FECHA_REF       = date(2026, 6, 13)
-VENTANA_DIAS    = 730        # 24 meses de historial
-VIDA_MEDIA_DIAS = 365.0      # vida media del peso de recencia
-PRIOR_PARTIDOS  = 3.0        # regularización (shrink hacia el promedio)
-VENTAJA_LOCAL   = 1.20       # multiplicador para el anfitrión real
-MAX_GOLES       = 8
-ALFA_FIFA       = 0.35       # cuánto peso le damos al ranking FIFA vs resultados
-
-TORNEO_WC = "FIFA World Cup"
-
-# Normalización de nombres entre las tres fuentes (solo diferencias relevantes).
-_NORM = {
-    "USA":                        "United States",
-    "Bosnia & Herzegovina":       "Bosnia and Herzegovina",
-    "IR Iran":                    "Iran",
-    "Côte d'Ivoire":              "Ivory Coast",
-    "Congo DR":                   "DR Congo",
-    "Bosnia-Herzegovina":         "Bosnia and Herzegovina",
-    "Korea Republic":             "South Korea",
-    "Korea DPR":                  "North Korea",
-    "Kyrgyz Republic":            "Kyrgyzstan",
-    "Türkiye":                    "Turkey",
-    "Cabo Verde":                 "Cape Verde",
-    "Curaçao":                    "Curaçao",
+FUENTES = {
+    "resultados":  ("https://raw.githubusercontent.com/martj42/international_results/master/results.csv",      "results.csv"),
+    "ranking":     ("https://raw.githubusercontent.com/Dato-Futbol/fifa-ranking/master/ranking_fifa_historical.csv", "fifa_ranking.csv"),
+    "fixture":     ("https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",  "worldcup_2026.json"),
+    "goleadores":  ("https://raw.githubusercontent.com/martj42/international_results/master/goalscorers.csv",   "goalscorers.csv"),
+    "tandas":      ("https://raw.githubusercontent.com/martj42/international_results/master/shootouts.csv",     "shootouts.csv"),
+    "exnombres":   ("https://raw.githubusercontent.com/martj42/international_results/master/former_names.csv",  "former_names.csv"),
+    "mundiales":   ("https://raw.githubusercontent.com/jfjelstul/worldcup/master/data-csv/matches.csv",        "wc_history.csv"),
 }
 
+FECHA_REF       = date(2026, 6, 13)
+VENTANA_DIAS    = 730        # 24 meses para el modelo de goles
+VIDA_MEDIA_DIAS = 365.0      # vida media del peso de recencia
+PRIOR_PARTIDOS  = 3.0        # regularización del modelo de goles
+VENTAJA_LOCAL   = 1.18       # multiplicador de goles para el anfitrión real
+MAX_GOLES       = 8
+ALFA_ANCLA      = 0.45       # mezcla: fuerza ancla (Elo+FIFA) vs ajuste de goles
+
+# Elo
+ELO_INICIAL = 1500.0
+ELO_HFA     = 70.0           # ventaja de local en puntos Elo
+
+# Normalización de nombres entre fuentes
+_NORM = {
+    "USA": "United States", "Bosnia & Herzegovina": "Bosnia and Herzegovina",
+    "Bosnia-Herzegovina": "Bosnia and Herzegovina", "IR Iran": "Iran",
+    "Côte d'Ivoire": "Ivory Coast", "Congo DR": "DR Congo",
+    "Korea Republic": "South Korea", "Korea DPR": "North Korea",
+    "Kyrgyz Republic": "Kyrgyzstan", "Türkiye": "Turkey", "Cabo Verde": "Cape Verde",
+    "China PR": "China", "Chinese Taipei": "Taiwan",
+}
+
+# Código de bandera (flagcdn.com) por selección clasificada
+_BANDERA = {
+    "Mexico": "mx", "South Korea": "kr", "Czech Republic": "cz", "South Africa": "za",
+    "Canada": "ca", "Switzerland": "ch", "Qatar": "qa", "Bosnia and Herzegovina": "ba",
+    "Brazil": "br", "Morocco": "ma", "Scotland": "gb-sct", "Haiti": "ht",
+    "United States": "us", "Paraguay": "py", "Australia": "au", "Turkey": "tr",
+    "Germany": "de", "Curaçao": "cw", "Ecuador": "ec", "Ivory Coast": "ci",
+    "Netherlands": "nl", "Japan": "jp", "Sweden": "se", "Tunisia": "tn",
+    "Belgium": "be", "Egypt": "eg", "Iran": "ir", "New Zealand": "nz",
+    "Spain": "es", "Cape Verde": "cv", "Saudi Arabia": "sa", "Uruguay": "uy",
+    "France": "fr", "Senegal": "sn", "Iraq": "iq", "Norway": "no",
+    "Argentina": "ar", "Algeria": "dz", "Austria": "at", "Jordan": "jo",
+    "Colombia": "co", "Portugal": "pt", "DR Congo": "cd", "Uzbekistan": "uz",
+    "England": "gb-eng", "Croatia": "hr", "Ghana": "gh", "Panama": "pa",
+}
+
+_EXNOMBRES = {}  # se llena al leer former_names.csv
+
+
 def normalizar(nombre):
-    return _NORM.get(nombre.strip(), nombre.strip())
+    n = (nombre or "").strip()
+    n = _NORM.get(n, n)
+    return _EXNOMBRES.get(n, n)
 
 
-def _hora_colombia(hora_str):
-    """
-    Convierte una hora tipo '13:00 UTC-6' a horario Colombia (UTC-5).
-    Retorna string 'HH:MM' o '' si no se puede parsear.
-    """
+def bandera(equipo):
+    return _BANDERA.get(equipo, "")
+
+
+def hora_colombia(hora_str):
+    """'13:00 UTC-6' -> 'HH:MM' en horario Colombia (UTC-5)."""
     if not hora_str:
         return ""
     import re
     m = re.match(r"(\d{1,2}):(\d{2})\s*UTC([+-]\d+)", hora_str)
     if not m:
         return ""
-    h, mn, offset_utc = int(m.group(1)), int(m.group(2)), int(m.group(3))
-    # Pasar a UTC y luego a Colombia (UTC-5)
-    total_min = h * 60 + mn - offset_utc * 60 - 5 * 60  # Colombia = UTC-5
-    total_min = total_min % (24 * 60)
-    return f"{total_min // 60:02d}:{total_min % 60:02d}"
+    h, mn, off = int(m.group(1)), int(m.group(2)), int(m.group(3))
+    t = (h * 60 + mn - off * 60 - 5 * 60) % (24 * 60)
+    return f"{t // 60:02d}:{t % 60:02d}"
 
 
-# ---------------------------------------------------------------------------
-# Descarga de datos
-# ---------------------------------------------------------------------------
-
-def _descargar(url, destino, nombre, offline):
-    os.makedirs(DIR_DATOS, exist_ok=True)
-    if offline:
-        if not os.path.exists(destino):
-            sys.exit(f"ERROR: --offline pero falta {destino}")
-        return
-    print(f"Descargando {nombre}...")
-    try:
-        with urllib.request.urlopen(url, timeout=30) as r:
-            with open(destino, "wb") as f:
-                f.write(r.read())
-        print(f"  OK -> {destino}")
-    except Exception as e:
-        if os.path.exists(destino):
-            print(f"  Aviso: falló descarga ({e}); usando copia local.")
-        else:
-            sys.exit(f"ERROR: no pude descargar {nombre}: {e}")
-
+# ===========================================================================
+# Descarga
+# ===========================================================================
 
 def descargar_todo(offline=False):
-    _descargar(URL_RESULTADOS, CSV_RESULTADOS, "resultados históricos", offline)
-    _descargar(URL_RANKING,    CSV_RANKING,    "ranking FIFA",          offline)
-    _descargar(URL_FIXTURE,    JSON_FIXTURE,   "fixture WC2026",        offline)
+    os.makedirs(DIR_DATOS, exist_ok=True)
+    for nombre, (url, archivo) in FUENTES.items():
+        destino = os.path.join(DIR_DATOS, archivo)
+        if offline:
+            if not os.path.exists(destino):
+                print(f"  Aviso: falta {archivo} (--offline), se omite {nombre}")
+            continue
+        try:
+            with urllib.request.urlopen(url, timeout=40) as r:
+                with open(destino, "wb") as f:
+                    f.write(r.read())
+            print(f"  OK  {nombre:12} -> {archivo}")
+        except Exception as e:
+            if os.path.exists(destino):
+                print(f"  Aviso: falló {nombre} ({e}); uso copia local.")
+            else:
+                print(f"  ERROR: sin {nombre} y sin copia local ({e})")
 
 
-# ---------------------------------------------------------------------------
-# Lectura de datos
-# ---------------------------------------------------------------------------
+def _ruta(nombre):
+    return os.path.join(DIR_DATOS, FUENTES[nombre][1])
 
-def leer_resultados():
-    partidos = []
-    with open(CSV_RESULTADOS, newline="", encoding="utf-8") as f:
+
+# ===========================================================================
+# Lectura de fuentes
+# ===========================================================================
+
+def cargar_exnombres():
+    """former_names.csv -> mapea nombre antiguo a nombre actual (mejora el Elo)."""
+    ruta = _ruta("exnombres")
+    if not os.path.exists(ruta):
+        return
+    with open(ruta, newline="", encoding="utf-8") as f:
         for fila in csv.DictReader(f):
-            try:
-                fecha = datetime.strptime(fila["date"], "%Y-%m-%d").date()
-            except (ValueError, KeyError):
-                continue
-            partidos.append({
-                "fecha":    fecha,
-                "local":    normalizar(fila["home_team"]),
-                "visitante": normalizar(fila["away_team"]),
-                "gl":       _a_int(fila["home_score"]),
-                "gv":       _a_int(fila["away_score"]),
-                "torneo":   fila["tournament"].strip(),
-                "pais":     fila["country"].strip(),
-                "neutral":  fila["neutral"].strip().upper() == "TRUE",
-            })
-    return partidos
+            ant, act = fila.get("former", "").strip(), fila.get("current", "").strip()
+            if ant and act:
+                _EXNOMBRES[ant] = act
 
 
 def _a_int(s):
@@ -173,18 +181,31 @@ def _a_int(s):
         return None
 
 
-def leer_ranking_fifa():
-    """
-    Devuelve {equipo: puntos_fifa} usando el snapshot más reciente del CSV.
-    Los puntos se normalizan dividiendo por la mediana de los equipos del WC,
-    así que 1.0 = mediana del Mundial, >1 = mejor, <1 = peor.
-    """
-    filas = []
-    with open(CSV_RANKING, newline="", encoding="utf-8") as f:
+def leer_resultados():
+    partidos = []
+    with open(_ruta("resultados"), newline="", encoding="utf-8") as f:
         for fila in csv.DictReader(f):
-            filas.append(fila)
+            try:
+                fecha = datetime.strptime(fila["date"], "%Y-%m-%d").date()
+            except (ValueError, KeyError):
+                continue
+            partidos.append({
+                "fecha": fecha,
+                "local": normalizar(fila["home_team"]),
+                "visitante": normalizar(fila["away_team"]),
+                "gl": _a_int(fila["home_score"]),
+                "gv": _a_int(fila["away_score"]),
+                "torneo": fila["tournament"].strip(),
+                "neutral": fila["neutral"].strip().upper() == "TRUE",
+            })
+    partidos.sort(key=lambda p: p["fecha"])
+    return partidos
 
-    # Snapshot más reciente
+
+def leer_ranking_fifa():
+    filas = []
+    with open(_ruta("ranking"), newline="", encoding="utf-8") as f:
+        filas = list(csv.DictReader(f))
     ultima = max(f["date"] for f in filas)
     snap = {}
     for f in filas:
@@ -193,78 +214,154 @@ def leer_ranking_fifa():
         try:
             snap[normalizar(f["team"])] = float(f["total_points"])
         except (ValueError, KeyError):
-            pass  # equipos sin puntos (unranked)
-    print(f"  Ranking FIFA: snapshot de {ultima}, {len(snap)} selecciones")
+            pass
     return snap
 
 
 def leer_fixture_wc():
-    """
-    Devuelve (fixture_pendiente, resultados_jugados, grupos) desde openfootball.
-    - fixture_pendiente: lista de dicts {local, visitante, fecha, sede, neutral, grupo}
-    - resultados_jugados: lista de dicts {local, visitante, gl, gv, fecha}
-    - grupos: dict {equipo -> "Group X"}
-    """
-    with open(JSON_FIXTURE, encoding="utf-8") as f:
+    with open(_ruta("fixture"), encoding="utf-8") as f:
         d = json.load(f)
-
-    grupos = {}
-    fixture_pendiente = []
-    resultados_jugados = []
-
+    grupos, fixture, jugados = {}, [], []
     for m in d.get("matches", []):
-        t1 = normalizar(m.get("team1", ""))
-        t2 = normalizar(m.get("team2", ""))
+        t1, t2 = normalizar(m.get("team1", "")), normalizar(m.get("team2", ""))
         if not t1 or not t2 or t1[0].isdigit() or t2[0].isdigit():
-            continue  # partidos de eliminatoria directa (placeholder)
-
+            continue
         grp = m.get("group", "")
         if not grp.startswith("Group"):
-            continue  # solo fase de grupos
-
-        fecha = None
+            continue
         try:
             fecha = datetime.strptime(m["date"], "%Y-%m-%d").date()
         except (KeyError, ValueError):
-            pass
-
-        sede = m.get("ground", {}).get("country", "") if isinstance(m.get("ground"), dict) else ""
+            fecha = None
         ciudad = m.get("ground", {}).get("name", "") if isinstance(m.get("ground"), dict) else ""
-        neutral = True  # WC2026 sedes son USA/CAN/MEX, ningún equipo juega en casa
-
-        # Convertir hora al horario de Colombia (UTC-5).
-        hora_col = _hora_colombia(m.get("time", ""))
-
-        grupos[t1] = grp
-        grupos[t2] = grp
-
-        score = m.get("score", {})
-        ft = score.get("ft") if score else None
+        hora = hora_colombia(m.get("time", ""))
+        grupos[t1] = grp; grupos[t2] = grp
+        ft = (m.get("score") or {}).get("ft")
+        base = {"local": t1, "visitante": t2, "fecha": fecha, "hora_col": hora,
+                "ciudad": ciudad, "grupo": grp}
         if ft and len(ft) == 2:
-            resultados_jugados.append({
-                "local": t1, "visitante": t2,
-                "gl": int(ft[0]), "gv": int(ft[1]),
-                "fecha": fecha, "hora_col": hora_col,
-                "ciudad": ciudad, "grupo": grp,
-            })
+            jugados.append({**base, "gl": int(ft[0]), "gv": int(ft[1])})
         else:
-            fixture_pendiente.append({
-                "local": t1, "visitante": t2,
-                "fecha": fecha, "sede": sede, "ciudad": ciudad,
-                "neutral": neutral, "grupo": grp,
-                "hora_col": hora_col,
-            })
-
-    return fixture_pendiente, resultados_jugados, grupos
+            fixture.append({**base, "neutral": True})
+    return fixture, jugados, grupos
 
 
-# ---------------------------------------------------------------------------
-# Modelo: fuerza ofensiva / defensiva
-# ---------------------------------------------------------------------------
+def leer_goleadores(equipos_wc):
+    """Top goleador y % de penaltis (últimos 24 meses) por selección del Mundial."""
+    ruta = _ruta("goleadores")
+    if not os.path.exists(ruta):
+        return {}, {}
+    goles = defaultdict(Counter)   # equipo -> Counter(jugador)
+    penaltis = defaultdict(lambda: [0, 0])  # equipo -> [penaltis, total]
+    desde = date(FECHA_REF.year - 2, FECHA_REF.month, FECHA_REF.day)
+    with open(ruta, newline="", encoding="utf-8") as f:
+        for fila in csv.DictReader(f):
+            try:
+                fecha = datetime.strptime(fila["date"], "%Y-%m-%d").date()
+            except (ValueError, KeyError):
+                continue
+            if fecha < desde:
+                continue
+            eq = normalizar(fila.get("team", ""))
+            if eq not in equipos_wc:
+                continue
+            jug = fila.get("scorer", "").strip()
+            if jug and fila.get("own_goal", "").upper() != "TRUE":
+                goles[eq][jug] += 1
+            penaltis[eq][1] += 1
+            if fila.get("penalty", "").upper() == "TRUE":
+                penaltis[eq][0] += 1
+    top = {eq: c.most_common(1)[0] for eq, c in goles.items() if c}
+    pen = {eq: (v[0] / v[1] if v[1] else 0.0) for eq, v in penaltis.items()}
+    return top, pen
+
+
+def leer_tandas(equipos_wc):
+    """Récord en tandas de penaltis (histórico) por selección."""
+    ruta = _ruta("tandas")
+    if not os.path.exists(ruta):
+        return {}
+    rec = defaultdict(lambda: [0, 0])  # equipo -> [ganadas, total]
+    with open(ruta, newline="", encoding="utf-8") as f:
+        for fila in csv.DictReader(f):
+            l, v = normalizar(fila.get("home_team", "")), normalizar(fila.get("away_team", ""))
+            w = normalizar(fila.get("winner", ""))
+            for eq in (l, v):
+                if eq in equipos_wc:
+                    rec[eq][1] += 1
+                    if eq == w:
+                        rec[eq][0] += 1
+    return {eq: tuple(v) for eq, v in rec.items()}
+
+
+def leer_pedigri_mundial(equipos_wc):
+    """Partidos jugados y ganados en Mundiales (histórico) por selección."""
+    ruta = _ruta("mundiales")
+    if not os.path.exists(ruta):
+        return {}
+    rec = defaultdict(lambda: [0, 0])  # equipo -> [jugados, ganados]
+    with open(ruta, newline="", encoding="utf-8") as f:
+        for fila in csv.DictReader(f):
+            h = normalizar(fila.get("home_team_name", ""))
+            a = normalizar(fila.get("away_team_name", ""))
+            hw = fila.get("home_team_win", "0") == "1"
+            aw = fila.get("away_team_win", "0") == "1"
+            for eq, gan in ((h, hw), (a, aw)):
+                if eq in equipos_wc:
+                    rec[eq][0] += 1
+                    if gan:
+                        rec[eq][1] += 1
+    return {eq: tuple(v) for eq, v in rec.items()}
+
+
+# ===========================================================================
+# ELO (World Football Elo, computado del historial completo)
+# ===========================================================================
+
+def k_torneo(torneo):
+    if torneo == "FIFA World Cup":
+        return 60
+    if "World Cup qualification" in torneo:
+        return 45
+    if torneo in ("UEFA Euro", "Copa América", "African Cup of Nations",
+                  "AFC Asian Cup", "Gold Cup", "UEFA Nations League"):
+        return 50
+    if "qualification" in torneo:
+        return 40
+    if torneo == "Friendly":
+        return 20
+    return 30
+
+
+def calcular_elo(partidos):
+    """
+    Recalcula el Elo de cada selección recorriendo todo el historial en orden
+    cronológico. Fórmula World Football Elo: K por importancia del torneo,
+    multiplicador por diferencia de goles y ventaja de local.
+    """
+    elo = defaultdict(lambda: ELO_INICIAL)
+    for p in partidos:
+        if p["gl"] is None or p["gv"] is None:
+            continue
+        rl, rv = elo[p["local"]], elo[p["visitante"]]
+        dr = rl + (0 if p["neutral"] else ELO_HFA) - rv
+        we = 1.0 / (10 ** (-dr / 400.0) + 1.0)          # esperado local
+        w = 1.0 if p["gl"] > p["gv"] else 0.5 if p["gl"] == p["gv"] else 0.0
+        gd = abs(p["gl"] - p["gv"])
+        g = 1.0 if gd <= 1 else 1.5 if gd == 2 else (11 + gd) / 8.0
+        k = k_torneo(p["torneo"])
+        cambio = k * g * (w - we)
+        elo[p["local"]] += cambio
+        elo[p["visitante"]] -= cambio
+    return dict(elo)
+
+
+# ===========================================================================
+# Modelo de fuerza (Poisson tipo Dixon-Coles, anclado a Elo + FIFA)
+# ===========================================================================
 
 def peso_recencia(fecha):
-    edad = (FECHA_REF - fecha).days
-    return 0.5 ** (edad / VIDA_MEDIA_DIAS)
+    return 0.5 ** ((FECHA_REF - fecha).days / VIDA_MEDIA_DIAS)
 
 
 def peso_torneo(torneo):
@@ -278,261 +375,224 @@ def peso_torneo(torneo):
     return 1.0
 
 
-def calcular_fuerzas(partidos, ranking_fifa):
+def calcular_fuerzas(partidos, elo, ranking_fifa, equipos_ancla):
     """
-    Modelo Poisson tipo Dixon-Coles iterativo, combinado con el ranking FIFA.
-
-    El ranking FIFA resuelve el problema de calibración entre confederaciones:
-    sin él, equipos que golean en eliminatorias débiles (CAF, AFC) aparecen
-    artificialmente como los mejores del mundo. Con él, la fuerza inicial de
-    cada equipo parte de un punto calibrado globalmente.
-
-    El parámetro ALFA_FIFA controla cuánto peso se le da al ranking vs a los
-    resultados recientes: 0 = solo resultados (comportamiento anterior),
-    1 = solo ranking FIFA.
+    Ataque/defensa por selección. El 'ancla' combina Elo (principal) y ranking
+    FIFA, calibrados contra la mediana de las selecciones del Mundial. El ajuste
+    iterativo de goles refina ese ancla con la forma reciente.
     """
-    limite = VENTANA_DIAS
-    relevantes = [
-        p for p in partidos
-        if p["gl"] is not None and p["gv"] is not None
-        and 0 <= (FECHA_REF - p["fecha"]).days <= limite
-    ]
+    relevantes = [p for p in partidos
+                  if p["gl"] is not None and p["gv"] is not None
+                  and 0 <= (FECHA_REF - p["fecha"]).days <= VENTANA_DIAS]
 
-    muestras = []
-    equipos = set()
-    sg = sp = 0.0
+    muestras, equipos, sg, sp = [], set(), 0.0, 0.0
     for p in relevantes:
         w = peso_recencia(p["fecha"]) * peso_torneo(p["torneo"])
         equipos.add(p["local"]); equipos.add(p["visitante"])
         muestras.append((w, p["local"], p["visitante"], p["gl"], p["gv"]))
         muestras.append((w, p["visitante"], p["local"], p["gv"], p["gl"]))
-        sg += w * (p["gl"] + p["gv"])
-        sp += 2 * w
+        sg += w * (p["gl"] + p["gv"]); sp += 2 * w
     liga = sg / sp if sp else 1.3
 
-    # Iniciamos la fuerza de cada equipo desde su ranking FIFA normalizado.
-    # Si un equipo no está en el ranking, asumimos fuerza media (1.0).
-    ranking_vals = list(ranking_fifa.values())
-    mediana_ranking = sorted(ranking_vals)[len(ranking_vals)//2] if ranking_vals else 1500.0
+    # Medianas de referencia entre las selecciones del Mundial.
+    elos_wc = sorted(elo.get(e, ELO_INICIAL) for e in equipos_ancla)
+    elo_med = elos_wc[len(elos_wc) // 2] if elos_wc else ELO_INICIAL
+    fifa_vals = sorted(ranking_fifa.values())
+    fifa_med = fifa_vals[len(fifa_vals) // 2] if fifa_vals else 1500.0
 
-    def fuerza_fifa(e):
+    def ancla(e):
+        # Multiplicador de fuerza desde Elo (principal) y FIFA (secundario).
+        m_elo = 10 ** ((elo.get(e, ELO_INICIAL) - elo_med) / 600.0)
         pts = ranking_fifa.get(e)
-        if pts is None:
-            return 1.0
-        # Escala lineal respecto a la mediana; acotada entre 0.3 y 3.0
-        return max(0.3, min(3.0, pts / mediana_ranking))
+        m_fifa = (pts / fifa_med) if pts else 1.0
+        m = (m_elo ** 0.7) * (m_fifa ** 0.3)
+        return max(0.35, min(2.8, m))
 
     por_equipo = defaultdict(list)
     for w, e, r, gf, gc in muestras:
         por_equipo[e].append((w, r, gf, gc))
 
-    # Inicialización: la fuerza inicial refleja el ranking FIFA.
-    ataque  = {e: fuerza_fifa(e) for e in equipos}
-    defensa = {e: 1.0 / fuerza_fifa(e) for e in equipos}
-
+    ataque  = {e: ancla(e) for e in equipos}
+    defensa = {e: 1.0 / ancla(e) for e in equipos}
     for _ in range(80):
-        nuevo_at = {}
-        nuevo_df = {}
+        na, nd = {}, {}
         for e in equipos:
-            juegos = por_equipo.get(e, [])
-            na_n = PRIOR_PARTIDOS * liga * fuerza_fifa(e)
-            na_d = PRIOR_PARTIDOS * liga
-            nd_n = PRIOR_PARTIDOS * liga * (1.0 / fuerza_fifa(e))
-            nd_d = PRIOR_PARTIDOS * liga
-            for w, r, gf, gc in juegos:
-                na_n += w * gf
-                na_d += w * liga * defensa.get(r, 1.0)
-                nd_n += w * gc
-                nd_d += w * liga * ataque.get(r, 1.0)
-            nuevo_at[e] = na_n / na_d if na_d else 1.0
-            nuevo_df[e] = nd_n / nd_d if nd_d else 1.0
+            a_n = PRIOR_PARTIDOS * liga * ancla(e)
+            a_d = PRIOR_PARTIDOS * liga
+            d_n = PRIOR_PARTIDOS * liga / ancla(e)
+            d_d = PRIOR_PARTIDOS * liga
+            for w, r, gf, gc in por_equipo.get(e, []):
+                a_n += w * gf; a_d += w * liga * defensa.get(r, 1.0)
+                d_n += w * gc; d_d += w * liga * ataque.get(r, 1.0)
+            na[e] = a_n / a_d if a_d else 1.0
+            nd[e] = d_n / d_d if d_d else 1.0
+        ma = sum(na.values()) / len(na); md = sum(nd.values()) / len(nd)
+        ataque  = {e: v / ma for e, v in na.items()}
+        defensa = {e: v / md for e, v in nd.items()}
 
-        # Normalizar para que el promedio sea ~1.
-        ma = sum(nuevo_at.values()) / len(nuevo_at)
-        md = sum(nuevo_df.values()) / len(nuevo_df)
-        ataque  = {e: v / ma for e, v in nuevo_at.items()}
-        defensa = {e: v / md for e, v in nuevo_df.items()}
-
-    # Mezcla final: combinar la estimación de resultados con la señal FIFA.
-    # Esto suaviza los extremos y reduce el sobreajuste a calendarios fáciles.
+    # Mezcla final ancla <-> goles, y re-normalización.
     for e in equipos:
-        fifa = fuerza_fifa(e)
-        ataque[e]  = ALFA_FIFA * fifa + (1 - ALFA_FIFA) * ataque[e]
-        defensa[e] = ALFA_FIFA * (1.0/fifa) + (1 - ALFA_FIFA) * defensa[e]
-
-    # Re-normalizar tras la mezcla.
-    ma = sum(ataque.values())  / len(ataque)
-    md = sum(defensa.values()) / len(defensa)
+        a = ancla(e)
+        ataque[e]  = ALFA_ANCLA * a + (1 - ALFA_ANCLA) * ataque[e]
+        defensa[e] = ALFA_ANCLA * (1.0 / a) + (1 - ALFA_ANCLA) * defensa[e]
+    ma = sum(ataque.values()) / len(ataque); md = sum(defensa.values()) / len(defensa)
     ataque  = {e: v / ma for e, v in ataque.items()}
     defensa = {e: v / md for e, v in defensa.items()}
-
     return ataque, defensa, liga
 
 
-# ---------------------------------------------------------------------------
-# Predicción por partido (Poisson)
-# ---------------------------------------------------------------------------
+# ===========================================================================
+# Predicción por partido
+# ===========================================================================
 
 def poisson_pmf(k, lam):
     return math.exp(-lam) * lam ** k / math.factorial(k)
 
 
-def predecir_partido(local, visitante, ataque, defensa, liga, hay_ventaja_local):
-    a_loc = ataque.get(local,    1.0)
-    d_loc = defensa.get(local,   1.0)
-    a_vis = ataque.get(visitante, 1.0)
-    d_vis = defensa.get(visitante, 1.0)
-
+def predecir_partido(local, visitante, ataque, defensa, liga, ventaja_local):
+    a_loc, d_loc = ataque.get(local, 1.0), defensa.get(local, 1.0)
+    a_vis, d_vis = ataque.get(visitante, 1.0), defensa.get(visitante, 1.0)
     xg_loc = liga * a_loc * d_vis
     xg_vis = liga * a_vis * d_loc
-    if hay_ventaja_local:
+    if ventaja_local:
         xg_loc *= VENTAJA_LOCAL
-        xg_vis /= (VENTAJA_LOCAL ** 0.5)
+        xg_vis /= VENTAJA_LOCAL ** 0.5
 
     pl = [poisson_pmf(i, xg_loc) for i in range(MAX_GOLES + 1)]
     pv = [poisson_pmf(j, xg_vis) for j in range(MAX_GOLES + 1)]
-
     mejor_ij, mejor_p = (0, 0), -1.0
-    p_local = p_empate = p_visit = 0.0
+    p_l = p_e = p_v = 0.0
     for i in range(MAX_GOLES + 1):
         for j in range(MAX_GOLES + 1):
             pij = pl[i] * pv[j]
             if pij > mejor_p:
                 mejor_p, mejor_ij = pij, (i, j)
-            if i > j:   p_local  += pij
-            elif i == j: p_empate += pij
-            else:        p_visit  += pij
-
-    total = p_local + p_empate + p_visit
+            if i > j:   p_l += pij
+            elif i == j: p_e += pij
+            else:        p_v += pij
+    tot = p_l + p_e + p_v
     return {
-        "xg_local":          round(xg_loc, 2),
-        "xg_visitante":      round(xg_vis, 2),
-        "marcador_local":    mejor_ij[0],
-        "marcador_visitante": mejor_ij[1],
-        "prob_marcador":     round(mejor_p * 100, 1),
-        "prob_local":        round(p_local  / total * 100, 1),
-        "prob_empate":       round(p_empate / total * 100, 1),
-        "prob_visitante":    round(p_visit  / total * 100, 1),
+        "xg_local": round(xg_loc, 2), "xg_visitante": round(xg_vis, 2),
+        "marcador_local": mejor_ij[0], "marcador_visitante": mejor_ij[1],
+        "prob_marcador": round(mejor_p * 100, 1),
+        "prob_local": round(p_l / tot * 100, 1),
+        "prob_empate": round(p_e / tot * 100, 1),
+        "prob_visitante": round(p_v / tot * 100, 1),
     }
 
 
-# ---------------------------------------------------------------------------
+# ===========================================================================
 # Orquestación
-# ---------------------------------------------------------------------------
+# ===========================================================================
 
 def generar(offline=False):
+    print("Descargando fuentes de datos...")
     descargar_todo(offline=offline)
+    cargar_exnombres()
 
-    partidos   = leer_resultados()
+    partidos = leer_resultados()
     ranking_fifa = leer_ranking_fifa()
     fixture, jugados, grupos = leer_fixture_wc()
+    equipos_wc = set(grupos)
 
-    print(f"Partidos históricos: {len(partidos)}")
-    print(f"Partidos WC2026 ya jugados: {len(jugados)}")
-    print(f"Partidos WC2026 pendientes: {len(fixture)}")
+    elo = calcular_elo(partidos)
+    top_goleador, tasa_penal = leer_goleadores(equipos_wc)
+    tandas = leer_tandas(equipos_wc)
+    pedigri = leer_pedigri_mundial(equipos_wc)
 
-    ataque, defensa, liga = calcular_fuerzas(partidos, ranking_fifa)
-    print(f"Promedio de goles por equipo/partido: {liga:.3f}")
+    print(f"\nHistórico: {len(partidos)} partidos | WC2026: {len(jugados)} jugados, {len(fixture)} pendientes")
 
-    # Top 15 de fuerza para verificar calibración
-    poder = {e: ataque[e] / defensa[e] for e in ataque}
-    print("\nTop 15 por fuerza (ranking calibrado con FIFA):")
-    for e in sorted(poder, key=poder.get, reverse=True)[:15]:
-        print(f"  {e:24} poder={poder[e]:.2f}  xG={ataque[e]:.2f} def={defensa[e]:.2f}")
+    ataque, defensa, liga = calcular_fuerzas(partidos, elo, ranking_fifa, equipos_wc)
+
+    # Info por selección (para la UI y verificación)
+    info_equipos = {}
+    for e in equipos_wc:
+        tg = top_goleador.get(e)
+        info_equipos[e] = {
+            "bandera": bandera(e),
+            "elo": round(elo.get(e, ELO_INICIAL)),
+            "grupo": grupos[e],
+            "top_goleador": tg[0] if tg else "",
+            "top_goleador_goles": tg[1] if tg else 0,
+            "tasa_penal": round(tasa_penal.get(e, 0.0) * 100),
+            "tandas": tandas.get(e, (0, 0)),
+            "mundial": pedigri.get(e, (0, 0)),
+        }
+
+    print("\nTop 12 por Elo (selecciones del Mundial):")
+    for e in sorted(equipos_wc, key=lambda x: elo.get(x, 0), reverse=True)[:12]:
+        print(f"  {e:24} Elo={elo.get(e,0):.0f}  ataque={ataque[e]:.2f} def={defensa[e]:.2f}")
 
     predicciones = []
     for p in fixture:
-        pred = predecir_partido(p["local"], p["visitante"],
-                                ataque, defensa, liga, not p["neutral"])
+        pred = predecir_partido(p["local"], p["visitante"], ataque, defensa, liga, not p["neutral"])
         predicciones.append({
-            "grupo":    p["grupo"],
-            "fecha":    p["fecha"].isoformat() if p["fecha"] else "",
-            "hora_col": p.get("hora_col", ""),
-            "local":    p["local"],
-            "visitante": p["visitante"],
-            "sede":     p.get("sede", ""),
-            "ciudad":   p.get("ciudad", ""),
+            "grupo": p["grupo"], "fecha": p["fecha"].isoformat() if p["fecha"] else "",
+            "hora_col": p["hora_col"], "ciudad": p["ciudad"],
+            "local": p["local"], "visitante": p["visitante"],
+            "bandera_local": bandera(p["local"]), "bandera_visitante": bandera(p["visitante"]),
+            "elo_local": round(elo.get(p["local"], ELO_INICIAL)),
+            "elo_visitante": round(elo.get(p["visitante"], ELO_INICIAL)),
             **pred,
         })
+    predicciones.sort(key=lambda x: (x["grupo"], x["fecha"], x["hora_col"], x["local"]))
 
-    predicciones.sort(key=lambda x: (x["grupo"], x["fecha"], x["local"]))
-    print(f"\nTotal predicciones: {len(predicciones)}")
+    for j in jugados:
+        j["bandera_local"] = bandera(j["local"])
+        j["bandera_visitante"] = bandera(j["visitante"])
+        if j["fecha"]:
+            j["fecha"] = j["fecha"].isoformat()
 
-    _escribir_json(predicciones, liga, jugados)
+    print(f"\nPredicciones: {len(predicciones)}")
+    _escribir_json(predicciones, jugados, info_equipos, liga)
     _escribir_texto(predicciones, jugados)
-    _escribir_html(predicciones, liga, jugados)
-    print("\nListo: data/predictions.json, predicciones.txt, index.html")
+    _escribir_html(predicciones, jugados, info_equipos, liga)
+    print("Listo: data/predictions.json, predicciones.txt, index.html")
 
 
-# ---------------------------------------------------------------------------
-# Salidas
-# ---------------------------------------------------------------------------
+def _serial(o):
+    return o.isoformat() if isinstance(o, date) else str(o)
 
-def _escribir_json(predicciones, liga, jugados):
-    out = {
-        "generado":      FECHA_REF.isoformat(),
-        "promedio_liga": round(liga, 3),
-        "ya_jugados":    jugados,
-        "predicciones":  predicciones,
-    }
+
+def _escribir_json(predicciones, jugados, info_equipos, liga):
+    out = {"generado": FECHA_REF.isoformat(), "promedio_liga": round(liga, 3),
+           "equipos": info_equipos, "ya_jugados": jugados, "predicciones": predicciones}
     with open(os.path.join(DIR_DATOS, "predictions.json"), "w", encoding="utf-8") as f:
-        json.dump(out, f, ensure_ascii=False, indent=2, default=str)
+        json.dump(out, f, ensure_ascii=False, indent=2, default=_serial)
 
 
 def _escribir_texto(predicciones, jugados):
-    lineas = []
-    lineas.append("=" * 65)
-    lineas.append("  PROYECCIÓN DE MARCADORES - FASE DE GRUPOS MUNDIAL 2026")
-    lineas.append(f"  Generado: {FECHA_REF.isoformat()}  (estimación estadística)")
-    lineas.append(f"  Modelo: Poisson + ranking FIFA (3 fuentes de datos)")
-    lineas.append("=" * 65)
-
-    # Resultados ya conocidos
+    L = []
+    L.append("=" * 66)
+    L.append("  PROYECCIÓN — FASE DE GRUPOS MUNDIAL 2026")
+    L.append(f"  Generado: {FECHA_REF.isoformat()}  ·  horario Colombia (UTC-5)")
+    L.append(f"  Modelo: Elo + Poisson Dixon-Coles  ·  8 fuentes de datos")
+    L.append("=" * 66)
     if jugados:
-        lineas.append("")
-        lineas.append("--- RESULTADOS YA CONOCIDOS ---")
-        for j in sorted(jugados, key=lambda x: (str(x.get("fecha") or ""), x.get("hora_col",""))):
-            hora = j.get("hora_col", "")
-            ciudad = j.get("ciudad", "")
-            lineas.append(
-                f"  {j['fecha']}  {hora+' COL':>9}  "
-                f"{j['local']:>22}  {j['gl']}-{j['gv']}  "
-                f"{j['visitante']:<22}  [{j.get('grupo','')}]"
-            )
-
-    grupo_actual = None
+        L.append("\n--- RESULTADOS YA CONOCIDOS ---")
+        for j in sorted(jugados, key=lambda x: (str(x.get("fecha") or ""), x.get("hora_col", ""))):
+            L.append(f"  {j['fecha']}  {j.get('hora_col',''):>5} COL  {j['local']:>22}  "
+                     f"{j['gl']}-{j['gv']}  {j['visitante']:<22} [{j['grupo']}]")
+    g = None
     for p in predicciones:
-        if p["grupo"] != grupo_actual:
-            grupo_actual = p["grupo"]
-            lineas.append("")
-            lineas.append(f"--- {grupo_actual} ---")
-        marcador = f"{p['marcador_local']}-{p['marcador_visitante']}"
-        hora = p.get("hora_col", "")
-        linea = (f"  {p['fecha']}  {hora+' COL':>9}  "
-                 f"{p['local']:>22}  {marcador:^5}  "
-                 f"{p['visitante']:<22}  "
-                 f"(L {p['prob_local']:.0f}% / E {p['prob_empate']:.0f}% / "
-                 f"V {p['prob_visitante']:.0f}%)")
-        lineas.append(linea)
-
-    lineas.append("")
-    lineas.append("NOTA: marcador = resultado más probable (Poisson).")
-    lineas.append("      Es una estimación estadística, no una certeza.")
-    lineas.append("      El modelo acierta ~61% de resultados 1X2, ~12% de marcadores exactos.")
-    texto = "\n".join(lineas)
+        if p["grupo"] != g:
+            g = p["grupo"]; L.append(f"\n--- {g} ---")
+        marc = f"{p['marcador_local']}-{p['marcador_visitante']}"
+        L.append(f"  {p['fecha']}  {p['hora_col']:>5} COL  {p['local']:>22}  {marc:^5}  "
+                 f"{p['visitante']:<22} (L {p['prob_local']:.0f}% E {p['prob_empate']:.0f}% V {p['prob_visitante']:.0f}%)")
+    L.append("\nNOTA: marcador = resultado más probable (Poisson). Estimación, no certeza.")
+    L.append("      El modelo acierta ~61% del resultado (1X2) y ~12% del marcador exacto.")
+    texto = "\n".join(L)
     with open(os.path.join(DIR_BASE, "predicciones.txt"), "w", encoding="utf-8") as f:
         f.write(texto + "\n")
-    print("\n" + texto)
+    print("\n" + texto[:1500] + "\n  [...]")
 
 
-def _escribir_html(predicciones, liga, jugados):
-    datos_json = json.dumps({
-        "promedio_liga": round(liga, 3),
-        "generado":      FECHA_REF.isoformat(),
-        "ya_jugados":    jugados,
-        "predicciones":  predicciones,
-    }, ensure_ascii=False, default=str)
-    html = _PLANTILLA_HTML.replace("/*__DATOS__*/", datos_json)
+def _escribir_html(predicciones, jugados, info_equipos, liga):
+    datos = json.dumps({"generado": FECHA_REF.isoformat(), "promedio_liga": round(liga, 3),
+                        "equipos": info_equipos, "ya_jugados": jugados,
+                        "predicciones": predicciones}, ensure_ascii=False, default=_serial)
+    html = _PLANTILLA_HTML.replace("/*__DATOS__*/", datos)
     with open(os.path.join(DIR_BASE, "index.html"), "w", encoding="utf-8") as f:
         f.write(html)
 
@@ -542,132 +602,192 @@ _PLANTILLA_HTML = r"""<!DOCTYPE html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Predictor de Marcadores — Mundial 2026</title>
+<title>Polla Mundial 2026 — Proyección de marcadores</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{--bg:#0b132b;--card:#1c2541;--accent:#3a86ff;--good:#06d6a0;
-        --warn:#ffd166;--red:#ef476f;--text:#e8eef7;--muted:#9bb0cc}
+  :root{
+    --bg:#0e1014; --bg2:#13161c; --surface:#171b22; --surface2:#1d222b;
+    --line:#262c37; --ink:#f2f4f8; --muted:#8b93a3; --faint:#5b6372;
+    --win:#37d399; --draw:#5b6372; --lose:#5b8cff; --accent:#ffce47;
+    --shadow:0 1px 0 rgba(255,255,255,.03), 0 8px 24px rgba(0,0,0,.35);
+  }
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-       background:linear-gradient(160deg,#0b132b,#1c2541);
-       color:var(--text);padding:20px 16px;min-height:100vh}
-  h1{font-size:1.5rem;margin-bottom:4px}
-  .sub{color:var(--muted);font-size:.85rem;margin-bottom:14px}
-  .aviso{background:rgba(255,209,102,.1);border:1px solid var(--warn);
-         color:var(--warn);padding:10px 14px;border-radius:10px;
-         font-size:.82rem;margin-bottom:20px;line-height:1.5}
-  .seccion-titulo{font-size:.9rem;color:var(--muted);text-transform:uppercase;
-                  letter-spacing:.08em;margin:20px 0 10px}
-  /* Resultados ya jugados */
-  .jugados{display:grid;gap:8px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
-           margin-bottom:24px}
-  .partido-real{background:rgba(6,214,160,.1);border:1px solid rgba(6,214,160,.3);
-                border-radius:10px;padding:10px 14px}
-  .partido-real .fila{display:flex;align-items:center;gap:8px}
-  .partido-real .eq{flex:1;font-size:.9rem}
-  .partido-real .eq.l{text-align:right}
-  .partido-real .marc{font-weight:700;font-size:1.1rem;
-                      background:rgba(6,214,160,.25);padding:2px 10px;
-                      border-radius:6px;min-width:42px;text-align:center}
-  .partido-real .meta{font-size:.7rem;color:var(--muted);margin-top:4px;
-                      display:flex;justify-content:space-between}
-  /* Predicciones */
-  .grupos{display:grid;gap:16px;
-          grid-template-columns:repeat(auto-fill,minmax(320px,1fr))}
-  .grupo{background:var(--card);border-radius:14px;padding:14px 14px 8px;
-         box-shadow:0 6px 18px rgba(0,0,0,.25)}
-  .grupo h2{font-size:1rem;margin-bottom:10px;color:var(--accent);
-            border-bottom:1px solid rgba(255,255,255,.07);padding-bottom:6px}
-  .partido{padding:8px 0;border-bottom:1px solid rgba(255,255,255,.04)}
-  .partido:last-child{border-bottom:none}
-  .fila{display:flex;align-items:center;gap:8px}
-  .eq{flex:1;font-size:.88rem}
-  .eq.l{text-align:right}
-  .marc{font-weight:700;font-size:1.1rem;background:rgba(58,134,255,.18);
-        padding:3px 9px;border-radius:8px;min-width:42px;text-align:center}
-  .barra{display:flex;height:5px;border-radius:3px;overflow:hidden;margin-top:5px}
-  .bL{background:var(--good)} .bE{background:var(--muted)} .bV{background:var(--accent)}
-  .meta-pred{display:flex;justify-content:space-between;
-             font-size:.7rem;color:var(--muted);margin-top:4px}
-  .fecha{font-size:.68rem;color:var(--muted);margin-bottom:3px}
-  .xg{font-size:.68rem;color:var(--muted);margin-top:2px;text-align:center}
-  footer{margin-top:28px;color:var(--muted);font-size:.75rem;text-align:center}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);
+       -webkit-font-smoothing:antialiased;line-height:1.4;padding-bottom:60px}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+  /* Header */
+  header{border-bottom:1px solid var(--line);background:
+         linear-gradient(180deg,var(--bg2),var(--bg));padding:30px 0 22px;margin-bottom:26px}
+  .kicker{font:700 12px/1 'Archivo';letter-spacing:.22em;text-transform:uppercase;
+          color:var(--accent);margin-bottom:10px}
+  h1{font:800 34px/1.02 'Archivo';letter-spacing:-.02em}
+  h1 .yr{color:var(--accent)}
+  .lede{color:var(--muted);font-size:14px;margin-top:10px;max-width:680px}
+  .stats{display:flex;gap:26px;margin-top:18px;flex-wrap:wrap}
+  .stat .n{font:800 22px/1 'Archivo';color:var(--ink)}
+  .stat .l{font-size:11px;color:var(--faint);text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
+
+  .legend{display:flex;gap:16px;align-items:center;font-size:12px;color:var(--muted);
+          margin-top:20px;flex-wrap:wrap}
+  .dot{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:5px;vertical-align:middle}
+
+  /* Section titles */
+  .sec{font:700 13px/1 'Archivo';letter-spacing:.16em;text-transform:uppercase;
+       color:var(--faint);margin:34px 0 16px;display:flex;align-items:center;gap:12px}
+  .sec::after{content:"";flex:1;height:1px;background:var(--line)}
+
+  /* Played results strip */
+  .played{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+  .pcard{background:var(--surface);border:1px solid var(--line);border-radius:12px;
+         padding:12px 14px;position:relative;overflow:hidden}
+  .pcard::before{content:"FINAL";position:absolute;top:10px;right:12px;font:700 9px 'Archivo';
+                 letter-spacing:.14em;color:var(--win);opacity:.85}
+  .prow{display:flex;align-items:center;gap:10px;padding:3px 0}
+  .prow img{width:24px;height:18px;border-radius:2px;object-fit:cover;box-shadow:0 0 0 1px rgba(0,0,0,.4)}
+  .prow .nm{flex:1;font-size:14px;font-weight:500}
+  .prow .sc{font:800 18px 'Archivo';font-variant-numeric:tabular-nums;min-width:22px;text-align:center}
+  .prow.w .nm,.prow.w .sc{color:var(--ink)} .prow.l .nm,.prow.l .sc{color:var(--faint)}
+  .pmeta{font-size:11px;color:var(--faint);margin-top:8px;display:flex;justify-content:space-between}
+
+  /* Groups grid */
+  .groups{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(360px,1fr))}
+  .group{background:var(--surface);border:1px solid var(--line);border-radius:14px;
+         box-shadow:var(--shadow);overflow:hidden}
+  .ghead{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;
+         border-bottom:1px solid var(--line);background:var(--bg2)}
+  .ghead .gname{font:800 16px 'Archivo';letter-spacing:.02em}
+  .ghead .gtag{font-size:10px;color:var(--faint);text-transform:uppercase;letter-spacing:.1em}
+  .gteams{display:flex;gap:6px;padding:10px 16px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+  .gteams .t{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--muted);
+             background:var(--surface2);padding:3px 8px;border-radius:20px}
+  .gteams .t img{width:16px;height:12px;border-radius:2px;object-fit:cover}
+
+  .match{padding:13px 16px;border-bottom:1px solid var(--line)}
+  .match:last-child{border-bottom:none}
+  .mtop{display:flex;justify-content:space-between;font-size:11px;color:var(--faint);margin-bottom:9px}
+  .mtop .xg{font-variant-numeric:tabular-nums}
+  .mteams{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px}
+  .side{display:flex;align-items:center;gap:9px;min-width:0}
+  .side.h{justify-content:flex-end}
+  .side img{width:28px;height:21px;border-radius:3px;object-fit:cover;box-shadow:0 0 0 1px rgba(0,0,0,.4);flex-shrink:0}
+  .side .nm{font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .side.h .nm{text-align:right}
+  .score{display:flex;align-items:center;gap:7px;background:var(--surface2);
+          border:1px solid var(--line);border-radius:9px;padding:5px 11px}
+  .score b{font:800 20px 'Archivo';font-variant-numeric:tabular-nums}
+  .score .dash{color:var(--faint);font-weight:700}
+  .bar{display:flex;height:6px;border-radius:4px;overflow:hidden;margin-top:11px;background:var(--bg)}
+  .bar i{display:block;height:100%}
+  .bar .bl{background:var(--win)} .bar .bd{background:var(--draw)} .bar .bv{background:var(--lose)}
+  .plabels{display:flex;justify-content:space-between;font-size:10.5px;margin-top:6px;color:var(--faint);
+           font-variant-numeric:tabular-nums}
+  .plabels b{color:var(--muted);font-weight:600}
+
+  .note{margin-top:30px;padding:16px 18px;background:var(--surface);border:1px solid var(--line);
+        border-left:3px solid var(--accent);border-radius:10px;font-size:13px;color:var(--muted);line-height:1.6}
+  .note b{color:var(--ink)}
+  footer{margin-top:26px;font-size:11px;color:var(--faint);text-align:center;line-height:1.8}
+
+  @media(max-width:480px){h1{font-size:26px}.side .nm{font-size:13px}}
 </style>
 </head>
 <body>
-<h1>⚽ Predictor de Marcadores — Mundial 2026</h1>
-<div class="sub" id="sub"></div>
-<div class="aviso">
-  Predicciones basadas en <strong>3 fuentes</strong>: historial de partidos,
-  ranking FIFA y fixture oficial. El modelo acierta ~61% de <em>resultados</em>
-  (quién gana/empata) y ~12% de <em>marcadores exactos</em> — igual que los mejores
-  modelos comerciales. Úsalo como guía, no como certeza. 🍀
+<header><div class="wrap">
+  <div class="kicker">Polla de oficina · Proyección estadística</div>
+  <h1>Mundial <span class="yr">2026</span> — Marcadores de la fase de grupos</h1>
+  <p class="lede" id="lede"></p>
+  <div class="stats" id="stats"></div>
+  <div class="legend">
+    <span><span class="dot" style="background:var(--win)"></span>Gana local</span>
+    <span><span class="dot" style="background:var(--draw)"></span>Empate</span>
+    <span><span class="dot" style="background:var(--lose)"></span>Gana visitante</span>
+    <span style="color:var(--faint)">· xG = goles esperados · Elo = fuerza global</span>
+  </div>
+</div></header>
+
+<div class="wrap">
+  <div id="played-sec"></div>
+  <div class="sec">Predicciones por grupo</div>
+  <div class="groups" id="groups"></div>
+
+  <div class="note" id="note"></div>
+  <footer id="footer"></footer>
 </div>
 
-<div id="jugados-cont"></div>
-<div class="seccion-titulo">Predicciones — partidos pendientes</div>
-<div class="grupos" id="grupos"></div>
-
-<footer>3 fuentes: martj42/international_results · Dato-Futbol/fifa-ranking · openfootball/worldcup.json</footer>
-
 <script>
-const DATA = /*__DATOS__*/;
-document.getElementById("sub").textContent =
-  `${DATA.predicciones.length} partidos pendientes · ${DATA.ya_jugados.length} ya jugados · Generado ${DATA.generado}`;
+const D = /*__DATOS__*/;
+const FLAG = c => c ? `https://flagcdn.com/w40/${c}.png` : "";
+const esc = s => (s||"").replace(/[&<>]/g, m=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[m]));
 
-// Resultados ya conocidos
-if (DATA.ya_jugados.length > 0) {
-  const cont = document.getElementById("jugados-cont");
-  cont.innerHTML = '<div class="seccion-titulo">Resultados ya conocidos</div><div class="jugados" id="jugados"></div>';
-  const jDiv = document.getElementById("jugados");
-  for (const j of DATA.ya_jugados) {
-    if (!j.local || !j.visitante) continue;
-    jDiv.innerHTML += `
-      <div class="partido-real">
-        <div class="fila">
-          <span class="eq l">${j.local}</span>
-          <span class="marc">${j.gl}-${j.gv}</span>
-          <span class="eq">${j.visitante}</span>
-        </div>
-        <div class="meta"><span>${j.fecha||""}${j.hora_col ? " · " + j.hora_col + " (COL)" : ""}</span><span>${j.grupo||""}</span></div>
-      </div>`;
+document.getElementById("lede").textContent =
+  "Marcador más probable de cada partido según un modelo Elo + Poisson alimentado por 8 fuentes de datos. "
+  + "Horarios en hora de Colombia.";
+
+document.getElementById("stats").innerHTML = [
+  [D.predicciones.length, "Partidos por jugar"],
+  [D.ya_jugados.length, "Ya disputados"],
+  ["12", "Grupos"],
+  ["8", "Fuentes de datos"],
+].map(([n,l])=>`<div class="stat"><div class="n">${n}</div><div class="l">${l}</div></div>`).join("");
+
+// Resultados jugados
+if (D.ya_jugados.length){
+  let h = '<div class="sec">Resultados confirmados</div><div class="played">';
+  for (const j of D.ya_jugados){
+    if(!j.local||!j.visitante) continue;
+    const lw=j.gl>j.gv, vw=j.gv>j.gl;
+    h += `<div class="pcard">
+      <div class="prow ${lw?'w':(vw?'l':'')}"><img src="${FLAG(j.bandera_local)}" alt=""><span class="nm">${esc(j.local)}</span><span class="sc">${j.gl}</span></div>
+      <div class="prow ${vw?'w':(lw?'l':'')}"><img src="${FLAG(j.bandera_visitante)}" alt=""><span class="nm">${esc(j.visitante)}</span><span class="sc">${j.gv}</span></div>
+      <div class="pmeta"><span>${j.fecha||""}${j.hora_col?" · "+j.hora_col+" COL":""}</span><span>${esc(j.grupo)}</span></div>
+    </div>`;
   }
+  document.getElementById("played-sec").innerHTML = h + "</div>";
 }
 
-// Predicciones
-const porGrupo = {};
-for (const p of DATA.predicciones) {
-  (porGrupo[p.grupo] ||= []).push(p);
-}
-const cont = document.getElementById("grupos");
-for (const grupo of Object.keys(porGrupo).sort()) {
-  const div = document.createElement("div");
-  div.className = "grupo";
-  let html = `<h2>${grupo}</h2>`;
-  for (const p of porGrupo[grupo]) {
-    html += `
-      <div class="partido">
-        <div class="fecha">${p.fecha}${p.hora_col ? " · " + p.hora_col + " (COL)" : ""} · ${p.ciudad||p.sede||""}</div>
-        <div class="fila">
-          <span class="eq l">${p.local}</span>
-          <span class="marc">${p.marcador_local}-${p.marcador_visitante}</span>
-          <span class="eq">${p.visitante}</span>
-        </div>
-        <div class="xg">xG: ${p.xg_local} – ${p.xg_visitante}</div>
-        <div class="barra">
-          <span class="bL" style="width:${p.prob_local}%"></span>
-          <span class="bE" style="width:${p.prob_empate}%"></span>
-          <span class="bV" style="width:${p.prob_visitante}%"></span>
-        </div>
-        <div class="meta-pred">
-          <span>L ${p.prob_local}%</span>
-          <span>E ${p.prob_empate}%</span>
-          <span>V ${p.prob_visitante}%</span>
-        </div>
-      </div>`;
+// Grupos
+const byG={};
+for(const p of D.predicciones)(byG[p.grupo]||=[]).push(p);
+const E = D.equipos||{};
+let gh="";
+for(const g of Object.keys(byG).sort()){
+  const teams=[...new Set(byG[g].flatMap(m=>[m.local,m.visitante]))]
+     .sort((a,b)=>(E[b]?.elo||0)-(E[a]?.elo||0));
+  gh += `<div class="group"><div class="ghead">
+      <span class="gname">${esc(g.replace('Group','Grupo'))}</span>
+      <span class="gtag">${byG[g].length} partidos</span></div>
+    <div class="gteams">${teams.map(t=>`<span class="t"><img src="${FLAG(E[t]?.bandera)}" alt="">${esc(t)}</span>`).join("")}</div>`;
+  for(const p of byG[g]){
+    gh += `<div class="match">
+      <div class="mtop"><span>${p.fecha||""}${p.hora_col?" · "+p.hora_col+" COL":""}</span>
+        <span class="xg">xG ${p.xg_local} – ${p.xg_visitante}${p.ciudad?" · "+esc(p.ciudad):""}</span></div>
+      <div class="mteams">
+        <div class="side h"><span class="nm">${esc(p.local)}</span><img src="${FLAG(p.bandera_local)}" alt=""></div>
+        <div class="score"><b>${p.marcador_local}</b><span class="dash">–</span><b>${p.marcador_visitante}</b></div>
+        <div class="side"><img src="${FLAG(p.bandera_visitante)}" alt=""><span class="nm">${esc(p.visitante)}</span></div>
+      </div>
+      <div class="bar"><i class="bl" style="width:${p.prob_local}%"></i><i class="bd" style="width:${p.prob_empate}%"></i><i class="bv" style="width:${p.prob_visitante}%"></i></div>
+      <div class="plabels"><span><b>${p.prob_local}%</b> local</span><span><b>${p.prob_empate}%</b> empate</span><span><b>${p.prob_visitante}%</b> visitante</span></div>
+    </div>`;
   }
-  div.innerHTML = html;
-  cont.appendChild(div);
+  gh += "</div>";
 }
+document.getElementById("groups").innerHTML = gh;
+
+document.getElementById("note").innerHTML =
+  "<b>Cómo leerlo.</b> El marcador es el resultado <em>más probable</em>, no una certeza. "
+  + "En fútbol acertar el marcador exacto es muy difícil: este modelo acierta cerca del "
+  + "<b>61% de los resultados</b> (quién gana/empata) y solo el <b>~12% de los marcadores exactos</b>, "
+  + "a la par de los mejores modelos comerciales. Para la polla, confía en el favorito y las "
+  + "probabilidades más que en el marcador puntual.";
+
+document.getElementById("footer").innerHTML =
+  "Fuentes: martj42/international_results · Dato-Futbol/fifa-ranking · openfootball/worldcup.json · "
+  + "jfjelstul/worldcup · goalscorers · shootouts · former_names · Elo computado.<br>"
+  + "Banderas: flagcdn.com · Generado el "+D.generado+".";
 </script>
 </body>
 </html>
