@@ -1,101 +1,107 @@
-============================================================
+=================================================================
   PROYECCIÓN DE MARCADORES - FASE DE GRUPOS MUNDIAL 2026
   Generado: 2026-06-13  (estimación estadística)
-============================================================
+  Modelo: Poisson + ranking FIFA (3 fuentes de datos)
+=================================================================
 
---- Grupo A ---
-  2026-06-12                  Canada   1-0   Bosnia and Herzegovina  (L 63% / E 22% / V 15%)
-  2026-06-13                   Qatar   0-2   Switzerland             (L 11% / E 16% / V 73%)
-  2026-06-18                  Canada   2-0   Qatar                   (L 78% / E 15% / V 7%)
-  2026-06-18             Switzerland   1-0   Bosnia and Herzegovina  (L 57% / E 23% / V 20%)
-  2026-06-24  Bosnia and Herzegovina   1-1   Qatar                   (L 52% / E 24% / V 24%)
-  2026-06-24                  Canada   1-1   Switzerland             (L 45% / E 27% / V 28%)
+--- RESULTADOS YA CONOCIDOS ---
+  2026-06-11  14:00 COL                  Mexico  2-0  South Africa            [Group A]
+  2026-06-11  21:00 COL             South Korea  2-1  Czech Republic          [Group A]
+  2026-06-12  14:00 COL                  Canada  1-1  Bosnia and Herzegovina  [Group B]
+  2026-06-12  20:00 COL           United States  4-1  Paraguay                [Group D]
 
---- Grupo B ---
-  2026-06-12           United States   1-1   Paraguay                (L 49% / E 24% / V 27%)
-  2026-06-13               Australia   1-1   Turkey                  (L 40% / E 27% / V 33%)
-  2026-06-19                  Turkey   1-1   Paraguay                (L 41% / E 27% / V 32%)
-  2026-06-19           United States   1-1   Australia               (L 40% / E 25% / V 35%)
-  2026-06-25                Paraguay   0-1   Australia               (L 28% / E 29% / V 43%)
-  2026-06-25           United States   1-1   Turkey                  (L 46% / E 23% / V 31%)
+--- Group A ---
+  2026-06-18  11:00 COL          Czech Republic   1-1   South Africa            (L 34% / E 25% / V 40%)
+  2026-06-18  20:00 COL                  Mexico   1-0   South Korea             (L 44% / E 28% / V 28%)
+  2026-06-24  20:00 COL          Czech Republic   0-1   Mexico                  (L 18% / E 24% / V 59%)
+  2026-06-24  20:00 COL            South Africa   1-1   South Korea             (L 27% / E 26% / V 48%)
 
---- Grupo C ---
-  2026-06-13                  Brazil   0-1   Morocco                 (L 16% / E 26% / V 59%)
-  2026-06-13                   Haiti   1-1   Scotland                (L 39% / E 24% / V 36%)
-  2026-06-19                  Brazil   1-1   Haiti                   (L 48% / E 24% / V 28%)
-  2026-06-19                Scotland   0-1   Morocco                 (L 11% / E 21% / V 68%)
-  2026-06-24                 Morocco   1-0   Haiti                   (L 69% / E 20% / V 11%)
-  2026-06-24                Scotland   1-1   Brazil                  (L 27% / E 25% / V 48%)
+--- Group B ---
+  2026-06-13  14:00 COL                   Qatar   0-2   Switzerland             (L 13% / E 18% / V 68%)
+  2026-06-18  17:00 COL                  Canada   1-0   Qatar                   (L 59% / E 23% / V 18%)
+  2026-06-18  14:00 COL             Switzerland   1-0   Bosnia and Herzegovina  (L 58% / E 23% / V 19%)
+  2026-06-24  14:00 COL  Bosnia and Herzegovina   1-1   Qatar                   (L 45% / E 26% / V 29%)
+  2026-06-24  14:00 COL             Switzerland   1-1   Canada                  (L 43% / E 27% / V 30%)
 
---- Grupo D ---
-  2026-06-14                 Germany   2-1   Curaçao                 (L 61% / E 20% / V 18%)
-  2026-06-14             Ivory Coast   0-0   Ecuador                 (L 31% / E 37% / V 32%)
-  2026-06-20                 Ecuador   1-0   Curaçao                 (L 47% / E 31% / V 22%)
-  2026-06-20                 Germany   1-1   Ivory Coast             (L 42% / E 26% / V 32%)
-  2026-06-25                 Curaçao   0-1   Ivory Coast             (L 23% / E 26% / V 51%)
-  2026-06-25                 Ecuador   0-1   Germany                 (L 31% / E 32% / V 38%)
+--- Group C ---
+  2026-06-13  17:00 COL                  Brazil   0-1   Morocco                 (L 28% / E 28% / V 44%)
+  2026-06-13  20:00 COL                   Haiti   1-1   Scotland                (L 30% / E 25% / V 45%)
+  2026-06-19  19:30 COL                  Brazil   1-0   Haiti                   (L 60% / E 22% / V 19%)
+  2026-06-19  17:00 COL                Scotland   0-1   Morocco                 (L 18% / E 25% / V 57%)
+  2026-06-24  17:00 COL                 Morocco   1-0   Haiti                   (L 65% / E 21% / V 14%)
+  2026-06-24  17:00 COL                Scotland   1-1   Brazil                  (L 24% / E 24% / V 51%)
 
---- Grupo E ---
-  2026-06-14             Netherlands   1-1   Japan                   (L 31% / E 26% / V 43%)
-  2026-06-14                  Sweden   1-1   Tunisia                 (L 30% / E 23% / V 46%)
-  2026-06-20             Netherlands   2-1   Sweden                  (L 63% / E 18% / V 18%)
-  2026-06-20                 Tunisia   0-1   Japan                   (L 20% / E 25% / V 55%)
-  2026-06-25                   Japan   2-0   Sweden                  (L 67% / E 19% / V 15%)
-  2026-06-25                 Tunisia   1-1   Netherlands             (L 25% / E 24% / V 51%)
+--- Group D ---
+  2026-06-13  23:00 COL               Australia   1-1   Turkey                  (L 38% / E 27% / V 35%)
+  2026-06-19  22:00 COL                  Turkey   1-1   Paraguay                (L 46% / E 25% / V 29%)
+  2026-06-19  14:00 COL           United States   1-1   Australia               (L 37% / E 26% / V 37%)
+  2026-06-25  21:00 COL                Paraguay   1-1   Australia               (L 27% / E 27% / V 46%)
+  2026-06-25  21:00 COL                  Turkey   1-1   United States           (L 36% / E 24% / V 40%)
 
---- Grupo F ---
-  2026-06-15                 Belgium   1-1   Egypt                   (L 39% / E 29% / V 32%)
-  2026-06-15                    Iran   1-1   New Zealand             (L 38% / E 26% / V 36%)
-  2026-06-21                 Belgium   1-1   Iran                    (L 41% / E 26% / V 33%)
-  2026-06-21             New Zealand   1-1   Egypt                   (L 35% / E 29% / V 36%)
-  2026-06-26                   Egypt   0-0   Iran                    (L 34% / E 33% / V 34%)
-  2026-06-26             New Zealand   1-1   Belgium                 (L 33% / E 23% / V 44%)
+--- Group E ---
+  2026-06-14  12:00 COL                 Germany   2-0   Curaçao                 (L 68% / E 18% / V 13%)
+  2026-06-14  18:00 COL             Ivory Coast   0-0   Ecuador                 (L 30% / E 33% / V 38%)
+  2026-06-20  19:00 COL                 Ecuador   1-0   Curaçao                 (L 54% / E 27% / V 19%)
+  2026-06-20  15:00 COL                 Germany   1-1   Ivory Coast             (L 49% / E 26% / V 25%)
+  2026-06-25  15:00 COL                 Curaçao   0-1   Ivory Coast             (L 22% / E 26% / V 52%)
+  2026-06-25  15:00 COL                 Ecuador   0-1   Germany                 (L 29% / E 29% / V 42%)
 
---- Grupo G ---
-  2026-06-15            Saudi Arabia   0-0   Uruguay                 (L 26% / E 34% / V 40%)
-  2026-06-15                   Spain   2-0   Cape Verde              (L 74% / E 16% / V 10%)
-  2026-06-21                   Spain   2-0   Saudi Arabia            (L 66% / E 20% / V 14%)
-  2026-06-21                 Uruguay   1-0   Cape Verde              (L 47% / E 30% / V 23%)
-  2026-06-26              Cape Verde   1-1   Saudi Arabia            (L 31% / E 28% / V 41%)
-  2026-06-26                 Uruguay   0-1   Spain                   (L 20% / E 26% / V 54%)
+--- Group F ---
+  2026-06-14  15:00 COL             Netherlands   1-1   Japan                   (L 34% / E 26% / V 39%)
+  2026-06-14  21:00 COL                  Sweden   1-1   Tunisia                 (L 37% / E 25% / V 38%)
+  2026-06-20  12:00 COL             Netherlands   2-1   Sweden                  (L 58% / E 21% / V 21%)
+  2026-06-20  23:00 COL                 Tunisia   0-1   Japan                   (L 20% / E 25% / V 55%)
+  2026-06-25  18:00 COL                   Japan   1-0   Sweden                  (L 59% / E 22% / V 19%)
+  2026-06-25  18:00 COL                 Tunisia   1-1   Netherlands             (L 22% / E 23% / V 55%)
 
---- Grupo H ---
-  2026-06-16                  France   1-1   Senegal                 (L 31% / E 27% / V 42%)
-  2026-06-16                    Iraq   0-1   Norway                  (L 14% / E 22% / V 64%)
-  2026-06-22                  France   1-0   Iraq                    (L 52% / E 28% / V 20%)
-  2026-06-22                  Norway   1-1   Senegal                 (L 41% / E 24% / V 35%)
-  2026-06-26                  Norway   1-1   France                  (L 46% / E 24% / V 30%)
-  2026-06-26                 Senegal   1-0   Iraq                    (L 58% / E 26% / V 16%)
+--- Group G ---
+  2026-06-15  14:00 COL                 Belgium   1-0   Egypt                   (L 45% / E 28% / V 27%)
+  2026-06-15  20:00 COL                    Iran   1-1   New Zealand             (L 49% / E 25% / V 26%)
+  2026-06-21  14:00 COL                 Belgium   1-1   Iran                    (L 41% / E 27% / V 32%)
+  2026-06-21  20:00 COL             New Zealand   1-1   Egypt                   (L 30% / E 28% / V 42%)
+  2026-06-26  22:00 COL                   Egypt   0-1   Iran                    (L 30% / E 31% / V 39%)
+  2026-06-26  22:00 COL             New Zealand   1-1   Belgium                 (L 22% / E 22% / V 56%)
 
---- Grupo I ---
-  2026-06-16               Argentina   1-0   Algeria                 (L 39% / E 30% / V 31%)
-  2026-06-16                 Austria   1-1   Jordan                  (L 50% / E 24% / V 25%)
-  2026-06-22               Argentina   1-0   Austria                 (L 47% / E 28% / V 25%)
-  2026-06-22                  Jordan   0-1   Algeria                 (L 19% / E 23% / V 58%)
-  2026-06-27                 Algeria   1-1   Austria                 (L 44% / E 27% / V 28%)
-  2026-06-27                  Jordan   0-1   Argentina               (L 16% / E 23% / V 61%)
+--- Group H ---
+  2026-06-15  17:00 COL            Saudi Arabia   0-1   Uruguay                 (L 23% / E 30% / V 47%)
+  2026-06-15  11:00 COL                   Spain   2-0   Cape Verde              (L 75% / E 16% / V 9%)
+  2026-06-21  11:00 COL                   Spain   2-0   Saudi Arabia            (L 67% / E 20% / V 13%)
+  2026-06-21  17:00 COL                 Uruguay   1-0   Cape Verde              (L 55% / E 26% / V 19%)
+  2026-06-26  19:00 COL              Cape Verde   1-1   Saudi Arabia            (L 30% / E 28% / V 42%)
+  2026-06-26  19:00 COL                 Uruguay   0-1   Spain                   (L 23% / E 27% / V 50%)
 
---- Grupo J ---
-  2026-06-17                Portugal   1-0   DR Congo                (L 39% / E 30% / V 31%)
-  2026-06-17              Uzbekistan   0-1   Colombia                (L 25% / E 27% / V 48%)
-  2026-06-23                Colombia   1-0   DR Congo                (L 38% / E 30% / V 32%)
-  2026-06-23                Portugal   1-0   Uzbekistan              (L 48% / E 28% / V 24%)
-  2026-06-27                Colombia   1-1   Portugal                (L 37% / E 24% / V 39%)
-  2026-06-27                DR Congo   0-0   Uzbekistan              (L 39% / E 35% / V 26%)
+--- Group I ---
+  2026-06-16  14:00 COL                  France   1-1   Senegal                 (L 40% / E 27% / V 33%)
+  2026-06-16  17:00 COL                    Iraq   0-1   Norway                  (L 18% / E 23% / V 58%)
+  2026-06-22  16:00 COL                  France   1-0   Iraq                    (L 57% / E 26% / V 17%)
+  2026-06-22  19:00 COL                  Norway   1-1   Senegal                 (L 40% / E 25% / V 36%)
+  2026-06-26  14:00 COL                  Norway   1-1   France                  (L 36% / E 25% / V 39%)
+  2026-06-26  14:00 COL                 Senegal   1-0   Iraq                    (L 54% / E 26% / V 20%)
 
---- Grupo K ---
-  2026-06-17                 England   1-0   Croatia                 (L 52% / E 26% / V 22%)
-  2026-06-17                   Ghana   1-1   Panama                  (L 34% / E 26% / V 40%)
-  2026-06-23                 England   1-0   Ghana                   (L 61% / E 24% / V 15%)
-  2026-06-23                  Panama   1-1   Croatia                 (L 30% / E 24% / V 46%)
-  2026-06-27                 Croatia   1-1   Ghana                   (L 48% / E 25% / V 27%)
-  2026-06-27                  Panama   0-1   England                 (L 16% / E 23% / V 61%)
+--- Group J ---
+  2026-06-16  20:00 COL               Argentina   1-0   Algeria                 (L 50% / E 27% / V 23%)
+  2026-06-16  23:00 COL                 Austria   1-1   Jordan                  (L 49% / E 25% / V 26%)
+  2026-06-22  12:00 COL               Argentina   1-0   Austria                 (L 52% / E 27% / V 22%)
+  2026-06-22  22:00 COL                  Jordan   1-1   Algeria                 (L 24% / E 25% / V 51%)
+  2026-06-27  21:00 COL                 Algeria   1-1   Austria                 (L 38% / E 28% / V 35%)
+  2026-06-27  21:00 COL                  Jordan   0-1   Argentina               (L 14% / E 21% / V 65%)
 
---- Grupo L ---
-  2026-06-18          Czech Republic   1-1   South Africa            (L 38% / E 25% / V 38%)
-  2026-06-18                  Mexico   1-0   South Korea             (L 58% / E 25% / V 17%)
-  2026-06-24                  Mexico   2-0   Czech Republic          (L 68% / E 20% / V 12%)
-  2026-06-24            South Africa   1-1   South Korea             (L 29% / E 26% / V 45%)
+--- Group K ---
+  2026-06-17  12:00 COL                Portugal   1-0   DR Congo                (L 49% / E 27% / V 24%)
+  2026-06-17  21:00 COL              Uzbekistan   0-1   Colombia                (L 21% / E 26% / V 53%)
+  2026-06-23  21:00 COL                Colombia   1-0   DR Congo                (L 49% / E 27% / V 24%)
+  2026-06-23  12:00 COL                Portugal   1-0   Uzbekistan              (L 53% / E 26% / V 21%)
+  2026-06-27  18:30 COL                Colombia   1-1   Portugal                (L 38% / E 25% / V 37%)
+  2026-06-27  18:30 COL                DR Congo   0-0   Uzbekistan              (L 36% / E 32% / V 31%)
 
-Nota: marcador = resultado más probable según el modelo Poisson.
-Es una estimación, no una certeza. ¡Suerte en la polla!
+--- Group L ---
+  2026-06-17  15:00 COL                 England   1-0   Croatia                 (L 49% / E 27% / V 24%)
+  2026-06-17  18:00 COL                   Ghana   1-1   Panama                  (L 32% / E 26% / V 42%)
+  2026-06-23  15:00 COL                 England   1-0   Ghana                   (L 64% / E 23% / V 14%)
+  2026-06-23  18:00 COL                  Panama   1-1   Croatia                 (L 27% / E 25% / V 48%)
+  2026-06-27  16:00 COL                 Croatia   1-0   Ghana                   (L 52% / E 25% / V 23%)
+  2026-06-27  16:00 COL                  Panama   0-1   England                 (L 17% / E 23% / V 60%)
+
+NOTA: marcador = resultado más probable (Poisson).
+      Es una estimación estadística, no una certeza.
+      El modelo acierta ~61% de resultados 1X2, ~12% de marcadores exactos.
