@@ -7,7 +7,7 @@ Predictor de marcadores — Fase de grupos del Mundial 2026
 App autocontenida (solo librería estándar de Python) que combina 8 fuentes de
 datos para producir predicciones calibradas y un tablero visual con banderas.
 
-FUENTES DE DATOS (12)
+FUENTES DE DATOS (14)
 ---------------------
 Base (7):
   1. martj42/international_results .......... historial de partidos (1872–2026)
@@ -18,12 +18,21 @@ Base (7):
   6. martj42/shootouts.csv .................. récord en tandas de penaltis
   7. martj42/former_names.csv ............... normaliza nombres (clave para el Elo)
 
-Nuevas (5):
+Fuerza del modelo (5):
   8. jfjelstul/worldcup/matches.csv ......... pedigrí mundialista (partidos/triunfos)
   9. jfjelstul/worldcup/squads.csv .......... profundidad de plantilla mundialista
  10. jfjelstul/worldcup/goals.csv ........... tradición goleadora histórica en WCs
  11. jfjelstul/worldcup/standings.csv ....... posiciones en últimos 3 Mundiales
  12. openfootball/euro.json 2024 ............ forma reciente equipos europeos
+
+Estadísticas por partido (2):
+ 13. StatsBomb Open Data ................... tasas reales de tiros, tiros a puerta,
+                                             córners y tarjetas por selección
+                                             (Copa América 2024, Euro 2024, AFCON
+                                             2023, Mundial 2022). Precalculado por
+                                             agregar_eventos.py -> data/event_rates.json
+ 14. jfjelstul/worldcup/bookings.csv ....... tarjetas históricas en Mundiales
+                                             (respaldo para selecciones sin StatsBomb)
 
 MODELO
 ------
@@ -34,10 +43,14 @@ MODELO
   - Poisson tipo Dixon-Coles: ataque/defensa iterativos ajustados por rival,
     anclados al Elo y al ranking FIFA, ponderados por recencia e importancia.
   - Predicción por partido: marcador más probable + probabilidades 1X2 + xG.
+  - Estadísticas por partido: tiros, tiros a puerta, córners, tarjetas y goleador
+    probable, combinando la tasa 'a favor' de un equipo con la 'en contra' del
+    rival (media geométrica), regularizadas hacia el promedio de liga.
 
 Uso:
     python3 predict.py            # descarga todo y regenera
     python3 predict.py --offline  # usa los archivos ya descargados en data/
+    python3 agregar_eventos.py    # (ocasional) recalcula event_rates.json desde StatsBomb
 """
 
 import csv
@@ -71,6 +84,10 @@ FUENTES = {
     "goles_wc":      ("https://raw.githubusercontent.com/jfjelstul/worldcup/master/data-csv/goals.csv",          "wc_goals.csv"),
     "posiciones_wc": ("https://raw.githubusercontent.com/jfjelstul/worldcup/master/data-csv/tournament_standings.csv", "wc_standings.csv"),
     "euro2024":      ("https://raw.githubusercontent.com/openfootball/euro.json/master/2024/euro.json",          "euro_2024.json"),
+    # Estadísticas por evento: tarjetas históricas de Mundiales (jfjelstul/bookings).
+    # Las tasas de tiros/córners/tarjetas vienen de data/event_rates.json (StatsBomb),
+    # precalculado por agregar_eventos.py y versionado en git (no se descarga aquí).
+    "tarjetas_wc":   ("https://raw.githubusercontent.com/jfjelstul/worldcup/master/data-csv/bookings.csv",       "wc_bookings.csv"),
 }
 
 FECHA_REF       = date(2026, 6, 13)
@@ -284,6 +301,80 @@ def leer_goleadores(equipos_wc):
     top = {eq: c.most_common(1)[0] for eq, c in goles.items() if c}
     pen = {eq: (v[0] / v[1] if v[1] else 0.0) for eq, v in penaltis.items()}
     return top, pen
+
+
+def leer_goleadores_probables(equipos_wc):
+    """
+    Top-5 goleadores (últimos 24 meses) por selección, con su número de goles y
+    el total de goles del equipo. Sirve para estimar el goleador más probable:
+    la cuota de goles de cada jugador reparte el xG del equipo en el partido.
+    """
+    ruta = _ruta("goleadores")
+    if not os.path.exists(ruta):
+        return {}
+    goles = defaultdict(Counter)
+    desde = date(FECHA_REF.year - 2, FECHA_REF.month, FECHA_REF.day)
+    with open(ruta, newline="", encoding="utf-8") as f:
+        for fila in csv.DictReader(f):
+            try:
+                fecha = datetime.strptime(fila["date"], "%Y-%m-%d").date()
+            except (ValueError, KeyError):
+                continue
+            if fecha < desde:
+                continue
+            eq = normalizar(fila.get("team", ""))
+            if eq not in equipos_wc:
+                continue
+            jug = fila.get("scorer", "").strip()
+            if jug and fila.get("own_goal", "").upper() != "TRUE":
+                goles[eq][jug] += 1
+    salida = {}
+    for eq, c in goles.items():
+        total = sum(c.values())
+        salida[eq] = {"total": total, "top": c.most_common(5)}
+    return salida
+
+
+def leer_tarjetas_wc(equipos_wc):
+    """
+    Tasa de tarjetas por partido en Mundiales (jfjelstul/bookings.csv).
+    Respaldo para selecciones sin cobertura de StatsBomb en event_rates.json.
+    Devuelve {equipo: {"amarillas": x, "rojas": y}} por partido.
+    """
+    ruta = _ruta("tarjetas_wc")
+    if not os.path.exists(ruta):
+        return {}
+    am = defaultdict(int); ro = defaultdict(int); partidos = defaultdict(set)
+    with open(ruta, newline="", encoding="utf-8") as f:
+        for fila in csv.DictReader(f):
+            eq = normalizar(fila.get("team_name", ""))
+            if eq not in equipos_wc:
+                continue
+            mid = fila.get("match_id", "")
+            if mid:
+                partidos[eq].add(mid)
+            if fila.get("yellow_card") == "1" and fila.get("second_yellow_card") != "1":
+                am[eq] += 1
+            if fila.get("red_card") == "1" or fila.get("sending_off") == "1" \
+               or fila.get("second_yellow_card") == "1":
+                ro[eq] += 1
+    salida = {}
+    for eq in partidos:
+        pj = len(partidos[eq]) or 1
+        salida[eq] = {"amarillas": am[eq] / pj, "rojas": ro[eq] / pj}
+    return salida
+
+
+def leer_event_rates():
+    """
+    Tasas de tiros/córners/tarjetas por selección (data/event_rates.json),
+    precalculadas con agregar_eventos.py desde StatsBomb Open Data y versionadas.
+    """
+    ruta = os.path.join(DIR_DATOS, "event_rates.json")
+    if not os.path.exists(ruta):
+        return {"liga": {}, "equipos": {}}
+    with open(ruta, encoding="utf-8") as f:
+        return json.load(f)
 
 
 def leer_tandas(equipos_wc):
@@ -664,6 +755,105 @@ def predecir_partido(local, visitante, ataque, defensa, liga, ventaja_local):
 
 
 # ===========================================================================
+# Predicción de estadísticas por partido (tiros, córners, tarjetas, goleador)
+# ===========================================================================
+
+PRIOR_EVENTOS = 4.0   # regularización: partidos-equivalentes hacia el promedio de liga
+
+
+def _tasa(rates, equipo, clave, defecto):
+    """
+    Tasa por partido de una selección, regularizada hacia el promedio de liga
+    según el tamaño de muestra (selecciones con pocos partidos se acercan a la
+    media; evita valores ruidosos como '4.7 amarillas' con 2-3 partidos).
+    """
+    liga = rates.get("liga", {}).get(clave, defecto)
+    eq = rates.get("equipos", {}).get(equipo)
+    if eq and clave in eq:
+        pj = eq.get("pj", 0.0)
+        return (pj * eq[clave] + PRIOR_EVENTOS * liga) / (pj + PRIOR_EVENTOS)
+    return liga
+
+
+def predecir_eventos(local, visitante, rates, tarjetas_wc, goleadores, pred):
+    """
+    Estima estadísticas del partido combinando la tasa 'a favor' de un equipo con
+    la tasa 'en contra' del rival (media geométrica), y ajustando por la
+    competitividad del choque (relación entre el xG del partido y el xG de liga).
+
+    'pred' es el dict de predecir_partido (para xG, que reparte el goleador).
+    """
+    LIGA_TIROS = rates.get("liga", {}).get("tiros_f", 12.0) or 12.0
+
+    def combinar(eq, riv, clave_f, clave_c, defecto):
+        f = _tasa(rates, eq, clave_f, defecto)
+        c = _tasa(rates, riv, clave_c, defecto)
+        return (f * c) ** 0.5  # media geométrica favor/contra
+
+    # Tiros y tiros a puerta; se escalan suavemente por el xG del partido.
+    tiros_l = combinar(local, visitante, "tiros_f", "tiros_c", 12.0)
+    tiros_v = combinar(visitante, local, "tiros_f", "tiros_c", 12.0)
+    puerta_l = combinar(local, visitante, "puerta_f", "puerta_c", 4.0)
+    puerta_v = combinar(visitante, local, "puerta_f", "puerta_c", 4.0)
+    corner_l = combinar(local, visitante, "corners_f", "corners_c", 5.0)
+    corner_v = combinar(visitante, local, "corners_f", "corners_c", 5.0)
+
+    # Ajuste por dominio: el favorito genera algo más de tiros/córners.
+    xg_l, xg_v = pred["xg_local"], pred["xg_visitante"]
+    tot_xg = (xg_l + xg_v) or 1.0
+    dom_l = 0.85 + 0.30 * (xg_l / tot_xg)
+    dom_v = 0.85 + 0.30 * (xg_v / tot_xg)
+    tiros_l *= dom_l; puerta_l *= dom_l; corner_l *= dom_l
+    tiros_v *= dom_v; puerta_v *= dom_v; corner_v *= dom_v
+
+    # Tarjetas: StatsBomb (regularizado) si hay; si no, respaldo a Mundiales (bookings).
+    def amarillas(eq):
+        e = rates.get("equipos", {}).get(eq)
+        if e and "amarillas" in e:
+            return _tasa(rates, eq, "amarillas", 2.0)
+        if eq in tarjetas_wc:
+            return tarjetas_wc[eq]["amarillas"]
+        return rates.get("liga", {}).get("amarillas", 2.0)
+
+    def rojas(eq):
+        e = rates.get("equipos", {}).get(eq)
+        if e and "rojas" in e:
+            return _tasa(rates, eq, "rojas", 0.1)
+        if eq in tarjetas_wc:
+            return tarjetas_wc[eq]["rojas"]
+        return rates.get("liga", {}).get("rojas", 0.1)
+
+    am_l, am_v = amarillas(local), amarillas(visitante)
+    ro_l, ro_v = rojas(local), rojas(visitante)
+    # P(al menos una expulsión) bajo Poisson con esa media por partido.
+    prob_roja_l = round((1 - math.exp(-ro_l)) * 100, 1)
+    prob_roja_v = round((1 - math.exp(-ro_v)) * 100, 1)
+
+    # Goleador más probable: reparte el xG del equipo según la cuota de cada
+    # jugador en los goles recientes. P(marca) = 1 - exp(-xg * cuota).
+    def probables(eq, xg_eq):
+        info = goleadores.get(eq)
+        if not info or not info["top"] or info["total"] <= 0:
+            return []
+        out = []
+        for jug, g in info["top"][:3]:
+            cuota = g / info["total"]
+            p = 1 - math.exp(-xg_eq * cuota)
+            out.append({"jugador": jug, "prob": round(p * 100)})
+        return out
+
+    return {
+        "tiros_local": round(tiros_l), "tiros_visitante": round(tiros_v),
+        "tiros_puerta_local": round(puerta_l), "tiros_puerta_visitante": round(puerta_v),
+        "corners_local": round(corner_l), "corners_visitante": round(corner_v),
+        "amarillas_local": round(am_l, 1), "amarillas_visitante": round(am_v, 1),
+        "prob_roja_local": prob_roja_l, "prob_roja_visitante": prob_roja_v,
+        "goleadores_local": probables(local, xg_l),
+        "goleadores_visitante": probables(visitante, xg_v),
+    }
+
+
+# ===========================================================================
 # Orquestación
 # ===========================================================================
 
@@ -691,7 +881,14 @@ def generar(offline=False):
     factor_wc  = calcular_factor_wc(equipos_wc, exp_plant, forma_wc22,
                                      goles_pm, pos_wc, forma_euro)
 
+    # Estadísticas por evento (tiros, córners, tarjetas, goleador probable)
+    event_rates = leer_event_rates()
+    tarjetas_wc = leer_tarjetas_wc(equipos_wc)
+    goleadores  = leer_goleadores_probables(equipos_wc)
+    n_cobertura = sum(1 for e in equipos_wc if e in event_rates.get("equipos", {}))
+
     print(f"\nHistórico: {len(partidos)} partidos | WC2026: {len(jugados)} jugados, {len(fixture)} pendientes")
+    print(f"Estadísticas por evento (StatsBomb): {n_cobertura}/{len(equipos_wc)} selecciones con datos propios")
 
     ataque, defensa, liga = calcular_fuerzas(partidos, elo, ranking_fifa,
                                               equipos_wc, factor_wc)
@@ -723,6 +920,8 @@ def generar(offline=False):
     predicciones = []
     for p in fixture:
         pred = predecir_partido(p["local"], p["visitante"], ataque, defensa, liga, not p["neutral"])
+        eventos = predecir_eventos(p["local"], p["visitante"], event_rates,
+                                   tarjetas_wc, goleadores, pred)
         predicciones.append({
             "grupo": p["grupo"], "fecha": p["fecha"].isoformat() if p["fecha"] else "",
             "hora_col": p["hora_col"], "ciudad": p["ciudad"],
@@ -731,6 +930,7 @@ def generar(offline=False):
             "elo_local": round(elo.get(p["local"], ELO_INICIAL)),
             "elo_visitante": round(elo.get(p["visitante"], ELO_INICIAL)),
             **pred,
+            **eventos,
         })
     predicciones.sort(key=lambda x: (x["grupo"], x["fecha"], x["hora_col"], x["local"]))
 
@@ -763,7 +963,7 @@ def _escribir_texto(predicciones, jugados):
     L.append("=" * 66)
     L.append("  PROYECCIÓN — FASE DE GRUPOS MUNDIAL 2026")
     L.append(f"  Generado: {FECHA_REF.isoformat()}  ·  horario Colombia (UTC-5)")
-    L.append(f"  Modelo: Elo + Poisson Dixon-Coles  ·  12 fuentes de datos")
+    L.append(f"  Modelo: Elo + Poisson Dixon-Coles  ·  14 fuentes de datos")
     L.append("=" * 66)
     if jugados:
         L.append("\n--- RESULTADOS YA CONOCIDOS ---")
@@ -777,8 +977,21 @@ def _escribir_texto(predicciones, jugados):
         marc = f"{p['marcador_local']}-{p['marcador_visitante']}"
         L.append(f"  {p['fecha']}  {p['hora_col']:>5} COL  {p['local']:>22}  {marc:^5}  "
                  f"{p['visitante']:<22} (L {p['prob_local']:.0f}% E {p['prob_empate']:.0f}% V {p['prob_visitante']:.0f}%)")
+        # Línea de estadísticas estimadas
+        if "tiros_local" in p:
+            gl = p.get("goleadores_local") or []
+            gv = p.get("goleadores_visitante") or []
+            tg = " | goleador: "
+            tg += (f"{gl[0]['jugador']} {gl[0]['prob']}%" if gl else "—")
+            tg += " / "
+            tg += (f"{gv[0]['jugador']} {gv[0]['prob']}%" if gv else "—")
+            L.append(f"{'':>33}tiros {p['tiros_local']}-{p['tiros_visitante']} "
+                     f"(a puerta {p['tiros_puerta_local']}-{p['tiros_puerta_visitante']}) · "
+                     f"córners {p['corners_local']}-{p['corners_visitante']} · "
+                     f"amarillas {p['amarillas_local']}-{p['amarillas_visitante']}{tg}")
     L.append("\nNOTA: marcador = resultado más probable (Poisson). Estimación, no certeza.")
     L.append("      El modelo acierta ~61% del resultado (1X2) y ~12% del marcador exacto.")
+    L.append("      Tiros/córners/tarjetas = promedio esperado según tasas reales (StatsBomb).")
     texto = "\n".join(L)
     with open(os.path.join(DIR_BASE, "predicciones.txt"), "w", encoding="utf-8") as f:
         f.write(texto + "\n")
@@ -883,6 +1096,30 @@ _PLANTILLA_HTML = r"""<!DOCTYPE html>
            font-variant-numeric:tabular-nums}
   .plabels b{color:var(--muted);font-weight:600}
 
+  /* Detalle de estadísticas por partido */
+  .det{margin-top:11px}
+  .det>summary{list-style:none;cursor:pointer;font:600 11px 'Archivo';letter-spacing:.08em;
+       text-transform:uppercase;color:var(--faint);padding:6px 0;display:flex;align-items:center;gap:6px}
+  .det>summary::-webkit-details-marker{display:none}
+  .det>summary::before{content:"▸";color:var(--accent);font-size:10px;transition:transform .15s}
+  .det[open]>summary::before{transform:rotate(90deg)}
+  .det>summary:hover{color:var(--muted)}
+  .stat-rows{padding:4px 0 2px}
+  .srow{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px;padding:4px 0;
+        font-size:12px;font-variant-numeric:tabular-nums}
+  .srow .lv{text-align:right;color:var(--ink);font-weight:600}
+  .srow .rv{text-align:left;color:var(--ink);font-weight:600}
+  .srow .lb{font-size:10px;color:var(--faint);text-transform:uppercase;letter-spacing:.06em;text-align:center;white-space:nowrap}
+  .srow .sbar{grid-column:1/-1;display:flex;height:4px;border-radius:3px;overflow:hidden;background:var(--bg);margin-top:1px}
+  .srow .sbar i{display:block;height:100%}
+  .srow .sbar .a{background:var(--win)} .srow .sbar .b{background:var(--lose);opacity:.85}
+  .scorers{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+  .scol .sh{font-size:10px;color:var(--faint);text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px}
+  .scol .pl{display:flex;justify-content:space-between;font-size:12px;padding:2px 0;gap:8px}
+  .scol .pl .pn{color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .scol .pl .pp{color:var(--accent);font-weight:600;font-variant-numeric:tabular-nums}
+  .scol .pl.empty{color:var(--faint)}
+
   .note{margin-top:30px;padding:16px 18px;background:var(--surface);border:1px solid var(--line);
         border-left:3px solid var(--accent);border-radius:10px;font-size:13px;color:var(--muted);line-height:1.6}
   .note b{color:var(--ink)}
@@ -920,14 +1157,15 @@ const FLAG = c => c ? `https://flagcdn.com/w40/${c}.png` : "";
 const esc = s => (s||"").replace(/[&<>]/g, m=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[m]));
 
 document.getElementById("lede").textContent =
-  "Marcador más probable de cada partido según un modelo Elo + Poisson alimentado por 12 fuentes de datos. "
-  + "Se actualiza automáticamente cada noche a medida que llegan los resultados. Horarios en hora de Colombia.";
+  "Marcador y estadísticas (tiros, córners, tarjetas, goleador) de cada partido según un modelo "
+  + "Elo + Poisson alimentado por 14 fuentes de datos. Se actualiza automáticamente cada noche a "
+  + "medida que llegan los resultados. Horarios en hora de Colombia.";
 
 document.getElementById("stats").innerHTML = [
   [D.predicciones.length, "Partidos por jugar"],
   [D.ya_jugados.length, "Ya disputados"],
   ["12", "Grupos"],
-  ["12", "Fuentes de datos"],
+  ["14", "Fuentes de datos"],
 ].map(([n,l])=>`<div class="stat"><div class="n">${n}</div><div class="l">${l}</div></div>`).join("");
 
 // Resultados jugados
@@ -943,6 +1181,36 @@ if (D.ya_jugados.length){
     </div>`;
   }
   document.getElementById("played-sec").innerHTML = h + "</div>";
+}
+
+// Fila de estadística comparada (barra proporcional local vs visitante)
+function srow(label, a, b){
+  const na=parseFloat(a)||0, nb=parseFloat(b)||0, ta=(na+nb)||1;
+  return `<div class="srow"><span class="lv">${a}</span><span class="lb">${label}</span><span class="rv">${b}</span>`
+    + `<span class="sbar"><i class="a" style="width:${na/ta*100}%"></i><i class="b" style="width:${nb/ta*100}%"></i></span></div>`;
+}
+function colGoleadores(titulo, lista){
+  let h = `<div class="scol"><div class="sh">${titulo}</div>`;
+  if(!lista || !lista.length){ h += `<div class="pl empty">—</div>`; }
+  else { for(const x of lista){ h += `<div class="pl"><span class="pn">${esc(x.jugador)}</span><span class="pp">${x.prob}%</span></div>`; } }
+  return h + "</div>";
+}
+// Panel desplegable con tiros, tiros a puerta, córners, tarjetas y goleadores
+function detalle(p){
+  if(p.tiros_local===undefined) return "";
+  return `<details class="det"><summary>Estadísticas estimadas del partido</summary>
+    <div class="stat-rows">
+      ${srow("Tiros", p.tiros_local, p.tiros_visitante)}
+      ${srow("Tiros a puerta", p.tiros_puerta_local, p.tiros_puerta_visitante)}
+      ${srow("Córners", p.corners_local, p.corners_visitante)}
+      ${srow("Amarillas", p.amarillas_local, p.amarillas_visitante)}
+      ${srow("Prob. roja", p.prob_roja_local+"%", p.prob_roja_visitante+"%")}
+    </div>
+    <div class="scorers">
+      ${colGoleadores("Goleador — "+esc(p.local), p.goleadores_local)}
+      ${colGoleadores("Goleador — "+esc(p.visitante), p.goleadores_visitante)}
+    </div>
+  </details>`;
 }
 
 // Grupos
@@ -968,6 +1236,7 @@ for(const g of Object.keys(byG).sort()){
       </div>
       <div class="bar"><i class="bl" style="width:${p.prob_local}%"></i><i class="bd" style="width:${p.prob_empate}%"></i><i class="bv" style="width:${p.prob_visitante}%"></i></div>
       <div class="plabels"><span><b>${p.prob_local}%</b> local</span><span><b>${p.prob_empate}%</b> empate</span><span><b>${p.prob_visitante}%</b> visitante</span></div>
+      ${detalle(p)}
     </div>`;
   }
   gh += "</div>";
@@ -978,13 +1247,15 @@ document.getElementById("note").innerHTML =
   "<b>Cómo leerlo.</b> El marcador es el resultado <em>más probable</em>, no una certeza. "
   + "En fútbol acertar el marcador exacto es muy difícil: este modelo acierta cerca del "
   + "<b>61% de los resultados</b> (quién gana/empata) y solo el <b>~12% de los marcadores exactos</b>, "
-  + "a la par de los mejores modelos comerciales. Para la polla, confía en el favorito y las "
-  + "probabilidades más que en el marcador puntual.";
+  + "a la par de los mejores modelos comerciales. Las <b>estadísticas estimadas</b> (tiros, córners, "
+  + "tarjetas, goleador) salen de las tasas reales por partido de cada selección en sus últimos "
+  + "torneos (StatsBomb): son <em>promedios esperados</em>, no predicciones exactas. Para la polla, "
+  + "confía en el favorito y las probabilidades más que en el dato puntual.";
 
 document.getElementById("footer").innerHTML =
   "Fuentes: martj42/international_results · Dato-Futbol/fifa-ranking · openfootball/worldcup.json 2026 · "
   + "openfootball/worldcup.json 2022 · openfootball/euro.json 2024 · "
-  + "jfjelstul/worldcup (matches · squads · goals · standings) · "
+  + "jfjelstul/worldcup (matches · squads · goals · standings · bookings) · StatsBomb Open Data · "
   + "goalscorers · shootouts · former_names · Elo computado.<br>"
   + "Banderas: flagcdn.com · Actualización automática diaria a las 12 am Colombia · Generado el "+D.generado+".";
 </script>
