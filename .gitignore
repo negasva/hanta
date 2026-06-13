@@ -1,20 +1,6 @@
-node_modules/
-.env
-.env.local
-*.db
-*.sqlite
-*.sqlite3
-data/*.db
-data/*.db-shm
-data/*.db-wal
-data/*.sqlite
-data/*.sqlite3
-.DS_Store
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
+# Datos descargados (se regeneran con predict.py)
+data/results.csv
+
+# Python
+__pycache__/
+*.pyc
