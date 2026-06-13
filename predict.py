@@ -773,6 +773,9 @@ def predecir_partido(local, visitante, ataque, defensa, liga, ventaja_local):
 
 PRIOR_EVENTOS = 4.0   # regularización: partidos-equivalentes hacia el promedio de liga
 
+# Propensión goleadora por posición (atenúa a defensas/arqueros como goleador)
+PESO_POSICION = {"fwd": 1.0, "mid": 0.75, "def": 0.30, "gk": 0.03}
+
 
 def _tasa(rates, equipo, clave, defecto):
     """
@@ -864,9 +867,10 @@ def predecir_eventos(local, visitante, rates, tarjetas_wc, goleadores,
 
     # --- Goleador probable ---
     # Con StatsBomb: cuota = 0.6 * (xG del jugador / xG del equipo)
-    #                      + 0.4 * (goles del jugador / goles del equipo)
-    # Mezclar xG y goles evita que un defensa con xG de balón parado supere a un
-    # delantero, y premia a quien de verdad define. Cae a goalscorers.csv si no hay datos.
+    #                      + 0.4 * (goles del jugador / goles del equipo),
+    # ponderada por POSICIÓN (un defensa o arquero rara vez es goleador) y
+    # renormalizada, para que el peso se redistribuya hacia los atacantes.
+    # Cae a goalscorers.csv cuando no hay datos de StatsBomb.
     def probables(eq, xg_eq):
         pr = player_rates.get("equipos", {}).get(eq)
         cand = []
@@ -875,7 +879,10 @@ def predecir_eventos(local, visitante, rates, tarjetas_wc, goleadores,
             for j in pr["jugadores"]:
                 s_xg = j["xg"] / txg
                 s_go = (j["goles"] / tgo) if tgo > 0 else s_xg
-                cand.append((j["nombre"], 0.6 * s_xg + 0.4 * s_go))
+                cuota = (0.6 * s_xg + 0.4 * s_go) * PESO_POSICION.get(j.get("pos", "mid"), 0.75)
+                cand.append((j["nombre"], cuota))
+            suma = sum(c for _, c in cand) or 1.0
+            cand = [(n, c / suma) for n, c in cand]   # renormaliza tras pesar posición
             cand.sort(key=lambda x: -x[1])
         else:
             info = goleadores.get(eq)

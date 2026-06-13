@@ -30,7 +30,7 @@ Uso:
 import json
 import os
 import urllib.request
-from collections import defaultdict
+from collections import defaultdict, Counter
 
 DIR_BASE  = os.path.dirname(os.path.abspath(__file__))
 DIR_DATOS = os.path.join(DIR_BASE, "data")
@@ -64,6 +64,24 @@ def normalizar(n):
     return _NORM.get(n, n)
 
 
+def clasificar_posicion(contador):
+    """
+    Posición predominante de un jugador (Counter de nombres de StatsBomb) en una
+    de cuatro categorías: 'gk', 'def', 'mid', 'fwd'. Se usa para no proponer a un
+    arquero o defensa como goleador probable.
+    """
+    if not contador:
+        return "mid"
+    nombre = contador.most_common(1)[0][0]
+    if "Goalkeeper" in nombre:
+        return "gk"
+    if "Back" in nombre:                       # Center/Left/Right Back, Wing Back
+        return "def"
+    if "Wing" in nombre or "Forward" in nombre or "Striker" in nombre:
+        return "fwd"                           # incluye Right/Left Wing y delanteros
+    return "mid"
+
+
 def get(url, reintentos=4):
     for i in range(reintentos):
         try:
@@ -86,26 +104,34 @@ def competiciones_objetivo():
     return res
 
 
-def procesar_partido(mid, acc, jugadores=None, apodos=None):
+def procesar_partido(mid, acc, jugadores=None, apodos=None, posiciones=None):
     """Acumula estadísticas de un partido en acc[equipo] y, si se pasa,
-    estadísticas por jugador en jugadores[(equipo, jugador)]. Si se pasa apodos,
-    registra el nombre corto (nickname) de cada jugador desde el lineup."""
+    estadísticas por jugador en jugadores[(equipo, jugador)]. Si se pasan apodos
+    y posiciones, registra el nombre corto y la posición de cada jugador desde
+    el lineup (la posición sirve para no proponer a un defensa como goleador)."""
     try:
         events = json.loads(get(f"{BASE}/events/{mid}.json"))
     except Exception as e:
         print(f"    aviso: no se pudo leer partido {mid} ({e})")
         return False
 
-    if apodos is not None:
+    if apodos is not None or posiciones is not None:
         try:
             for tm in json.loads(get(f"{BASE}/lineups/{mid}.json")):
+                eq = normalizar(tm.get("team_name", ""))
                 for pl in tm.get("lineup", []):
                     nombre = pl.get("player_name", "")
-                    apodo = pl.get("player_nickname") or nombre
-                    if nombre:
-                        apodos[nombre] = apodo
+                    if not nombre:
+                        continue
+                    if apodos is not None:
+                        apodos[nombre] = pl.get("player_nickname") or nombre
+                    if posiciones is not None:
+                        for pos in pl.get("positions", []):
+                            nm = pos.get("position", "")
+                            if nm:
+                                posiciones[(eq, nombre)][nm] += 1
         except Exception:
-            pass  # el apodo es opcional; si falla, usamos el nombre completo
+            pass  # apodo/posición son opcionales; si falla, usamos el nombre completo
 
     equipos = set()
     tiros = defaultdict(int); a_puerta = defaultdict(int)
@@ -191,6 +217,7 @@ def main():
     acc = nuevo_acc()
     jugadores = defaultdict(lambda: defaultdict(float))  # (equipo,jugador) -> stats ponderadas
     apodos = {}                                          # nombre completo -> nombre corto
+    posiciones = defaultdict(Counter)                    # (equipo,jugador) -> Counter(posición)
     total = 0
     for (nombre, temporada, peso), (cid, sid) in objetivo.items():
         try:
@@ -204,7 +231,7 @@ def main():
         jug_t = defaultdict(lambda: defaultdict(float))
         ok = 0
         for m in matches:
-            if procesar_partido(m["match_id"], acc_t, jug_t, apodos):
+            if procesar_partido(m["match_id"], acc_t, jug_t, apodos, posiciones):
                 ok += 1
         print(f"  procesados {ok}/{len(matches)}")
         total += ok
@@ -265,7 +292,8 @@ def main():
             "total_goles": round(total_goles, 2),
             "jugadores": [
                 {"nombre": apodos.get(j, j), "xg": round(x, 3),
-                 "goles": round(g, 2), "tiros": round(t, 1)}
+                 "goles": round(g, 2), "tiros": round(t, 1),
+                 "pos": clasificar_posicion(posiciones.get((eq, j)))}
                 for j, x, g, t in lst[:12]
             ],
         }
