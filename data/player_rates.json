@@ -1,0 +1,5362 @@
+{
+  "equipos": {
+    "DR Congo": {
+      "total_xg": 23.923,
+      "total_goles": 19.0,
+      "jugadores": [
+        {
+          "nombre": "Yoane Wissa",
+          "xg": 4.242,
+          "goles": 3.0,
+          "tiros": 21.0
+        },
+        {
+          "nombre": "Chancel Mbemba",
+          "xg": 2.308,
+          "goles": 2.0,
+          "tiros": 7.0
+        },
+        {
+          "nombre": "Samuel Moutoussamy",
+          "xg": 2.276,
+          "goles": 2.0,
+          "tiros": 9.0
+        },
+        {
+          "nombre": "Cédric Bakambu",
+          "xg": 2.225,
+          "goles": 1.0,
+          "tiros": 10.0
+        },
+        {
+          "nombre": "Meschak Elia",
+          "xg": 2.079,
+          "goles": 1.0,
+          "tiros": 7.0
+        },
+        {
+          "nombre": "Silas Katompa Mvumpa",
+          "xg": 1.846,
+          "goles": 2.0,
+          "tiros": 5.0
+        },
+        {
+          "nombre": "Arthur Masuaku",
+          "xg": 0.933,
+          "goles": 1.0,
+          "tiros": 7.0
+        },
+        {
+          "nombre": "Grady Diangana",
+          "xg": 0.892,
+          "goles": 1.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Gédéon Kalulu",
+          "xg": 0.845,
+          "goles": 1.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Henoc Inonga Baka",
+          "xg": 0.832,
+          "goles": 1.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Aaron Tshibola",
+          "xg": 0.783,
+          "goles": 1.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Lionel Mpasi-Nzau",
+          "xg": 0.783,
+          "goles": 1.0,
+          "tiros": 1.0
+        }
+      ]
+    },
+    "Egypt": {
+      "total_xg": 13.321,
+      "total_goles": 14.0,
+      "jugadores": [
+        {
+          "nombre": "Mostafa Mohamed",
+          "xg": 3.29,
+          "goles": 4.0,
+          "tiros": 15.0
+        },
+        {
+          "nombre": "Omar Marmoush",
+          "xg": 1.479,
+          "goles": 2.0,
+          "tiros": 9.0
+        },
+        {
+          "nombre": "Ahmed Hegazy",
+          "xg": 1.141,
+          "goles": 1.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Mohamed Abdel Monem",
+          "xg": 0.948,
+          "goles": 1.0,
+          "tiros": 6.0
+        },
+        {
+          "nombre": "Mohamed Salah",
+          "xg": 0.935,
+          "goles": 1.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Mohamed Hany",
+          "xg": 0.803,
+          "goles": 1.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Mostafa Fathi",
+          "xg": 0.796,
+          "goles": 1.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Omar Kamal",
+          "xg": 0.783,
+          "goles": 1.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Mahmoud Hamada",
+          "xg": 0.783,
+          "goles": 1.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Mohamed Abougabal",
+          "xg": 0.783,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Zizo",
+          "xg": 0.447,
+          "goles": 0.0,
+          "tiros": 10.0
+        },
+        {
+          "nombre": "Trézéguet",
+          "xg": 0.436,
+          "goles": 1.0,
+          "tiros": 6.0
+        }
+      ]
+    },
+    "Cape Verde Islands": {
+      "total_xg": 10.725,
+      "total_goles": 9.0,
+      "jugadores": [
+        {
+          "nombre": "Garry Rodrigues",
+          "xg": 1.54,
+          "goles": 1.0,
+          "tiros": 9.0
+        },
+        {
+          "nombre": "Ryan Mendes",
+          "xg": 1.428,
+          "goles": 2.0,
+          "tiros": 6.0
+        },
+        {
+          "nombre": "Bebé",
+          "xg": 1.292,
+          "goles": 1.0,
+          "tiros": 17.0
+        },
+        {
+          "nombre": "Willy Afonso Semedo Johnson",
+          "xg": 1.095,
+          "goles": 0.0,
+          "tiros": 5.0
+        },
+        {
+          "nombre": "Bryan Alberto Silva Teixeira Jr.",
+          "xg": 1.055,
+          "goles": 2.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Laros Duarte",
+          "xg": 0.783,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Patrick Andrade",
+          "xg": 0.783,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Jovane Cabral",
+          "xg": 0.724,
+          "goles": 0.0,
+          "tiros": 9.0
+        },
+        {
+          "nombre": "Jamiro Monteiro",
+          "xg": 0.595,
+          "goles": 1.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Gilson Tavares",
+          "xg": 0.515,
+          "goles": 1.0,
+          "tiros": 6.0
+        },
+        {
+          "nombre": "Deroy Duarte",
+          "xg": 0.249,
+          "goles": 0.0,
+          "tiros": 5.0
+        },
+        {
+          "nombre": "Kenny Rocha Santos",
+          "xg": 0.195,
+          "goles": 0.0,
+          "tiros": 4.0
+        }
+      ]
+    },
+    "Mozambique": {
+      "total_xg": 2.599,
+      "total_goles": 4.0,
+      "jugadores": [
+        {
+          "nombre": "Geny Cipriano Catamo",
+          "xg": 0.918,
+          "goles": 1.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Clésio Bauque",
+          "xg": 0.383,
+          "goles": 1.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Witi",
+          "xg": 0.265,
+          "goles": 1.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Bruno Langa",
+          "xg": 0.227,
+          "goles": 0.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Alfons Amade",
+          "xg": 0.172,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Gildo Lourenço",
+          "xg": 0.149,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Domingos Macandza",
+          "xg": 0.137,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Lau King",
+          "xg": 0.103,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Reinildo Mandava",
+          "xg": 0.086,
+          "goles": 1.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Nené",
+          "xg": 0.086,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Ricardo Guimarães",
+          "xg": 0.048,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Nanani",
+          "xg": 0.02,
+          "goles": 0.0,
+          "tiros": 1.0
+        }
+      ]
+    },
+    "Cameroon": {
+      "total_xg": 4.636,
+      "total_goles": 6.4,
+      "jugadores": [
+        {
+          "nombre": "Karl Toko Ekambi",
+          "xg": 0.915,
+          "goles": 1.0,
+          "tiros": 7.2
+        },
+        {
+          "nombre": "Jean-Charles Castelletto",
+          "xg": 0.672,
+          "goles": 1.6,
+          "tiros": 2.6
+        },
+        {
+          "nombre": "Frank Magri",
+          "xg": 0.556,
+          "goles": 1.0,
+          "tiros": 6.0
+        },
+        {
+          "nombre": "Georges-Kevin N'Koudou",
+          "xg": 0.46,
+          "goles": 0.0,
+          "tiros": 6.6
+        },
+        {
+          "nombre": "Vincent Aboubakar",
+          "xg": 0.317,
+          "goles": 1.2,
+          "tiros": 3.6
+        },
+        {
+          "nombre": "Eric Maxim Choupo-Moting",
+          "xg": 0.314,
+          "goles": 0.6,
+          "tiros": 1.8
+        },
+        {
+          "nombre": "Christopher Wooh",
+          "xg": 0.263,
+          "goles": 1.0,
+          "tiros": 2.6
+        },
+        {
+          "nombre": "André Zambo Anguissa",
+          "xg": 0.23,
+          "goles": 0.0,
+          "tiros": 1.6
+        },
+        {
+          "nombre": "Nicolas N'Koulou",
+          "xg": 0.229,
+          "goles": 0.0,
+          "tiros": 1.8
+        },
+        {
+          "nombre": "Olivier Ntcham",
+          "xg": 0.141,
+          "goles": 0.0,
+          "tiros": 5.6
+        },
+        {
+          "nombre": "Nouhou Tolo",
+          "xg": 0.137,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Pierre Kunde",
+          "xg": 0.112,
+          "goles": 0.0,
+          "tiros": 3.0
+        }
+      ]
+    },
+    "Gambia": {
+      "total_xg": 2.559,
+      "total_goles": 2.0,
+      "jugadores": [
+        {
+          "nombre": "Ali Sowe",
+          "xg": 0.698,
+          "goles": 0.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Ablie Jallow",
+          "xg": 0.416,
+          "goles": 1.0,
+          "tiros": 5.0
+        },
+        {
+          "nombre": "Alieu Fadera",
+          "xg": 0.268,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Musa Barrow",
+          "xg": 0.267,
+          "goles": 0.0,
+          "tiros": 8.0
+        },
+        {
+          "nombre": "Ebrima Colley",
+          "xg": 0.236,
+          "goles": 1.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Omar Colley",
+          "xg": 0.177,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Mohamed Badamosi",
+          "xg": 0.159,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Assan Ceesay",
+          "xg": 0.127,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Alasana Manneh",
+          "xg": 0.078,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Yankuba Minteh",
+          "xg": 0.069,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "James Gomez",
+          "xg": 0.036,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Ebrima Darboe",
+          "xg": 0.021,
+          "goles": 0.0,
+          "tiros": 1.0
+        }
+      ]
+    },
+    "Senegal": {
+      "total_xg": 11.695,
+      "total_goles": 16.0,
+      "jugadores": [
+        {
+          "nombre": "Ismaïla Sarr",
+          "xg": 2.128,
+          "goles": 1.6,
+          "tiros": 13.0
+        },
+        {
+          "nombre": "Habib Diallo",
+          "xg": 1.638,
+          "goles": 2.0,
+          "tiros": 5.0
+        },
+        {
+          "nombre": "Sadio Mané",
+          "xg": 1.544,
+          "goles": 2.0,
+          "tiros": 7.0
+        },
+        {
+          "nombre": "Kalidou Koulibaly",
+          "xg": 1.106,
+          "goles": 1.6,
+          "tiros": 4.6
+        },
+        {
+          "nombre": "Bamba Dieng",
+          "xg": 1.014,
+          "goles": 1.6,
+          "tiros": 3.4
+        },
+        {
+          "nombre": "Pape Sarr",
+          "xg": 0.854,
+          "goles": 1.0,
+          "tiros": 4.4
+        },
+        {
+          "nombre": "Moussa Niakhaté",
+          "xg": 0.783,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Abdoulaye Seck",
+          "xg": 0.513,
+          "goles": 1.0,
+          "tiros": 5.0
+        },
+        {
+          "nombre": "Boulaye Dia",
+          "xg": 0.397,
+          "goles": 0.6,
+          "tiros": 4.8
+        },
+        {
+          "nombre": "Pape Gueye",
+          "xg": 0.23,
+          "goles": 1.0,
+          "tiros": 4.4
+        },
+        {
+          "nombre": "Idrissa Gueye",
+          "xg": 0.199,
+          "goles": 0.0,
+          "tiros": 2.4
+        },
+        {
+          "nombre": "Iliman Ndiaye",
+          "xg": 0.198,
+          "goles": 1.0,
+          "tiros": 2.2
+        }
+      ]
+    },
+    "Nigeria": {
+      "total_xg": 13.672,
+      "total_goles": 11.0,
+      "jugadores": [
+        {
+          "nombre": "Victor Osimhen",
+          "xg": 3.113,
+          "goles": 1.0,
+          "tiros": 24.0
+        },
+        {
+          "nombre": "William Troost-Ekong",
+          "xg": 2.543,
+          "goles": 4.0,
+          "tiros": 6.0
+        },
+        {
+          "nombre": "Ademola Lookman",
+          "xg": 1.32,
+          "goles": 3.0,
+          "tiros": 8.0
+        },
+        {
+          "nombre": "Ola Aina",
+          "xg": 1.099,
+          "goles": 0.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Kelechi Iheanacho",
+          "xg": 0.958,
+          "goles": 1.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Terem Moffi",
+          "xg": 0.783,
+          "goles": 1.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Kenneth Omeruo",
+          "xg": 0.783,
+          "goles": 1.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Calvin Bassey",
+          "xg": 0.611,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Zaidu Sanusi",
+          "xg": 0.56,
+          "goles": 0.0,
+          "tiros": 6.0
+        },
+        {
+          "nombre": "Moses Simon",
+          "xg": 0.459,
+          "goles": 0.0,
+          "tiros": 5.0
+        },
+        {
+          "nombre": "Alex Iwobi",
+          "xg": 0.359,
+          "goles": 0.0,
+          "tiros": 7.0
+        },
+        {
+          "nombre": "Frank Onyeka",
+          "xg": 0.359,
+          "goles": 0.0,
+          "tiros": 6.0
+        }
+      ]
+    },
+    "Guinea-Bissau": {
+      "total_xg": 1.915,
+      "total_goles": 1.0,
+      "jugadores": [
+        {
+          "nombre": "Marciano Sanca",
+          "xg": 0.425,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Zé Turbo",
+          "xg": 0.353,
+          "goles": 1.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Franculino Djú",
+          "xg": 0.29,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Mama Baldé",
+          "xg": 0.229,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Dálcio",
+          "xg": 0.103,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Fali Candé",
+          "xg": 0.08,
+          "goles": 0.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Nito Gomes",
+          "xg": 0.075,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Famana Quizera",
+          "xg": 0.064,
+          "goles": 0.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Mauro Rodrigues",
+          "xg": 0.061,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Zinho Gano",
+          "xg": 0.06,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Alfa Semedo",
+          "xg": 0.054,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Opa Sangante",
+          "xg": 0.05,
+          "goles": 0.0,
+          "tiros": 1.0
+        }
+      ]
+    },
+    "Mali": {
+      "total_xg": 5.852,
+      "total_goles": 5.0,
+      "jugadores": [
+        {
+          "nombre": "Lassine Sinayoko",
+          "xg": 1.526,
+          "goles": 3.0,
+          "tiros": 9.0
+        },
+        {
+          "nombre": "Adama Traoré",
+          "xg": 0.977,
+          "goles": 0.0,
+          "tiros": 6.0
+        },
+        {
+          "nombre": "Hamari Traoré",
+          "xg": 0.921,
+          "goles": 1.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Amadou Haïdara",
+          "xg": 0.669,
+          "goles": 0.0,
+          "tiros": 9.0
+        },
+        {
+          "nombre": "Kamory Doumbia",
+          "xg": 0.537,
+          "goles": 0.0,
+          "tiros": 9.0
+        },
+        {
+          "nombre": "Sekou Koita",
+          "xg": 0.302,
+          "goles": 0.0,
+          "tiros": 6.0
+        },
+        {
+          "nombre": "Kiki Kouyaté",
+          "xg": 0.259,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Yves Bissouma",
+          "xg": 0.218,
+          "goles": 0.0,
+          "tiros": 6.0
+        },
+        {
+          "nombre": "Ibrahim Sissoko",
+          "xg": 0.123,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Mohamed Camara",
+          "xg": 0.071,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Nene Dorgeles",
+          "xg": 0.067,
+          "goles": 1.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Fousseni Diabaté",
+          "xg": 0.059,
+          "goles": 0.0,
+          "tiros": 2.0
+        }
+      ]
+    },
+    "Namibia": {
+      "total_xg": 3.706,
+      "total_goles": 1.0,
+      "jugadores": [
+        {
+          "nombre": "Peter Shalulile",
+          "xg": 1.373,
+          "goles": 0.0,
+          "tiros": 10.0
+        },
+        {
+          "nombre": "Absalom Iimbondi",
+          "xg": 0.459,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Prins Menelik Tjiueza",
+          "xg": 0.435,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Muzeu Bethuel",
+          "xg": 0.382,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Kennedy Amutenya",
+          "xg": 0.375,
+          "goles": 0.0,
+          "tiros": 6.0
+        },
+        {
+          "nombre": "Deon Hotto Kavendji",
+          "xg": 0.373,
+          "goles": 1.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Aprocious Petrus",
+          "xg": 0.114,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Ngero Kaanjuka Katua",
+          "xg": 0.089,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Petrus Shitembi",
+          "xg": 0.084,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Riaan Hanamub",
+          "xg": 0.021,
+          "goles": 0.0,
+          "tiros": 2.0
+        }
+      ]
+    },
+    "Zambia": {
+      "total_xg": 1.334,
+      "total_goles": 2.0,
+      "jugadores": [
+        {
+          "nombre": "Patson Daka",
+          "xg": 0.504,
+          "goles": 1.0,
+          "tiros": 5.0
+        },
+        {
+          "nombre": "Fashion Sakala",
+          "xg": 0.202,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Lameck Banda",
+          "xg": 0.2,
+          "goles": 0.0,
+          "tiros": 5.0
+        },
+        {
+          "nombre": "Kings Kangwa",
+          "xg": 0.181,
+          "goles": 1.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Kennedy Musonda",
+          "xg": 0.095,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Emmanuel Banda",
+          "xg": 0.088,
+          "goles": 0.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Edward Chilufya",
+          "xg": 0.042,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Miguel Changa Chaiwa",
+          "xg": 0.007,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Cletous Chama",
+          "xg": 0.007,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Lubambo Musonda",
+          "xg": 0.006,
+          "goles": 0.0,
+          "tiros": 1.0
+        }
+      ]
+    },
+    "South Africa": {
+      "total_xg": 19.24,
+      "total_goles": 17.0,
+      "jugadores": [
+        {
+          "nombre": "Teboho Mokoena",
+          "xg": 3.511,
+          "goles": 3.0,
+          "tiros": 22.0
+        },
+        {
+          "nombre": "Percy Tau",
+          "xg": 2.332,
+          "goles": 1.0,
+          "tiros": 12.0
+        },
+        {
+          "nombre": "Evidence Makgopa",
+          "xg": 2.053,
+          "goles": 1.0,
+          "tiros": 13.0
+        },
+        {
+          "nombre": "Aubrey Maphosa Modiba",
+          "xg": 1.635,
+          "goles": 1.0,
+          "tiros": 6.0
+        },
+        {
+          "nombre": "Zakhele Lerato Lepasa",
+          "xg": 1.617,
+          "goles": 1.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Mothobi Mvala",
+          "xg": 1.567,
+          "goles": 2.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Mihlali Samson Mayambela",
+          "xg": 1.387,
+          "goles": 1.0,
+          "tiros": 8.0
+        },
+        {
+          "nombre": "Siyanda Xulu",
+          "xg": 0.862,
+          "goles": 1.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Nkosinathi Sibisi",
+          "xg": 0.783,
+          "goles": 1.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Thabang Amod Monare",
+          "xg": 0.783,
+          "goles": 1.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Oswin Reagan Appollis",
+          "xg": 0.783,
+          "goles": 1.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Themba Zwane",
+          "xg": 0.563,
+          "goles": 2.0,
+          "tiros": 3.0
+        }
+      ]
+    },
+    "Guinea": {
+      "total_xg": 5.394,
+      "total_goles": 4.0,
+      "jugadores": [
+        {
+          "nombre": "Mohamed Bayo",
+          "xg": 1.77,
+          "goles": 3.0,
+          "tiros": 9.0
+        },
+        {
+          "nombre": "Morgan Guilavogui",
+          "xg": 1.142,
+          "goles": 0.0,
+          "tiros": 6.0
+        },
+        {
+          "nombre": "Aguibou Camara",
+          "xg": 0.493,
+          "goles": 1.0,
+          "tiros": 5.0
+        },
+        {
+          "nombre": "Facinet Conte",
+          "xg": 0.42,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Sekou Oumar Sylla",
+          "xg": 0.367,
+          "goles": 0.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Serhou Guirassy",
+          "xg": 0.345,
+          "goles": 0.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Julian Jeanvier",
+          "xg": 0.253,
+          "goles": 0.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Ilaix Moriba",
+          "xg": 0.217,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Mouctar Diakhaby",
+          "xg": 0.117,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Naby Keïta",
+          "xg": 0.108,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Ibrahim Diakité",
+          "xg": 0.079,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "François Kamano",
+          "xg": 0.045,
+          "goles": 0.0,
+          "tiros": 1.0
+        }
+      ]
+    },
+    "Algeria": {
+      "total_xg": 3.881,
+      "total_goles": 3.0,
+      "jugadores": [
+        {
+          "nombre": "Baghdad Bounedjah",
+          "xg": 1.891,
+          "goles": 3.0,
+          "tiros": 9.0
+        },
+        {
+          "nombre": "Aïssa Mandi",
+          "xg": 0.466,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Mohamed Youcef Belaïli",
+          "xg": 0.314,
+          "goles": 0.0,
+          "tiros": 10.0
+        },
+        {
+          "nombre": "Mohamed El Amine Amoura",
+          "xg": 0.3,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Hichem Boudaoui",
+          "xg": 0.13,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Fares Chaïbi",
+          "xg": 0.109,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Nabil Bentaleb",
+          "xg": 0.108,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Islam Slimani",
+          "xg": 0.106,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Houssem Aouar",
+          "xg": 0.082,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Youcef Atal",
+          "xg": 0.071,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Rayan Aït Nouri",
+          "xg": 0.07,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Kévin Daniel Van Den Kerkhof",
+          "xg": 0.069,
+          "goles": 0.0,
+          "tiros": 2.0
+        }
+      ]
+    },
+    "Mauritania": {
+      "total_xg": 3.732,
+      "total_goles": 3.0,
+      "jugadores": [
+        {
+          "nombre": "Pape Ibnou Bâ",
+          "xg": 0.894,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Souleymane Anne",
+          "xg": 0.583,
+          "goles": 0.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Aboubakary Koita",
+          "xg": 0.517,
+          "goles": 1.0,
+          "tiros": 12.0
+        },
+        {
+          "nombre": "Sidi Bouna Sidi Amar",
+          "xg": 0.396,
+          "goles": 1.0,
+          "tiros": 7.0
+        },
+        {
+          "nombre": "Hemeya Tanjy",
+          "xg": 0.254,
+          "goles": 0.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Guessouma Fofana",
+          "xg": 0.239,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Idrissa Thiam",
+          "xg": 0.199,
+          "goles": 0.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Nouh Mohamed El Abd",
+          "xg": 0.161,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Bodda Mouhsine",
+          "xg": 0.128,
+          "goles": 0.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Mohamed Dellahi Yali",
+          "xg": 0.104,
+          "goles": 1.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "El-Hadji Ba",
+          "xg": 0.091,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Aboubakar Kamara",
+          "xg": 0.088,
+          "goles": 0.0,
+          "tiros": 2.0
+        }
+      ]
+    },
+    "Tunisia": {
+      "total_xg": 3.865,
+      "total_goles": 1.6,
+      "jugadores": [
+        {
+          "nombre": "Youssef Msakni",
+          "xg": 1.045,
+          "goles": 0.0,
+          "tiros": 11.4
+        },
+        {
+          "nombre": "Haythem Jouini",
+          "xg": 0.632,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Hamza Rafia",
+          "xg": 0.359,
+          "goles": 1.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Issam Jebali",
+          "xg": 0.356,
+          "goles": 0.0,
+          "tiros": 1.8
+        },
+        {
+          "nombre": "Yassine Meriah",
+          "xg": 0.321,
+          "goles": 0.0,
+          "tiros": 2.6
+        },
+        {
+          "nombre": "Mohamed Dräger",
+          "xg": 0.182,
+          "goles": 0.0,
+          "tiros": 2.4
+        },
+        {
+          "nombre": "Wahbi Khazri",
+          "xg": 0.179,
+          "goles": 0.6,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Ellyes Joris Skhiri",
+          "xg": 0.137,
+          "goles": 0.0,
+          "tiros": 3.2
+        },
+        {
+          "nombre": "Taha Yassine Khenissi",
+          "xg": 0.108,
+          "goles": 0.0,
+          "tiros": 1.6
+        },
+        {
+          "nombre": "Naïm Sliti",
+          "xg": 0.095,
+          "goles": 0.0,
+          "tiros": 1.6
+        },
+        {
+          "nombre": "Anis Slimane",
+          "xg": 0.084,
+          "goles": 0.0,
+          "tiros": 3.6
+        },
+        {
+          "nombre": "Mohamed Elias Achouri",
+          "xg": 0.077,
+          "goles": 0.0,
+          "tiros": 1.0
+        }
+      ]
+    },
+    "Angola": {
+      "total_xg": 6.666,
+      "total_goles": 9.0,
+      "jugadores": [
+        {
+          "nombre": "Mabululu",
+          "xg": 1.933,
+          "goles": 3.0,
+          "tiros": 14.0
+        },
+        {
+          "nombre": "Gelson",
+          "xg": 1.522,
+          "goles": 4.0,
+          "tiros": 9.0
+        },
+        {
+          "nombre": "Zini",
+          "xg": 1.148,
+          "goles": 1.0,
+          "tiros": 7.0
+        },
+        {
+          "nombre": "Gilberto",
+          "xg": 0.659,
+          "goles": 1.0,
+          "tiros": 6.0
+        },
+        {
+          "nombre": "Jonathan Buatu",
+          "xg": 0.568,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Fredy",
+          "xg": 0.397,
+          "goles": 0.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Zito Luvumbo",
+          "xg": 0.143,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Kialonda Gaspar",
+          "xg": 0.091,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Estrela",
+          "xg": 0.06,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Jérémy Bela",
+          "xg": 0.049,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Loide Augusto",
+          "xg": 0.04,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Show",
+          "xg": 0.037,
+          "goles": 0.0,
+          "tiros": 2.0
+        }
+      ]
+    },
+    "Morocco": {
+      "total_xg": 13.074,
+      "total_goles": 10.4,
+      "jugadores": [
+        {
+          "nombre": "Youssef En-Nesyri",
+          "xg": 2.14,
+          "goles": 2.2,
+          "tiros": 14.6
+        },
+        {
+          "nombre": "Achraf Hakimi",
+          "xg": 1.611,
+          "goles": 1.6,
+          "tiros": 9.0
+        },
+        {
+          "nombre": "Ayoub El Kaabi",
+          "xg": 1.332,
+          "goles": 0.0,
+          "tiros": 6.0
+        },
+        {
+          "nombre": "Hakim Ziyech",
+          "xg": 0.952,
+          "goles": 2.2,
+          "tiros": 13.6
+        },
+        {
+          "nombre": "Romain Saïss",
+          "xg": 0.745,
+          "goles": 1.6,
+          "tiros": 1.6
+        },
+        {
+          "nombre": "Tarik Tissoudali",
+          "xg": 0.724,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Amine Adli",
+          "xg": 0.714,
+          "goles": 0.0,
+          "tiros": 5.0
+        },
+        {
+          "nombre": "Azzedine Ounahi",
+          "xg": 0.643,
+          "goles": 1.0,
+          "tiros": 10.6
+        },
+        {
+          "nombre": "Abdelhamid Sabiri",
+          "xg": 0.544,
+          "goles": 0.6,
+          "tiros": 2.4
+        },
+        {
+          "nombre": "Sofiane Boufal",
+          "xg": 0.502,
+          "goles": 0.0,
+          "tiros": 8.2
+        },
+        {
+          "nombre": "Badr Banoun",
+          "xg": 0.47,
+          "goles": 0.0,
+          "tiros": 0.6
+        },
+        {
+          "nombre": "Abde Ezzalzouli",
+          "xg": 0.385,
+          "goles": 0.0,
+          "tiros": 4.6
+        }
+      ]
+    },
+    "Tanzania": {
+      "total_xg": 0.461,
+      "total_goles": 1.0,
+      "jugadores": [
+        {
+          "nombre": "Simon Happygod Msuva",
+          "xg": 0.184,
+          "goles": 1.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Ibrahim Abdallah Hamad",
+          "xg": 0.073,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Morice Michael Abraham",
+          "xg": 0.064,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Denis Kibu",
+          "xg": 0.063,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Mbwana Samatta",
+          "xg": 0.057,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Faisal Salum Abdalla",
+          "xg": 0.007,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Mohamed Hussein Mohamed",
+          "xg": 0.007,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Novatus Dismas Miroshi",
+          "xg": 0.005,
+          "goles": 0.0,
+          "tiros": 1.0
+        }
+      ]
+    },
+    "Burkina Faso": {
+      "total_xg": 4.851,
+      "total_goles": 4.0,
+      "jugadores": [
+        {
+          "nombre": "Bertrand Traoré",
+          "xg": 2.532,
+          "goles": 3.0,
+          "tiros": 11.0
+        },
+        {
+          "nombre": "Mohamed Konaté",
+          "xg": 0.707,
+          "goles": 1.0,
+          "tiros": 8.0
+        },
+        {
+          "nombre": "Dango Ouattara",
+          "xg": 0.346,
+          "goles": 0.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Issoufou Dayo",
+          "xg": 0.281,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Edmond Fayçal Tapsoba",
+          "xg": 0.261,
+          "goles": 0.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Stephane Ki",
+          "xg": 0.207,
+          "goles": 0.0,
+          "tiros": 8.0
+        },
+        {
+          "nombre": "Issa Kabore",
+          "xg": 0.2,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Blati",
+          "xg": 0.065,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Adama Guira",
+          "xg": 0.063,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Gustavo Sangaré",
+          "xg": 0.06,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Djibril Cheick Ouattara",
+          "xg": 0.049,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Abdoul Tapsoba",
+          "xg": 0.048,
+          "goles": 0.0,
+          "tiros": 1.0
+        }
+      ]
+    },
+    "Equatorial Guinea": {
+      "total_xg": 4.158,
+      "total_goles": 9.0,
+      "jugadores": [
+        {
+          "nombre": "Emilio Nsue",
+          "xg": 2.952,
+          "goles": 5.0,
+          "tiros": 9.0
+        },
+        {
+          "nombre": "Luis Nlavo",
+          "xg": 0.33,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Jannick Buyla",
+          "xg": 0.252,
+          "goles": 1.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Josete Miranda",
+          "xg": 0.197,
+          "goles": 1.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Pablo Ganet",
+          "xg": 0.117,
+          "goles": 1.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Ibán Salvador",
+          "xg": 0.096,
+          "goles": 1.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "José Nabil",
+          "xg": 0.06,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Pepín Machín",
+          "xg": 0.053,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Saúl Coco",
+          "xg": 0.033,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Federico Bikoro Akieme Nchama",
+          "xg": 0.032,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Basilio Ndong",
+          "xg": 0.024,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Óscar Siafá",
+          "xg": 0.012,
+          "goles": 0.0,
+          "tiros": 1.0
+        }
+      ]
+    },
+    "Ivory Coast": {
+      "total_xg": 11.523,
+      "total_goles": 13.0,
+      "jugadores": [
+        {
+          "nombre": "Franck Kessié",
+          "xg": 2.139,
+          "goles": 3.0,
+          "tiros": 11.0
+        },
+        {
+          "nombre": "Sébastien Haller",
+          "xg": 1.884,
+          "goles": 3.0,
+          "tiros": 11.0
+        },
+        {
+          "nombre": "Christian Kouamé",
+          "xg": 1.385,
+          "goles": 1.0,
+          "tiros": 5.0
+        },
+        {
+          "nombre": "Nicolas Pépé",
+          "xg": 1.063,
+          "goles": 1.0,
+          "tiros": 5.0
+        },
+        {
+          "nombre": "Serge Aurier",
+          "xg": 0.806,
+          "goles": 1.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Jean-Philippe Krasso",
+          "xg": 0.67,
+          "goles": 1.0,
+          "tiros": 7.0
+        },
+        {
+          "nombre": "Seko Fofana",
+          "xg": 0.619,
+          "goles": 1.0,
+          "tiros": 17.0
+        },
+        {
+          "nombre": "Evan N'Dicka",
+          "xg": 0.428,
+          "goles": 0.0,
+          "tiros": 7.0
+        },
+        {
+          "nombre": "Max Gradel",
+          "xg": 0.417,
+          "goles": 0.0,
+          "tiros": 6.0
+        },
+        {
+          "nombre": "Karim Konaté",
+          "xg": 0.414,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Simon Adingra",
+          "xg": 0.405,
+          "goles": 1.0,
+          "tiros": 6.0
+        },
+        {
+          "nombre": "Oumar Diakité",
+          "xg": 0.346,
+          "goles": 1.0,
+          "tiros": 3.0
+        }
+      ]
+    },
+    "Ghana": {
+      "total_xg": 5.719,
+      "total_goles": 8.0,
+      "jugadores": [
+        {
+          "nombre": "Jordan Ayew",
+          "xg": 1.629,
+          "goles": 2.0,
+          "tiros": 3.6
+        },
+        {
+          "nombre": "Mohammed Kudus",
+          "xg": 0.805,
+          "goles": 3.2,
+          "tiros": 13.8
+        },
+        {
+          "nombre": "Ransford Königsdörffer",
+          "xg": 0.775,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "André Ayew",
+          "xg": 0.761,
+          "goles": 0.6,
+          "tiros": 1.2
+        },
+        {
+          "nombre": "Joseph Paintsil",
+          "xg": 0.293,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Mohamed Salisu",
+          "xg": 0.257,
+          "goles": 0.6,
+          "tiros": 1.2
+        },
+        {
+          "nombre": "Iddrisu Baba",
+          "xg": 0.257,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Iñaki Williams",
+          "xg": 0.173,
+          "goles": 0.0,
+          "tiros": 2.2
+        },
+        {
+          "nombre": "Antoine Semenyo",
+          "xg": 0.151,
+          "goles": 0.0,
+          "tiros": 2.6
+        },
+        {
+          "nombre": "Osman Bukari",
+          "xg": 0.148,
+          "goles": 0.6,
+          "tiros": 1.8
+        },
+        {
+          "nombre": "Thomas Partey",
+          "xg": 0.141,
+          "goles": 0.0,
+          "tiros": 1.2
+        },
+        {
+          "nombre": "Alexander Djiku",
+          "xg": 0.097,
+          "goles": 1.0,
+          "tiros": 1.0
+        }
+      ]
+    },
+    "Colombia": {
+      "total_xg": 9.352,
+      "total_goles": 12.0,
+      "jugadores": [
+        {
+          "nombre": "Luis Díaz",
+          "xg": 1.432,
+          "goles": 2.0,
+          "tiros": 9.0
+        },
+        {
+          "nombre": "Jhon Córdoba",
+          "xg": 1.368,
+          "goles": 2.0,
+          "tiros": 11.0
+        },
+        {
+          "nombre": "Davinson Sánchez",
+          "xg": 1.277,
+          "goles": 1.0,
+          "tiros": 7.0
+        },
+        {
+          "nombre": "James Rodríguez",
+          "xg": 1.112,
+          "goles": 1.0,
+          "tiros": 8.0
+        },
+        {
+          "nombre": "Miguel Borja",
+          "xg": 0.843,
+          "goles": 1.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Mateus Uribe",
+          "xg": 0.759,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Daniel Muñoz",
+          "xg": 0.606,
+          "goles": 2.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Jefferson Lerma",
+          "xg": 0.329,
+          "goles": 2.0,
+          "tiros": 8.0
+        },
+        {
+          "nombre": "Carlos Cuesta",
+          "xg": 0.32,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Rafael Borré",
+          "xg": 0.305,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Richard",
+          "xg": 0.233,
+          "goles": 1.0,
+          "tiros": 8.0
+        },
+        {
+          "nombre": "Yáser Asprilla",
+          "xg": 0.218,
+          "goles": 0.0,
+          "tiros": 2.0
+        }
+      ]
+    },
+    "Brazil": {
+      "total_xg": 17.667,
+      "total_goles": 13.0,
+      "jugadores": [
+        {
+          "nombre": "Lucas Paquetá",
+          "xg": 2.636,
+          "goles": 1.6,
+          "tiros": 13.4
+        },
+        {
+          "nombre": "Rodrygo",
+          "xg": 1.651,
+          "goles": 0.0,
+          "tiros": 14.2
+        },
+        {
+          "nombre": "Raphinha",
+          "xg": 1.391,
+          "goles": 1.0,
+          "tiros": 12.8
+        },
+        {
+          "nombre": "Neymar",
+          "xg": 1.278,
+          "goles": 1.2,
+          "tiros": 7.2
+        },
+        {
+          "nombre": "Vinícius Júnior",
+          "xg": 1.219,
+          "goles": 2.6,
+          "tiros": 9.4
+        },
+        {
+          "nombre": "Gabriel Martinelli",
+          "xg": 1.027,
+          "goles": 1.0,
+          "tiros": 3.4
+        },
+        {
+          "nombre": "Éder Militão",
+          "xg": 1.004,
+          "goles": 0.0,
+          "tiros": 5.0
+        },
+        {
+          "nombre": "Richarlison",
+          "xg": 0.971,
+          "goles": 1.8,
+          "tiros": 4.8
+        },
+        {
+          "nombre": "Andreas Pereira",
+          "xg": 0.825,
+          "goles": 1.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Douglas Luiz",
+          "xg": 0.783,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Sávio",
+          "xg": 0.773,
+          "goles": 1.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Pedro",
+          "xg": 0.729,
+          "goles": 0.6,
+          "tiros": 3.0
+        }
+      ]
+    },
+    "Jamaica": {
+      "total_xg": 2.108,
+      "total_goles": 1.0,
+      "jugadores": [
+        {
+          "nombre": "Renaldo Cephas",
+          "xg": 0.537,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Shamar Nicholson",
+          "xg": 0.504,
+          "goles": 0.0,
+          "tiros": 6.0
+        },
+        {
+          "nombre": "Michail Antonio",
+          "xg": 0.481,
+          "goles": 1.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Ethan Pinnock",
+          "xg": 0.126,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Demarai Gray",
+          "xg": 0.099,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Kasey Palmer",
+          "xg": 0.08,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Bobby De Cordova-Reid",
+          "xg": 0.077,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Di'Shon Bernard",
+          "xg": 0.055,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Dexter Lembikisa",
+          "xg": 0.052,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Kaheim Dixon",
+          "xg": 0.047,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Michael Hector",
+          "xg": 0.025,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Damion Lowe",
+          "xg": 0.018,
+          "goles": 0.0,
+          "tiros": 1.0
+        }
+      ]
+    },
+    "Venezuela": {
+      "total_xg": 10.061,
+      "total_goles": 10.0,
+      "jugadores": [
+        {
+          "nombre": "Salomón Rondón",
+          "xg": 3.102,
+          "goles": 4.0,
+          "tiros": 19.0
+        },
+        {
+          "nombre": "Yangel Herrera",
+          "xg": 1.091,
+          "goles": 0.0,
+          "tiros": 8.0
+        },
+        {
+          "nombre": "Jhonder Cádiz",
+          "xg": 0.932,
+          "goles": 2.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Tomás Rincón",
+          "xg": 0.832,
+          "goles": 1.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Jefferson Savarino",
+          "xg": 0.783,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Wílker Ángel",
+          "xg": 0.783,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Yordan Osorio",
+          "xg": 0.698,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Eric Ramirez",
+          "xg": 0.554,
+          "goles": 1.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Eduard Bello",
+          "xg": 0.533,
+          "goles": 2.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Yeferson Soteldo",
+          "xg": 0.195,
+          "goles": 0.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "José Martínez",
+          "xg": 0.195,
+          "goles": 0.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Darwin Machís",
+          "xg": 0.145,
+          "goles": 0.0,
+          "tiros": 4.0
+        }
+      ]
+    },
+    "Uruguay": {
+      "total_xg": 16.869,
+      "total_goles": 20.2,
+      "jugadores": [
+        {
+          "nombre": "Giorgian De Arrascaeta",
+          "xg": 2.351,
+          "goles": 3.2,
+          "tiros": 5.8
+        },
+        {
+          "nombre": "Rodrigo Bentancur",
+          "xg": 2.247,
+          "goles": 4.0,
+          "tiros": 5.8
+        },
+        {
+          "nombre": "Federico Valverde",
+          "xg": 2.227,
+          "goles": 3.0,
+          "tiros": 21.2
+        },
+        {
+          "nombre": "Darwin Núñez",
+          "xg": 1.991,
+          "goles": 2.0,
+          "tiros": 22.8
+        },
+        {
+          "nombre": "Luis Suárez",
+          "xg": 1.949,
+          "goles": 2.0,
+          "tiros": 7.2
+        },
+        {
+          "nombre": "José Giménez",
+          "xg": 1.228,
+          "goles": 0.0,
+          "tiros": 6.8
+        },
+        {
+          "nombre": "Facundo Pellistri",
+          "xg": 1.067,
+          "goles": 1.0,
+          "tiros": 3.6
+        },
+        {
+          "nombre": "Manuel Ugarte",
+          "xg": 0.963,
+          "goles": 1.0,
+          "tiros": 5.0
+        },
+        {
+          "nombre": "Maximiliano Araújo",
+          "xg": 0.896,
+          "goles": 2.0,
+          "tiros": 11.0
+        },
+        {
+          "nombre": "Mathías Olivera",
+          "xg": 0.82,
+          "goles": 1.0,
+          "tiros": 5.2
+        },
+        {
+          "nombre": "Nicolás De La Cruz",
+          "xg": 0.203,
+          "goles": 0.0,
+          "tiros": 5.6
+        },
+        {
+          "nombre": "Nahitan Nández",
+          "xg": 0.17,
+          "goles": 0.0,
+          "tiros": 1.0
+        }
+      ]
+    },
+    "Bolivia": {
+      "total_xg": 0.994,
+      "total_goles": 1.0,
+      "jugadores": [
+        {
+          "nombre": "Bruno Miranda",
+          "xg": 0.425,
+          "goles": 1.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Miguel Ángel Terceros",
+          "xg": 0.318,
+          "goles": 0.0,
+          "tiros": 7.0
+        },
+        {
+          "nombre": "Gabriel Alejandro Villamíl Cortéz",
+          "xg": 0.153,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Roberto Fernández",
+          "xg": 0.027,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Luis Haquín",
+          "xg": 0.027,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Ramiro Vaca Ponce",
+          "xg": 0.027,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Carmelo Algarañaz Añez",
+          "xg": 0.012,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Fernando Javier Saucedo Pereyra",
+          "xg": 0.007,
+          "goles": 0.0,
+          "tiros": 1.0
+        }
+      ]
+    },
+    "Chile": {
+      "total_xg": 1.61,
+      "total_goles": 0.0,
+      "jugadores": [
+        {
+          "nombre": "Alexis Sánchez",
+          "xg": 0.642,
+          "goles": 0.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Rodrigo Echeverría",
+          "xg": 0.305,
+          "goles": 0.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Víctor Dávila",
+          "xg": 0.268,
+          "goles": 0.0,
+          "tiros": 5.0
+        },
+        {
+          "nombre": "Igor Lichnovsky",
+          "xg": 0.187,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Ben Brereton Díaz",
+          "xg": 0.079,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Marcelino Núñez",
+          "xg": 0.079,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "César Ignacio Pérez Maldonado",
+          "xg": 0.027,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Darío Osorio",
+          "xg": 0.023,
+          "goles": 0.0,
+          "tiros": 1.0
+        }
+      ]
+    },
+    "Peru": {
+      "total_xg": 1.42,
+      "total_goles": 0.0,
+      "jugadores": [
+        {
+          "nombre": "Gianluca Lapadula Vargas",
+          "xg": 0.5,
+          "goles": 0.0,
+          "tiros": 8.0
+        },
+        {
+          "nombre": "Paolo Guerrero",
+          "xg": 0.269,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Piero Quispe",
+          "xg": 0.208,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Christian Cueva",
+          "xg": 0.104,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Miguel Araujo",
+          "xg": 0.09,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Edison Flores",
+          "xg": 0.059,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Franco Zanelatto",
+          "xg": 0.058,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Carlos Zambrano",
+          "xg": 0.046,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Jesús Castillo",
+          "xg": 0.031,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "André Carrillo",
+          "xg": 0.022,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Marcos López",
+          "xg": 0.021,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Wilder Cartagena",
+          "xg": 0.008,
+          "goles": 0.0,
+          "tiros": 1.0
+        }
+      ]
+    },
+    "Ecuador": {
+      "total_xg": 10.214,
+      "total_goles": 8.4,
+      "jugadores": [
+        {
+          "nombre": "Enner Valencia",
+          "xg": 2.044,
+          "goles": 1.8,
+          "tiros": 9.4
+        },
+        {
+          "nombre": "Kendry Páez",
+          "xg": 1.66,
+          "goles": 1.0,
+          "tiros": 11.0
+        },
+        {
+          "nombre": "Alan Steve Minda García",
+          "xg": 1.254,
+          "goles": 1.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Jordy Josué Caicedo Medina",
+          "xg": 0.984,
+          "goles": 1.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "John Yeboah",
+          "xg": 0.891,
+          "goles": 1.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Ángel Mena",
+          "xg": 0.836,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Félix Torres",
+          "xg": 0.555,
+          "goles": 0.0,
+          "tiros": 5.6
+        },
+        {
+          "nombre": "Moisés Caicedo",
+          "xg": 0.49,
+          "goles": 0.6,
+          "tiros": 4.8
+        },
+        {
+          "nombre": "Jeremy Sarmiento",
+          "xg": 0.404,
+          "goles": 1.0,
+          "tiros": 6.6
+        },
+        {
+          "nombre": "Angelo Preciado",
+          "xg": 0.262,
+          "goles": 0.0,
+          "tiros": 7.4
+        },
+        {
+          "nombre": "Kevin Rodríguez",
+          "xg": 0.204,
+          "goles": 1.0,
+          "tiros": 5.6
+        },
+        {
+          "nombre": "Pervis Estupiñán",
+          "xg": 0.162,
+          "goles": 0.0,
+          "tiros": 1.2
+        }
+      ]
+    },
+    "Argentina": {
+      "total_xg": 28.634,
+      "total_goles": 26.8,
+      "jugadores": [
+        {
+          "nombre": "Lionel Messi",
+          "xg": 7.392,
+          "goles": 6.4,
+          "tiros": 34.4
+        },
+        {
+          "nombre": "Lautaro Martínez",
+          "xg": 4.631,
+          "goles": 5.6,
+          "tiros": 20.0
+        },
+        {
+          "nombre": "Julián Álvarez",
+          "xg": 3.471,
+          "goles": 5.4,
+          "tiros": 16.6
+        },
+        {
+          "nombre": "Leandro Paredes",
+          "xg": 1.787,
+          "goles": 1.2,
+          "tiros": 5.8
+        },
+        {
+          "nombre": "Gonzalo Montiel",
+          "xg": 1.736,
+          "goles": 2.2,
+          "tiros": 2.8
+        },
+        {
+          "nombre": "Alexis MacAllister",
+          "xg": 1.71,
+          "goles": 1.6,
+          "tiros": 11.2
+        },
+        {
+          "nombre": "Nicolás Otamendi",
+          "xg": 1.536,
+          "goles": 1.0,
+          "tiros": 3.6
+        },
+        {
+          "nombre": "Enzo Fernandez",
+          "xg": 1.02,
+          "goles": 0.6,
+          "tiros": 11.4
+        },
+        {
+          "nombre": "Ángel Di María",
+          "xg": 0.869,
+          "goles": 0.6,
+          "tiros": 10.2
+        },
+        {
+          "nombre": "Lisandro Martínez",
+          "xg": 0.776,
+          "goles": 1.0,
+          "tiros": 5.6
+        },
+        {
+          "nombre": "Nicolás Tagliafico",
+          "xg": 0.695,
+          "goles": 0.0,
+          "tiros": 4.8
+        },
+        {
+          "nombre": "Nicolás González",
+          "xg": 0.662,
+          "goles": 0.0,
+          "tiros": 5.0
+        }
+      ]
+    },
+    "Paraguay": {
+      "total_xg": 2.959,
+      "total_goles": 3.0,
+      "jugadores": [
+        {
+          "nombre": "Julio Enciso",
+          "xg": 0.662,
+          "goles": 1.0,
+          "tiros": 14.0
+        },
+        {
+          "nombre": "Ángel Romero",
+          "xg": 0.629,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Alex Arce",
+          "xg": 0.438,
+          "goles": 0.0,
+          "tiros": 5.0
+        },
+        {
+          "nombre": "Mathías Villasanti",
+          "xg": 0.411,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Fabián Balbuena",
+          "xg": 0.303,
+          "goles": 0.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Damián Bobadilla",
+          "xg": 0.175,
+          "goles": 0.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Ramón Sosa",
+          "xg": 0.135,
+          "goles": 1.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Omar Alderete",
+          "xg": 0.073,
+          "goles": 1.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Gustavo Velázquez",
+          "xg": 0.057,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Miguel Almirón",
+          "xg": 0.033,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Matías Espinoza",
+          "xg": 0.024,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Matías Rojas",
+          "xg": 0.02,
+          "goles": 0.0,
+          "tiros": 1.0
+        }
+      ]
+    },
+    "United States": {
+      "total_xg": 6.153,
+      "total_goles": 4.8,
+      "jugadores": [
+        {
+          "nombre": "Ricardo Daniel Pepi",
+          "xg": 2.158,
+          "goles": 0.0,
+          "tiros": 7.0
+        },
+        {
+          "nombre": "Christian Pulisic",
+          "xg": 1.057,
+          "goles": 1.6,
+          "tiros": 12.4
+        },
+        {
+          "nombre": "Haji Wright",
+          "xg": 0.487,
+          "goles": 0.6,
+          "tiros": 5.2
+        },
+        {
+          "nombre": "Timothy Weah",
+          "xg": 0.481,
+          "goles": 0.6,
+          "tiros": 6.0
+        },
+        {
+          "nombre": "Weston McKennie",
+          "xg": 0.463,
+          "goles": 0.0,
+          "tiros": 5.0
+        },
+        {
+          "nombre": "Josh Sargent",
+          "xg": 0.258,
+          "goles": 0.0,
+          "tiros": 3.4
+        },
+        {
+          "nombre": "Folarin Balogun",
+          "xg": 0.246,
+          "goles": 2.0,
+          "tiros": 5.0
+        },
+        {
+          "nombre": "Chris Richards",
+          "xg": 0.179,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Tim Ream",
+          "xg": 0.155,
+          "goles": 0.0,
+          "tiros": 0.6
+        },
+        {
+          "nombre": "Sergiño Dest",
+          "xg": 0.151,
+          "goles": 0.0,
+          "tiros": 3.6
+        },
+        {
+          "nombre": "Giovanni Reyna",
+          "xg": 0.125,
+          "goles": 0.0,
+          "tiros": 2.2
+        },
+        {
+          "nombre": "Yunus Dimoara Musah",
+          "xg": 0.118,
+          "goles": 0.0,
+          "tiros": 2.4
+        }
+      ]
+    },
+    "Mexico": {
+      "total_xg": 6.293,
+      "total_goles": 2.2,
+      "jugadores": [
+        {
+          "nombre": "Orbelín Pineda",
+          "xg": 1.115,
+          "goles": 0.0,
+          "tiros": 5.4
+        },
+        {
+          "nombre": "Santiago Giménez",
+          "xg": 1.029,
+          "goles": 0.0,
+          "tiros": 8.0
+        },
+        {
+          "nombre": "Luis Chávez",
+          "xg": 0.438,
+          "goles": 0.6,
+          "tiros": 13.0
+        },
+        {
+          "nombre": "Alexis Vega",
+          "xg": 0.415,
+          "goles": 0.0,
+          "tiros": 5.4
+        },
+        {
+          "nombre": "Henry Martín",
+          "xg": 0.401,
+          "goles": 0.6,
+          "tiros": 2.4
+        },
+        {
+          "nombre": "Julián Quiñones",
+          "xg": 0.391,
+          "goles": 0.0,
+          "tiros": 8.0
+        },
+        {
+          "nombre": "Guillermo Martínez Ayala",
+          "xg": 0.359,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "César Huerta",
+          "xg": 0.297,
+          "goles": 0.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Uriel Antuna",
+          "xg": 0.272,
+          "goles": 0.0,
+          "tiros": 3.2
+        },
+        {
+          "nombre": "Luis Romo",
+          "xg": 0.267,
+          "goles": 0.0,
+          "tiros": 6.0
+        },
+        {
+          "nombre": "Johan Vásquez",
+          "xg": 0.252,
+          "goles": 0.0,
+          "tiros": 5.0
+        },
+        {
+          "nombre": "César Montes",
+          "xg": 0.202,
+          "goles": 0.0,
+          "tiros": 3.6
+        }
+      ]
+    },
+    "Canada": {
+      "total_xg": 17.918,
+      "total_goles": 11.6,
+      "jugadores": [
+        {
+          "nombre": "Jonathan David",
+          "xg": 3.391,
+          "goles": 4.0,
+          "tiros": 14.8
+        },
+        {
+          "nombre": "Alphonso Davies",
+          "xg": 2.525,
+          "goles": 1.6,
+          "tiros": 10.4
+        },
+        {
+          "nombre": "Ismael Koné",
+          "xg": 2.029,
+          "goles": 2.0,
+          "tiros": 7.0
+        },
+        {
+          "nombre": "Tanitoluwa Oluwaseyi",
+          "xg": 1.776,
+          "goles": 0.0,
+          "tiros": 9.0
+        },
+        {
+          "nombre": "Moise Bombito",
+          "xg": 1.697,
+          "goles": 2.0,
+          "tiros": 5.0
+        },
+        {
+          "nombre": "Stephen Antunes Eustáquio",
+          "xg": 1.286,
+          "goles": 0.0,
+          "tiros": 5.8
+        },
+        {
+          "nombre": "Liam Millar",
+          "xg": 0.962,
+          "goles": 0.0,
+          "tiros": 6.0
+        },
+        {
+          "nombre": "Mathieu Choinière",
+          "xg": 0.783,
+          "goles": 1.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Cyle Larin",
+          "xg": 0.782,
+          "goles": 0.0,
+          "tiros": 8.8
+        },
+        {
+          "nombre": "Tajon Buchanan",
+          "xg": 0.72,
+          "goles": 0.0,
+          "tiros": 5.0
+        },
+        {
+          "nombre": "Jonathan Osorio",
+          "xg": 0.699,
+          "goles": 0.0,
+          "tiros": 2.6
+        },
+        {
+          "nombre": "Alistair Johnston",
+          "xg": 0.415,
+          "goles": 0.0,
+          "tiros": 2.2
+        }
+      ]
+    },
+    "Costa Rica": {
+      "total_xg": 1.215,
+      "total_goles": 3.2,
+      "jugadores": [
+        {
+          "nombre": "Yeltsin Tejeda",
+          "xg": 0.313,
+          "goles": 0.6,
+          "tiros": 1.2
+        },
+        {
+          "nombre": "Francisco Calvo",
+          "xg": 0.239,
+          "goles": 1.0,
+          "tiros": 1.6
+        },
+        {
+          "nombre": "Keysher Fuller Spence",
+          "xg": 0.187,
+          "goles": 0.6,
+          "tiros": 1.8
+        },
+        {
+          "nombre": "Juan Pablo Vargas",
+          "xg": 0.111,
+          "goles": 0.0,
+          "tiros": 0.6
+        },
+        {
+          "nombre": "Warren Steven Madrigal Molina",
+          "xg": 0.064,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Kendall Waston",
+          "xg": 0.06,
+          "goles": 0.0,
+          "tiros": 0.6
+        },
+        {
+          "nombre": "Orlando Moisés Galo Calderón",
+          "xg": 0.056,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Josimar Alcócer",
+          "xg": 0.041,
+          "goles": 1.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Joel Campbell",
+          "xg": 0.031,
+          "goles": 0.0,
+          "tiros": 0.6
+        },
+        {
+          "nombre": "Jefferson Brenes Rojas",
+          "xg": 0.028,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Jewison Bennette",
+          "xg": 0.023,
+          "goles": 0.0,
+          "tiros": 0.6
+        },
+        {
+          "nombre": "Álvaro José Zamora Mata",
+          "xg": 0.02,
+          "goles": 0.0,
+          "tiros": 1.0
+        }
+      ]
+    },
+    "Panama": {
+      "total_xg": 3.222,
+      "total_goles": 6.0,
+      "jugadores": [
+        {
+          "nombre": "José Fajardo Nelson",
+          "xg": 0.803,
+          "goles": 2.0,
+          "tiros": 8.0
+        },
+        {
+          "nombre": "Kahiser Lenis",
+          "xg": 0.442,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Édgar Yoel Bárcenas",
+          "xg": 0.381,
+          "goles": 0.0,
+          "tiros": 6.0
+        },
+        {
+          "nombre": "Michael Murillo",
+          "xg": 0.264,
+          "goles": 1.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Eduardo Antonio Guerrero Lozcano",
+          "xg": 0.257,
+          "goles": 1.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Roderick Miller",
+          "xg": 0.244,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "César Blackman",
+          "xg": 0.18,
+          "goles": 1.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Christian Martínez",
+          "xg": 0.115,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "César Augusto Yanis Velasco",
+          "xg": 0.111,
+          "goles": 1.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Abdiel Ayarza",
+          "xg": 0.107,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Edgardo Isaac Fariña Wynter",
+          "xg": 0.097,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Adalberto Carrasquilla",
+          "xg": 0.065,
+          "goles": 0.0,
+          "tiros": 2.0
+        }
+      ]
+    },
+    "England": {
+      "total_xg": 15.733,
+      "total_goles": 20.8,
+      "jugadores": [
+        {
+          "nombre": "Harry Kane",
+          "xg": 4.452,
+          "goles": 4.2,
+          "tiros": 25.2
+        },
+        {
+          "nombre": "Jude Bellingham",
+          "xg": 1.952,
+          "goles": 3.6,
+          "tiros": 10.0
+        },
+        {
+          "nombre": "Bukayo Saka",
+          "xg": 1.648,
+          "goles": 3.8,
+          "tiros": 13.2
+        },
+        {
+          "nombre": "Phil Foden",
+          "xg": 1.484,
+          "goles": 0.6,
+          "tiros": 16.0
+        },
+        {
+          "nombre": "Cole Palmer",
+          "xg": 0.92,
+          "goles": 2.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Trent Alexander-Arnold",
+          "xg": 0.908,
+          "goles": 1.0,
+          "tiros": 5.0
+        },
+        {
+          "nombre": "Ivan Toney",
+          "xg": 0.907,
+          "goles": 1.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Marcus Rashford",
+          "xg": 0.83,
+          "goles": 1.8,
+          "tiros": 6.6
+        },
+        {
+          "nombre": "John Stones",
+          "xg": 0.424,
+          "goles": 0.0,
+          "tiros": 3.4
+        },
+        {
+          "nombre": "Declan Rice",
+          "xg": 0.393,
+          "goles": 0.0,
+          "tiros": 9.0
+        },
+        {
+          "nombre": "Jack Grealish",
+          "xg": 0.376,
+          "goles": 0.6,
+          "tiros": 0.6
+        },
+        {
+          "nombre": "Harry Maguire",
+          "xg": 0.294,
+          "goles": 0.0,
+          "tiros": 3.6
+        }
+      ]
+    },
+    "Iran": {
+      "total_xg": 2.298,
+      "total_goles": 2.4,
+      "jugadores": [
+        {
+          "nombre": "Mehdi Taremi",
+          "xg": 0.827,
+          "goles": 1.2,
+          "tiros": 3.6
+        },
+        {
+          "nombre": "Sardar Azmoun",
+          "xg": 0.576,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Saman Ghoddos",
+          "xg": 0.235,
+          "goles": 0.0,
+          "tiros": 0.6
+        },
+        {
+          "nombre": "Morteza Pouraliganji",
+          "xg": 0.161,
+          "goles": 0.0,
+          "tiros": 1.2
+        },
+        {
+          "nombre": "Ramin Rezaeian",
+          "xg": 0.138,
+          "goles": 0.6,
+          "tiros": 1.2
+        },
+        {
+          "nombre": "Alireza Jahanbakhsh",
+          "xg": 0.093,
+          "goles": 0.0,
+          "tiros": 1.8
+        },
+        {
+          "nombre": "Mehdi Torabi",
+          "xg": 0.058,
+          "goles": 0.0,
+          "tiros": 1.2
+        },
+        {
+          "nombre": "Ahmad Nourollahi",
+          "xg": 0.048,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Ehsan Hajsafi",
+          "xg": 0.041,
+          "goles": 0.0,
+          "tiros": 0.6
+        },
+        {
+          "nombre": "Karim Ansarifard",
+          "xg": 0.038,
+          "goles": 0.0,
+          "tiros": 0.6
+        },
+        {
+          "nombre": "Saeid Ezatolahi",
+          "xg": 0.037,
+          "goles": 0.0,
+          "tiros": 1.8
+        },
+        {
+          "nombre": "Ali Gholizadeh",
+          "xg": 0.026,
+          "goles": 0.0,
+          "tiros": 0.6
+        }
+      ]
+    },
+    "Croatia": {
+      "total_xg": 13.726,
+      "total_goles": 11.0,
+      "jugadores": [
+        {
+          "nombre": "Luka Modrić",
+          "xg": 2.04,
+          "goles": 1.6,
+          "tiros": 9.2
+        },
+        {
+          "nombre": "Andrej Kramarić",
+          "xg": 1.58,
+          "goles": 2.2,
+          "tiros": 10.0
+        },
+        {
+          "nombre": "Nikola Vlašić",
+          "xg": 1.317,
+          "goles": 1.2,
+          "tiros": 4.2
+        },
+        {
+          "nombre": "Bruno Petković",
+          "xg": 1.197,
+          "goles": 0.6,
+          "tiros": 4.6
+        },
+        {
+          "nombre": "Lovro Majer",
+          "xg": 1.115,
+          "goles": 1.2,
+          "tiros": 5.0
+        },
+        {
+          "nombre": "Marko Livaja",
+          "xg": 1.064,
+          "goles": 0.6,
+          "tiros": 4.2
+        },
+        {
+          "nombre": "Marcelo Brozović",
+          "xg": 0.949,
+          "goles": 0.6,
+          "tiros": 6.0
+        },
+        {
+          "nombre": "Mario Pašalić",
+          "xg": 0.849,
+          "goles": 0.6,
+          "tiros": 5.4
+        },
+        {
+          "nombre": "Mislav Oršić",
+          "xg": 0.636,
+          "goles": 1.2,
+          "tiros": 6.0
+        },
+        {
+          "nombre": "Ante Budimir",
+          "xg": 0.578,
+          "goles": 0.0,
+          "tiros": 4.6
+        },
+        {
+          "nombre": "Ivan Perišić",
+          "xg": 0.534,
+          "goles": 0.6,
+          "tiros": 13.6
+        },
+        {
+          "nombre": "Mateo Kovačić",
+          "xg": 0.532,
+          "goles": 0.0,
+          "tiros": 7.8
+        }
+      ]
+    },
+    "Belgium": {
+      "total_xg": 6.61,
+      "total_goles": 2.6,
+      "jugadores": [
+        {
+          "nombre": "Romelu Lukaku",
+          "xg": 2.762,
+          "goles": 0.0,
+          "tiros": 14.0
+        },
+        {
+          "nombre": "Kevin De Bruyne",
+          "xg": 0.985,
+          "goles": 1.0,
+          "tiros": 15.2
+        },
+        {
+          "nombre": "Yannick Carrasco",
+          "xg": 0.577,
+          "goles": 0.0,
+          "tiros": 8.4
+        },
+        {
+          "nombre": "Michy Batshuayi",
+          "xg": 0.372,
+          "goles": 0.6,
+          "tiros": 3.6
+        },
+        {
+          "nombre": "Amadou Onana",
+          "xg": 0.343,
+          "goles": 0.0,
+          "tiros": 4.2
+        },
+        {
+          "nombre": "Johan Bakayoko",
+          "xg": 0.289,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Jérémy Doku",
+          "xg": 0.255,
+          "goles": 0.0,
+          "tiros": 5.0
+        },
+        {
+          "nombre": "Dries Mertens",
+          "xg": 0.22,
+          "goles": 0.0,
+          "tiros": 1.8
+        },
+        {
+          "nombre": "Leandro Trossard",
+          "xg": 0.201,
+          "goles": 0.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Jan Vertonghen",
+          "xg": 0.17,
+          "goles": 0.0,
+          "tiros": 2.2
+        },
+        {
+          "nombre": "Youri Tielemans",
+          "xg": 0.153,
+          "goles": 1.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Dodi Lukebakio",
+          "xg": 0.123,
+          "goles": 0.0,
+          "tiros": 3.0
+        }
+      ]
+    },
+    "Netherlands": {
+      "total_xg": 12.665,
+      "total_goles": 16.8,
+      "jugadores": [
+        {
+          "nombre": "Memphis Depay",
+          "xg": 2.66,
+          "goles": 1.6,
+          "tiros": 24.0
+        },
+        {
+          "nombre": "Donyell Malen",
+          "xg": 1.509,
+          "goles": 2.0,
+          "tiros": 6.0
+        },
+        {
+          "nombre": "Cody Gakpo",
+          "xg": 1.222,
+          "goles": 4.8,
+          "tiros": 16.0
+        },
+        {
+          "nombre": "Wout Weghorst",
+          "xg": 1.019,
+          "goles": 2.8,
+          "tiros": 5.8
+        },
+        {
+          "nombre": "Virgil van Dijk",
+          "xg": 0.933,
+          "goles": 0.0,
+          "tiros": 7.4
+        },
+        {
+          "nombre": "Tijjani Reijnders",
+          "xg": 0.633,
+          "goles": 0.0,
+          "tiros": 10.0
+        },
+        {
+          "nombre": "Steven Berghuis",
+          "xg": 0.585,
+          "goles": 0.0,
+          "tiros": 3.6
+        },
+        {
+          "nombre": "Xavi Simons",
+          "xg": 0.545,
+          "goles": 1.0,
+          "tiros": 11.0
+        },
+        {
+          "nombre": "Teun Koopmeiners",
+          "xg": 0.524,
+          "goles": 0.6,
+          "tiros": 1.8
+        },
+        {
+          "nombre": "Luuk de Jong",
+          "xg": 0.502,
+          "goles": 0.6,
+          "tiros": 1.2
+        },
+        {
+          "nombre": "Denzel Dumfries",
+          "xg": 0.439,
+          "goles": 0.6,
+          "tiros": 5.2
+        },
+        {
+          "nombre": "Frenkie de Jong",
+          "xg": 0.433,
+          "goles": 0.6,
+          "tiros": 1.2
+        }
+      ]
+    },
+    "Spain": {
+      "total_xg": 14.828,
+      "total_goles": 19.4,
+      "jugadores": [
+        {
+          "nombre": "Álvaro Morata",
+          "xg": 2.233,
+          "goles": 2.8,
+          "tiros": 18.8
+        },
+        {
+          "nombre": "Daniel Olmo",
+          "xg": 2.029,
+          "goles": 3.6,
+          "tiros": 24.2
+        },
+        {
+          "nombre": "Lamine Yamal",
+          "xg": 1.587,
+          "goles": 1.0,
+          "tiros": 18.0
+        },
+        {
+          "nombre": "Fabián Ruiz",
+          "xg": 1.145,
+          "goles": 2.0,
+          "tiros": 17.0
+        },
+        {
+          "nombre": "Ferrán Torres",
+          "xg": 1.095,
+          "goles": 2.2,
+          "tiros": 7.4
+        },
+        {
+          "nombre": "Nico Williams",
+          "xg": 0.949,
+          "goles": 2.0,
+          "tiros": 12.0
+        },
+        {
+          "nombre": "Pedri",
+          "xg": 0.851,
+          "goles": 0.0,
+          "tiros": 6.0
+        },
+        {
+          "nombre": "Carlos Soler",
+          "xg": 0.763,
+          "goles": 0.6,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Mikel Oyarzabal",
+          "xg": 0.599,
+          "goles": 1.0,
+          "tiros": 6.0
+        },
+        {
+          "nombre": "Pablo Sarabia",
+          "xg": 0.533,
+          "goles": 0.0,
+          "tiros": 1.2
+        },
+        {
+          "nombre": "Sergio Busquets",
+          "xg": 0.532,
+          "goles": 0.0,
+          "tiros": 1.8
+        },
+        {
+          "nombre": "Marco Asensio Willemsen",
+          "xg": 0.365,
+          "goles": 0.6,
+          "tiros": 6.0
+        }
+      ]
+    },
+    "Japan": {
+      "total_xg": 4.43,
+      "total_goles": 3.6,
+      "jugadores": [
+        {
+          "nombre": "Takuma Asano",
+          "xg": 0.768,
+          "goles": 1.2,
+          "tiros": 5.4
+        },
+        {
+          "nombre": "Ao Tanaka",
+          "xg": 0.524,
+          "goles": 0.6,
+          "tiros": 0.6
+        },
+        {
+          "nombre": "Kaoru Mitoma",
+          "xg": 0.503,
+          "goles": 0.0,
+          "tiros": 1.2
+        },
+        {
+          "nombre": "Takumi Minamino",
+          "xg": 0.5,
+          "goles": 0.0,
+          "tiros": 1.8
+        },
+        {
+          "nombre": "Maya Yoshida",
+          "xg": 0.47,
+          "goles": 0.0,
+          "tiros": 0.6
+        },
+        {
+          "nombre": "Ritsu Doan",
+          "xg": 0.346,
+          "goles": 1.2,
+          "tiros": 2.4
+        },
+        {
+          "nombre": "Daizen Maeda",
+          "xg": 0.322,
+          "goles": 0.6,
+          "tiros": 1.2
+        },
+        {
+          "nombre": "Daichi Kamada",
+          "xg": 0.253,
+          "goles": 0.0,
+          "tiros": 3.6
+        },
+        {
+          "nombre": "Hiroki Sakai",
+          "xg": 0.173,
+          "goles": 0.0,
+          "tiros": 0.6
+        },
+        {
+          "nombre": "Hidemasa Morita",
+          "xg": 0.114,
+          "goles": 0.0,
+          "tiros": 1.8
+        },
+        {
+          "nombre": "Wataru Endo",
+          "xg": 0.109,
+          "goles": 0.0,
+          "tiros": 3.6
+        },
+        {
+          "nombre": "Shogo Taniguchi",
+          "xg": 0.105,
+          "goles": 0.0,
+          "tiros": 1.2
+        }
+      ]
+    },
+    "Wales": {
+      "total_xg": 1.331,
+      "total_goles": 0.6,
+      "jugadores": [
+        {
+          "nombre": "Gareth Bale",
+          "xg": 0.483,
+          "goles": 0.6,
+          "tiros": 1.2
+        },
+        {
+          "nombre": "Kieffer Moore",
+          "xg": 0.384,
+          "goles": 0.0,
+          "tiros": 3.6
+        },
+        {
+          "nombre": "Ben Davies",
+          "xg": 0.231,
+          "goles": 0.0,
+          "tiros": 1.8
+        },
+        {
+          "nombre": "Brennan Johnson",
+          "xg": 0.075,
+          "goles": 0.0,
+          "tiros": 1.8
+        },
+        {
+          "nombre": "Neco Williams",
+          "xg": 0.045,
+          "goles": 0.0,
+          "tiros": 1.8
+        },
+        {
+          "nombre": "Joe Allen",
+          "xg": 0.038,
+          "goles": 0.0,
+          "tiros": 1.2
+        },
+        {
+          "nombre": "Harry Wilson",
+          "xg": 0.037,
+          "goles": 0.0,
+          "tiros": 1.2
+        },
+        {
+          "nombre": "Aaron Ramsey",
+          "xg": 0.015,
+          "goles": 0.0,
+          "tiros": 0.6
+        },
+        {
+          "nombre": "Rubin Colwill",
+          "xg": 0.015,
+          "goles": 0.0,
+          "tiros": 0.6
+        },
+        {
+          "nombre": "Ethan Ampadu",
+          "xg": 0.008,
+          "goles": 0.0,
+          "tiros": 0.6
+        }
+      ]
+    },
+    "France": {
+      "total_xg": 21.086,
+      "total_goles": 17.8,
+      "jugadores": [
+        {
+          "nombre": "Kylian Mbappé",
+          "xg": 5.517,
+          "goles": 6.4,
+          "tiros": 43.2
+        },
+        {
+          "nombre": "Olivier Giroud",
+          "xg": 1.978,
+          "goles": 2.4,
+          "tiros": 12.2
+        },
+        {
+          "nombre": "Antoine Griezmann",
+          "xg": 1.817,
+          "goles": 0.0,
+          "tiros": 15.6
+        },
+        {
+          "nombre": "Randal Kolo",
+          "xg": 1.681,
+          "goles": 2.2,
+          "tiros": 6.0
+        },
+        {
+          "nombre": "Ousmane Dembélé",
+          "xg": 1.46,
+          "goles": 1.0,
+          "tiros": 13.8
+        },
+        {
+          "nombre": "Marcus Thuram",
+          "xg": 1.248,
+          "goles": 0.0,
+          "tiros": 12.6
+        },
+        {
+          "nombre": "Theo Hernández",
+          "xg": 1.182,
+          "goles": 1.6,
+          "tiros": 8.0
+        },
+        {
+          "nombre": "Aurélien Tchouaméni",
+          "xg": 1.115,
+          "goles": 0.6,
+          "tiros": 16.2
+        },
+        {
+          "nombre": "Jules Koundé",
+          "xg": 0.956,
+          "goles": 1.0,
+          "tiros": 4.4
+        },
+        {
+          "nombre": "Youssouf Fofana",
+          "xg": 0.906,
+          "goles": 1.0,
+          "tiros": 4.4
+        },
+        {
+          "nombre": "Bradley Barcola",
+          "xg": 0.863,
+          "goles": 1.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Adrien Rabiot",
+          "xg": 0.699,
+          "goles": 0.6,
+          "tiros": 8.4
+        }
+      ]
+    },
+    "Switzerland": {
+      "total_xg": 12.138,
+      "total_goles": 14.0,
+      "jugadores": [
+        {
+          "nombre": "Breel Embolo",
+          "xg": 3.004,
+          "goles": 3.2,
+          "tiros": 11.6
+        },
+        {
+          "nombre": "Manuel Akanji",
+          "xg": 1.313,
+          "goles": 0.6,
+          "tiros": 3.4
+        },
+        {
+          "nombre": "Dan Ndoye",
+          "xg": 1.24,
+          "goles": 1.0,
+          "tiros": 14.0
+        },
+        {
+          "nombre": "Xherdan Shaqiri",
+          "xg": 1.166,
+          "goles": 2.6,
+          "tiros": 5.4
+        },
+        {
+          "nombre": "Fabian Schär",
+          "xg": 1.066,
+          "goles": 1.0,
+          "tiros": 7.2
+        },
+        {
+          "nombre": "Mohamed Amdouni",
+          "xg": 0.933,
+          "goles": 1.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Ruben Vargas",
+          "xg": 0.869,
+          "goles": 1.0,
+          "tiros": 6.8
+        },
+        {
+          "nombre": "Kwadwo Duah",
+          "xg": 0.582,
+          "goles": 1.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Remo Freuler",
+          "xg": 0.538,
+          "goles": 1.6,
+          "tiros": 4.8
+        },
+        {
+          "nombre": "Granit Xhaka",
+          "xg": 0.33,
+          "goles": 0.0,
+          "tiros": 7.6
+        },
+        {
+          "nombre": "Silvan Widmer",
+          "xg": 0.191,
+          "goles": 0.0,
+          "tiros": 2.6
+        },
+        {
+          "nombre": "Christian Fassnacht",
+          "xg": 0.19,
+          "goles": 0.0,
+          "tiros": 0.6
+        }
+      ]
+    },
+    "Portugal": {
+      "total_xg": 19.097,
+      "total_goles": 16.2,
+      "jugadores": [
+        {
+          "nombre": "Cristiano Ronaldo",
+          "xg": 5.7,
+          "goles": 2.6,
+          "tiros": 31.6
+        },
+        {
+          "nombre": "Bruno Fernandes",
+          "xg": 2.624,
+          "goles": 3.2,
+          "tiros": 15.8
+        },
+        {
+          "nombre": "Bernardo Silva",
+          "xg": 2.378,
+          "goles": 3.0,
+          "tiros": 9.6
+        },
+        {
+          "nombre": "João Félix",
+          "xg": 1.366,
+          "goles": 0.6,
+          "tiros": 11.6
+        },
+        {
+          "nombre": "Gonçalo Ramos",
+          "xg": 1.105,
+          "goles": 1.8,
+          "tiros": 5.2
+        },
+        {
+          "nombre": "Nuno Mendes",
+          "xg": 0.968,
+          "goles": 1.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Diogo Jota",
+          "xg": 0.778,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Francisco Conceição",
+          "xg": 0.75,
+          "goles": 1.0,
+          "tiros": 5.0
+        },
+        {
+          "nombre": "Vitinha",
+          "xg": 0.673,
+          "goles": 0.0,
+          "tiros": 9.2
+        },
+        {
+          "nombre": "Rafael Leão",
+          "xg": 0.331,
+          "goles": 1.2,
+          "tiros": 6.0
+        },
+        {
+          "nombre": "Ricardo Horta",
+          "xg": 0.275,
+          "goles": 0.6,
+          "tiros": 1.8
+        },
+        {
+          "nombre": "Pepe",
+          "xg": 0.252,
+          "goles": 0.6,
+          "tiros": 2.8
+        }
+      ]
+    },
+    "Saudi Arabia": {
+      "total_xg": 1.921,
+      "total_goles": 1.8,
+      "jugadores": [
+        {
+          "nombre": "Salem Al Dawsari",
+          "xg": 0.938,
+          "goles": 1.2,
+          "tiros": 4.2
+        },
+        {
+          "nombre": "Mohammed Al Burayk",
+          "xg": 0.222,
+          "goles": 0.0,
+          "tiros": 1.2
+        },
+        {
+          "nombre": "Mohammed Kanoo",
+          "xg": 0.192,
+          "goles": 0.0,
+          "tiros": 3.6
+        },
+        {
+          "nombre": "Sultan Al Ghanam",
+          "xg": 0.147,
+          "goles": 0.0,
+          "tiros": 1.2
+        },
+        {
+          "nombre": "Saleh Al Shehri",
+          "xg": 0.088,
+          "goles": 0.6,
+          "tiros": 1.8
+        },
+        {
+          "nombre": "Abdulelah Al Malki",
+          "xg": 0.084,
+          "goles": 0.0,
+          "tiros": 1.2
+        },
+        {
+          "nombre": "Firas Albirakan",
+          "xg": 0.074,
+          "goles": 0.0,
+          "tiros": 1.2
+        },
+        {
+          "nombre": "Nawaf Al Abid",
+          "xg": 0.064,
+          "goles": 0.0,
+          "tiros": 1.2
+        },
+        {
+          "nombre": "Ali Al-Hassan",
+          "xg": 0.061,
+          "goles": 0.0,
+          "tiros": 0.6
+        },
+        {
+          "nombre": "Abdulrahman Al Obod",
+          "xg": 0.025,
+          "goles": 0.0,
+          "tiros": 0.6
+        },
+        {
+          "nombre": "Abdulelah Al Amri",
+          "xg": 0.023,
+          "goles": 0.0,
+          "tiros": 0.6
+        },
+        {
+          "nombre": "Saud Abdul Hamid",
+          "xg": 0.004,
+          "goles": 0.0,
+          "tiros": 0.6
+        }
+      ]
+    },
+    "Poland": {
+      "total_xg": 6.324,
+      "total_goles": 4.8,
+      "jugadores": [
+        {
+          "nombre": "Robert Lewandowski",
+          "xg": 2.865,
+          "goles": 2.2,
+          "tiros": 12.2
+        },
+        {
+          "nombre": "Piotr Zieliński",
+          "xg": 0.727,
+          "goles": 0.6,
+          "tiros": 9.8
+        },
+        {
+          "nombre": "Krzysztof Piątek",
+          "xg": 0.507,
+          "goles": 1.0,
+          "tiros": 2.6
+        },
+        {
+          "nombre": "Jakub Moder",
+          "xg": 0.505,
+          "goles": 0.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Karol Świderski",
+          "xg": 0.204,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Jan Bednarek",
+          "xg": 0.204,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Jakub Kamiński",
+          "xg": 0.157,
+          "goles": 0.0,
+          "tiros": 2.4
+        },
+        {
+          "nombre": "Jakub Piotr Kiwior",
+          "xg": 0.154,
+          "goles": 0.0,
+          "tiros": 2.6
+        },
+        {
+          "nombre": "Adam Buksa",
+          "xg": 0.148,
+          "goles": 1.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Kamil Grosicki",
+          "xg": 0.12,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Nicola Zalewski",
+          "xg": 0.118,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Kacper Urbanski",
+          "xg": 0.097,
+          "goles": 0.0,
+          "tiros": 2.0
+        }
+      ]
+    },
+    "Qatar": {
+      "total_xg": 0.845,
+      "total_goles": 0.6,
+      "jugadores": [
+        {
+          "nombre": "Almoez Ali",
+          "xg": 0.29,
+          "goles": 0.0,
+          "tiros": 1.8
+        },
+        {
+          "nombre": "Ismaeel Mohammad",
+          "xg": 0.215,
+          "goles": 0.0,
+          "tiros": 1.2
+        },
+        {
+          "nombre": "Abdelkarim Hassan",
+          "xg": 0.165,
+          "goles": 0.0,
+          "tiros": 3.6
+        },
+        {
+          "nombre": "Mohammed Muntari",
+          "xg": 0.111,
+          "goles": 0.6,
+          "tiros": 1.8
+        },
+        {
+          "nombre": "Pedro Miguel Correia",
+          "xg": 0.022,
+          "goles": 0.0,
+          "tiros": 1.2
+        },
+        {
+          "nombre": "Akram Afif",
+          "xg": 0.017,
+          "goles": 0.0,
+          "tiros": 1.2
+        },
+        {
+          "nombre": "Abdulaziz Hatem",
+          "xg": 0.015,
+          "goles": 0.0,
+          "tiros": 0.6
+        },
+        {
+          "nombre": "Hassan Al Heidos",
+          "xg": 0.009,
+          "goles": 0.0,
+          "tiros": 0.6
+        }
+      ]
+    },
+    "Denmark": {
+      "total_xg": 5.785,
+      "total_goles": 2.6,
+      "jugadores": [
+        {
+          "nombre": "Rasmus Höjlund",
+          "xg": 1.104,
+          "goles": 0.0,
+          "tiros": 6.0
+        },
+        {
+          "nombre": "Christian Eriksen",
+          "xg": 0.928,
+          "goles": 1.0,
+          "tiros": 14.4
+        },
+        {
+          "nombre": "Andreas Christensen",
+          "xg": 0.681,
+          "goles": 0.6,
+          "tiros": 5.2
+        },
+        {
+          "nombre": "Andreas Cornelius",
+          "xg": 0.481,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Jonas Wind",
+          "xg": 0.383,
+          "goles": 0.0,
+          "tiros": 5.0
+        },
+        {
+          "nombre": "Kasper Dolberg",
+          "xg": 0.307,
+          "goles": 0.0,
+          "tiros": 2.4
+        },
+        {
+          "nombre": "Alexander Bah",
+          "xg": 0.275,
+          "goles": 0.0,
+          "tiros": 3.2
+        },
+        {
+          "nombre": "Pierre-Emile Højbjerg",
+          "xg": 0.243,
+          "goles": 0.0,
+          "tiros": 8.2
+        },
+        {
+          "nombre": "Joachim Andersen",
+          "xg": 0.231,
+          "goles": 0.0,
+          "tiros": 5.4
+        },
+        {
+          "nombre": "Andreas Skov Olsen",
+          "xg": 0.227,
+          "goles": 0.0,
+          "tiros": 3.4
+        },
+        {
+          "nombre": "Jannik Vestergaard",
+          "xg": 0.224,
+          "goles": 0.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Jesper Lindstrøm",
+          "xg": 0.201,
+          "goles": 0.0,
+          "tiros": 1.8
+        }
+      ]
+    },
+    "Germany": {
+      "total_xg": 13.664,
+      "total_goles": 14.6,
+      "jugadores": [
+        {
+          "nombre": "Kai Havertz",
+          "xg": 4.472,
+          "goles": 3.2,
+          "tiros": 22.0
+        },
+        {
+          "nombre": "Niclas Füllkrug",
+          "xg": 1.928,
+          "goles": 3.2,
+          "tiros": 13.8
+        },
+        {
+          "nombre": "Jamal Musiala",
+          "xg": 1.592,
+          "goles": 3.0,
+          "tiros": 16.6
+        },
+        {
+          "nombre": "İlkay Gündoğan",
+          "xg": 1.423,
+          "goles": 1.6,
+          "tiros": 10.6
+        },
+        {
+          "nombre": "Florian Wirtz",
+          "xg": 0.575,
+          "goles": 2.0,
+          "tiros": 8.0
+        },
+        {
+          "nombre": "Antonio Rüdiger",
+          "xg": 0.559,
+          "goles": 0.0,
+          "tiros": 7.6
+        },
+        {
+          "nombre": "Joshua Kimmich",
+          "xg": 0.51,
+          "goles": 0.0,
+          "tiros": 11.2
+        },
+        {
+          "nombre": "Serge Gnabry",
+          "xg": 0.437,
+          "goles": 0.6,
+          "tiros": 7.2
+        },
+        {
+          "nombre": "Thomas Müller",
+          "xg": 0.399,
+          "goles": 0.0,
+          "tiros": 2.8
+        },
+        {
+          "nombre": "Leroy Sané",
+          "xg": 0.392,
+          "goles": 0.0,
+          "tiros": 8.8
+        },
+        {
+          "nombre": "Leon Goretzka",
+          "xg": 0.276,
+          "goles": 0.0,
+          "tiros": 2.4
+        },
+        {
+          "nombre": "Robert Andrich",
+          "xg": 0.276,
+          "goles": 0.0,
+          "tiros": 7.0
+        }
+      ]
+    },
+    "Serbia": {
+      "total_xg": 3.889,
+      "total_goles": 4.0,
+      "jugadores": [
+        {
+          "nombre": "Aleksandar Mitrović",
+          "xg": 2.055,
+          "goles": 1.2,
+          "tiros": 16.0
+        },
+        {
+          "nombre": "Dušan Vlahović",
+          "xg": 0.728,
+          "goles": 0.6,
+          "tiros": 7.8
+        },
+        {
+          "nombre": "Sergej Milinković-Savić",
+          "xg": 0.335,
+          "goles": 0.6,
+          "tiros": 4.8
+        },
+        {
+          "nombre": "Luka Jović",
+          "xg": 0.177,
+          "goles": 1.0,
+          "tiros": 2.2
+        },
+        {
+          "nombre": "Saša Lukić",
+          "xg": 0.112,
+          "goles": 0.0,
+          "tiros": 1.6
+        },
+        {
+          "nombre": "Strahinja Pavlović",
+          "xg": 0.107,
+          "goles": 0.6,
+          "tiros": 1.2
+        },
+        {
+          "nombre": "Nikola Milenković",
+          "xg": 0.074,
+          "goles": 0.0,
+          "tiros": 1.8
+        },
+        {
+          "nombre": "Ivan Ilić",
+          "xg": 0.051,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Lazar Samardžić",
+          "xg": 0.049,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Dušan Tadić",
+          "xg": 0.037,
+          "goles": 0.0,
+          "tiros": 0.6
+        },
+        {
+          "nombre": "Veljko Birmančević",
+          "xg": 0.033,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Mijat Gaćinović",
+          "xg": 0.033,
+          "goles": 0.0,
+          "tiros": 1.0
+        }
+      ]
+    },
+    "Australia": {
+      "total_xg": 0.947,
+      "total_goles": 1.8,
+      "jugadores": [
+        {
+          "nombre": "Jackson Irvine",
+          "xg": 0.199,
+          "goles": 0.0,
+          "tiros": 1.8
+        },
+        {
+          "nombre": "Mitchell Duke",
+          "xg": 0.153,
+          "goles": 0.6,
+          "tiros": 4.2
+        },
+        {
+          "nombre": "Garang Kuol",
+          "xg": 0.14,
+          "goles": 0.0,
+          "tiros": 0.6
+        },
+        {
+          "nombre": "Craig Goodwin",
+          "xg": 0.123,
+          "goles": 0.6,
+          "tiros": 1.2
+        },
+        {
+          "nombre": "Aziz Behich",
+          "xg": 0.076,
+          "goles": 0.0,
+          "tiros": 1.2
+        },
+        {
+          "nombre": "Mathew Leckie",
+          "xg": 0.068,
+          "goles": 0.6,
+          "tiros": 0.6
+        },
+        {
+          "nombre": "Riley McGree",
+          "xg": 0.048,
+          "goles": 0.0,
+          "tiros": 1.8
+        },
+        {
+          "nombre": "Harry Souttar",
+          "xg": 0.041,
+          "goles": 0.0,
+          "tiros": 0.6
+        },
+        {
+          "nombre": "Fran Karačić",
+          "xg": 0.033,
+          "goles": 0.0,
+          "tiros": 1.8
+        },
+        {
+          "nombre": "Aaron Mooy",
+          "xg": 0.024,
+          "goles": 0.0,
+          "tiros": 0.6
+        },
+        {
+          "nombre": "Keanu Baccus",
+          "xg": 0.021,
+          "goles": 0.0,
+          "tiros": 0.6
+        },
+        {
+          "nombre": "Ajdin Hrustic",
+          "xg": 0.02,
+          "goles": 0.0,
+          "tiros": 0.6
+        }
+      ]
+    },
+    "South Korea": {
+      "total_xg": 2.163,
+      "total_goles": 3.0,
+      "jugadores": [
+        {
+          "nombre": "Cho Kyu-Sung",
+          "xg": 0.428,
+          "goles": 1.2,
+          "tiros": 4.8
+        },
+        {
+          "nombre": "Kim Young-Gwon",
+          "xg": 0.414,
+          "goles": 0.6,
+          "tiros": 1.2
+        },
+        {
+          "nombre": "Hwang Hee-Chan",
+          "xg": 0.341,
+          "goles": 0.6,
+          "tiros": 3.6
+        },
+        {
+          "nombre": "Son Heung-Min",
+          "xg": 0.272,
+          "goles": 0.0,
+          "tiros": 5.4
+        },
+        {
+          "nombre": "Hwang Ui-jo",
+          "xg": 0.194,
+          "goles": 0.0,
+          "tiros": 0.6
+        },
+        {
+          "nombre": "Kim Jin-Su",
+          "xg": 0.171,
+          "goles": 0.0,
+          "tiros": 1.8
+        },
+        {
+          "nombre": "Hwang In-Beom",
+          "xg": 0.119,
+          "goles": 0.0,
+          "tiros": 3.6
+        },
+        {
+          "nombre": "Lee Kang-In",
+          "xg": 0.071,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Min Jae Kim",
+          "xg": 0.064,
+          "goles": 0.0,
+          "tiros": 1.2
+        },
+        {
+          "nombre": "Na Sangho",
+          "xg": 0.036,
+          "goles": 0.0,
+          "tiros": 0.6
+        },
+        {
+          "nombre": "Jeong Woo-Yeong",
+          "xg": 0.018,
+          "goles": 0.0,
+          "tiros": 0.6
+        },
+        {
+          "nombre": "Paik Seung-Ho",
+          "xg": 0.014,
+          "goles": 0.6,
+          "tiros": 0.6
+        }
+      ]
+    },
+    "Czech Republic": {
+      "total_xg": 4.591,
+      "total_goles": 3.0,
+      "jugadores": [
+        {
+          "nombre": "Patrik Schick",
+          "xg": 1.193,
+          "goles": 1.0,
+          "tiros": 7.0
+        },
+        {
+          "nombre": "Václav Černý",
+          "xg": 0.562,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Tomáš Chorý",
+          "xg": 0.551,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Adam Hložek",
+          "xg": 0.49,
+          "goles": 0.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Ondřej Lingr",
+          "xg": 0.438,
+          "goles": 0.0,
+          "tiros": 5.0
+        },
+        {
+          "nombre": "Robin Hranáč",
+          "xg": 0.337,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Ladislav Krejčí",
+          "xg": 0.197,
+          "goles": 0.0,
+          "tiros": 5.0
+        },
+        {
+          "nombre": "Tomáš Souček",
+          "xg": 0.185,
+          "goles": 1.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "David Jurásek",
+          "xg": 0.142,
+          "goles": 0.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Petr Ševčík",
+          "xg": 0.113,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Mojmír Chytil",
+          "xg": 0.107,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Matěj Jurásek",
+          "xg": 0.099,
+          "goles": 0.0,
+          "tiros": 4.0
+        }
+      ]
+    },
+    "Hungary": {
+      "total_xg": 3.332,
+      "total_goles": 2.0,
+      "jugadores": [
+        {
+          "nombre": "Barnabás Varga",
+          "xg": 0.939,
+          "goles": 1.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Roland Sallai",
+          "xg": 0.825,
+          "goles": 0.0,
+          "tiros": 8.0
+        },
+        {
+          "nombre": "Willi Orban",
+          "xg": 0.568,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Kevin Csoboth",
+          "xg": 0.448,
+          "goles": 1.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Dominik Szoboszlai",
+          "xg": 0.22,
+          "goles": 0.0,
+          "tiros": 6.0
+        },
+        {
+          "nombre": "Attila Szalai",
+          "xg": 0.096,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Bendegúz Bolla",
+          "xg": 0.085,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "András Schäfer",
+          "xg": 0.066,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Márton Dárdai",
+          "xg": 0.057,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Ádám Nagy",
+          "xg": 0.029,
+          "goles": 0.0,
+          "tiros": 1.0
+        }
+      ]
+    },
+    "Slovenia": {
+      "total_xg": 5.75,
+      "total_goles": 2.0,
+      "jugadores": [
+        {
+          "nombre": "Andraž Šporar",
+          "xg": 1.249,
+          "goles": 0.0,
+          "tiros": 8.0
+        },
+        {
+          "nombre": "Benjamin Šeško",
+          "xg": 0.844,
+          "goles": 0.0,
+          "tiros": 8.0
+        },
+        {
+          "nombre": "Josip Iličić",
+          "xg": 0.829,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Benjamin Verbič",
+          "xg": 0.828,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Jure Balkovec",
+          "xg": 0.783,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Žan Karničnik",
+          "xg": 0.356,
+          "goles": 1.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Adam Gnezda Čerin",
+          "xg": 0.286,
+          "goles": 0.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Timi Elšnik",
+          "xg": 0.215,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Jan Mlakar",
+          "xg": 0.165,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Erik Janža",
+          "xg": 0.056,
+          "goles": 1.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Jon Gorenc-Stankovic",
+          "xg": 0.039,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Žan Celar",
+          "xg": 0.039,
+          "goles": 0.0,
+          "tiros": 1.0
+        }
+      ]
+    },
+    "Italy": {
+      "total_xg": 3.304,
+      "total_goles": 3.0,
+      "jugadores": [
+        {
+          "nombre": "Gianluca Scamacca",
+          "xg": 0.533,
+          "goles": 0.0,
+          "tiros": 6.0
+        },
+        {
+          "nombre": "Lorenzo Pellegrini",
+          "xg": 0.503,
+          "goles": 0.0,
+          "tiros": 7.0
+        },
+        {
+          "nombre": "Alessandro Bastoni",
+          "xg": 0.45,
+          "goles": 1.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Riccardo Calafiori",
+          "xg": 0.309,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Davide Frattesi",
+          "xg": 0.273,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Mateo Retegui",
+          "xg": 0.258,
+          "goles": 0.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Federico Chiesa",
+          "xg": 0.248,
+          "goles": 0.0,
+          "tiros": 8.0
+        },
+        {
+          "nombre": "Mattia Zaccagni",
+          "xg": 0.222,
+          "goles": 1.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Giovanni Di Lorenzo",
+          "xg": 0.191,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Nicolò Barella",
+          "xg": 0.085,
+          "goles": 1.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Bryan Cristante",
+          "xg": 0.067,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Giacomo Raspadori",
+          "xg": 0.066,
+          "goles": 0.0,
+          "tiros": 1.0
+        }
+      ]
+    },
+    "Austria": {
+      "total_xg": 6.115,
+      "total_goles": 6.0,
+      "jugadores": [
+        {
+          "nombre": "Marko Arnautović",
+          "xg": 1.574,
+          "goles": 1.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Christoph Baumgartner",
+          "xg": 1.551,
+          "goles": 1.0,
+          "tiros": 8.0
+        },
+        {
+          "nombre": "Michael Gregoritsch",
+          "xg": 0.82,
+          "goles": 1.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Marcel Sabitzer",
+          "xg": 0.666,
+          "goles": 1.0,
+          "tiros": 11.0
+        },
+        {
+          "nombre": "Stefan Posch",
+          "xg": 0.339,
+          "goles": 0.0,
+          "tiros": 7.0
+        },
+        {
+          "nombre": "Konrad Laimer",
+          "xg": 0.269,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Florian Grillitsch",
+          "xg": 0.196,
+          "goles": 0.0,
+          "tiros": 5.0
+        },
+        {
+          "nombre": "Philipp Lienhart",
+          "xg": 0.181,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Romano Schmid",
+          "xg": 0.18,
+          "goles": 1.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Patrick Wimmer",
+          "xg": 0.141,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Gernot Trauner",
+          "xg": 0.126,
+          "goles": 1.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Kevin Danso",
+          "xg": 0.037,
+          "goles": 0.0,
+          "tiros": 1.0
+        }
+      ]
+    },
+    "Georgia": {
+      "total_xg": 4.217,
+      "total_goles": 4.0,
+      "jugadores": [
+        {
+          "nombre": "Georges Mikautadze",
+          "xg": 2.025,
+          "goles": 3.0,
+          "tiros": 6.0
+        },
+        {
+          "nombre": "Giorgi Kochorashvili",
+          "xg": 0.816,
+          "goles": 0.0,
+          "tiros": 5.0
+        },
+        {
+          "nombre": "Kvara",
+          "xg": 0.552,
+          "goles": 1.0,
+          "tiros": 6.0
+        },
+        {
+          "nombre": "Saba Lobjanidze",
+          "xg": 0.306,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Zurab Davitashvili",
+          "xg": 0.165,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Anzor Mekvabishvili",
+          "xg": 0.081,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Giorgi Chakvetadze",
+          "xg": 0.078,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Georgiy Tsitaishvili",
+          "xg": 0.072,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Budu Zivzivadze",
+          "xg": 0.057,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Luka Lochoshvili",
+          "xg": 0.051,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Otar Kakabadze",
+          "xg": 0.013,
+          "goles": 0.0,
+          "tiros": 1.0
+        }
+      ]
+    },
+    "Turkey": {
+      "total_xg": 6.465,
+      "total_goles": 8.0,
+      "jugadores": [
+        {
+          "nombre": "Kerem Aktürkoglu",
+          "xg": 1.246,
+          "goles": 1.0,
+          "tiros": 6.0
+        },
+        {
+          "nombre": "Orkun Kökçü",
+          "xg": 0.8,
+          "goles": 0.0,
+          "tiros": 6.0
+        },
+        {
+          "nombre": "Merih Demiral",
+          "xg": 0.717,
+          "goles": 2.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Kenan Yildiz",
+          "xg": 0.59,
+          "goles": 0.0,
+          "tiros": 11.0
+        },
+        {
+          "nombre": "Mert Müldür",
+          "xg": 0.468,
+          "goles": 1.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Barış Alper Yılmaz",
+          "xg": 0.349,
+          "goles": 0.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Arda Güler",
+          "xg": 0.334,
+          "goles": 1.0,
+          "tiros": 9.0
+        },
+        {
+          "nombre": "Samet Akaydin",
+          "xg": 0.321,
+          "goles": 1.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Hakan Çalhanoğlu",
+          "xg": 0.27,
+          "goles": 1.0,
+          "tiros": 10.0
+        },
+        {
+          "nombre": "Zeki Celik",
+          "xg": 0.242,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Kaan Ayhan",
+          "xg": 0.233,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Abdülkerim Bardakcı",
+          "xg": 0.221,
+          "goles": 0.0,
+          "tiros": 2.0
+        }
+      ]
+    },
+    "Ukraine": {
+      "total_xg": 2.984,
+      "total_goles": 2.0,
+      "jugadores": [
+        {
+          "nombre": "Roman Yaremchuk",
+          "xg": 0.662,
+          "goles": 1.0,
+          "tiros": 6.0
+        },
+        {
+          "nombre": "Artem Dovbyk",
+          "xg": 0.545,
+          "goles": 0.0,
+          "tiros": 6.0
+        },
+        {
+          "nombre": "Andriy Yarmolenko",
+          "xg": 0.519,
+          "goles": 0.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Georgiy Sudakov",
+          "xg": 0.43,
+          "goles": 0.0,
+          "tiros": 9.0
+        },
+        {
+          "nombre": "Mykhailo Mudryk",
+          "xg": 0.298,
+          "goles": 0.0,
+          "tiros": 6.0
+        },
+        {
+          "nombre": "Mykola Shaparenko",
+          "xg": 0.24,
+          "goles": 1.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Viktor Tsygankov",
+          "xg": 0.11,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Taras Stepanenko",
+          "xg": 0.067,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Ruslan Malinovskiy",
+          "xg": 0.063,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Volodymyr Brazhko",
+          "xg": 0.044,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Oleksandr Zinchenko",
+          "xg": 0.008,
+          "goles": 0.0,
+          "tiros": 1.0
+        }
+      ]
+    },
+    "Romania": {
+      "total_xg": 3.757,
+      "total_goles": 4.0,
+      "jugadores": [
+        {
+          "nombre": "Denis Dragus",
+          "xg": 1.1,
+          "goles": 1.0,
+          "tiros": 5.0
+        },
+        {
+          "nombre": "Răzvan Marin",
+          "xg": 0.89,
+          "goles": 2.0,
+          "tiros": 6.0
+        },
+        {
+          "nombre": "Dennis Man",
+          "xg": 0.547,
+          "goles": 0.0,
+          "tiros": 6.0
+        },
+        {
+          "nombre": "Denis Alibec",
+          "xg": 0.363,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Valentin Mihai Mihăilă",
+          "xg": 0.224,
+          "goles": 0.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Radu Dragusin",
+          "xg": 0.144,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Nicolae Stanciu",
+          "xg": 0.135,
+          "goles": 1.0,
+          "tiros": 5.0
+        },
+        {
+          "nombre": "Andrei Ratiu",
+          "xg": 0.135,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Andrei Burcă Andonie",
+          "xg": 0.111,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Florinel Coman",
+          "xg": 0.058,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Ianis Hagi",
+          "xg": 0.049,
+          "goles": 0.0,
+          "tiros": 2.0
+        }
+      ]
+    },
+    "Slovakia": {
+      "total_xg": 3.85,
+      "total_goles": 4.0,
+      "jugadores": [
+        {
+          "nombre": "Ivan Schranz",
+          "xg": 0.877,
+          "goles": 3.0,
+          "tiros": 5.0
+        },
+        {
+          "nombre": "David Strelec",
+          "xg": 0.629,
+          "goles": 0.0,
+          "tiros": 7.0
+        },
+        {
+          "nombre": "Peter Pekarík",
+          "xg": 0.55,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Juraj Kucka",
+          "xg": 0.439,
+          "goles": 0.0,
+          "tiros": 8.0
+        },
+        {
+          "nombre": "Lukáš Haraslín",
+          "xg": 0.427,
+          "goles": 0.0,
+          "tiros": 8.0
+        },
+        {
+          "nombre": "Dávid Hancko",
+          "xg": 0.253,
+          "goles": 0.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Milan Škriniar",
+          "xg": 0.219,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Ondrej Duda",
+          "xg": 0.135,
+          "goles": 1.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Róbert Boženík",
+          "xg": 0.12,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "László Bénes",
+          "xg": 0.08,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Denis Vavro",
+          "xg": 0.055,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Ľubomír Tupta",
+          "xg": 0.029,
+          "goles": 0.0,
+          "tiros": 1.0
+        }
+      ]
+    },
+    "Scotland": {
+      "total_xg": 1.016,
+      "total_goles": 1.0,
+      "jugadores": [
+        {
+          "nombre": "Scott McTominay",
+          "xg": 0.246,
+          "goles": 1.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Grant Campbell Hanley",
+          "xg": 0.199,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Callum McGregor",
+          "xg": 0.14,
+          "goles": 0.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Che Adams",
+          "xg": 0.124,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Billy Gilmour",
+          "xg": 0.088,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Scott McKenna",
+          "xg": 0.086,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Jack Hendry",
+          "xg": 0.066,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Lewis Morgan",
+          "xg": 0.056,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Kenneth McLean",
+          "xg": 0.011,
+          "goles": 0.0,
+          "tiros": 1.0
+        }
+      ]
+    },
+    "Albania": {
+      "total_xg": 2.184,
+      "total_goles": 3.0,
+      "jugadores": [
+        {
+          "nombre": "Kristjan Asllani",
+          "xg": 0.629,
+          "goles": 0.0,
+          "tiros": 8.0
+        },
+        {
+          "nombre": "Armando Broja",
+          "xg": 0.229,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Rey Manaj",
+          "xg": 0.216,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Nedim Bajrami",
+          "xg": 0.196,
+          "goles": 1.0,
+          "tiros": 3.0
+        },
+        {
+          "nombre": "Klaus Gjasula",
+          "xg": 0.177,
+          "goles": 1.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Qazim Laçi",
+          "xg": 0.153,
+          "goles": 1.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Mirlind Daku",
+          "xg": 0.133,
+          "goles": 0.0,
+          "tiros": 1.0
+        },
+        {
+          "nombre": "Berat Djimsiti",
+          "xg": 0.104,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Elseid Hysaj",
+          "xg": 0.098,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Arbër Hoxha",
+          "xg": 0.093,
+          "goles": 0.0,
+          "tiros": 2.0
+        },
+        {
+          "nombre": "Jasir Asani",
+          "xg": 0.06,
+          "goles": 0.0,
+          "tiros": 4.0
+        },
+        {
+          "nombre": "Taulant Seferi",
+          "xg": 0.034,
+          "goles": 0.0,
+          "tiros": 1.0
+        }
+      ]
+    }
+  }
+}

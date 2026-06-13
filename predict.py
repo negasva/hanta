@@ -367,12 +367,25 @@ def leer_tarjetas_wc(equipos_wc):
 
 def leer_event_rates():
     """
-    Tasas de tiros/córners/tarjetas por selección (data/event_rates.json),
+    Tasas de tiros/córners/tarjetas/xG por selección (data/event_rates.json),
     precalculadas con agregar_eventos.py desde StatsBomb Open Data y versionadas.
     """
     ruta = os.path.join(DIR_DATOS, "event_rates.json")
     if not os.path.exists(ruta):
         return {"liga": {}, "equipos": {}}
+    with open(ruta, encoding="utf-8") as f:
+        return json.load(f)
+
+
+def leer_player_rates():
+    """
+    Datos por jugador (xG real, goles, tiros ponderados por recencia) desde
+    data/player_rates.json. Permite estimar el goleador probable según la
+    calidad de tiro de cada jugador, no según una cuota plana de goles.
+    """
+    ruta = os.path.join(DIR_DATOS, "player_rates.json")
+    if not os.path.exists(ruta):
+        return {"equipos": {}}
     with open(ruta, encoding="utf-8") as f:
         return json.load(f)
 
@@ -775,71 +788,104 @@ def _tasa(rates, equipo, clave, defecto):
     return liga
 
 
-def predecir_eventos(local, visitante, rates, tarjetas_wc, goleadores, pred):
+def predecir_eventos(local, visitante, rates, tarjetas_wc, goleadores,
+                     player_rates, pred):
     """
-    Estima estadísticas del partido combinando la tasa 'a favor' de un equipo con
-    la tasa 'en contra' del rival (media geométrica), y ajustando por la
-    competitividad del choque (relación entre el xG del partido y el xG de liga).
+    Estima estadísticas del partido. Mejoras clave:
 
-    'pred' es el dict de predecir_partido (para xG, que reparte el goleador).
+      - Tiros y tiros a puerta se DERIVAN del xG del partido (el mismo que fija
+        el marcador), usando la relación real tiros/xG de cada equipo. Así más
+        tiros implican más goles esperados — coherente, no inventado.
+      - Las tarjetas (amarillas y prob. de roja) dependen del RIVAL: suben en
+        partidos parejos (más intensos) y en cruces entre equipos fauleros.
+      - El goleador probable usa el xG real por jugador (StatsBomb): reparte el
+        xG del equipo según la calidad de tiro de cada jugador, no una cuota
+        plana de goles. Cae a goalscorers.csv cuando no hay datos StatsBomb.
+
+    'pred' es el dict de predecir_partido (xG del partido y probabilidades 1X2).
     """
-    LIGA_TIROS = rates.get("liga", {}).get("tiros_f", 12.0) or 12.0
+    liga = rates.get("liga", {})
+    L_TIROS  = liga.get("tiros_f", 12.0) or 12.0
+    L_PUERTA = liga.get("puerta_f", 4.0) or 4.0
+    L_CORNER = liga.get("corners_f", 5.0) or 5.0
+    L_XG     = liga.get("xg_f", 1.3) or 1.3
+    L_FALTAS = liga.get("faltas", 14.0) or 14.0
 
-    def combinar(eq, riv, clave_f, clave_c, defecto):
-        f = _tasa(rates, eq, clave_f, defecto)
-        c = _tasa(rates, riv, clave_c, defecto)
-        return (f * c) ** 0.5  # media geométrica favor/contra
-
-    # Tiros y tiros a puerta; se escalan suavemente por el xG del partido.
-    tiros_l = combinar(local, visitante, "tiros_f", "tiros_c", 12.0)
-    tiros_v = combinar(visitante, local, "tiros_f", "tiros_c", 12.0)
-    puerta_l = combinar(local, visitante, "puerta_f", "puerta_c", 4.0)
-    puerta_v = combinar(visitante, local, "puerta_f", "puerta_c", 4.0)
-    corner_l = combinar(local, visitante, "corners_f", "corners_c", 5.0)
-    corner_v = combinar(visitante, local, "corners_f", "corners_c", 5.0)
-
-    # Ajuste por dominio: el favorito genera algo más de tiros/córners.
     xg_l, xg_v = pred["xg_local"], pred["xg_visitante"]
-    tot_xg = (xg_l + xg_v) or 1.0
-    dom_l = 0.85 + 0.30 * (xg_l / tot_xg)
-    dom_v = 0.85 + 0.30 * (xg_v / tot_xg)
-    tiros_l *= dom_l; puerta_l *= dom_l; corner_l *= dom_l
-    tiros_v *= dom_v; puerta_v *= dom_v; corner_v *= dom_v
 
-    # Tarjetas: StatsBomb (regularizado) si hay; si no, respaldo a Mundiales (bookings).
-    def amarillas(eq):
+    # --- Tiros / córners: escala real del equipo, modulada por el dominio ---
+    # base = tasa real (favor del equipo x en contra del rival), magnitud realista.
+    # dominio = cuánto manda este equipo en el partido (según el xG del modelo),
+    # con raíz para que las palizas no disparen los tiros a cifras irreales.
+    def combinar(eq, riv, cf, cc, d):
+        return (_tasa(rates, eq, cf, d) * _tasa(rates, riv, cc, d)) ** 0.5
+
+    share_l = xg_l / ((xg_l + xg_v) or 1.0)
+    dom_l = (2.0 * share_l) ** 0.7          # share .5->1.0, .8->1.39, .2->0.52
+    dom_v = (2.0 * (1 - share_l)) ** 0.7
+
+    tiros_l = combinar(local, visitante, "tiros_f", "tiros_c", L_TIROS) * dom_l
+    tiros_v = combinar(visitante, local, "tiros_f", "tiros_c", L_TIROS) * dom_v
+    tiros_l = max(3.0, min(27.0, tiros_l)); tiros_v = max(3.0, min(27.0, tiros_v))
+
+    # tiros a puerta = tiros x tasa real de puntería del equipo (a puerta/tiros)
+    def punteria(eq):
+        t = _tasa(rates, eq, "tiros_f", L_TIROS)
+        return (_tasa(rates, eq, "puerta_f", L_PUERTA) / t) if t else (L_PUERTA / L_TIROS)
+    puerta_l = min(tiros_l, tiros_l * punteria(local))
+    puerta_v = min(tiros_v, tiros_v * punteria(visitante))
+
+    corner_l = combinar(local, visitante, "corners_f", "corners_c", L_CORNER) * (0.6 + 0.4 * dom_l)
+    corner_v = combinar(visitante, local, "corners_f", "corners_c", L_CORNER) * (0.6 + 0.4 * dom_v)
+
+    # --- Tarjetas dependientes del rival ---
+    # Intensidad: partidos parejos (1X2 equilibrado) generan más tarjetas.
+    cierre = 1.0 - abs(pred["prob_local"] - pred["prob_visitante"]) / 100.0
+    intensidad = 0.85 + 0.40 * cierre               # 0.85 (paliza) .. 1.25 (parejo)
+    # Cruce físico: media de faltas de ambos respecto a la liga.
+    f_l = _tasa(rates, local, "faltas", L_FALTAS)
+    f_v = _tasa(rates, visitante, "faltas", L_FALTAS)
+    cruce = ((f_l + f_v) / (2 * L_FALTAS)) ** 0.5    # >1 si ambos faulean mucho
+
+    def base_tarjeta(eq, clave, defecto):
         e = rates.get("equipos", {}).get(eq)
-        if e and "amarillas" in e:
-            return _tasa(rates, eq, "amarillas", 2.0)
+        if e and clave in e:
+            return _tasa(rates, eq, clave, defecto)
         if eq in tarjetas_wc:
-            return tarjetas_wc[eq]["amarillas"]
-        return rates.get("liga", {}).get("amarillas", 2.0)
+            return tarjetas_wc[eq][clave]
+        return liga.get(clave, defecto)
 
-    def rojas(eq):
-        e = rates.get("equipos", {}).get(eq)
-        if e and "rojas" in e:
-            return _tasa(rates, eq, "rojas", 0.1)
-        if eq in tarjetas_wc:
-            return tarjetas_wc[eq]["rojas"]
-        return rates.get("liga", {}).get("rojas", 0.1)
-
-    am_l, am_v = amarillas(local), amarillas(visitante)
-    ro_l, ro_v = rojas(local), rojas(visitante)
-    # P(al menos una expulsión) bajo Poisson con esa media por partido.
+    am_l = base_tarjeta(local, "amarillas", 2.0) * intensidad * cruce
+    am_v = base_tarjeta(visitante, "amarillas", 2.0) * intensidad * cruce
+    ro_l = base_tarjeta(local, "rojas", 0.1) * intensidad * cruce
+    ro_v = base_tarjeta(visitante, "rojas", 0.1) * intensidad * cruce
     prob_roja_l = round((1 - math.exp(-ro_l)) * 100, 1)
     prob_roja_v = round((1 - math.exp(-ro_v)) * 100, 1)
 
-    # Goleador más probable: reparte el xG del equipo según la cuota de cada
-    # jugador en los goles recientes. P(marca) = 1 - exp(-xg * cuota).
+    # --- Goleador probable ---
+    # Con StatsBomb: cuota = 0.6 * (xG del jugador / xG del equipo)
+    #                      + 0.4 * (goles del jugador / goles del equipo)
+    # Mezclar xG y goles evita que un defensa con xG de balón parado supere a un
+    # delantero, y premia a quien de verdad define. Cae a goalscorers.csv si no hay datos.
     def probables(eq, xg_eq):
-        info = goleadores.get(eq)
-        if not info or not info["top"] or info["total"] <= 0:
-            return []
+        pr = player_rates.get("equipos", {}).get(eq)
+        cand = []
+        if pr and pr.get("total_xg", 0) > 0 and pr.get("jugadores"):
+            txg = pr["total_xg"]; tgo = pr.get("total_goles", 0) or 0
+            for j in pr["jugadores"]:
+                s_xg = j["xg"] / txg
+                s_go = (j["goles"] / tgo) if tgo > 0 else s_xg
+                cand.append((j["nombre"], 0.6 * s_xg + 0.4 * s_go))
+            cand.sort(key=lambda x: -x[1])
+        else:
+            info = goleadores.get(eq)
+            if not info or not info["top"] or info["total"] <= 0:
+                return []
+            cand = [(jug, g / info["total"]) for jug, g in info["top"]]
         out = []
-        for jug, g in info["top"][:3]:
-            cuota = g / info["total"]
+        for nombre, cuota in cand[:3]:
             p = 1 - math.exp(-xg_eq * cuota)
-            out.append({"jugador": jug, "prob": round(p * 100)})
+            out.append({"jugador": nombre, "prob": round(p * 100)})
         return out
 
     return {
@@ -882,9 +928,10 @@ def generar(offline=False):
                                      goles_pm, pos_wc, forma_euro)
 
     # Estadísticas por evento (tiros, córners, tarjetas, goleador probable)
-    event_rates = leer_event_rates()
-    tarjetas_wc = leer_tarjetas_wc(equipos_wc)
-    goleadores  = leer_goleadores_probables(equipos_wc)
+    event_rates  = leer_event_rates()
+    player_rates = leer_player_rates()
+    tarjetas_wc  = leer_tarjetas_wc(equipos_wc)
+    goleadores   = leer_goleadores_probables(equipos_wc)
     n_cobertura = sum(1 for e in equipos_wc if e in event_rates.get("equipos", {}))
 
     print(f"\nHistórico: {len(partidos)} partidos | WC2026: {len(jugados)} jugados, {len(fixture)} pendientes")
@@ -921,7 +968,7 @@ def generar(offline=False):
     for p in fixture:
         pred = predecir_partido(p["local"], p["visitante"], ataque, defensa, liga, not p["neutral"])
         eventos = predecir_eventos(p["local"], p["visitante"], event_rates,
-                                   tarjetas_wc, goleadores, pred)
+                                   tarjetas_wc, goleadores, player_rates, pred)
         predicciones.append({
             "grupo": p["grupo"], "fecha": p["fecha"].isoformat() if p["fecha"] else "",
             "hora_col": p["hora_col"], "ciudad": p["ciudad"],
