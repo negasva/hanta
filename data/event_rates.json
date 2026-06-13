@@ -8,21 +8,13 @@
     "corners_c": 4.784,
     "amarillas": 1.96,
     "rojas": 0.094,
-    "faltas": 14.455
+    "faltas": 14.455,
+    "xg_f": 1.32,
+    "xg_c": 1.51,
+    "goles_f": 1.241,
+    "goles_c": 1.514
   },
   "equipos": {
-    "DR Congo": {
-      "pj": 7.0,
-      "tiros_f": 15.43,
-      "tiros_c": 10.29,
-      "puerta_f": 5.0,
-      "puerta_c": 4.29,
-      "corners_f": 4.29,
-      "corners_c": 2.57,
-      "amarillas": 1.14,
-      "rojas": 0.0,
-      "faltas": 15.0
-    },
     "Egypt": {
       "pj": 4.0,
       "tiros_f": 20.0,
@@ -33,19 +25,27 @@
       "corners_c": 3.5,
       "amarillas": 1.5,
       "rojas": 0.25,
-      "faltas": 13.25
+      "faltas": 13.25,
+      "xg_f": 3.33,
+      "xg_c": 2.547,
+      "goles_f": 3.5,
+      "goles_c": 3.75
     },
-    "Mozambique": {
-      "pj": 3.0,
-      "tiros_f": 9.33,
-      "tiros_c": 13.67,
-      "puerta_f": 2.67,
-      "puerta_c": 4.67,
-      "corners_f": 4.67,
-      "corners_c": 3.67,
-      "amarillas": 2.33,
+    "DR Congo": {
+      "pj": 7.0,
+      "tiros_f": 15.43,
+      "tiros_c": 10.29,
+      "puerta_f": 5.0,
+      "puerta_c": 4.29,
+      "corners_f": 4.29,
+      "corners_c": 2.57,
+      "amarillas": 1.14,
       "rojas": 0.0,
-      "faltas": 11.33
+      "faltas": 15.0,
+      "xg_f": 3.418,
+      "xg_c": 2.481,
+      "goles_f": 2.714,
+      "goles_c": 2.571
     },
     "Cape Verde Islands": {
       "pj": 5.0,
@@ -57,7 +57,27 @@
       "corners_c": 4.2,
       "amarillas": 1.4,
       "rojas": 0.0,
-      "faltas": 15.6
+      "faltas": 15.6,
+      "xg_f": 2.145,
+      "xg_c": 1.708,
+      "goles_f": 1.8,
+      "goles_c": 1.0
+    },
+    "Mozambique": {
+      "pj": 3.0,
+      "tiros_f": 9.33,
+      "tiros_c": 13.67,
+      "puerta_f": 2.67,
+      "puerta_c": 4.67,
+      "corners_f": 4.67,
+      "corners_c": 3.67,
+      "amarillas": 2.33,
+      "rojas": 0.0,
+      "faltas": 11.33,
+      "xg_f": 0.866,
+      "xg_c": 1.457,
+      "goles_f": 1.333,
+      "goles_c": 2.333
     },
     "Gambia": {
       "pj": 3.0,
@@ -69,7 +89,11 @@
       "corners_c": 6.0,
       "amarillas": 2.0,
       "rojas": 0.333,
-      "faltas": 15.67
+      "faltas": 15.67,
+      "xg_f": 0.853,
+      "xg_c": 1.842,
+      "goles_f": 0.667,
+      "goles_c": 2.0
     },
     "Cameroon": {
       "pj": 5.8,
@@ -81,7 +105,11 @@
       "corners_c": 5.69,
       "amarillas": 1.93,
       "rojas": 0.103,
-      "faltas": 13.38
+      "faltas": 13.38,
+      "xg_f": 0.799,
+      "xg_c": 1.357,
+      "goles_f": 1.103,
+      "goles_c": 1.793
     },
     "Senegal": {
       "pj": 6.4,
@@ -93,7 +121,11 @@
       "corners_c": 4.12,
       "amarillas": 2.06,
       "rojas": 0.0,
-      "faltas": 16.0
+      "faltas": 16.0,
+      "xg_f": 1.827,
+      "xg_c": 1.455,
+      "goles_f": 2.5,
+      "goles_c": 1.75
     },
     "Nigeria": {
       "pj": 7.0,
@@ -105,7 +137,11 @@
       "corners_c": 4.0,
       "amarillas": 1.71,
       "rojas": 0.0,
-      "faltas": 18.71
+      "faltas": 18.71,
+      "xg_f": 1.953,
+      "xg_c": 1.265,
+      "goles_f": 1.571,
+      "goles_c": 0.857
     },
     "Guinea-Bissau": {
       "pj": 3.0,
@@ -117,19 +153,11 @@
       "corners_c": 3.33,
       "amarillas": 0.33,
       "rojas": 0.0,
-      "faltas": 13.67
-    },
-    "Mali": {
-      "pj": 5.0,
-      "tiros_f": 12.8,
-      "tiros_c": 8.2,
-      "puerta_f": 3.6,
-      "puerta_c": 3.0,
-      "corners_f": 4.0,
-      "corners_c": 3.8,
-      "amarillas": 1.4,
-      "rojas": 0.2,
-      "faltas": 18.4
+      "faltas": 13.67,
+      "xg_f": 0.638,
+      "xg_c": 1.152,
+      "goles_f": 0.333,
+      "goles_c": 2.0
     },
     "Namibia": {
       "pj": 4.0,
@@ -141,7 +169,27 @@
       "corners_c": 5.75,
       "amarillas": 0.75,
       "rojas": 0.25,
-      "faltas": 15.0
+      "faltas": 15.0,
+      "xg_f": 0.926,
+      "xg_c": 1.338,
+      "goles_f": 0.25,
+      "goles_c": 1.75
+    },
+    "Mali": {
+      "pj": 5.0,
+      "tiros_f": 12.8,
+      "tiros_c": 8.2,
+      "puerta_f": 3.6,
+      "puerta_c": 3.0,
+      "corners_f": 4.0,
+      "corners_c": 3.8,
+      "amarillas": 1.4,
+      "rojas": 0.2,
+      "faltas": 18.4,
+      "xg_f": 1.17,
+      "xg_c": 0.975,
+      "goles_f": 1.0,
+      "goles_c": 0.8
     },
     "Zambia": {
       "pj": 3.0,
@@ -153,7 +201,11 @@
       "corners_c": 5.67,
       "amarillas": 1.0,
       "rojas": 0.333,
-      "faltas": 13.67
+      "faltas": 13.67,
+      "xg_f": 0.445,
+      "xg_c": 1.831,
+      "goles_f": 0.667,
+      "goles_c": 1.0
     },
     "South Africa": {
       "pj": 7.0,
@@ -165,7 +217,11 @@
       "corners_c": 4.57,
       "amarillas": 0.86,
       "rojas": 0.143,
-      "faltas": 13.71
+      "faltas": 13.71,
+      "xg_f": 2.749,
+      "xg_c": 3.432,
+      "goles_f": 2.429,
+      "goles_c": 1.857
     },
     "Guinea": {
       "pj": 5.0,
@@ -177,7 +233,11 @@
       "corners_c": 4.2,
       "amarillas": 1.6,
       "rojas": 0.2,
-      "faltas": 16.2
+      "faltas": 16.2,
+      "xg_f": 1.079,
+      "xg_c": 0.937,
+      "goles_f": 0.8,
+      "goles_c": 1.2
     },
     "Mauritania": {
       "pj": 4.0,
@@ -189,7 +249,11 @@
       "corners_c": 7.75,
       "amarillas": 2.0,
       "rojas": 0.0,
-      "faltas": 15.0
+      "faltas": 15.0,
+      "xg_f": 0.933,
+      "xg_c": 1.485,
+      "goles_f": 0.75,
+      "goles_c": 1.25
     },
     "Algeria": {
       "pj": 3.0,
@@ -201,7 +265,11 @@
       "corners_c": 2.67,
       "amarillas": 3.0,
       "rojas": 0.0,
-      "faltas": 13.67
+      "faltas": 13.67,
+      "xg_f": 1.294,
+      "xg_c": 1.262,
+      "goles_f": 1.0,
+      "goles_c": 1.333
     },
     "Tunisia": {
       "pj": 4.8,
@@ -213,7 +281,11 @@
       "corners_c": 5.96,
       "amarillas": 1.04,
       "rojas": 0.0,
-      "faltas": 12.62
+      "faltas": 12.62,
+      "xg_f": 0.805,
+      "xg_c": 0.92,
+      "goles_f": 0.333,
+      "goles_c": 0.542
     },
     "Angola": {
       "pj": 5.0,
@@ -225,7 +297,11 @@
       "corners_c": 6.6,
       "amarillas": 1.6,
       "rojas": 0.2,
-      "faltas": 17.0
+      "faltas": 17.0,
+      "xg_f": 1.333,
+      "xg_c": 1.027,
+      "goles_f": 1.8,
+      "goles_c": 0.8
     },
     "Morocco": {
       "pj": 8.2,
@@ -237,7 +313,11 @@
       "corners_c": 4.76,
       "amarillas": 1.44,
       "rojas": 0.195,
-      "faltas": 15.85
+      "faltas": 15.85,
+      "xg_f": 1.594,
+      "xg_c": 1.027,
+      "goles_f": 1.268,
+      "goles_c": 0.659
     },
     "Tanzania": {
       "pj": 3.0,
@@ -249,7 +329,11 @@
       "corners_c": 4.67,
       "amarillas": 1.33,
       "rojas": 0.333,
-      "faltas": 10.0
+      "faltas": 10.0,
+      "xg_f": 0.154,
+      "xg_c": 1.252,
+      "goles_f": 0.333,
+      "goles_c": 1.333
     },
     "Burkina Faso": {
       "pj": 4.0,
@@ -261,7 +345,11 @@
       "corners_c": 2.5,
       "amarillas": 3.0,
       "rojas": 0.0,
-      "faltas": 16.75
+      "faltas": 16.75,
+      "xg_f": 1.213,
+      "xg_c": 1.016,
+      "goles_f": 1.0,
+      "goles_c": 1.25
     },
     "Equatorial Guinea": {
       "pj": 4.0,
@@ -273,7 +361,11 @@
       "corners_c": 5.5,
       "amarillas": 1.75,
       "rojas": 0.25,
-      "faltas": 15.5
+      "faltas": 15.5,
+      "xg_f": 1.04,
+      "xg_c": 1.587,
+      "goles_f": 2.25,
+      "goles_c": 0.75
     },
     "Ivory Coast": {
       "pj": 7.0,
@@ -285,7 +377,11 @@
       "corners_c": 5.0,
       "amarillas": 2.14,
       "rojas": 0.286,
-      "faltas": 17.57
+      "faltas": 17.57,
+      "xg_f": 1.646,
+      "xg_c": 1.548,
+      "goles_f": 1.857,
+      "goles_c": 1.714
     },
     "Ghana": {
       "pj": 4.8,
@@ -297,7 +393,11 @@
       "corners_c": 5.04,
       "amarillas": 2.88,
       "rojas": 0.0,
-      "faltas": 20.96
+      "faltas": 20.96,
+      "xg_f": 1.191,
+      "xg_c": 1.776,
+      "goles_f": 1.667,
+      "goles_c": 2.125
     },
     "Colombia": {
       "pj": 6.0,
@@ -309,7 +409,11 @@
       "corners_c": 3.5,
       "amarillas": 2.0,
       "rojas": 0.167,
-      "faltas": 16.83
+      "faltas": 16.83,
+      "xg_f": 1.559,
+      "xg_c": 0.624,
+      "goles_f": 2.0,
+      "goles_c": 0.5
     },
     "Brazil": {
       "pj": 7.0,
@@ -321,7 +425,11 @@
       "corners_c": 3.74,
       "amarillas": 1.8,
       "rojas": 0.0,
-      "faltas": 14.09
+      "faltas": 14.09,
+      "xg_f": 2.524,
+      "xg_c": 1.392,
+      "goles_f": 1.857,
+      "goles_c": 1.457
     },
     "Venezuela": {
       "pj": 4.0,
@@ -333,7 +441,11 @@
       "corners_c": 4.75,
       "amarillas": 1.5,
       "rojas": 0.0,
-      "faltas": 12.5
+      "faltas": 12.5,
+      "xg_f": 2.515,
+      "xg_c": 2.46,
+      "goles_f": 2.5,
+      "goles_c": 1.5
     },
     "Jamaica": {
       "pj": 3.0,
@@ -345,7 +457,11 @@
       "corners_c": 7.67,
       "amarillas": 1.67,
       "rojas": 0.0,
-      "faltas": 11.0
+      "faltas": 11.0,
+      "xg_f": 0.703,
+      "xg_c": 1.739,
+      "goles_f": 0.333,
+      "goles_c": 2.0
     },
     "Uruguay": {
       "pj": 7.8,
@@ -357,7 +473,11 @@
       "corners_c": 3.64,
       "amarillas": 1.64,
       "rojas": 0.128,
-      "faltas": 16.21
+      "faltas": 16.21,
+      "xg_f": 2.163,
+      "xg_c": 1.809,
+      "goles_f": 2.59,
+      "goles_c": 1.308
     },
     "Bolivia": {
       "pj": 3.0,
@@ -369,7 +489,11 @@
       "corners_c": 4.0,
       "amarillas": 2.33,
       "rojas": 0.0,
-      "faltas": 20.67
+      "faltas": 20.67,
+      "xg_f": 0.331,
+      "xg_c": 2.022,
+      "goles_f": 0.333,
+      "goles_c": 3.333
     },
     "Peru": {
       "pj": 3.0,
@@ -381,7 +505,11 @@
       "corners_c": 3.33,
       "amarillas": 2.0,
       "rojas": 0.333,
-      "faltas": 22.0
+      "faltas": 22.0,
+      "xg_f": 0.473,
+      "xg_c": 1.347,
+      "goles_f": 0.0,
+      "goles_c": 1.0
     },
     "Chile": {
       "pj": 3.0,
@@ -393,7 +521,11 @@
       "corners_c": 6.67,
       "amarillas": 2.0,
       "rojas": 0.333,
-      "faltas": 13.67
+      "faltas": 13.67,
+      "xg_f": 0.537,
+      "xg_c": 1.387,
+      "goles_f": 0.0,
+      "goles_c": 0.333
     },
     "Ecuador": {
       "pj": 5.8,
@@ -405,7 +537,11 @@
       "corners_c": 4.38,
       "amarillas": 1.34,
       "rojas": 0.172,
-      "faltas": 15.17
+      "faltas": 15.17,
+      "xg_f": 1.761,
+      "xg_c": 1.638,
+      "goles_f": 1.448,
+      "goles_c": 1.69
     },
     "Argentina": {
       "pj": 10.2,
@@ -417,7 +553,11 @@
       "corners_c": 3.18,
       "amarillas": 1.78,
       "rojas": 0.0,
-      "faltas": 13.96
+      "faltas": 13.96,
+      "xg_f": 2.807,
+      "xg_c": 1.398,
+      "goles_f": 2.627,
+      "goles_c": 1.0
     },
     "Paraguay": {
       "pj": 3.0,
@@ -429,7 +569,11 @@
       "corners_c": 3.33,
       "amarillas": 2.33,
       "rojas": 0.333,
-      "faltas": 18.0
+      "faltas": 18.0,
+      "xg_f": 0.986,
+      "xg_c": 1.547,
+      "goles_f": 1.0,
+      "goles_c": 2.667
     },
     "United States": {
       "pj": 5.4,
@@ -441,7 +585,11 @@
       "corners_c": 2.52,
       "amarillas": 1.48,
       "rojas": 0.185,
-      "faltas": 11.04
+      "faltas": 11.04,
+      "xg_f": 1.139,
+      "xg_c": 0.872,
+      "goles_f": 0.889,
+      "goles_c": 1.0
     },
     "Mexico": {
       "pj": 4.8,
@@ -453,7 +601,11 @@
       "corners_c": 3.33,
       "amarillas": 2.33,
       "rojas": 0.0,
-      "faltas": 15.17
+      "faltas": 15.17,
+      "xg_f": 1.311,
+      "xg_c": 0.724,
+      "goles_f": 0.458,
+      "goles_c": 0.583
     },
     "Canada": {
       "pj": 7.8,
@@ -465,7 +617,11 @@
       "corners_c": 4.44,
       "amarillas": 2.79,
       "rojas": 0.0,
-      "faltas": 14.13
+      "faltas": 14.13,
+      "xg_f": 2.297,
+      "xg_c": 2.413,
+      "goles_f": 1.487,
+      "goles_c": 2.333
     },
     "Costa Rica": {
       "pj": 4.8,
@@ -477,7 +633,11 @@
       "corners_c": 6.96,
       "amarillas": 2.0,
       "rojas": 0.0,
-      "faltas": 13.88
+      "faltas": 13.88,
+      "xg_f": 0.253,
+      "xg_c": 2.224,
+      "goles_f": 0.667,
+      "goles_c": 2.208
     },
     "Panama": {
       "pj": 4.0,
@@ -489,7 +649,11 @@
       "corners_c": 3.75,
       "amarillas": 2.0,
       "rojas": 0.25,
-      "faltas": 16.25
+      "faltas": 16.25,
+      "xg_f": 0.806,
+      "xg_c": 1.312,
+      "goles_f": 1.5,
+      "goles_c": 2.5
     },
     "England": {
       "pj": 10.0,
@@ -501,7 +665,11 @@
       "corners_c": 2.98,
       "amarillas": 1.46,
       "rojas": 0.0,
-      "faltas": 10.62
+      "faltas": 10.62,
+      "xg_f": 1.573,
+      "xg_c": 1.163,
+      "goles_f": 2.08,
+      "goles_c": 1.14
     },
     "Iran": {
       "pj": 1.8,
@@ -513,19 +681,11 @@
       "corners_c": 5.0,
       "amarillas": 2.33,
       "rojas": 0.0,
-      "faltas": 17.33
-    },
-    "Croatia": {
-      "pj": 7.2,
-      "tiros_f": 13.22,
-      "tiros_c": 12.86,
-      "puerta_f": 5.11,
-      "puerta_c": 5.25,
-      "corners_f": 3.19,
-      "corners_c": 4.53,
-      "amarillas": 1.64,
-      "rojas": 0.0,
-      "faltas": 15.64
+      "faltas": 17.33,
+      "xg_f": 1.277,
+      "xg_c": 1.257,
+      "goles_f": 1.333,
+      "goles_c": 2.333
     },
     "Belgium": {
       "pj": 5.8,
@@ -537,7 +697,27 @@
       "corners_c": 4.34,
       "amarillas": 1.72,
       "rojas": 0.0,
-      "faltas": 11.31
+      "faltas": 11.31,
+      "xg_f": 1.14,
+      "xg_c": 1.115,
+      "goles_f": 0.448,
+      "goles_c": 0.379
+    },
+    "Croatia": {
+      "pj": 7.2,
+      "tiros_f": 13.22,
+      "tiros_c": 12.86,
+      "puerta_f": 5.11,
+      "puerta_c": 5.25,
+      "corners_f": 3.19,
+      "corners_c": 4.53,
+      "amarillas": 1.64,
+      "rojas": 0.0,
+      "faltas": 15.64,
+      "xg_f": 1.906,
+      "xg_c": 1.792,
+      "goles_f": 1.528,
+      "goles_c": 1.667
     },
     "Netherlands": {
       "pj": 9.0,
@@ -549,19 +729,11 @@
       "corners_c": 4.18,
       "amarillas": 1.96,
       "rojas": 0.067,
-      "faltas": 14.82
-    },
-    "Spain": {
-      "pj": 9.4,
-      "tiros_f": 16.34,
-      "tiros_c": 9.7,
-      "puerta_f": 5.79,
-      "puerta_c": 3.06,
-      "corners_f": 6.13,
-      "corners_c": 2.45,
-      "amarillas": 1.72,
-      "rojas": 0.106,
-      "faltas": 13.77
+      "faltas": 14.82,
+      "xg_f": 1.407,
+      "xg_c": 1.319,
+      "goles_f": 1.867,
+      "goles_c": 1.2
     },
     "Japan": {
       "pj": 2.4,
@@ -573,7 +745,27 @@
       "corners_c": 3.25,
       "amarillas": 1.5,
       "rojas": 0.0,
-      "faltas": 15.75
+      "faltas": 15.75,
+      "xg_f": 1.846,
+      "xg_c": 1.953,
+      "goles_f": 1.5,
+      "goles_c": 1.75
+    },
+    "Spain": {
+      "pj": 9.4,
+      "tiros_f": 16.34,
+      "tiros_c": 9.7,
+      "puerta_f": 5.79,
+      "puerta_c": 3.06,
+      "corners_f": 6.13,
+      "corners_c": 2.45,
+      "amarillas": 1.72,
+      "rojas": 0.106,
+      "faltas": 13.77,
+      "xg_f": 1.577,
+      "xg_c": 1.07,
+      "goles_f": 2.064,
+      "goles_c": 0.702
     },
     "Wales": {
       "pj": 1.8,
@@ -585,7 +777,11 @@
       "corners_c": 6.0,
       "amarillas": 1.67,
       "rojas": 0.333,
-      "faltas": 12.67
+      "faltas": 12.67,
+      "xg_f": 0.74,
+      "xg_c": 1.657,
+      "goles_f": 0.333,
+      "goles_c": 2.0
     },
     "France": {
       "pj": 10.2,
@@ -597,7 +793,11 @@
       "corners_c": 4.43,
       "amarillas": 1.35,
       "rojas": 0.0,
-      "faltas": 11.76
+      "faltas": 11.76,
+      "xg_f": 2.067,
+      "xg_c": 1.524,
+      "goles_f": 1.745,
+      "goles_c": 1.294
     },
     "Switzerland": {
       "pj": 7.4,
@@ -609,7 +809,11 @@
       "corners_c": 5.22,
       "amarillas": 1.95,
       "rojas": 0.0,
-      "faltas": 14.0
+      "faltas": 14.0,
+      "xg_f": 1.64,
+      "xg_c": 1.568,
+      "goles_f": 1.892,
+      "goles_c": 1.946
     },
     "Portugal": {
       "pj": 8.0,
@@ -621,7 +825,11 @@
       "corners_c": 3.67,
       "amarillas": 1.57,
       "rojas": 0.0,
-      "faltas": 9.93
+      "faltas": 9.93,
+      "xg_f": 2.387,
+      "xg_c": 1.734,
+      "goles_f": 2.025,
+      "goles_c": 1.45
     },
     "Poland": {
       "pj": 5.4,
@@ -633,7 +841,11 @@
       "corners_c": 6.59,
       "amarillas": 2.07,
       "rojas": 0.0,
-      "faltas": 14.11
+      "faltas": 14.11,
+      "xg_f": 1.171,
+      "xg_c": 1.676,
+      "goles_f": 0.889,
+      "goles_c": 1.667
     },
     "Saudi Arabia": {
       "pj": 1.8,
@@ -645,7 +857,11 @@
       "corners_c": 7.0,
       "amarillas": 4.67,
       "rojas": 0.0,
-      "faltas": 19.67
+      "faltas": 19.67,
+      "xg_f": 1.067,
+      "xg_c": 2.183,
+      "goles_f": 1.0,
+      "goles_c": 1.667
     },
     "Qatar": {
       "pj": 1.8,
@@ -657,7 +873,11 @@
       "corners_c": 4.33,
       "amarillas": 2.33,
       "rojas": 0.0,
-      "faltas": 12.0
+      "faltas": 12.0,
+      "xg_f": 0.469,
+      "xg_c": 1.257,
+      "goles_f": 0.333,
+      "goles_c": 2.333
     },
     "Denmark": {
       "pj": 5.8,
@@ -669,7 +889,11 @@
       "corners_c": 4.34,
       "amarillas": 1.9,
       "rojas": 0.0,
-      "faltas": 13.0
+      "faltas": 13.0,
+      "xg_f": 0.997,
+      "xg_c": 1.167,
+      "goles_f": 0.448,
+      "goles_c": 1.0
     },
     "Germany": {
       "pj": 6.8,
@@ -681,7 +905,11 @@
       "corners_c": 3.5,
       "amarillas": 2.18,
       "rojas": 0.0,
-      "faltas": 13.32
+      "faltas": 13.32,
+      "xg_f": 2.009,
+      "xg_c": 0.872,
+      "goles_f": 2.147,
+      "goles_c": 0.794
     },
     "Serbia": {
       "pj": 4.8,
@@ -693,7 +921,11 @@
       "corners_c": 3.83,
       "amarillas": 3.17,
       "rojas": 0.0,
-      "faltas": 15.17
+      "faltas": 15.17,
+      "xg_f": 0.81,
+      "xg_c": 1.467,
+      "goles_f": 0.833,
+      "goles_c": 1.417
     },
     "Australia": {
       "pj": 2.4,
@@ -705,7 +937,11 @@
       "corners_c": 5.0,
       "amarillas": 1.75,
       "rojas": 0.0,
-      "faltas": 15.0
+      "faltas": 15.0,
+      "xg_f": 0.395,
+      "xg_c": 1.61,
+      "goles_f": 0.75,
+      "goles_c": 1.5
     },
     "South Korea": {
       "pj": 2.4,
@@ -717,7 +953,11 @@
       "corners_c": 4.5,
       "amarillas": 1.5,
       "rojas": 0.0,
-      "faltas": 11.75
+      "faltas": 11.75,
+      "xg_f": 0.901,
+      "xg_c": 1.458,
+      "goles_f": 1.25,
+      "goles_c": 2.0
     },
     "Czech Republic": {
       "pj": 3.0,
@@ -729,7 +969,11 @@
       "corners_c": 8.33,
       "amarillas": 4.0,
       "rojas": 0.667,
-      "faltas": 15.67
+      "faltas": 15.67,
+      "xg_f": 1.53,
+      "xg_c": 1.412,
+      "goles_f": 1.0,
+      "goles_c": 1.333
     },
     "Hungary": {
       "pj": 3.0,
@@ -741,7 +985,11 @@
       "corners_c": 6.33,
       "amarillas": 3.0,
       "rojas": 0.0,
-      "faltas": 14.33
+      "faltas": 14.33,
+      "xg_f": 1.111,
+      "xg_c": 1.254,
+      "goles_f": 0.667,
+      "goles_c": 1.667
     },
     "Slovenia": {
       "pj": 4.0,
@@ -753,7 +1001,11 @@
       "corners_c": 8.75,
       "amarillas": 2.75,
       "rojas": 0.0,
-      "faltas": 14.5
+      "faltas": 14.5,
+      "xg_f": 1.437,
+      "xg_c": 1.95,
+      "goles_f": 0.5,
+      "goles_c": 1.25
     },
     "Italy": {
       "pj": 4.0,
@@ -765,7 +1017,11 @@
       "corners_c": 3.5,
       "amarillas": 2.25,
       "rojas": 0.0,
-      "faltas": 12.5
+      "faltas": 12.5,
+      "xg_f": 0.826,
+      "xg_c": 1.039,
+      "goles_f": 0.75,
+      "goles_c": 1.0
     },
     "Austria": {
       "pj": 4.0,
@@ -777,7 +1033,11 @@
       "corners_c": 3.75,
       "amarillas": 3.0,
       "rojas": 0.0,
-      "faltas": 17.0
+      "faltas": 17.0,
+      "xg_f": 1.529,
+      "xg_c": 1.434,
+      "goles_f": 1.5,
+      "goles_c": 1.25
     },
     "Georgia": {
       "pj": 4.0,
@@ -789,7 +1049,11 @@
       "corners_c": 10.0,
       "amarillas": 1.75,
       "rojas": 0.0,
-      "faltas": 10.5
+      "faltas": 10.5,
+      "xg_f": 1.054,
+      "xg_c": 2.597,
+      "goles_f": 1.0,
+      "goles_c": 2.0
     },
     "Turkey": {
       "pj": 5.0,
@@ -801,19 +1065,11 @@
       "corners_c": 4.4,
       "amarillas": 3.8,
       "rojas": 0.2,
-      "faltas": 10.6
-    },
-    "Romania": {
-      "pj": 4.0,
-      "tiros_f": 9.5,
-      "tiros_c": 17.5,
-      "puerta_f": 3.75,
-      "puerta_c": 5.25,
-      "corners_f": 3.75,
-      "corners_c": 8.0,
-      "amarillas": 2.0,
-      "rojas": 0.0,
-      "faltas": 12.25
+      "faltas": 10.6,
+      "xg_f": 1.293,
+      "xg_c": 1.619,
+      "goles_f": 1.6,
+      "goles_c": 1.2
     },
     "Ukraine": {
       "pj": 3.0,
@@ -825,7 +1081,27 @@
       "corners_c": 4.67,
       "amarillas": 1.0,
       "rojas": 0.0,
-      "faltas": 12.0
+      "faltas": 12.0,
+      "xg_f": 0.995,
+      "xg_c": 0.834,
+      "goles_f": 0.667,
+      "goles_c": 1.333
+    },
+    "Romania": {
+      "pj": 4.0,
+      "tiros_f": 9.5,
+      "tiros_c": 17.5,
+      "puerta_f": 3.75,
+      "puerta_c": 5.25,
+      "corners_f": 3.75,
+      "corners_c": 8.0,
+      "amarillas": 2.0,
+      "rojas": 0.0,
+      "faltas": 12.25,
+      "xg_f": 0.939,
+      "xg_c": 1.415,
+      "goles_f": 1.0,
+      "goles_c": 1.5
     },
     "Slovakia": {
       "pj": 4.0,
@@ -837,7 +1113,11 @@
       "corners_c": 4.75,
       "amarillas": 2.0,
       "rojas": 0.0,
-      "faltas": 13.25
+      "faltas": 13.25,
+      "xg_f": 0.962,
+      "xg_c": 1.548,
+      "goles_f": 1.0,
+      "goles_c": 1.25
     },
     "Scotland": {
       "pj": 3.0,
@@ -849,7 +1129,11 @@
       "corners_c": 6.33,
       "amarillas": 1.67,
       "rojas": 0.333,
-      "faltas": 12.67
+      "faltas": 12.67,
+      "xg_f": 0.339,
+      "xg_c": 1.279,
+      "goles_f": 0.333,
+      "goles_c": 2.333
     },
     "Albania": {
       "pj": 3.0,
@@ -861,7 +1145,11 @@
       "corners_c": 5.0,
       "amarillas": 2.33,
       "rojas": 0.0,
-      "faltas": 10.33
+      "faltas": 10.33,
+      "xg_f": 0.728,
+      "xg_c": 1.42,
+      "goles_f": 1.0,
+      "goles_c": 1.333
     }
   },
   "n_equipos": 71,

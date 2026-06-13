@@ -63,23 +63,34 @@ Banderas: [flagcdn.com](https://flagcdn.com).
    partido (amistosos pesan menos).
 3. **Predicción:** con la distribución de Poisson, el **marcador más probable**
    y las probabilidades de **victoria / empate / derrota** de cada partido.
-4. **Estadísticas por partido:** tiros, tiros a puerta, córners y tarjetas se
-   estiman combinando la tasa **a favor** de un equipo con la tasa **en contra**
-   del rival (media geométrica), ajustadas por el dominio esperado (xG) y
-   **regularizadas hacia el promedio de liga** para selecciones con pocos
-   partidos. El **goleador más probable** reparte el xG del equipo según la
-   cuota de goles de cada jugador en los últimos 24 meses
-   (`P(marca) = 1 − e^(−xG·cuota)`).
+4. **Estadísticas por partido:**
+   - **Tiros y tiros a puerta** parten de la tasa real del equipo (favor vs
+     contra del rival) y se **modulan por el dominio** del partido según el xG
+     del modelo (con raíz, para que las palizas no disparen cifras irreales).
+     Así **más tiros van de la mano de más goles esperados**. La puntería usa la
+     razón real *a puerta/tiros* de cada equipo.
+   - **Tarjetas dependientes del rival:** amarillas y probabilidad de roja suben
+     en partidos **parejos** (más intensos, según el 1X2) y en cruces entre
+     equipos **fauleros** (media de faltas de ambos respecto a la liga).
+   - **Goleador más probable:** usa el **xG real por jugador** (StatsBomb),
+     mezclando calidad de tiro (60%) y goles convertidos (40%) para repartir el
+     xG del equipo: `P(marca) = 1 − e^(−xG_equipo · cuota_jugador)`. Cae a
+     `goalscorers.csv` cuando no hay datos de StatsBomb.
+   - Todas las tasas se **regularizan hacia el promedio de liga** para
+     selecciones con pocos partidos (evita valores ruidosos).
 
 ### Estadísticas por evento (StatsBomb)
 
-Las tasas reales de tiros/córners/tarjetas se precalculan con
-`agregar_eventos.py`, que descarga ~360 MB de eventos de StatsBomb y los resume
-en **`data/event_rates.json`** (~18 KB, versionado en git). Así el Action diario
-no descarga nada pesado: solo lee ese resumen. **38 de las 48** selecciones del
-Mundial tienen datos propios; el resto usa el promedio de liga (y `bookings`
-para tarjetas). Para regenerarlo: corre el workflow manual *"Recalcular
-estadísticas por evento"* o `python3 agregar_eventos.py`.
+Las tasas reales de tiros/córners/tarjetas/**xG** y los datos **por jugador**
+(xG, goles, tiros) se precalculan con `agregar_eventos.py`, que descarga ~360 MB
+de eventos de StatsBomb (Copa América 2024, Euro 2024, AFCON 2023, Mundial 2022 —
+199 partidos) y los resume en **`data/event_rates.json`** y
+**`data/player_rates.json`** (pocos KB, versionados en git). Así el Action diario
+no descarga nada pesado: solo lee esos resúmenes. **38 de las 48** selecciones
+del Mundial tienen datos propios; el resto usa el promedio de liga (y `bookings`
+para tarjetas, `goalscorers` para el goleador). Para regenerarlo: corre el
+workflow manual *"Recalcular estadísticas por evento"* o
+`python3 agregar_eventos.py`.
 
 ### Precisión real (backtest, 710 partidos competitivos del último año)
 
