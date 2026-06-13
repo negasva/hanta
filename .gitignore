@@ -6,6 +6,11 @@ data/goalscorers.csv
 data/shootouts.csv
 data/former_names.csv
 data/wc_history.csv
+data/wc_squads.csv
+data/worldcup_2022.json
+data/wc_goals.csv
+data/wc_standings.csv
+data/euro_2024.json
 
 # Python
 __pycache__/

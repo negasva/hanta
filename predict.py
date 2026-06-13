@@ -7,20 +7,23 @@ Predictor de marcadores — Fase de grupos del Mundial 2026
 App autocontenida (solo librería estándar de Python) que combina 8 fuentes de
 datos para producir predicciones calibradas y un tablero visual con banderas.
 
-FUENTES DE DATOS
-----------------
-Base (3):
+FUENTES DE DATOS (12)
+---------------------
+Base (7):
   1. martj42/international_results .......... historial de partidos (1872–2026)
   2. Dato-Futbol/fifa-ranking ............... ranking FIFA histórico
-  3. openfootball/worldcup.json ............. fixture oficial 2026, grupos, horas
-
-Añadidas para más realismo (5):
-  4. ELO mundial (computado del historial) .. fuerza global calibrada y actual
-  5. martj42/goalscorers.csv ................ goleadores, profundidad, penaltis
+  3. openfootball/worldcup.json 2026 ........ fixture oficial, grupos, horas, resultados
+  4. ELO mundial (computado del historial) .. fuerza global calibrada — ancla principal
+  5. martj42/goalscorers.csv ................ goleadores, profundidad, % penaltis
   6. martj42/shootouts.csv .................. récord en tandas de penaltis
-  7. jfjelstul/worldcup ..................... pedigrí mundialista (partidos/triunfos)
-  8. martj42/former_names.csv ............... normaliza nombres a lo largo de la historia
-                                              (clave para computar bien el Elo)
+  7. martj42/former_names.csv ............... normaliza nombres (clave para el Elo)
+
+Nuevas (5):
+  8. jfjelstul/worldcup/matches.csv ......... pedigrí mundialista (partidos/triunfos)
+  9. jfjelstul/worldcup/squads.csv .......... profundidad de plantilla mundialista
+ 10. jfjelstul/worldcup/goals.csv ........... tradición goleadora histórica en WCs
+ 11. jfjelstul/worldcup/standings.csv ....... posiciones en últimos 3 Mundiales
+ 12. openfootball/euro.json 2024 ............ forma reciente equipos europeos
 
 MODELO
 ------
@@ -54,13 +57,20 @@ DIR_BASE  = os.path.dirname(os.path.abspath(__file__))
 DIR_DATOS = os.path.join(DIR_BASE, "data")
 
 FUENTES = {
-    "resultados":  ("https://raw.githubusercontent.com/martj42/international_results/master/results.csv",      "results.csv"),
-    "ranking":     ("https://raw.githubusercontent.com/Dato-Futbol/fifa-ranking/master/ranking_fifa_historical.csv", "fifa_ranking.csv"),
-    "fixture":     ("https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",  "worldcup_2026.json"),
-    "goleadores":  ("https://raw.githubusercontent.com/martj42/international_results/master/goalscorers.csv",   "goalscorers.csv"),
-    "tandas":      ("https://raw.githubusercontent.com/martj42/international_results/master/shootouts.csv",     "shootouts.csv"),
-    "exnombres":   ("https://raw.githubusercontent.com/martj42/international_results/master/former_names.csv",  "former_names.csv"),
-    "mundiales":   ("https://raw.githubusercontent.com/jfjelstul/worldcup/master/data-csv/matches.csv",        "wc_history.csv"),
+    # Base (7 fuentes originales)
+    "resultados":    ("https://raw.githubusercontent.com/martj42/international_results/master/results.csv",      "results.csv"),
+    "ranking":       ("https://raw.githubusercontent.com/Dato-Futbol/fifa-ranking/master/ranking_fifa_historical.csv", "fifa_ranking.csv"),
+    "fixture":       ("https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",  "worldcup_2026.json"),
+    "goleadores":    ("https://raw.githubusercontent.com/martj42/international_results/master/goalscorers.csv",   "goalscorers.csv"),
+    "tandas":        ("https://raw.githubusercontent.com/martj42/international_results/master/shootouts.csv",     "shootouts.csv"),
+    "exnombres":     ("https://raw.githubusercontent.com/martj42/international_results/master/former_names.csv",  "former_names.csv"),
+    "mundiales":     ("https://raw.githubusercontent.com/jfjelstul/worldcup/master/data-csv/matches.csv",        "wc_history.csv"),
+    # 5 fuentes nuevas
+    "plantillas_wc": ("https://raw.githubusercontent.com/jfjelstul/worldcup/master/data-csv/squads.csv",         "wc_squads.csv"),
+    "wc2022":        ("https://raw.githubusercontent.com/openfootball/worldcup.json/master/2022/worldcup.json",  "worldcup_2022.json"),
+    "goles_wc":      ("https://raw.githubusercontent.com/jfjelstul/worldcup/master/data-csv/goals.csv",          "wc_goals.csv"),
+    "posiciones_wc": ("https://raw.githubusercontent.com/jfjelstul/worldcup/master/data-csv/tournament_standings.csv", "wc_standings.csv"),
+    "euro2024":      ("https://raw.githubusercontent.com/openfootball/euro.json/master/2024/euro.json",          "euro_2024.json"),
 }
 
 FECHA_REF       = date(2026, 6, 13)
@@ -314,6 +324,174 @@ def leer_pedigri_mundial(equipos_wc):
     return {eq: tuple(v) for eq, v in rec.items()}
 
 
+# ---------------------------------------------------------------------------
+# 5 fuentes nuevas
+# ---------------------------------------------------------------------------
+
+def leer_experiencia_plantillas(equipos_wc):
+    """Cuenta jugadores únicos por selección en los 3 últimos Mundiales (profundidad WC)."""
+    ruta = os.path.join(DIR_DATOS, "wc_squads.csv")
+    if not os.path.exists(ruta):
+        return {}
+    recientes = {"WC-2014", "WC-2018", "WC-2022"}
+    jugadores = defaultdict(set)
+    with open(ruta, newline="", encoding="utf-8") as f:
+        for fila in csv.DictReader(f):
+            if fila.get("tournament_id") not in recientes:
+                continue
+            eq = normalizar(fila.get("team_name", ""))
+            pid = fila.get("player_id", "")
+            if eq and pid:
+                jugadores[eq].add(pid)
+    return {e: len(jugadores.get(e, set())) for e in equipos_wc}
+
+
+def leer_forma_wc2022(equipos_wc):
+    """Forma en la fase de grupos del Mundial 2022 (puntos / máximo posible)."""
+    ruta = os.path.join(DIR_DATOS, "worldcup_2022.json")
+    if not os.path.exists(ruta):
+        return {}
+    with open(ruta, encoding="utf-8") as f:
+        d = json.load(f)
+    pts = defaultdict(int)
+    jugados = defaultdict(int)
+    for m in d.get("matches", []):
+        if not str(m.get("round", "")).startswith("Matchday"):
+            continue
+        ft = (m.get("score") or {}).get("ft")
+        if not ft or len(ft) != 2:
+            continue
+        t1, t2 = normalizar(m.get("team1", "")), normalizar(m.get("team2", ""))
+        g1, g2 = ft[0], ft[1]
+        jugados[t1] += 1; jugados[t2] += 1
+        if g1 > g2:
+            pts[t1] += 3
+        elif g1 == g2:
+            pts[t1] += 1; pts[t2] += 1
+        else:
+            pts[t2] += 3
+    return {e: pts.get(e, 0) / (jugados[e] * 3.0)
+            for e in equipos_wc if jugados.get(e, 0) > 0}
+
+
+def leer_goles_pm_wc(equipos_wc):
+    """Goles marcados por partido en Mundiales (tradición atacante histórica)."""
+    ruta_g = os.path.join(DIR_DATOS, "wc_goals.csv")
+    ruta_h = os.path.join(DIR_DATOS, "wc_history.csv")
+    if not os.path.exists(ruta_g) or not os.path.exists(ruta_h):
+        return {}
+    goles = defaultdict(int)
+    with open(ruta_g, newline="", encoding="utf-8") as f:
+        for fila in csv.DictReader(f):
+            if fila.get("own_goal") == "1":
+                continue
+            eq = normalizar(fila.get("player_team_name", ""))
+            if eq:
+                goles[eq] += 1
+    partidos = defaultdict(int)
+    with open(ruta_h, newline="", encoding="utf-8") as f:
+        for fila in csv.DictReader(f):
+            for k in ("home_team_name", "away_team_name"):
+                eq = normalizar(fila.get(k, ""))
+                if eq:
+                    partidos[eq] += 1
+    return {e: goles.get(e, 0) / partidos[e]
+            for e in equipos_wc if partidos.get(e, 0) >= 3}
+
+
+def leer_posicion_wc(equipos_wc):
+    """Posición media ponderada en los últimos 3 Mundiales (1=campeón, 32=eliminado en grupos)."""
+    ruta = os.path.join(DIR_DATOS, "wc_standings.csv")
+    if not os.path.exists(ruta):
+        return {}
+    pesos = {"WC-2022": 1.0, "WC-2018": 0.6, "WC-2014": 0.4}
+    datos = defaultdict(list)
+    with open(ruta, newline="", encoding="utf-8") as f:
+        for fila in csv.DictReader(f):
+            tid = fila.get("tournament_id", "")
+            if tid not in pesos:
+                continue
+            eq = normalizar(fila.get("team_name", ""))
+            try:
+                pos = int(fila["position"])
+            except (ValueError, KeyError):
+                continue
+            if eq:
+                datos[eq].append((pos, pesos[tid]))
+    result = {}
+    for e in equipos_wc:
+        d = datos.get(e, [])
+        if d:
+            tw = sum(w for _, w in d)
+            result[e] = sum(p * w for p, w in d) / tw
+    return result
+
+
+def leer_forma_euro2024(equipos_wc):
+    """Forma de equipos europeos en la Eurocopa 2024 (puntos / máximo posible)."""
+    ruta = os.path.join(DIR_DATOS, "euro_2024.json")
+    if not os.path.exists(ruta):
+        return {}
+    with open(ruta, encoding="utf-8") as f:
+        d = json.load(f)
+    pts = defaultdict(int)
+    jugados = defaultdict(int)
+    for m in d.get("matches", []):
+        ft = (m.get("score") or {}).get("ft")
+        if not ft or len(ft) != 2:
+            continue
+        t1, t2 = normalizar(m.get("team1", "")), normalizar(m.get("team2", ""))
+        g1, g2 = ft[0], ft[1]
+        jugados[t1] += 1; jugados[t2] += 1
+        if g1 > g2:
+            pts[t1] += 3
+        elif g1 == g2:
+            pts[t1] += 1; pts[t2] += 1
+        else:
+            pts[t2] += 3
+    return {e: min(pts.get(e, 0) / (jugados[e] * 3.0), 1.0)
+            for e in equipos_wc if jugados.get(e, 0) > 0}
+
+
+def calcular_factor_wc(equipos_wc, exp_plant, forma_wc22, goles_pm,
+                        pos_wc, forma_euro24):
+    """
+    Combina las 5 fuentes nuevas en un factor multiplicador por equipo.
+    Centrado en 1.0; rango efectivo ≈ 0.88–1.12 (±12%).
+    """
+    factor = {}
+    for e in equipos_wc:
+        scores = []
+
+        # 1. Profundidad de plantilla mundialista (0-1)
+        if exp_plant:
+            scores.append(min(exp_plant.get(e, 0) / 28.0, 1.0))
+
+        # 2. Forma Qatar 2022 (0-1)
+        if e in forma_wc22:
+            scores.append(forma_wc22[e])
+
+        # 3. Tradición goleadora en Mundiales (0-1)
+        if goles_pm:
+            scores.append(min(goles_pm.get(e, 1.0) / 2.0, 1.0))
+
+        # 4. Posición histórica en Mundiales (top-4 → bonus; solo semifinalistas en datos)
+        if e in pos_wc:
+            scores.append(max(0.0, 1.0 - (pos_wc[e] - 1.0) / 3.0))
+
+        # 5. Forma Eurocopa 2024 (sólo equipos europeos)
+        if e in forma_euro24:
+            scores.append(forma_euro24[e])
+
+        if not scores:
+            factor[e] = 1.0
+            continue
+
+        avg = sum(scores) / len(scores)
+        factor[e] = 0.88 + 0.24 * avg   # [0.88, 1.12]
+    return factor
+
+
 # ===========================================================================
 # ELO (World Football Elo, computado del historial completo)
 # ===========================================================================
@@ -375,12 +553,15 @@ def peso_torneo(torneo):
     return 1.0
 
 
-def calcular_fuerzas(partidos, elo, ranking_fifa, equipos_ancla):
+def calcular_fuerzas(partidos, elo, ranking_fifa, equipos_ancla, factor_wc=None):
     """
-    Ataque/defensa por selección. El 'ancla' combina Elo (principal) y ranking
-    FIFA, calibrados contra la mediana de las selecciones del Mundial. El ajuste
-    iterativo de goles refina ese ancla con la forma reciente.
+    Ataque/defensa por selección. El 'ancla' combina Elo (principal), ranking
+    FIFA y el factor mundialista (5 fuentes nuevas), calibrados contra la mediana
+    de las selecciones del Mundial. El ajuste iterativo de goles refina ese ancla.
     """
+    if factor_wc is None:
+        factor_wc = {}
+
     relevantes = [p for p in partidos
                   if p["gl"] is not None and p["gv"] is not None
                   and 0 <= (FECHA_REF - p["fecha"]).days <= VENTANA_DIAS]
@@ -401,11 +582,12 @@ def calcular_fuerzas(partidos, elo, ranking_fifa, equipos_ancla):
     fifa_med = fifa_vals[len(fifa_vals) // 2] if fifa_vals else 1500.0
 
     def ancla(e):
-        # Multiplicador de fuerza desde Elo (principal) y FIFA (secundario).
+        # Elo 60% · FIFA 20% · factor mundialista (5 fuentes nuevas) 20%
         m_elo = 10 ** ((elo.get(e, ELO_INICIAL) - elo_med) / 600.0)
         pts = ranking_fifa.get(e)
         m_fifa = (pts / fifa_med) if pts else 1.0
-        m = (m_elo ** 0.7) * (m_fifa ** 0.3)
+        m_wc = factor_wc.get(e, 1.0)
+        m = (m_elo ** 0.60) * (m_fifa ** 0.20) * (m_wc ** 0.20)
         return max(0.35, min(2.8, m))
 
     por_equipo = defaultdict(list)
@@ -500,9 +682,19 @@ def generar(offline=False):
     tandas = leer_tandas(equipos_wc)
     pedigri = leer_pedigri_mundial(equipos_wc)
 
+    # 5 fuentes nuevas
+    exp_plant  = leer_experiencia_plantillas(equipos_wc)
+    forma_wc22 = leer_forma_wc2022(equipos_wc)
+    goles_pm   = leer_goles_pm_wc(equipos_wc)
+    pos_wc     = leer_posicion_wc(equipos_wc)
+    forma_euro = leer_forma_euro2024(equipos_wc)
+    factor_wc  = calcular_factor_wc(equipos_wc, exp_plant, forma_wc22,
+                                     goles_pm, pos_wc, forma_euro)
+
     print(f"\nHistórico: {len(partidos)} partidos | WC2026: {len(jugados)} jugados, {len(fixture)} pendientes")
 
-    ataque, defensa, liga = calcular_fuerzas(partidos, elo, ranking_fifa, equipos_wc)
+    ataque, defensa, liga = calcular_fuerzas(partidos, elo, ranking_fifa,
+                                              equipos_wc, factor_wc)
 
     # Info por selección (para la UI y verificación)
     info_equipos = {}
@@ -517,6 +709,11 @@ def generar(offline=False):
             "tasa_penal": round(tasa_penal.get(e, 0.0) * 100),
             "tandas": tandas.get(e, (0, 0)),
             "mundial": pedigri.get(e, (0, 0)),
+            "exp_wc": exp_plant.get(e, 0),
+            "forma_wc22": round(forma_wc22.get(e, 0.0) * 100),
+            "goles_wc_pm": round(goles_pm.get(e, 0.0), 2),
+            "pos_wc_hist": round(pos_wc.get(e, 0.0), 1),
+            "factor_wc": round(factor_wc.get(e, 1.0), 3),
         }
 
     print("\nTop 12 por Elo (selecciones del Mundial):")
@@ -566,7 +763,7 @@ def _escribir_texto(predicciones, jugados):
     L.append("=" * 66)
     L.append("  PROYECCIÓN — FASE DE GRUPOS MUNDIAL 2026")
     L.append(f"  Generado: {FECHA_REF.isoformat()}  ·  horario Colombia (UTC-5)")
-    L.append(f"  Modelo: Elo + Poisson Dixon-Coles  ·  8 fuentes de datos")
+    L.append(f"  Modelo: Elo + Poisson Dixon-Coles  ·  12 fuentes de datos")
     L.append("=" * 66)
     if jugados:
         L.append("\n--- RESULTADOS YA CONOCIDOS ---")
@@ -723,14 +920,14 @@ const FLAG = c => c ? `https://flagcdn.com/w40/${c}.png` : "";
 const esc = s => (s||"").replace(/[&<>]/g, m=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[m]));
 
 document.getElementById("lede").textContent =
-  "Marcador más probable de cada partido según un modelo Elo + Poisson alimentado por 8 fuentes de datos. "
-  + "Horarios en hora de Colombia.";
+  "Marcador más probable de cada partido según un modelo Elo + Poisson alimentado por 12 fuentes de datos. "
+  + "Se actualiza automáticamente cada noche a medida que llegan los resultados. Horarios en hora de Colombia.";
 
 document.getElementById("stats").innerHTML = [
   [D.predicciones.length, "Partidos por jugar"],
   [D.ya_jugados.length, "Ya disputados"],
   ["12", "Grupos"],
-  ["8", "Fuentes de datos"],
+  ["12", "Fuentes de datos"],
 ].map(([n,l])=>`<div class="stat"><div class="n">${n}</div><div class="l">${l}</div></div>`).join("");
 
 // Resultados jugados
@@ -785,9 +982,11 @@ document.getElementById("note").innerHTML =
   + "probabilidades más que en el marcador puntual.";
 
 document.getElementById("footer").innerHTML =
-  "Fuentes: martj42/international_results · Dato-Futbol/fifa-ranking · openfootball/worldcup.json · "
-  + "jfjelstul/worldcup · goalscorers · shootouts · former_names · Elo computado.<br>"
-  + "Banderas: flagcdn.com · Generado el "+D.generado+".";
+  "Fuentes: martj42/international_results · Dato-Futbol/fifa-ranking · openfootball/worldcup.json 2026 · "
+  + "openfootball/worldcup.json 2022 · openfootball/euro.json 2024 · "
+  + "jfjelstul/worldcup (matches · squads · goals · standings) · "
+  + "goalscorers · shootouts · former_names · Elo computado.<br>"
+  + "Banderas: flagcdn.com · Actualización automática diaria a las 12 am Colombia · Generado el "+D.generado+".";
 </script>
 </body>
 </html>
