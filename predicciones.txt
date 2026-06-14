@@ -9,6 +9,9 @@
   2026-06-11  21:00 COL             South Korea  2-1  Czech Republic         [Group A]
   2026-06-12  14:00 COL                  Canada  1-1  Bosnia and Herzegovina [Group B]
   2026-06-12  20:00 COL           United States  4-1  Paraguay               [Group D]
+  2026-06-13  14:00 COL                   Qatar  1-1  Switzerland            [Group B]
+  2026-06-13  17:00 COL                  Brazil  1-1  Morocco                [Group C]
+  2026-06-13  20:00 COL                   Haiti  0-1  Scotland               [Group C]
 
 --- Group A ---
   2026-06-18  11:00 COL          Czech Republic   1-0   South Africa           (L 55% E 24% V 21%)
@@ -21,8 +24,6 @@
                                  tiros 8-17 (a puerta 4-6) · córners 4-5 · amarillas 1.3-1.8 | goleador: Teboho Mokoena 13% / Cho Kyu-Sung 51%
 
 --- Group B ---
-  2026-06-13  14:00 COL                   Qatar   0-3   Switzerland            (L 3% E 8% V 89%)
-                                 tiros 4-17 (a puerta 1-7) · córners 3-5 · amarillas 1.8-1.7 | goleador: Mohammed Muntari 23% / Breel Embolo 63%
   2026-06-18  14:00 COL             Switzerland   2-0   Bosnia and Herzegovina (L 72% E 18% V 10%)
                                  tiros 16-7 (a puerta 6-2) · córners 5-4 · amarillas 1.9-1.0 | goleador: Breel Embolo 49% / Edin Džeko 20%
   2026-06-18  17:00 COL                  Canada   2-0   Qatar                  (L 78% E 16% V 7%)
@@ -33,10 +34,6 @@
                                  tiros 14-10 (a puerta 5-3) · córners 5-4 · amarillas 2.2-2.9 | goleador: Breel Embolo 35% / Jonathan David 28%
 
 --- Group C ---
-  2026-06-13  17:00 COL                  Brazil   1-0   Morocco                (L 39% E 32% V 29%)
-                                 tiros 13-11 (a puerta 5-4) · córners 5-4 · amarillas 2.3-2.0 | goleador: Vinícius Júnior 16% / Youssef En-Nesyri 22%
-  2026-06-13  20:00 COL                   Haiti   0-1   Scotland               (L 18% E 23% V 58%)
-                                 tiros 9-13 (a puerta 3-4) · córners 4-4 · amarillas 1.1-2.0 | goleador: Duckens Nazon 23% / Scott McTominay 67%
   2026-06-19  17:00 COL                Scotland   0-1   Morocco                (L 20% E 29% V 51%)
                                  tiros 8-15 (a puerta 2-5) · córners 4-5 · amarillas 2.1-1.8 | goleador: Scott McTominay 36% / Youssef En-Nesyri 32%
   2026-06-19  19:30 COL                  Brazil   2-0   Haiti                  (L 80% E 14% V 6%)
