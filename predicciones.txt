@@ -17,6 +17,10 @@
   2026-06-14  15:00 COL             Netherlands  2-2  Japan                  [Group F]
   2026-06-14  18:00 COL             Ivory Coast  1-0  Ecuador                [Group E]
   2026-06-14  21:00 COL                  Sweden  5-1  Tunisia                [Group F]
+  2026-06-15  11:00 COL                   Spain  0-0  Cape Verde             [Group H]
+  2026-06-15  14:00 COL                 Belgium  1-1  Egypt                  [Group G]
+  2026-06-15  17:00 COL            Saudi Arabia  1-1  Uruguay                [Group H]
+  2026-06-15  20:00 COL                    Iran  2-2  New Zealand            [Group G]
 
 --- Group A ---
   2026-06-18  11:00 COL          Czech Republic   1-0   South Africa           (L 54% E 24% V 21%)
@@ -79,10 +83,6 @@
                                  tiros 6-17 (a puerta 2-5) · córners 4-6 · amarillas 1.4-1.9 | goleador: Hamza Rafia 14% / Cody Gakpo 42%
 
 --- Group G ---
-  2026-06-15  14:00 COL                 Belgium   1-0   Egypt                  (L 57% E 26% V 16%)
-                                 tiros 15-10 (a puerta 5-4) · córners 5-4 · amarillas 1.9-1.8 | goleador: Romelu Lukaku 35% / Mostafa Mohamed 21%
-  2026-06-15  20:00 COL                    Iran   1-0   New Zealand            (L 50% E 27% V 23%)
-                                 tiros 14-10 (a puerta 5-3) · córners 5-4 · amarillas 2.4-2.2 | goleador: Mehdi Taremi 54% / Chris Wood 17%
   2026-06-21  14:00 COL                 Belgium   1-0   Iran                   (L 48% E 28% V 23%)
                                  tiros 14-10 (a puerta 5-3) · córners 5-4 · amarillas 2.1-2.3 | goleador: Romelu Lukaku 32% / Mehdi Taremi 36%
   2026-06-21  20:00 COL             New Zealand   0-1   Egypt                  (L 31% E 30% V 38%)
@@ -93,10 +93,6 @@
                                  tiros 8-16 (a puerta 3-6) · córners 4-5 · amarillas 1.9-1.8 | goleador: Chris Wood 15% / Romelu Lukaku 44%
 
 --- Group H ---
-  2026-06-15  11:00 COL                   Spain   4-0   Cape Verde             (L 96% E 3% V 1%)
-                                 tiros 21-3 (a puerta 7-1) · córners 6-3 · amarillas 1.5-1.7 | goleador: Daniel Olmo 56% / Dailon Livramento 9%
-  2026-06-15  17:00 COL            Saudi Arabia   0-1   Uruguay                (L 12% E 25% V 63%)
-                                 tiros 7-18 (a puerta 2-7) · córners 3-6 · amarillas 3.1-1.9 | goleador: Salem Al Dawsari 25% / Rodrigo Bentancur 21%
   2026-06-21  11:00 COL                   Spain   3-0   Saudi Arabia           (L 92% E 7% V 2%)
                                  tiros 22-3 (a puerta 8-1) · córners 7-3 · amarillas 1.6-2.5 | goleador: Daniel Olmo 48% / Salem Al Dawsari 17%
   2026-06-21  17:00 COL                 Uruguay   1-0   Cape Verde             (L 74% E 19% V 7%)
