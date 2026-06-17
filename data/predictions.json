@@ -2,27 +2,6 @@
   "generado": "2026-06-13",
   "promedio_liga": 1.399,
   "equipos": {
-    "Tunisia": {
-      "bandera": "tn",
-      "elo": 1687,
-      "grupo": "Group F",
-      "top_goleador": "Elias Achouri",
-      "top_goleador_goles": 3,
-      "tasa_penal": 21,
-      "tandas": [
-        7,
-        13
-      ],
-      "mundial": [
-        18,
-        3
-      ],
-      "exp_wc": 39,
-      "forma_wc22": 44,
-      "goles_wc_pm": 0.78,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 1.027
-    },
     "United States": {
       "bandera": "us",
       "elo": 1903,
@@ -43,6 +22,111 @@
       "goles_wc_pm": 1.98,
       "pos_wc_hist": 0.0,
       "factor_wc": 1.084
+    },
+    "Senegal": {
+      "bandera": "sn",
+      "elo": 1888,
+      "grupo": "Group I",
+      "top_goleador": "Sadio Mané",
+      "top_goleador_goles": 5,
+      "tasa_penal": 7,
+      "tandas": [
+        11,
+        21
+      ],
+      "mundial": [
+        12,
+        5
+      ],
+      "exp_wc": 43,
+      "forma_wc22": 67,
+      "goles_wc_pm": 1.25,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 1.063
+    },
+    "New Zealand": {
+      "bandera": "nz",
+      "elo": 1743,
+      "grupo": "Group G",
+      "top_goleador": "Chris Wood",
+      "top_goleador_goles": 9,
+      "tasa_penal": 2,
+      "tandas": [
+        1,
+        4
+      ],
+      "mundial": [
+        21,
+        0
+      ],
+      "exp_wc": 0,
+      "forma_wc22": 0,
+      "goles_wc_pm": 0.52,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 0.911
+    },
+    "Qatar": {
+      "bandera": "qa",
+      "elo": 1603,
+      "grupo": "Group B",
+      "top_goleador": "Almoez Ali",
+      "top_goleador_goles": 5,
+      "tasa_penal": 5,
+      "tandas": [
+        5,
+        9
+      ],
+      "mundial": [
+        3,
+        0
+      ],
+      "exp_wc": 26,
+      "forma_wc22": 0,
+      "goles_wc_pm": 0.33,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 0.968
+    },
+    "France": {
+      "bandera": "fr",
+      "elo": 2146,
+      "grupo": "Group I",
+      "top_goleador": "Kylian Mbappé",
+      "top_goleador_goles": 10,
+      "tasa_penal": 12,
+      "tandas": [
+        5,
+        11
+      ],
+      "mundial": [
+        92,
+        52
+      ],
+      "exp_wc": 55,
+      "forma_wc22": 67,
+      "goles_wc_pm": 1.75,
+      "pos_wc_hist": 1.6,
+      "factor_wc": 1.064
+    },
+    "Egypt": {
+      "bandera": "eg",
+      "elo": 1820,
+      "grupo": "Group G",
+      "top_goleador": "Mohamed Salah",
+      "top_goleador_goles": 8,
+      "tasa_penal": 16,
+      "tandas": [
+        15,
+        26
+      ],
+      "mundial": [
+        7,
+        0
+      ],
+      "exp_wc": 23,
+      "forma_wc22": 0,
+      "goles_wc_pm": 0.71,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 1.021
     },
     "Curaçao": {
       "bandera": "cw",
@@ -65,68 +149,68 @@
       "pos_wc_hist": 0.0,
       "factor_wc": 0.94
     },
-    "South Africa": {
-      "bandera": "za",
-      "elo": 1655,
-      "grupo": "Group A",
-      "top_goleador": "Lyle Foster",
-      "top_goleador_goles": 4,
-      "tasa_penal": 7,
+    "Belgium": {
+      "bandera": "be",
+      "elo": 1934,
+      "grupo": "Group G",
+      "top_goleador": "Kevin De Bruyne",
+      "top_goleador_goles": 9,
+      "tasa_penal": 12,
       "tandas": [
-        13,
-        28
-      ],
-      "mundial": [
-        12,
+        2,
         2
       ],
-      "exp_wc": 0,
-      "forma_wc22": 0,
-      "goles_wc_pm": 1.0,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 0.94
-    },
-    "Australia": {
-      "bandera": "au",
-      "elo": 1961,
-      "grupo": "Group D",
-      "top_goleador": "Nishan Velupillay",
-      "top_goleador_goles": 3,
-      "tasa_penal": 6,
-      "tandas": [
-        5,
-        8
-      ],
       "mundial": [
-        46,
-        11
+        51,
+        22
       ],
-      "exp_wc": 57,
-      "forma_wc22": 67,
-      "goles_wc_pm": 1.15,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 1.059
+      "exp_wc": 41,
+      "forma_wc22": 44,
+      "goles_wc_pm": 1.31,
+      "pos_wc_hist": 3.0,
+      "factor_wc": 1.013
     },
-    "Algeria": {
-      "bandera": "dz",
-      "elo": 1883,
-      "grupo": "Group J",
-      "top_goleador": "Mohamed Amoura",
-      "top_goleador_goles": 8,
+    "Colombia": {
+      "bandera": "co",
+      "elo": 2056,
+      "grupo": "Group K",
+      "top_goleador": "Luis Díaz",
+      "top_goleador_goles": 7,
       "tasa_penal": 12,
       "tandas": [
         7,
-        15
+        12
       ],
       "mundial": [
-        13,
-        3
+        29,
+        10
       ],
-      "exp_wc": 23,
+      "exp_wc": 36,
       "forma_wc22": 0,
-      "goles_wc_pm": 1.0,
+      "goles_wc_pm": 1.24,
       "pos_wc_hist": 0.0,
-      "factor_wc": 1.039
+      "factor_wc": 1.074
+    },
+    "Croatia": {
+      "bandera": "hr",
+      "elo": 1976,
+      "grupo": "Group L",
+      "top_goleador": "Andrej Kramarić",
+      "top_goleador_goles": 8,
+      "tasa_penal": 8,
+      "tandas": [
+        7,
+        11
+      ],
+      "mundial": [
+        30,
+        17
+      ],
+      "exp_wc": 51,
+      "forma_wc22": 56,
+      "goles_wc_pm": 1.37,
+      "pos_wc_hist": 2.6,
+      "factor_wc": 1.02
     },
     "Netherlands": {
       "bandera": "nl",
@@ -149,26 +233,656 @@
       "pos_wc_hist": 3.0,
       "factor_wc": 1.048
     },
-    "Qatar": {
-      "bandera": "qa",
-      "elo": 1603,
+    "Tunisia": {
+      "bandera": "tn",
+      "elo": 1687,
+      "grupo": "Group F",
+      "top_goleador": "Elias Achouri",
+      "top_goleador_goles": 3,
+      "tasa_penal": 21,
+      "tandas": [
+        7,
+        13
+      ],
+      "mundial": [
+        18,
+        3
+      ],
+      "exp_wc": 39,
+      "forma_wc22": 44,
+      "goles_wc_pm": 0.78,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 1.027
+    },
+    "Czech Republic": {
+      "bandera": "cz",
+      "elo": 1786,
+      "grupo": "Group A",
+      "top_goleador": "Patrik Schick",
+      "top_goleador_goles": 6,
+      "tasa_penal": 6,
+      "tandas": [
+        3,
+        4
+      ],
+      "mundial": [
+        3,
+        1
+      ],
+      "exp_wc": 0,
+      "forma_wc22": 0,
+      "goles_wc_pm": 1.0,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 0.929
+    },
+    "Ecuador": {
+      "bandera": "ec",
+      "elo": 1982,
+      "grupo": "Group E",
+      "top_goleador": "Enner Valencia",
+      "top_goleador_goles": 6,
+      "tasa_penal": 21,
+      "tandas": [
+        2,
+        4
+      ],
+      "mundial": [
+        16,
+        5
+      ],
+      "exp_wc": 46,
+      "forma_wc22": 44,
+      "goles_wc_pm": 0.94,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 1.033
+    },
+    "Scotland": {
+      "bandera": "gb-sct",
+      "elo": 1883,
+      "grupo": "Group C",
+      "top_goleador": "Scott McTominay",
+      "top_goleador_goles": 6,
+      "tasa_penal": 4,
+      "tandas": [
+        2,
+        2
+      ],
+      "mundial": [
+        26,
+        4
+      ],
+      "exp_wc": 0,
+      "forma_wc22": 0,
+      "goles_wc_pm": 1.12,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 0.934
+    },
+    "Switzerland": {
+      "bandera": "ch",
+      "elo": 1933,
       "grupo": "Group B",
-      "top_goleador": "Almoez Ali",
+      "top_goleador": "Breel Embolo",
+      "top_goleador_goles": 7,
+      "tasa_penal": 17,
+      "tandas": [
+        2,
+        8
+      ],
+      "mundial": [
+        45,
+        15
+      ],
+      "exp_wc": 46,
+      "forma_wc22": 67,
+      "goles_wc_pm": 1.42,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 1.059
+    },
+    "Turkey": {
+      "bandera": "tr",
+      "elo": 1927,
+      "grupo": "Group D",
+      "top_goleador": "Kerem Aktürkoğlu",
+      "top_goleador_goles": 9,
+      "tasa_penal": 7,
+      "tandas": [
+        1,
+        1
+      ],
+      "mundial": [
+        10,
+        5
+      ],
+      "exp_wc": 0,
+      "forma_wc22": 0,
+      "goles_wc_pm": 2.0,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 1.008
+    },
+    "Japan": {
+      "bandera": "jp",
+      "elo": 2003,
+      "grupo": "Group F",
+      "top_goleador": "Daichi Kamada",
       "top_goleador_goles": 5,
-      "tasa_penal": 5,
+      "tasa_penal": 3,
       "tandas": [
         5,
-        9
+        12
+      ],
+      "mundial": [
+        58,
+        22
+      ],
+      "exp_wc": 54,
+      "forma_wc22": 67,
+      "goles_wc_pm": 1.07,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 1.056
+    },
+    "Uruguay": {
+      "bandera": "uy",
+      "elo": 1949,
+      "grupo": "Group H",
+      "top_goleador": "Maximiliano Araújo",
+      "top_goleador_goles": 3,
+      "tasa_penal": 0,
+      "tandas": [
+        9,
+        17
+      ],
+      "mundial": [
+        59,
+        26
+      ],
+      "exp_wc": 48,
+      "forma_wc22": 44,
+      "goles_wc_pm": 1.49,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 1.055
+    },
+    "Sweden": {
+      "bandera": "se",
+      "elo": 1827,
+      "grupo": "Group F",
+      "top_goleador": "Viktor Gyökeres",
+      "top_goleador_goles": 14,
+      "tasa_penal": 6,
+      "tandas": [
+        4,
+        6
+      ],
+      "mundial": [
+        91,
+        43
+      ],
+      "exp_wc": 23,
+      "forma_wc22": 0,
+      "goles_wc_pm": 1.62,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 1.075
+    },
+    "Haiti": {
+      "bandera": "ht",
+      "elo": 1674,
+      "grupo": "Group C",
+      "top_goleador": "Duckens Nazon",
+      "top_goleador_goles": 5,
+      "tasa_penal": 0,
+      "tandas": [
+        1,
+        2
       ],
       "mundial": [
         3,
         0
       ],
-      "exp_wc": 26,
+      "exp_wc": 0,
+      "forma_wc22": 0,
+      "goles_wc_pm": 0.67,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 0.92
+    },
+    "Uzbekistan": {
+      "bandera": "uz",
+      "elo": 1829,
+      "grupo": "Group K",
+      "top_goleador": "Abbosbek Fayzullaev",
+      "top_goleador_goles": 4,
+      "tasa_penal": 7,
+      "tandas": [
+        2,
+        5
+      ],
+      "mundial": [
+        0,
+        0
+      ],
+      "exp_wc": 0,
+      "forma_wc22": 0,
+      "goles_wc_pm": 0.0,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 0.94
+    },
+    "Algeria": {
+      "bandera": "dz",
+      "elo": 1867,
+      "grupo": "Group J",
+      "top_goleador": "Mohamed Amoura",
+      "top_goleador_goles": 8,
+      "tasa_penal": 12,
+      "tandas": [
+        7,
+        15
+      ],
+      "mundial": [
+        13,
+        3
+      ],
+      "exp_wc": 23,
+      "forma_wc22": 0,
+      "goles_wc_pm": 1.0,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 1.039
+    },
+    "Iraq": {
+      "bandera": "iq",
+      "elo": 1726,
+      "grupo": "Group I",
+      "top_goleador": "Aymen Hussein",
+      "top_goleador_goles": 6,
+      "tasa_penal": 6,
+      "tandas": [
+        11,
+        15
+      ],
+      "mundial": [
+        3,
+        0
+      ],
+      "exp_wc": 0,
       "forma_wc22": 0,
       "goles_wc_pm": 0.33,
       "pos_wc_hist": 0.0,
-      "factor_wc": 0.968
+      "factor_wc": 0.9
+    },
+    "Panama": {
+      "bandera": "pa",
+      "elo": 1843,
+      "grupo": "Group L",
+      "top_goleador": "Ismael Díaz",
+      "top_goleador_goles": 8,
+      "tasa_penal": 13,
+      "tandas": [
+        5,
+        7
+      ],
+      "mundial": [
+        3,
+        0
+      ],
+      "exp_wc": 23,
+      "forma_wc22": 0,
+      "goles_wc_pm": 0.33,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 0.999
+    },
+    "Portugal": {
+      "bandera": "pt",
+      "elo": 2051,
+      "grupo": "Group K",
+      "top_goleador": "Cristiano Ronaldo",
+      "top_goleador_goles": 13,
+      "tasa_penal": 9,
+      "tandas": [
+        5,
+        8
+      ],
+      "mundial": [
+        35,
+        18
+      ],
+      "exp_wc": 55,
+      "forma_wc22": 67,
+      "goles_wc_pm": 1.66,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 1.062
+    },
+    "Paraguay": {
+      "bandera": "py",
+      "elo": 1872,
+      "grupo": "Group D",
+      "top_goleador": "Julio Enciso",
+      "top_goleador_goles": 4,
+      "tasa_penal": 6,
+      "tandas": [
+        6,
+        13
+      ],
+      "mundial": [
+        27,
+        8
+      ],
+      "exp_wc": 0,
+      "forma_wc22": 0,
+      "goles_wc_pm": 1.04,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 0.942
+    },
+    "Ivory Coast": {
+      "bandera": "ci",
+      "elo": 1864,
+      "grupo": "Group E",
+      "top_goleador": "Amad Diallo",
+      "top_goleador_goles": 5,
+      "tasa_penal": 4,
+      "tandas": [
+        10,
+        18
+      ],
+      "mundial": [
+        12,
+        3
+      ],
+      "exp_wc": 23,
+      "forma_wc22": 0,
+      "goles_wc_pm": 1.33,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 1.059
+    },
+    "Saudi Arabia": {
+      "bandera": "sa",
+      "elo": 1719,
+      "grupo": "Group H",
+      "top_goleador": "Firas Al-Buraikan",
+      "top_goleador_goles": 3,
+      "tasa_penal": 15,
+      "tandas": [
+        7,
+        9
+      ],
+      "mundial": [
+        19,
+        4
+      ],
+      "exp_wc": 40,
+      "forma_wc22": 33,
+      "goles_wc_pm": 0.74,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 1.016
+    },
+    "Ghana": {
+      "bandera": "gh",
+      "elo": 1630,
+      "grupo": "Group L",
+      "top_goleador": "Jordan Ayew",
+      "top_goleador_goles": 3,
+      "tasa_penal": 6,
+      "tandas": [
+        5,
+        13
+      ],
+      "mundial": [
+        24,
+        6
+      ],
+      "exp_wc": 47,
+      "forma_wc22": 33,
+      "goles_wc_pm": 1.0,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 1.027
+    },
+    "Spain": {
+      "bandera": "es",
+      "elo": 2195,
+      "grupo": "Group H",
+      "top_goleador": "Mikel Oyarzabal",
+      "top_goleador_goles": 11,
+      "tasa_penal": 8,
+      "tandas": [
+        7,
+        14
+      ],
+      "mundial": [
+        74,
+        33
+      ],
+      "exp_wc": 55,
+      "forma_wc22": 44,
+      "goles_wc_pm": 1.51,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 1.072
+    },
+    "DR Congo": {
+      "bandera": "cd",
+      "elo": 1766,
+      "grupo": "Group K",
+      "top_goleador": "Cédric Bakambu",
+      "top_goleador_goles": 4,
+      "tasa_penal": 5,
+      "tandas": [
+        5,
+        8
+      ],
+      "mundial": [
+        0,
+        0
+      ],
+      "exp_wc": 0,
+      "forma_wc22": 0,
+      "goles_wc_pm": 0.0,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 0.94
+    },
+    "Germany": {
+      "bandera": "de",
+      "elo": 2021,
+      "grupo": "Group E",
+      "top_goleador": "Florian Wirtz",
+      "top_goleador_goles": 7,
+      "tasa_penal": 10,
+      "tandas": [
+        6,
+        8
+      ],
+      "mundial": [
+        94,
+        64
+      ],
+      "exp_wc": 51,
+      "forma_wc22": 44,
+      "goles_wc_pm": 2.31,
+      "pos_wc_hist": 1.0,
+      "factor_wc": 1.077
+    },
+    "Canada": {
+      "bandera": "ca",
+      "elo": 1878,
+      "grupo": "Group B",
+      "top_goleador": "Jonathan David",
+      "top_goleador_goles": 4,
+      "tasa_penal": 7,
+      "tandas": [
+        3,
+        8
+      ],
+      "mundial": [
+        33,
+        8
+      ],
+      "exp_wc": 26,
+      "forma_wc22": 0,
+      "goles_wc_pm": 1.06,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 0.997
+    },
+    "Argentina": {
+      "bandera": "ar",
+      "elo": 2195,
+      "grupo": "Group J",
+      "top_goleador": "Lautaro Martínez",
+      "top_goleador_goles": 9,
+      "tasa_penal": 0,
+      "tandas": [
+        15,
+        23
+      ],
+      "mundial": [
+        97,
+        53
+      ],
+      "exp_wc": 57,
+      "forma_wc22": 67,
+      "goles_wc_pm": 1.59,
+      "pos_wc_hist": 1.3,
+      "factor_wc": 1.082
+    },
+    "Bosnia and Herzegovina": {
+      "bandera": "ba",
+      "elo": 1688,
+      "grupo": "Group B",
+      "top_goleador": "Edin Džeko",
+      "top_goleador_goles": 8,
+      "tasa_penal": 0,
+      "tandas": [
+        3,
+        4
+      ],
+      "mundial": [
+        3,
+        1
+      ],
+      "exp_wc": 23,
+      "forma_wc22": 0,
+      "goles_wc_pm": 1.33,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 1.059
+    },
+    "Iran": {
+      "bandera": "ir",
+      "elo": 1883,
+      "grupo": "Group G",
+      "top_goleador": "Mehdi Taremi",
+      "top_goleador_goles": 5,
+      "tasa_penal": 0,
+      "tandas": [
+        10,
+        23
+      ],
+      "mundial": [
+        18,
+        3
+      ],
+      "exp_wc": 48,
+      "forma_wc22": 33,
+      "goles_wc_pm": 0.67,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 1.013
+    },
+    "Mexico": {
+      "bandera": "mx",
+      "elo": 1987,
+      "grupo": "Group A",
+      "top_goleador": "Raúl Jiménez",
+      "top_goleador_goles": 4,
+      "tasa_penal": 0,
+      "tandas": [
+        7,
+        14
+      ],
+      "mundial": [
+        69,
+        17
+      ],
+      "exp_wc": 48,
+      "forma_wc22": 44,
+      "goles_wc_pm": 0.99,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 1.035
+    },
+    "England": {
+      "bandera": "gb-eng",
+      "elo": 2100,
+      "grupo": "Group L",
+      "top_goleador": "Harry Kane",
+      "top_goleador_goles": 14,
+      "tasa_penal": 9,
+      "tandas": [
+        4,
+        12
+      ],
+      "mundial": [
+        100,
+        48
+      ],
+      "exp_wc": 54,
+      "forma_wc22": 78,
+      "goles_wc_pm": 1.44,
+      "pos_wc_hist": 4.0,
+      "factor_wc": 1.027
+    },
+    "South Korea": {
+      "bandera": "kr",
+      "elo": 1911,
+      "grupo": "Group A",
+      "top_goleador": "Oh Hyeon-gyu",
+      "top_goleador_goles": 5,
+      "tasa_penal": 5,
+      "tandas": [
+        15,
+        25
+      ],
+      "mundial": [
+        48,
+        9
+      ],
+      "exp_wc": 56,
+      "forma_wc22": 44,
+      "goles_wc_pm": 0.94,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 1.033
+    },
+    "Norway": {
+      "bandera": "no",
+      "elo": 2018,
+      "grupo": "Group I",
+      "top_goleador": "Erling Haaland",
+      "top_goleador_goles": 25,
+      "tasa_penal": 2,
+      "tandas": [
+        0,
+        0
+      ],
+      "mundial": [
+        48,
+        27
+      ],
+      "exp_wc": 0,
+      "forma_wc22": 0,
+      "goles_wc_pm": 1.98,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 0.999
+    },
+    "Brazil": {
+      "bandera": "br",
+      "elo": 2053,
+      "grupo": "Group C",
+      "top_goleador": "Vinícius Júnior",
+      "top_goleador_goles": 5,
+      "tasa_penal": 18,
+      "tandas": [
+        9,
+        16
+      ],
+      "mundial": [
+        148,
+        100
+      ],
+      "exp_wc": 56,
+      "forma_wc22": 67,
+      "goles_wc_pm": 2.03,
+      "pos_wc_hist": 4.0,
+      "factor_wc": 1.04
     },
     "Morocco": {
       "bandera": "ma",
@@ -193,7 +907,7 @@
     },
     "Cape Verde": {
       "bandera": "cv",
-      "elo": 1653,
+      "elo": 1680,
       "grupo": "Group H",
       "top_goleador": "Dailon Livramento",
       "top_goleador_goles": 4,
@@ -212,601 +926,55 @@
       "pos_wc_hist": 0.0,
       "factor_wc": 0.94
     },
-    "Spain": {
-      "bandera": "es",
-      "elo": 2223,
-      "grupo": "Group H",
-      "top_goleador": "Mikel Oyarzabal",
-      "top_goleador_goles": 11,
-      "tasa_penal": 8,
+    "Jordan": {
+      "bandera": "jo",
+      "elo": 1745,
+      "grupo": "Group J",
+      "top_goleador": "Ali Olwan",
+      "top_goleador_goles": 6,
+      "tasa_penal": 12,
       "tandas": [
-        7,
-        14
+        0,
+        3
       ],
       "mundial": [
-        74,
-        33
-      ],
-      "exp_wc": 55,
-      "forma_wc22": 44,
-      "goles_wc_pm": 1.51,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 1.072
-    },
-    "Norway": {
-      "bandera": "no",
-      "elo": 1998,
-      "grupo": "Group I",
-      "top_goleador": "Erling Haaland",
-      "top_goleador_goles": 23,
-      "tasa_penal": 2,
-      "tandas": [
         0,
         0
       ],
-      "mundial": [
-        48,
-        27
-      ],
       "exp_wc": 0,
       "forma_wc22": 0,
-      "goles_wc_pm": 1.98,
+      "goles_wc_pm": 0.0,
       "pos_wc_hist": 0.0,
-      "factor_wc": 0.999
+      "factor_wc": 0.94
     },
-    "Bosnia and Herzegovina": {
-      "bandera": "ba",
-      "elo": 1688,
-      "grupo": "Group B",
-      "top_goleador": "Edin Džeko",
-      "top_goleador_goles": 8,
-      "tasa_penal": 0,
-      "tandas": [
-        3,
-        4
-      ],
-      "mundial": [
-        3,
-        1
-      ],
-      "exp_wc": 23,
-      "forma_wc22": 0,
-      "goles_wc_pm": 1.33,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 1.059
-    },
-    "Ecuador": {
-      "bandera": "ec",
-      "elo": 1982,
-      "grupo": "Group E",
-      "top_goleador": "Enner Valencia",
-      "top_goleador_goles": 6,
-      "tasa_penal": 21,
-      "tandas": [
-        2,
-        4
-      ],
-      "mundial": [
-        16,
-        5
-      ],
-      "exp_wc": 46,
-      "forma_wc22": 44,
-      "goles_wc_pm": 0.94,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 1.033
-    },
-    "Sweden": {
-      "bandera": "se",
-      "elo": 1827,
-      "grupo": "Group F",
-      "top_goleador": "Viktor Gyökeres",
-      "top_goleador_goles": 14,
-      "tasa_penal": 6,
-      "tandas": [
-        4,
-        6
-      ],
-      "mundial": [
-        91,
-        43
-      ],
-      "exp_wc": 23,
-      "forma_wc22": 0,
-      "goles_wc_pm": 1.62,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 1.075
-    },
-    "Croatia": {
-      "bandera": "hr",
-      "elo": 1976,
-      "grupo": "Group L",
-      "top_goleador": "Andrej Kramarić",
-      "top_goleador_goles": 8,
-      "tasa_penal": 8,
-      "tandas": [
-        7,
-        11
-      ],
-      "mundial": [
-        30,
-        17
-      ],
-      "exp_wc": 51,
-      "forma_wc22": 56,
-      "goles_wc_pm": 1.37,
-      "pos_wc_hist": 2.6,
-      "factor_wc": 1.02
-    },
-    "Czech Republic": {
-      "bandera": "cz",
-      "elo": 1786,
-      "grupo": "Group A",
-      "top_goleador": "Patrik Schick",
-      "top_goleador_goles": 6,
-      "tasa_penal": 6,
-      "tandas": [
-        3,
-        4
-      ],
-      "mundial": [
-        3,
-        1
-      ],
-      "exp_wc": 0,
-      "forma_wc22": 0,
-      "goles_wc_pm": 1.0,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 0.929
-    },
-    "Iran": {
-      "bandera": "ir",
-      "elo": 1897,
-      "grupo": "Group G",
-      "top_goleador": "Mehdi Taremi",
-      "top_goleador_goles": 5,
-      "tasa_penal": 0,
-      "tandas": [
-        10,
-        23
-      ],
-      "mundial": [
-        18,
-        3
-      ],
-      "exp_wc": 48,
-      "forma_wc22": 33,
-      "goles_wc_pm": 0.67,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 1.013
-    },
-    "New Zealand": {
-      "bandera": "nz",
-      "elo": 1730,
-      "grupo": "Group G",
-      "top_goleador": "Chris Wood",
-      "top_goleador_goles": 9,
-      "tasa_penal": 2,
-      "tandas": [
-        1,
-        4
-      ],
-      "mundial": [
-        21,
-        0
-      ],
-      "exp_wc": 0,
-      "forma_wc22": 0,
-      "goles_wc_pm": 0.52,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 0.911
-    },
-    "Turkey": {
-      "bandera": "tr",
-      "elo": 1927,
+    "Australia": {
+      "bandera": "au",
+      "elo": 1961,
       "grupo": "Group D",
-      "top_goleador": "Kerem Aktürkoğlu",
-      "top_goleador_goles": 9,
-      "tasa_penal": 7,
+      "top_goleador": "Nishan Velupillay",
+      "top_goleador_goles": 3,
+      "tasa_penal": 6,
       "tandas": [
-        1,
-        1
+        5,
+        8
       ],
       "mundial": [
-        10,
-        5
-      ],
-      "exp_wc": 0,
-      "forma_wc22": 0,
-      "goles_wc_pm": 2.0,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 1.008
-    },
-    "Senegal": {
-      "bandera": "sn",
-      "elo": 1908,
-      "grupo": "Group I",
-      "top_goleador": "Sadio Mané",
-      "top_goleador_goles": 5,
-      "tasa_penal": 7,
-      "tandas": [
-        11,
-        21
-      ],
-      "mundial": [
-        12,
-        5
-      ],
-      "exp_wc": 43,
-      "forma_wc22": 67,
-      "goles_wc_pm": 1.25,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 1.063
-    },
-    "Argentina": {
-      "bandera": "ar",
-      "elo": 2179,
-      "grupo": "Group J",
-      "top_goleador": "Lautaro Martínez",
-      "top_goleador_goles": 9,
-      "tasa_penal": 0,
-      "tandas": [
-        15,
-        23
-      ],
-      "mundial": [
-        97,
-        53
+        46,
+        11
       ],
       "exp_wc": 57,
       "forma_wc22": 67,
-      "goles_wc_pm": 1.59,
-      "pos_wc_hist": 1.3,
-      "factor_wc": 1.082
-    },
-    "Portugal": {
-      "bandera": "pt",
-      "elo": 2051,
-      "grupo": "Group K",
-      "top_goleador": "Cristiano Ronaldo",
-      "top_goleador_goles": 13,
-      "tasa_penal": 9,
-      "tandas": [
-        5,
-        8
-      ],
-      "mundial": [
-        35,
-        18
-      ],
-      "exp_wc": 55,
-      "forma_wc22": 67,
-      "goles_wc_pm": 1.66,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 1.062
-    },
-    "Uzbekistan": {
-      "bandera": "uz",
-      "elo": 1829,
-      "grupo": "Group K",
-      "top_goleador": "Abbosbek Fayzullaev",
-      "top_goleador_goles": 4,
-      "tasa_penal": 7,
-      "tandas": [
-        2,
-        5
-      ],
-      "mundial": [
-        0,
-        0
-      ],
-      "exp_wc": 0,
-      "forma_wc22": 0,
-      "goles_wc_pm": 0.0,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 0.94
-    },
-    "France": {
-      "bandera": "fr",
-      "elo": 2126,
-      "grupo": "Group I",
-      "top_goleador": "Kylian Mbappé",
-      "top_goleador_goles": 8,
-      "tasa_penal": 12,
-      "tandas": [
-        5,
-        11
-      ],
-      "mundial": [
-        92,
-        52
-      ],
-      "exp_wc": 55,
-      "forma_wc22": 67,
-      "goles_wc_pm": 1.75,
-      "pos_wc_hist": 1.6,
-      "factor_wc": 1.064
-    },
-    "Panama": {
-      "bandera": "pa",
-      "elo": 1843,
-      "grupo": "Group L",
-      "top_goleador": "Ismael Díaz",
-      "top_goleador_goles": 8,
-      "tasa_penal": 13,
-      "tandas": [
-        5,
-        7
-      ],
-      "mundial": [
-        3,
-        0
-      ],
-      "exp_wc": 23,
-      "forma_wc22": 0,
-      "goles_wc_pm": 0.33,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 0.999
-    },
-    "Scotland": {
-      "bandera": "gb-sct",
-      "elo": 1883,
-      "grupo": "Group C",
-      "top_goleador": "Scott McTominay",
-      "top_goleador_goles": 6,
-      "tasa_penal": 4,
-      "tandas": [
-        2,
-        2
-      ],
-      "mundial": [
-        26,
-        4
-      ],
-      "exp_wc": 0,
-      "forma_wc22": 0,
-      "goles_wc_pm": 1.12,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 0.934
-    },
-    "Jordan": {
-      "bandera": "jo",
-      "elo": 1777,
-      "grupo": "Group J",
-      "top_goleador": "Yazan Al-Naimat",
-      "top_goleador_goles": 5,
-      "tasa_penal": 12,
-      "tandas": [
-        0,
-        3
-      ],
-      "mundial": [
-        0,
-        0
-      ],
-      "exp_wc": 0,
-      "forma_wc22": 0,
-      "goles_wc_pm": 0.0,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 0.94
-    },
-    "Ivory Coast": {
-      "bandera": "ci",
-      "elo": 1864,
-      "grupo": "Group E",
-      "top_goleador": "Amad Diallo",
-      "top_goleador_goles": 5,
-      "tasa_penal": 4,
-      "tandas": [
-        10,
-        18
-      ],
-      "mundial": [
-        12,
-        3
-      ],
-      "exp_wc": 23,
-      "forma_wc22": 0,
-      "goles_wc_pm": 1.33,
+      "goles_wc_pm": 1.15,
       "pos_wc_hist": 0.0,
       "factor_wc": 1.059
-    },
-    "South Korea": {
-      "bandera": "kr",
-      "elo": 1911,
-      "grupo": "Group A",
-      "top_goleador": "Oh Hyeon-gyu",
-      "top_goleador_goles": 5,
-      "tasa_penal": 5,
-      "tandas": [
-        15,
-        25
-      ],
-      "mundial": [
-        48,
-        9
-      ],
-      "exp_wc": 56,
-      "forma_wc22": 44,
-      "goles_wc_pm": 0.94,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 1.033
-    },
-    "Iraq": {
-      "bandera": "iq",
-      "elo": 1746,
-      "grupo": "Group I",
-      "top_goleador": "Aymen Hussein",
-      "top_goleador_goles": 5,
-      "tasa_penal": 7,
-      "tandas": [
-        11,
-        15
-      ],
-      "mundial": [
-        3,
-        0
-      ],
-      "exp_wc": 0,
-      "forma_wc22": 0,
-      "goles_wc_pm": 0.33,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 0.9
-    },
-    "Colombia": {
-      "bandera": "co",
-      "elo": 2056,
-      "grupo": "Group K",
-      "top_goleador": "Luis Díaz",
-      "top_goleador_goles": 7,
-      "tasa_penal": 12,
-      "tandas": [
-        7,
-        12
-      ],
-      "mundial": [
-        29,
-        10
-      ],
-      "exp_wc": 36,
-      "forma_wc22": 0,
-      "goles_wc_pm": 1.24,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 1.074
-    },
-    "Japan": {
-      "bandera": "jp",
-      "elo": 2003,
-      "grupo": "Group F",
-      "top_goleador": "Daichi Kamada",
-      "top_goleador_goles": 5,
-      "tasa_penal": 3,
-      "tandas": [
-        5,
-        12
-      ],
-      "mundial": [
-        58,
-        22
-      ],
-      "exp_wc": 54,
-      "forma_wc22": 67,
-      "goles_wc_pm": 1.07,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 1.056
-    },
-    "Mexico": {
-      "bandera": "mx",
-      "elo": 1987,
-      "grupo": "Group A",
-      "top_goleador": "Raúl Jiménez",
-      "top_goleador_goles": 4,
-      "tasa_penal": 0,
-      "tandas": [
-        7,
-        14
-      ],
-      "mundial": [
-        69,
-        17
-      ],
-      "exp_wc": 48,
-      "forma_wc22": 44,
-      "goles_wc_pm": 0.99,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 1.035
-    },
-    "Canada": {
-      "bandera": "ca",
-      "elo": 1878,
-      "grupo": "Group B",
-      "top_goleador": "Jonathan David",
-      "top_goleador_goles": 4,
-      "tasa_penal": 7,
-      "tandas": [
-        3,
-        8
-      ],
-      "mundial": [
-        33,
-        8
-      ],
-      "exp_wc": 26,
-      "forma_wc22": 0,
-      "goles_wc_pm": 1.06,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 0.997
-    },
-    "Switzerland": {
-      "bandera": "ch",
-      "elo": 1933,
-      "grupo": "Group B",
-      "top_goleador": "Breel Embolo",
-      "top_goleador_goles": 7,
-      "tasa_penal": 17,
-      "tandas": [
-        2,
-        8
-      ],
-      "mundial": [
-        45,
-        15
-      ],
-      "exp_wc": 46,
-      "forma_wc22": 67,
-      "goles_wc_pm": 1.42,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 1.059
-    },
-    "Brazil": {
-      "bandera": "br",
-      "elo": 2053,
-      "grupo": "Group C",
-      "top_goleador": "Vinícius Júnior",
-      "top_goleador_goles": 5,
-      "tasa_penal": 18,
-      "tandas": [
-        9,
-        16
-      ],
-      "mundial": [
-        148,
-        100
-      ],
-      "exp_wc": 56,
-      "forma_wc22": 67,
-      "goles_wc_pm": 2.03,
-      "pos_wc_hist": 4.0,
-      "factor_wc": 1.04
-    },
-    "Uruguay": {
-      "bandera": "uy",
-      "elo": 1968,
-      "grupo": "Group H",
-      "top_goleador": "Rodrigo Aguirre",
-      "top_goleador_goles": 3,
-      "tasa_penal": 0,
-      "tandas": [
-        9,
-        17
-      ],
-      "mundial": [
-        59,
-        26
-      ],
-      "exp_wc": 48,
-      "forma_wc22": 44,
-      "goles_wc_pm": 1.49,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 1.055
     },
     "Austria": {
       "bandera": "at",
-      "elo": 1885,
+      "elo": 1917,
       "grupo": "Group J",
       "top_goleador": "Marko Arnautović",
-      "top_goleador_goles": 11,
-      "tasa_penal": 9,
+      "top_goleador_goles": 12,
+      "tasa_penal": 11,
       "tandas": [
         0,
         2
@@ -821,194 +989,26 @@
       "pos_wc_hist": 0.0,
       "factor_wc": 0.977
     },
-    "Paraguay": {
-      "bandera": "py",
-      "elo": 1872,
-      "grupo": "Group D",
-      "top_goleador": "Julio Enciso",
+    "South Africa": {
+      "bandera": "za",
+      "elo": 1655,
+      "grupo": "Group A",
+      "top_goleador": "Lyle Foster",
       "top_goleador_goles": 4,
-      "tasa_penal": 6,
+      "tasa_penal": 7,
       "tandas": [
-        6,
-        13
+        13,
+        28
       ],
       "mundial": [
-        27,
-        8
+        12,
+        2
       ],
       "exp_wc": 0,
       "forma_wc22": 0,
-      "goles_wc_pm": 1.04,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 0.942
-    },
-    "Ghana": {
-      "bandera": "gh",
-      "elo": 1630,
-      "grupo": "Group L",
-      "top_goleador": "Jordan Ayew",
-      "top_goleador_goles": 3,
-      "tasa_penal": 6,
-      "tandas": [
-        5,
-        13
-      ],
-      "mundial": [
-        24,
-        6
-      ],
-      "exp_wc": 47,
-      "forma_wc22": 33,
       "goles_wc_pm": 1.0,
       "pos_wc_hist": 0.0,
-      "factor_wc": 1.027
-    },
-    "Germany": {
-      "bandera": "de",
-      "elo": 2021,
-      "grupo": "Group E",
-      "top_goleador": "Florian Wirtz",
-      "top_goleador_goles": 7,
-      "tasa_penal": 10,
-      "tandas": [
-        6,
-        8
-      ],
-      "mundial": [
-        94,
-        64
-      ],
-      "exp_wc": 51,
-      "forma_wc22": 44,
-      "goles_wc_pm": 2.31,
-      "pos_wc_hist": 1.0,
-      "factor_wc": 1.077
-    },
-    "Belgium": {
-      "bandera": "be",
-      "elo": 1945,
-      "grupo": "Group G",
-      "top_goleador": "Kevin De Bruyne",
-      "top_goleador_goles": 9,
-      "tasa_penal": 12,
-      "tandas": [
-        2,
-        2
-      ],
-      "mundial": [
-        51,
-        22
-      ],
-      "exp_wc": 41,
-      "forma_wc22": 44,
-      "goles_wc_pm": 1.31,
-      "pos_wc_hist": 3.0,
-      "factor_wc": 1.013
-    },
-    "Haiti": {
-      "bandera": "ht",
-      "elo": 1674,
-      "grupo": "Group C",
-      "top_goleador": "Duckens Nazon",
-      "top_goleador_goles": 5,
-      "tasa_penal": 0,
-      "tandas": [
-        1,
-        2
-      ],
-      "mundial": [
-        3,
-        0
-      ],
-      "exp_wc": 0,
-      "forma_wc22": 0,
-      "goles_wc_pm": 0.67,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 0.92
-    },
-    "DR Congo": {
-      "bandera": "cd",
-      "elo": 1766,
-      "grupo": "Group K",
-      "top_goleador": "Cédric Bakambu",
-      "top_goleador_goles": 4,
-      "tasa_penal": 5,
-      "tandas": [
-        5,
-        8
-      ],
-      "mundial": [
-        0,
-        0
-      ],
-      "exp_wc": 0,
-      "forma_wc22": 0,
-      "goles_wc_pm": 0.0,
-      "pos_wc_hist": 0.0,
       "factor_wc": 0.94
-    },
-    "England": {
-      "bandera": "gb-eng",
-      "elo": 2100,
-      "grupo": "Group L",
-      "top_goleador": "Harry Kane",
-      "top_goleador_goles": 14,
-      "tasa_penal": 9,
-      "tandas": [
-        4,
-        12
-      ],
-      "mundial": [
-        100,
-        48
-      ],
-      "exp_wc": 54,
-      "forma_wc22": 78,
-      "goles_wc_pm": 1.44,
-      "pos_wc_hist": 4.0,
-      "factor_wc": 1.027
-    },
-    "Egypt": {
-      "bandera": "eg",
-      "elo": 1809,
-      "grupo": "Group G",
-      "top_goleador": "Mohamed Salah",
-      "top_goleador_goles": 8,
-      "tasa_penal": 17,
-      "tandas": [
-        15,
-        26
-      ],
-      "mundial": [
-        7,
-        0
-      ],
-      "exp_wc": 23,
-      "forma_wc22": 0,
-      "goles_wc_pm": 0.71,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 1.021
-    },
-    "Saudi Arabia": {
-      "bandera": "sa",
-      "elo": 1699,
-      "grupo": "Group H",
-      "top_goleador": "Firas Al-Buraikan",
-      "top_goleador_goles": 3,
-      "tasa_penal": 17,
-      "tandas": [
-        7,
-        9
-      ],
-      "mundial": [
-        19,
-        4
-      ],
-      "exp_wc": 40,
-      "forma_wc22": 33,
-      "goles_wc_pm": 0.74,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 1.016
     }
   },
   "ya_jugados": [
@@ -1203,6 +1203,54 @@
       "gv": 1,
       "bandera_local": "sa",
       "bandera_visitante": "uy"
+    },
+    {
+      "local": "France",
+      "visitante": "Senegal",
+      "fecha": "2026-06-16",
+      "hora_col": "14:00",
+      "ciudad": "",
+      "grupo": "Group I",
+      "gl": 3,
+      "gv": 1,
+      "bandera_local": "fr",
+      "bandera_visitante": "sn"
+    },
+    {
+      "local": "Iraq",
+      "visitante": "Norway",
+      "fecha": "2026-06-16",
+      "hora_col": "17:00",
+      "ciudad": "",
+      "grupo": "Group I",
+      "gl": 1,
+      "gv": 4,
+      "bandera_local": "iq",
+      "bandera_visitante": "no"
+    },
+    {
+      "local": "Argentina",
+      "visitante": "Algeria",
+      "fecha": "2026-06-16",
+      "hora_col": "20:00",
+      "ciudad": "",
+      "grupo": "Group J",
+      "gl": 3,
+      "gv": 0,
+      "bandera_local": "ar",
+      "bandera_visitante": "dz"
+    },
+    {
+      "local": "Austria",
+      "visitante": "Jordan",
+      "fecha": "2026-06-16",
+      "hora_col": "23:00",
+      "ciudad": "",
+      "grupo": "Group J",
+      "gl": 3,
+      "gv": 1,
+      "bandera_local": "at",
+      "bandera_visitante": "jo"
     }
   ],
   "predicciones": [
@@ -1217,13 +1265,13 @@
       "bandera_visitante": "za",
       "elo_local": 1786,
       "elo_visitante": 1655,
-      "xg_local": 1.65,
-      "xg_visitante": 0.92,
+      "xg_local": 1.63,
+      "xg_visitante": 0.91,
       "marcador_local": 1,
       "marcador_visitante": 0,
-      "prob_marcador": 12.7,
-      "prob_local": 54.5,
-      "prob_empate": 24.5,
+      "prob_marcador": 12.9,
+      "prob_local": 54.3,
+      "prob_empate": 24.7,
       "prob_visitante": 20.9,
       "tiros_local": 17,
       "tiros_visitante": 10,
@@ -1234,7 +1282,7 @@
       "amarillas_local": 3.2,
       "amarillas_visitante": 1.4,
       "prob_roja_local": 31.6,
-      "prob_roja_visitante": 13.0,
+      "prob_roja_visitante": 13.1,
       "goleadores_local": [
         {
           "jugador": "Patrik Schick",
@@ -1242,7 +1290,7 @@
         },
         {
           "jugador": "Tomáš Souček",
-          "prob": 27
+          "prob": 26
         },
         {
           "jugador": "Václav Černý",
@@ -1260,7 +1308,7 @@
         },
         {
           "jugador": "Evidence Makgopa",
-          "prob": 12
+          "prob": 11
         }
       ]
     },
@@ -1275,14 +1323,14 @@
       "bandera_visitante": "kr",
       "elo_local": 1987,
       "elo_visitante": 1911,
-      "xg_local": 1.18,
+      "xg_local": 1.17,
       "xg_visitante": 0.76,
       "marcador_local": 1,
       "marcador_visitante": 0,
-      "prob_marcador": 16.9,
+      "prob_marcador": 17.0,
       "prob_local": 45.7,
-      "prob_empate": 30.5,
-      "prob_visitante": 23.8,
+      "prob_empate": 30.6,
+      "prob_visitante": 23.7,
       "tiros_local": 16,
       "tiros_visitante": 10,
       "tiros_puerta_local": 5,
@@ -1333,12 +1381,12 @@
       "bandera_visitante": "mx",
       "elo_local": 1786,
       "elo_visitante": 1987,
-      "xg_local": 0.68,
-      "xg_visitante": 1.65,
+      "xg_local": 0.67,
+      "xg_visitante": 1.64,
       "marcador_local": 0,
       "marcador_visitante": 1,
-      "prob_marcador": 16.1,
-      "prob_local": 15.1,
+      "prob_marcador": 16.3,
+      "prob_local": 15.0,
       "prob_empate": 24.2,
       "prob_visitante": 60.7,
       "tiros_local": 8,
@@ -1354,7 +1402,7 @@
       "goleadores_local": [
         {
           "jugador": "Patrik Schick",
-          "prob": 27
+          "prob": 26
         },
         {
           "jugador": "Tomáš Souček",
@@ -1391,14 +1439,14 @@
       "bandera_visitante": "kr",
       "elo_local": 1655,
       "elo_visitante": 1911,
-      "xg_local": 0.66,
-      "xg_visitante": 1.85,
+      "xg_local": 0.65,
+      "xg_visitante": 1.83,
       "marcador_local": 0,
       "marcador_visitante": 1,
-      "prob_marcador": 15.1,
+      "prob_marcador": 15.3,
       "prob_local": 12.5,
-      "prob_empate": 21.5,
-      "prob_visitante": 65.9,
+      "prob_empate": 21.7,
+      "prob_visitante": 65.8,
       "tiros_local": 8,
       "tiros_visitante": 17,
       "tiros_puerta_local": 4,
@@ -1426,7 +1474,7 @@
       "goleadores_visitante": [
         {
           "jugador": "Cho Kyu-Sung",
-          "prob": 51
+          "prob": 50
         },
         {
           "jugador": "Hwang Hee-Chan",
@@ -1449,14 +1497,14 @@
       "bandera_visitante": "ba",
       "elo_local": 1933,
       "elo_visitante": 1688,
-      "xg_local": 1.94,
+      "xg_local": 1.92,
       "xg_visitante": 0.66,
       "marcador_local": 1,
       "marcador_visitante": 0,
-      "prob_marcador": 14.4,
-      "prob_local": 67.7,
-      "prob_empate": 20.5,
-      "prob_visitante": 11.8,
+      "prob_marcador": 14.5,
+      "prob_local": 67.5,
+      "prob_empate": 20.6,
+      "prob_visitante": 11.9,
       "tiros_local": 16,
       "tiros_visitante": 8,
       "tiros_puerta_local": 6,
@@ -1507,13 +1555,13 @@
       "bandera_visitante": "qa",
       "elo_local": 1878,
       "elo_visitante": 1603,
-      "xg_local": 2.05,
+      "xg_local": 2.04,
       "xg_visitante": 0.53,
       "marcador_local": 2,
       "marcador_visitante": 0,
       "prob_marcador": 15.9,
-      "prob_local": 73.2,
-      "prob_empate": 18.4,
+      "prob_local": 73.1,
+      "prob_empate": 18.5,
       "prob_visitante": 8.5,
       "tiros_local": 17,
       "tiros_visitante": 6,
@@ -1565,13 +1613,13 @@
       "bandera_visitante": "qa",
       "elo_local": 1688,
       "elo_visitante": 1603,
-      "xg_local": 1.54,
+      "xg_local": 1.53,
       "xg_visitante": 0.84,
       "marcador_local": 1,
       "marcador_visitante": 0,
-      "prob_marcador": 14.2,
-      "prob_local": 53.7,
-      "prob_empate": 25.7,
+      "prob_marcador": 14.3,
+      "prob_local": 53.5,
+      "prob_empate": 25.8,
       "prob_visitante": 20.6,
       "tiros_local": 14,
       "tiros_visitante": 9,
@@ -1623,15 +1671,15 @@
       "bandera_visitante": "ca",
       "elo_local": 1933,
       "elo_visitante": 1878,
-      "xg_local": 1.22,
+      "xg_local": 1.21,
       "xg_visitante": 0.88,
       "marcador_local": 1,
       "marcador_visitante": 0,
-      "prob_marcador": 14.9,
-      "prob_local": 44.0,
-      "prob_empate": 29.3,
+      "prob_marcador": 15.0,
+      "prob_local": 43.8,
+      "prob_empate": 29.5,
       "prob_visitante": 26.7,
-      "tiros_local": 14,
+      "tiros_local": 13,
       "tiros_visitante": 11,
       "tiros_puerta_local": 5,
       "tiros_puerta_visitante": 4,
@@ -1682,12 +1730,12 @@
       "elo_local": 1883,
       "elo_visitante": 2003,
       "xg_local": 0.7,
-      "xg_visitante": 1.26,
+      "xg_visitante": 1.25,
       "marcador_local": 0,
       "marcador_visitante": 1,
-      "prob_marcador": 17.7,
-      "prob_local": 20.8,
-      "prob_empate": 29.5,
+      "prob_marcador": 17.8,
+      "prob_local": 20.7,
+      "prob_empate": 29.6,
       "prob_visitante": 49.7,
       "tiros_local": 8,
       "tiros_visitante": 15,
@@ -1739,13 +1787,13 @@
       "bandera_visitante": "ht",
       "elo_local": 2053,
       "elo_visitante": 1674,
-      "xg_local": 2.57,
-      "xg_visitante": 0.54,
+      "xg_local": 2.55,
+      "xg_visitante": 0.53,
       "marcador_local": 2,
       "marcador_visitante": 0,
-      "prob_marcador": 14.7,
-      "prob_local": 81.1,
-      "prob_empate": 13.2,
+      "prob_marcador": 14.9,
+      "prob_local": 81.0,
+      "prob_empate": 13.3,
       "prob_visitante": 5.7,
       "tiros_local": 19,
       "tiros_visitante": 5,
@@ -1760,21 +1808,21 @@
       "goleadores_local": [
         {
           "jugador": "Vinícius Júnior",
-          "prob": 35
+          "prob": 34
         },
         {
           "jugador": "Lucas Paquetá",
-          "prob": 31
+          "prob": 30
         },
         {
           "jugador": "Richarlison",
-          "prob": 27
+          "prob": 26
         }
       ],
       "goleadores_visitante": [
         {
           "jugador": "Duckens Nazon",
-          "prob": 15
+          "prob": 14
         },
         {
           "jugador": "Frantzdy Pierrot",
@@ -1797,14 +1845,14 @@
       "bandera_visitante": "ht",
       "elo_local": 2003,
       "elo_visitante": 1674,
-      "xg_local": 2.07,
+      "xg_local": 2.05,
       "xg_visitante": 0.52,
       "marcador_local": 2,
       "marcador_visitante": 0,
-      "prob_marcador": 16.0,
-      "prob_local": 73.8,
-      "prob_empate": 18.1,
-      "prob_visitante": 8.2,
+      "prob_marcador": 16.1,
+      "prob_local": 73.6,
+      "prob_empate": 18.2,
+      "prob_visitante": 8.1,
       "tiros_local": 17,
       "tiros_visitante": 6,
       "tiros_puerta_local": 6,
@@ -1818,11 +1866,11 @@
       "goleadores_local": [
         {
           "jugador": "Youssef En-Nesyri",
-          "prob": 46
+          "prob": 45
         },
         {
           "jugador": "Hakim Ziyech",
-          "prob": 35
+          "prob": 34
         },
         {
           "jugador": "Ayoub El Kaabi",
@@ -1855,14 +1903,14 @@
       "bandera_visitante": "br",
       "elo_local": 1883,
       "elo_visitante": 2053,
-      "xg_local": 0.73,
-      "xg_visitante": 1.57,
+      "xg_local": 0.72,
+      "xg_visitante": 1.56,
       "marcador_local": 0,
       "marcador_visitante": 1,
-      "prob_marcador": 15.8,
+      "prob_marcador": 15.9,
       "prob_local": 17.2,
-      "prob_empate": 25.3,
-      "prob_visitante": 57.5,
+      "prob_empate": 25.4,
+      "prob_visitante": 57.4,
       "tiros_local": 7,
       "tiros_visitante": 18,
       "tiros_puerta_local": 2,
@@ -1913,14 +1961,14 @@
       "bandera_visitante": "au",
       "elo_local": 1903,
       "elo_visitante": 1961,
-      "xg_local": 1.06,
+      "xg_local": 1.05,
       "xg_visitante": 1.17,
       "marcador_local": 1,
       "marcador_visitante": 1,
       "prob_marcador": 13.3,
-      "prob_local": 32.6,
-      "prob_empate": 28.8,
-      "prob_visitante": 38.5,
+      "prob_local": 32.4,
+      "prob_empate": 28.9,
+      "prob_visitante": 38.7,
       "tiros_local": 12,
       "tiros_visitante": 11,
       "tiros_puerta_local": 4,
@@ -1929,7 +1977,7 @@
       "corners_visitante": 4,
       "amarillas_local": 2.0,
       "amarillas_visitante": 2.2,
-      "prob_roja_local": 16.0,
+      "prob_roja_local": 15.9,
       "prob_roja_visitante": 6.7,
       "goleadores_local": [
         {
@@ -1971,13 +2019,13 @@
       "bandera_visitante": "py",
       "elo_local": 1927,
       "elo_visitante": 1872,
-      "xg_local": 1.32,
-      "xg_visitante": 0.95,
+      "xg_local": 1.31,
+      "xg_visitante": 0.94,
       "marcador_local": 1,
       "marcador_visitante": 0,
-      "prob_marcador": 13.7,
-      "prob_local": 45.1,
-      "prob_empate": 28.0,
+      "prob_marcador": 13.8,
+      "prob_local": 44.9,
+      "prob_empate": 28.1,
       "prob_visitante": 26.9,
       "tiros_local": 14,
       "tiros_visitante": 12,
@@ -1988,11 +2036,11 @@
       "amarillas_local": 3.5,
       "amarillas_visitante": 2.5,
       "prob_roja_local": 16.3,
-      "prob_roja_visitante": 20.4,
+      "prob_roja_visitante": 20.5,
       "goleadores_local": [
         {
           "jugador": "Kerem Aktürkoglu",
-          "prob": 32
+          "prob": 31
         },
         {
           "jugador": "Arda Güler",
@@ -2006,11 +2054,11 @@
       "goleadores_visitante": [
         {
           "jugador": "Julio Enciso",
-          "prob": 23
+          "prob": 22
         },
         {
           "jugador": "Ramón Sosa",
-          "prob": 19
+          "prob": 18
         },
         {
           "jugador": "Ángel Romero",
@@ -2029,13 +2077,13 @@
       "bandera_visitante": "au",
       "elo_local": 1872,
       "elo_visitante": 1961,
-      "xg_local": 0.8,
+      "xg_local": 0.79,
       "xg_visitante": 1.25,
       "marcador_local": 0,
       "marcador_visitante": 1,
-      "prob_marcador": 16.1,
-      "prob_local": 23.7,
-      "prob_empate": 29.3,
+      "prob_marcador": 16.2,
+      "prob_local": 23.6,
+      "prob_empate": 29.4,
       "prob_visitante": 47.0,
       "tiros_local": 11,
       "tiros_visitante": 12,
@@ -2045,7 +2093,7 @@
       "corners_visitante": 4,
       "amarillas_local": 2.5,
       "amarillas_visitante": 2.2,
-      "prob_roja_local": 20.9,
+      "prob_roja_local": 20.8,
       "prob_roja_visitante": 6.8,
       "goleadores_local": [
         {
@@ -2088,15 +2136,15 @@
       "elo_local": 1927,
       "elo_visitante": 1903,
       "xg_local": 1.23,
-      "xg_visitante": 1.25,
+      "xg_visitante": 1.24,
       "marcador_local": 1,
       "marcador_visitante": 1,
       "prob_marcador": 12.9,
       "prob_local": 36.0,
-      "prob_empate": 27.1,
-      "prob_visitante": 36.9,
+      "prob_empate": 27.2,
+      "prob_visitante": 36.8,
       "tiros_local": 12,
-      "tiros_visitante": 13,
+      "tiros_visitante": 12,
       "tiros_puerta_local": 4,
       "tiros_puerta_visitante": 4,
       "corners_local": 4,
@@ -2145,13 +2193,13 @@
       "bandera_visitante": "ci",
       "elo_local": 2021,
       "elo_visitante": 1864,
-      "xg_local": 1.68,
+      "xg_local": 1.67,
       "xg_visitante": 0.66,
       "marcador_local": 1,
       "marcador_visitante": 0,
-      "prob_marcador": 16.1,
-      "prob_local": 62.0,
-      "prob_empate": 23.7,
+      "prob_marcador": 16.3,
+      "prob_local": 61.8,
+      "prob_empate": 23.8,
       "prob_visitante": 14.4,
       "tiros_local": 18,
       "tiros_visitante": 8,
@@ -2174,7 +2222,7 @@
         },
         {
           "jugador": "Jamal Musiala",
-          "prob": 26
+          "prob": 25
         }
       ],
       "goleadores_visitante": [
@@ -2203,13 +2251,13 @@
       "bandera_visitante": "cw",
       "elo_local": 1982,
       "elo_visitante": 1598,
-      "xg_local": 2.11,
-      "xg_visitante": 0.45,
+      "xg_local": 2.1,
+      "xg_visitante": 0.44,
       "marcador_local": 2,
       "marcador_visitante": 0,
-      "prob_marcador": 17.2,
-      "prob_local": 76.3,
-      "prob_empate": 17.0,
+      "prob_marcador": 17.3,
+      "prob_local": 76.4,
+      "prob_empate": 17.1,
       "prob_visitante": 6.6,
       "tiros_local": 18,
       "tiros_visitante": 6,
@@ -2261,13 +2309,13 @@
       "bandera_visitante": "ci",
       "elo_local": 1598,
       "elo_visitante": 1864,
-      "xg_local": 0.67,
-      "xg_visitante": 1.79,
+      "xg_local": 0.66,
+      "xg_visitante": 1.77,
       "marcador_local": 0,
       "marcador_visitante": 1,
-      "prob_marcador": 15.3,
+      "prob_marcador": 15.5,
       "prob_local": 13.4,
-      "prob_empate": 22.4,
+      "prob_empate": 22.5,
       "prob_visitante": 64.2,
       "tiros_local": 7,
       "tiros_visitante": 17,
@@ -2282,7 +2330,7 @@
       "goleadores_local": [
         {
           "jugador": "Gervane Kastaneer",
-          "prob": 11
+          "prob": 10
         },
         {
           "jugador": "Kenji Gorré",
@@ -2300,7 +2348,7 @@
         },
         {
           "jugador": "Franck Kessié",
-          "prob": 30
+          "prob": 29
         },
         {
           "jugador": "Christian Kouamé",
@@ -2320,13 +2368,13 @@
       "elo_local": 1982,
       "elo_visitante": 2021,
       "xg_local": 0.78,
-      "xg_visitante": 1.13,
+      "xg_visitante": 1.12,
       "marcador_local": 0,
       "marcador_visitante": 1,
       "prob_marcador": 16.7,
-      "prob_local": 25.3,
-      "prob_empate": 31.1,
-      "prob_visitante": 43.6,
+      "prob_local": 25.5,
+      "prob_empate": 31.2,
+      "prob_visitante": 43.3,
       "tiros_local": 10,
       "tiros_visitante": 16,
       "tiros_puerta_local": 3,
@@ -2335,7 +2383,7 @@
       "corners_visitante": 6,
       "amarillas_local": 1.9,
       "amarillas_visitante": 2.5,
-      "prob_roja_local": 15.1,
+      "prob_roja_local": 15.2,
       "prob_roja_visitante": 4.0,
       "goleadores_local": [
         {
@@ -2377,13 +2425,13 @@
       "bandera_visitante": "se",
       "elo_local": 2013,
       "elo_visitante": 1827,
-      "xg_local": 1.9,
+      "xg_local": 1.88,
       "xg_visitante": 0.82,
       "marcador_local": 1,
       "marcador_visitante": 0,
-      "prob_marcador": 12.5,
-      "prob_local": 62.8,
-      "prob_empate": 21.7,
+      "prob_marcador": 12.7,
+      "prob_local": 62.6,
+      "prob_empate": 21.8,
       "prob_visitante": 15.6,
       "tiros_local": 16,
       "tiros_visitante": 8,
@@ -2398,7 +2446,7 @@
       "goleadores_local": [
         {
           "jugador": "Cody Gakpo",
-          "prob": 36
+          "prob": 35
         },
         {
           "jugador": "Memphis Depay",
@@ -2435,13 +2483,13 @@
       "bandera_visitante": "jp",
       "elo_local": 1687,
       "elo_visitante": 2003,
-      "xg_local": 0.51,
-      "xg_visitante": 2.14,
+      "xg_local": 0.5,
+      "xg_visitante": 2.13,
       "marcador_local": 0,
       "marcador_visitante": 2,
-      "prob_marcador": 16.2,
+      "prob_marcador": 16.3,
       "prob_local": 7.5,
-      "prob_empate": 17.2,
+      "prob_empate": 17.3,
       "prob_visitante": 75.3,
       "tiros_local": 6,
       "tiros_visitante": 17,
@@ -2464,7 +2512,7 @@
         },
         {
           "jugador": "Youssef Msakni",
-          "prob": 10
+          "prob": 9
         }
       ],
       "goleadores_visitante": [
@@ -2497,10 +2545,10 @@
       "xg_visitante": 0.76,
       "marcador_local": 1,
       "marcador_visitante": 0,
-      "prob_marcador": 14.3,
-      "prob_local": 60.3,
-      "prob_empate": 23.4,
-      "prob_visitante": 16.3,
+      "prob_marcador": 14.5,
+      "prob_local": 60.4,
+      "prob_empate": 23.5,
+      "prob_visitante": 16.1,
       "tiros_local": 15,
       "tiros_visitante": 9,
       "tiros_puerta_local": 5,
@@ -2551,14 +2599,14 @@
       "bandera_visitante": "nl",
       "elo_local": 1687,
       "elo_visitante": 2013,
-      "xg_local": 0.55,
-      "xg_visitante": 2.35,
+      "xg_local": 0.54,
+      "xg_visitante": 2.33,
       "marcador_local": 0,
       "marcador_visitante": 2,
-      "prob_marcador": 15.2,
+      "prob_marcador": 15.3,
       "prob_local": 6.9,
-      "prob_empate": 15.2,
-      "prob_visitante": 77.9,
+      "prob_empate": 15.4,
+      "prob_visitante": 77.7,
       "tiros_local": 6,
       "tiros_visitante": 17,
       "tiros_puerta_local": 2,
@@ -2590,7 +2638,7 @@
         },
         {
           "jugador": "Memphis Depay",
-          "prob": 41
+          "prob": 40
         },
         {
           "jugador": "Donyell Malen",
@@ -2607,16 +2655,16 @@
       "visitante": "Iran",
       "bandera_local": "be",
       "bandera_visitante": "ir",
-      "elo_local": 1945,
-      "elo_visitante": 1897,
-      "xg_local": 1.31,
+      "elo_local": 1934,
+      "elo_visitante": 1883,
+      "xg_local": 1.32,
       "xg_visitante": 0.82,
       "marcador_local": 1,
       "marcador_visitante": 0,
       "prob_marcador": 15.5,
-      "prob_local": 48.1,
-      "prob_empate": 28.4,
-      "prob_visitante": 23.4,
+      "prob_local": 48.4,
+      "prob_empate": 28.3,
+      "prob_visitante": 23.3,
       "tiros_local": 14,
       "tiros_visitante": 10,
       "tiros_puerta_local": 5,
@@ -2634,7 +2682,7 @@
         },
         {
           "jugador": "Kevin De Bruyne",
-          "prob": 24
+          "prob": 25
         },
         {
           "jugador": "Michy Batshuayi",
@@ -2665,16 +2713,16 @@
       "visitante": "Egypt",
       "bandera_local": "nz",
       "bandera_visitante": "eg",
-      "elo_local": 1730,
-      "elo_visitante": 1809,
-      "xg_local": 0.96,
-      "xg_visitante": 1.1,
+      "elo_local": 1743,
+      "elo_visitante": 1820,
+      "xg_local": 0.94,
+      "xg_visitante": 1.08,
       "marcador_local": 0,
       "marcador_visitante": 1,
-      "prob_marcador": 14.0,
-      "prob_local": 31.3,
-      "prob_empate": 30.2,
-      "prob_visitante": 38.5,
+      "prob_marcador": 14.3,
+      "prob_local": 31.2,
+      "prob_empate": 30.6,
+      "prob_visitante": 38.3,
       "tiros_local": 11,
       "tiros_visitante": 15,
       "tiros_puerta_local": 4,
@@ -2688,21 +2736,21 @@
       "goleadores_local": [
         {
           "jugador": "Chris Wood",
-          "prob": 19
+          "prob": 17
+        },
+        {
+          "jugador": "Elijah Just",
+          "prob": 14
         },
         {
           "jugador": "Ben Waine",
-          "prob": 13
-        },
-        {
-          "jugador": "Kosta Barbarouses",
-          "prob": 11
+          "prob": 12
         }
       ],
       "goleadores_visitante": [
         {
           "jugador": "Mostafa Mohamed",
-          "prob": 33
+          "prob": 32
         },
         {
           "jugador": "Omar Marmoush",
@@ -2723,30 +2771,30 @@
       "visitante": "Iran",
       "bandera_local": "eg",
       "bandera_visitante": "ir",
-      "elo_local": 1809,
-      "elo_visitante": 1897,
-      "xg_local": 0.72,
-      "xg_visitante": 1.03,
+      "elo_local": 1820,
+      "elo_visitante": 1883,
+      "xg_local": 0.75,
+      "xg_visitante": 0.99,
       "marcador_local": 0,
-      "marcador_visitante": 1,
-      "prob_marcador": 17.9,
-      "prob_local": 25.0,
-      "prob_empate": 32.8,
-      "prob_visitante": 42.2,
-      "tiros_local": 12,
-      "tiros_visitante": 13,
+      "marcador_visitante": 0,
+      "prob_marcador": 17.6,
+      "prob_local": 26.5,
+      "prob_empate": 33.2,
+      "prob_visitante": 40.3,
+      "tiros_local": 13,
+      "tiros_visitante": 12,
       "tiros_puerta_local": 4,
       "tiros_puerta_visitante": 4,
       "corners_local": 5,
       "corners_visitante": 4,
       "amarillas_local": 2.1,
       "amarillas_visitante": 2.5,
-      "prob_roja_local": 18.5,
-      "prob_roja_visitante": 7.4,
+      "prob_roja_local": 18.7,
+      "prob_roja_visitante": 7.5,
       "goleadores_local": [
         {
           "jugador": "Mostafa Mohamed",
-          "prob": 23
+          "prob": 24
         },
         {
           "jugador": "Omar Marmoush",
@@ -2760,7 +2808,7 @@
       "goleadores_visitante": [
         {
           "jugador": "Mehdi Taremi",
-          "prob": 43
+          "prob": 42
         },
         {
           "jugador": "Sardar Azmoun",
@@ -2781,17 +2829,17 @@
       "visitante": "Belgium",
       "bandera_local": "nz",
       "bandera_visitante": "be",
-      "elo_local": 1730,
-      "elo_visitante": 1945,
-      "xg_local": 0.76,
-      "xg_visitante": 2.0,
+      "elo_local": 1743,
+      "elo_visitante": 1934,
+      "xg_local": 0.78,
+      "xg_visitante": 1.91,
       "marcador_local": 0,
       "marcador_visitante": 1,
-      "prob_marcador": 12.6,
-      "prob_local": 13.4,
-      "prob_empate": 20.3,
-      "prob_visitante": 66.3,
-      "tiros_local": 8,
+      "prob_marcador": 13.0,
+      "prob_local": 14.6,
+      "prob_empate": 21.3,
+      "prob_visitante": 64.1,
+      "tiros_local": 9,
       "tiros_visitante": 16,
       "tiros_puerta_local": 3,
       "tiros_puerta_visitante": 6,
@@ -2807,26 +2855,26 @@
           "prob": 15
         },
         {
-          "jugador": "Ben Waine",
-          "prob": 10
+          "jugador": "Elijah Just",
+          "prob": 12
         },
         {
-          "jugador": "Kosta Barbarouses",
-          "prob": 9
+          "jugador": "Ben Waine",
+          "prob": 10
         }
       ],
       "goleadores_visitante": [
         {
           "jugador": "Romelu Lukaku",
-          "prob": 44
+          "prob": 43
         },
         {
           "jugador": "Kevin De Bruyne",
-          "prob": 35
+          "prob": 33
         },
         {
           "jugador": "Michy Batshuayi",
-          "prob": 26
+          "prob": 25
         }
       ]
     },
@@ -2839,48 +2887,48 @@
       "visitante": "Saudi Arabia",
       "bandera_local": "es",
       "bandera_visitante": "sa",
-      "elo_local": 2223,
-      "elo_visitante": 1699,
-      "xg_local": 3.27,
-      "xg_visitante": 0.34,
+      "elo_local": 2195,
+      "elo_visitante": 1719,
+      "xg_local": 3.04,
+      "xg_visitante": 0.36,
       "marcador_local": 3,
       "marcador_visitante": 0,
-      "prob_marcador": 15.8,
-      "prob_local": 91.5,
-      "prob_empate": 6.7,
-      "prob_visitante": 1.8,
+      "prob_marcador": 15.7,
+      "prob_local": 89.5,
+      "prob_empate": 8.2,
+      "prob_visitante": 2.3,
       "tiros_local": 22,
-      "tiros_visitante": 3,
+      "tiros_visitante": 4,
       "tiros_puerta_local": 8,
       "tiros_puerta_visitante": 1,
       "corners_local": 7,
       "corners_visitante": 3,
       "amarillas_local": 1.6,
-      "amarillas_visitante": 2.5,
-      "prob_roja_local": 8.9,
-      "prob_roja_visitante": 5.7,
+      "amarillas_visitante": 2.6,
+      "prob_roja_local": 9.0,
+      "prob_roja_visitante": 5.8,
       "goleadores_local": [
         {
           "jugador": "Daniel Olmo",
-          "prob": 48
+          "prob": 45
         },
         {
           "jugador": "Álvaro Morata",
-          "prob": 46
+          "prob": 43
         },
         {
           "jugador": "Ferrán Torres",
-          "prob": 31
+          "prob": 29
         }
       ],
       "goleadores_visitante": [
         {
           "jugador": "Salem Al Dawsari",
-          "prob": 17
+          "prob": 18
         },
         {
           "jugador": "Saleh Al Shehri",
-          "prob": 7
+          "prob": 8
         },
         {
           "jugador": "Mohammed Kanoo",
@@ -2897,17 +2945,17 @@
       "visitante": "Cape Verde",
       "bandera_local": "uy",
       "bandera_visitante": "cv",
-      "elo_local": 1968,
-      "elo_visitante": 1653,
-      "xg_local": 1.94,
-      "xg_visitante": 0.44,
+      "elo_local": 1949,
+      "elo_visitante": 1680,
+      "xg_local": 1.8,
+      "xg_visitante": 0.47,
       "marcador_local": 1,
       "marcador_visitante": 0,
-      "prob_marcador": 17.9,
-      "prob_local": 73.6,
-      "prob_empate": 19.0,
-      "prob_visitante": 7.4,
-      "tiros_local": 19,
+      "prob_marcador": 18.7,
+      "prob_local": 70.0,
+      "prob_empate": 21.1,
+      "prob_visitante": 8.9,
+      "tiros_local": 18,
       "tiros_visitante": 6,
       "tiros_puerta_local": 7,
       "tiros_puerta_visitante": 2,
@@ -2915,30 +2963,30 @@
       "corners_visitante": 3,
       "amarillas_local": 1.8,
       "amarillas_visitante": 2.0,
-      "prob_roja_local": 11.0,
-      "prob_roja_visitante": 9.0,
+      "prob_roja_local": 11.3,
+      "prob_roja_visitante": 9.2,
       "goleadores_local": [
         {
           "jugador": "Rodrigo Bentancur",
-          "prob": 26
+          "prob": 25
         },
         {
           "jugador": "Darwin Núñez",
-          "prob": 25
+          "prob": 23
         },
         {
           "jugador": "Giorgian De Arrascaeta",
-          "prob": 25
+          "prob": 23
         }
       ],
       "goleadores_visitante": [
         {
           "jugador": "Dailon Livramento",
-          "prob": 14
+          "prob": 15
         },
         {
           "jugador": "Willy Semedo",
-          "prob": 7
+          "prob": 8
         },
         {
           "jugador": "Yannick Semedo",
@@ -2955,16 +3003,16 @@
       "visitante": "Saudi Arabia",
       "bandera_local": "cv",
       "bandera_visitante": "sa",
-      "elo_local": 1653,
-      "elo_visitante": 1699,
-      "xg_local": 0.86,
-      "xg_visitante": 1.26,
+      "elo_local": 1680,
+      "elo_visitante": 1719,
+      "xg_local": 0.85,
+      "xg_visitante": 1.21,
       "marcador_local": 0,
       "marcador_visitante": 1,
-      "prob_marcador": 15.1,
-      "prob_local": 25.5,
-      "prob_empate": 29.0,
-      "prob_visitante": 45.5,
+      "prob_marcador": 15.4,
+      "prob_local": 25.9,
+      "prob_empate": 29.7,
+      "prob_visitante": 44.4,
       "tiros_local": 11,
       "tiros_visitante": 13,
       "tiros_puerta_local": 4,
@@ -2992,11 +3040,11 @@
       "goleadores_visitante": [
         {
           "jugador": "Salem Al Dawsari",
-          "prob": 51
+          "prob": 50
         },
         {
           "jugador": "Saleh Al Shehri",
-          "prob": 24
+          "prob": 23
         },
         {
           "jugador": "Mohammed Kanoo",
@@ -3013,16 +3061,16 @@
       "visitante": "Spain",
       "bandera_local": "uy",
       "bandera_visitante": "es",
-      "elo_local": 1968,
-      "elo_visitante": 2223,
-      "xg_local": 0.52,
+      "elo_local": 1949,
+      "elo_visitante": 2195,
+      "xg_local": 0.53,
       "xg_visitante": 1.67,
       "marcador_local": 0,
       "marcador_visitante": 1,
-      "prob_marcador": 18.6,
-      "prob_local": 11.2,
+      "prob_marcador": 18.5,
+      "prob_local": 11.4,
       "prob_empate": 23.3,
-      "prob_visitante": 65.5,
+      "prob_visitante": 65.2,
       "tiros_local": 7,
       "tiros_visitante": 17,
       "tiros_puerta_local": 3,
@@ -3032,7 +3080,7 @@
       "amarillas_local": 1.8,
       "amarillas_visitante": 1.9,
       "prob_roja_local": 11.5,
-      "prob_roja_visitante": 10.1,
+      "prob_roja_visitante": 10.2,
       "goleadores_local": [
         {
           "jugador": "Rodrigo Bentancur",
@@ -3064,122 +3112,6 @@
     },
     {
       "grupo": "Group I",
-      "fecha": "2026-06-16",
-      "hora_col": "14:00",
-      "ciudad": "",
-      "local": "France",
-      "visitante": "Senegal",
-      "bandera_local": "fr",
-      "bandera_visitante": "sn",
-      "elo_local": 2126,
-      "elo_visitante": 1908,
-      "xg_local": 1.52,
-      "xg_visitante": 0.65,
-      "marcador_local": 1,
-      "marcador_visitante": 0,
-      "prob_marcador": 17.3,
-      "prob_local": 58.1,
-      "prob_empate": 25.9,
-      "prob_visitante": 16.0,
-      "tiros_local": 16,
-      "tiros_visitante": 8,
-      "tiros_puerta_local": 5,
-      "tiros_puerta_visitante": 3,
-      "corners_local": 5,
-      "corners_visitante": 4,
-      "amarillas_local": 1.6,
-      "amarillas_visitante": 2.1,
-      "prob_roja_local": 2.8,
-      "prob_roja_visitante": 3.8,
-      "goleadores_local": [
-        {
-          "jugador": "Kylian Mbappé",
-          "prob": 43
-        },
-        {
-          "jugador": "Olivier Giroud",
-          "prob": 18
-        },
-        {
-          "jugador": "Randal Kolo",
-          "prob": 16
-        }
-      ],
-      "goleadores_visitante": [
-        {
-          "jugador": "Ismaïla Sarr",
-          "prob": 13
-        },
-        {
-          "jugador": "Habib Diallo",
-          "prob": 12
-        },
-        {
-          "jugador": "Sadio Mané",
-          "prob": 9
-        }
-      ]
-    },
-    {
-      "grupo": "Group I",
-      "fecha": "2026-06-16",
-      "hora_col": "17:00",
-      "ciudad": "",
-      "local": "Iraq",
-      "visitante": "Norway",
-      "bandera_local": "iq",
-      "bandera_visitante": "no",
-      "elo_local": 1746,
-      "elo_visitante": 1998,
-      "xg_local": 0.49,
-      "xg_visitante": 2.2,
-      "marcador_local": 0,
-      "marcador_visitante": 2,
-      "prob_marcador": 16.4,
-      "prob_local": 6.9,
-      "prob_empate": 16.4,
-      "prob_visitante": 76.7,
-      "tiros_local": 6,
-      "tiros_visitante": 17,
-      "tiros_puerta_local": 2,
-      "tiros_puerta_visitante": 6,
-      "corners_local": 4,
-      "corners_visitante": 5,
-      "amarillas_local": 2.9,
-      "amarillas_visitante": 1.7,
-      "prob_roja_local": 27.6,
-      "prob_roja_visitante": 4.0,
-      "goleadores_local": [
-        {
-          "jugador": "Aymen Hussein",
-          "prob": 15
-        },
-        {
-          "jugador": "Ibrahim Bayesh",
-          "prob": 6
-        },
-        {
-          "jugador": "Ali Al-Hamadi",
-          "prob": 6
-        }
-      ],
-      "goleadores_visitante": [
-        {
-          "jugador": "Erling Haaland",
-          "prob": 64
-        },
-        {
-          "jugador": "Alexander Sørloth",
-          "prob": 30
-        },
-        {
-          "jugador": "Antonio Nusa",
-          "prob": 20
-        }
-      ]
-    },
-    {
-      "grupo": "Group I",
       "fecha": "2026-06-22",
       "hora_col": "16:00",
       "ciudad": "",
@@ -3187,52 +3119,52 @@
       "visitante": "Iraq",
       "bandera_local": "fr",
       "bandera_visitante": "iq",
-      "elo_local": 2126,
-      "elo_visitante": 1746,
-      "xg_local": 2.2,
-      "xg_visitante": 0.36,
+      "elo_local": 2146,
+      "elo_visitante": 1726,
+      "xg_local": 2.32,
+      "xg_visitante": 0.34,
       "marcador_local": 2,
       "marcador_visitante": 0,
-      "prob_marcador": 18.7,
-      "prob_local": 79.9,
-      "prob_empate": 15.2,
-      "prob_visitante": 4.8,
+      "prob_marcador": 18.8,
+      "prob_local": 82.3,
+      "prob_empate": 13.7,
+      "prob_visitante": 4.0,
       "tiros_local": 20,
-      "tiros_visitante": 5,
-      "tiros_puerta_local": 6,
-      "tiros_puerta_visitante": 2,
+      "tiros_visitante": 4,
+      "tiros_puerta_local": 7,
+      "tiros_puerta_visitante": 1,
       "corners_local": 6,
       "corners_visitante": 3,
       "amarillas_local": 1.4,
-      "amarillas_visitante": 2.8,
+      "amarillas_visitante": 2.7,
       "prob_roja_local": 2.4,
-      "prob_roja_visitante": 26.3,
+      "prob_roja_visitante": 26.0,
       "goleadores_local": [
         {
           "jugador": "Kylian Mbappé",
-          "prob": 55
+          "prob": 57
         },
         {
           "jugador": "Olivier Giroud",
-          "prob": 25
+          "prob": 27
         },
         {
           "jugador": "Randal Kolo",
-          "prob": 23
+          "prob": 24
         }
       ],
       "goleadores_visitante": [
         {
           "jugador": "Aymen Hussein",
-          "prob": 11
+          "prob": 12
         },
         {
           "jugador": "Ibrahim Bayesh",
-          "prob": 5
+          "prob": 4
         },
         {
           "jugador": "Ali Al-Hamadi",
-          "prob": 5
+          "prob": 4
         }
       ]
     },
@@ -3245,34 +3177,34 @@
       "visitante": "Senegal",
       "bandera_local": "no",
       "bandera_visitante": "sn",
-      "elo_local": 1998,
-      "elo_visitante": 1908,
-      "xg_local": 1.52,
-      "xg_visitante": 0.89,
+      "elo_local": 2018,
+      "elo_visitante": 1888,
+      "xg_local": 1.59,
+      "xg_visitante": 0.84,
       "marcador_local": 1,
       "marcador_visitante": 0,
-      "prob_marcador": 13.6,
-      "prob_local": 51.9,
-      "prob_empate": 25.9,
-      "prob_visitante": 22.1,
+      "prob_marcador": 14.0,
+      "prob_local": 55.0,
+      "prob_empate": 25.1,
+      "prob_visitante": 19.8,
       "tiros_local": 13,
       "tiros_visitante": 10,
       "tiros_puerta_local": 4,
       "tiros_puerta_visitante": 3,
       "corners_local": 5,
       "corners_visitante": 5,
-      "amarillas_local": 2.1,
+      "amarillas_local": 2.0,
       "amarillas_visitante": 2.3,
-      "prob_roja_local": 4.7,
-      "prob_roja_visitante": 4.1,
+      "prob_roja_local": 4.6,
+      "prob_roja_visitante": 4.0,
       "goleadores_local": [
         {
           "jugador": "Erling Haaland",
-          "prob": 50
+          "prob": 53
         },
         {
           "jugador": "Alexander Sørloth",
-          "prob": 22
+          "prob": 21
         },
         {
           "jugador": "Antonio Nusa",
@@ -3282,15 +3214,15 @@
       "goleadores_visitante": [
         {
           "jugador": "Ismaïla Sarr",
-          "prob": 18
+          "prob": 17
         },
         {
           "jugador": "Habib Diallo",
-          "prob": 16
+          "prob": 15
         },
         {
           "jugador": "Sadio Mané",
-          "prob": 12
+          "prob": 11
         }
       ]
     },
@@ -3303,16 +3235,16 @@
       "visitante": "France",
       "bandera_local": "no",
       "bandera_visitante": "fr",
-      "elo_local": 1998,
-      "elo_visitante": 2126,
-      "xg_local": 0.95,
-      "xg_visitante": 1.3,
+      "elo_local": 2018,
+      "elo_visitante": 2146,
+      "xg_local": 0.94,
+      "xg_visitante": 1.28,
       "marcador_local": 0,
       "marcador_visitante": 1,
-      "prob_marcador": 13.7,
-      "prob_local": 27.4,
-      "prob_empate": 28.2,
-      "prob_visitante": 44.5,
+      "prob_marcador": 14.0,
+      "prob_local": 27.2,
+      "prob_empate": 28.5,
+      "prob_visitante": 44.4,
       "tiros_local": 10,
       "tiros_visitante": 15,
       "tiros_puerta_local": 3,
@@ -3326,21 +3258,21 @@
       "goleadores_local": [
         {
           "jugador": "Erling Haaland",
-          "prob": 35
+          "prob": 36
         },
         {
           "jugador": "Alexander Sørloth",
-          "prob": 14
+          "prob": 13
         },
         {
           "jugador": "Antonio Nusa",
-          "prob": 9
+          "prob": 8
         }
       ],
       "goleadores_visitante": [
         {
           "jugador": "Kylian Mbappé",
-          "prob": 38
+          "prob": 37
         },
         {
           "jugador": "Olivier Giroud",
@@ -3361,16 +3293,16 @@
       "visitante": "Iraq",
       "bandera_local": "sn",
       "bandera_visitante": "iq",
-      "elo_local": 1908,
-      "elo_visitante": 1746,
-      "xg_local": 1.51,
+      "elo_local": 1888,
+      "elo_visitante": 1726,
+      "xg_local": 1.52,
       "xg_visitante": 0.58,
       "marcador_local": 1,
       "marcador_visitante": 0,
-      "prob_marcador": 18.8,
-      "prob_local": 60.1,
-      "prob_empate": 25.8,
-      "prob_visitante": 14.1,
+      "prob_marcador": 18.6,
+      "prob_local": 60.4,
+      "prob_empate": 25.6,
+      "prob_visitante": 14.0,
       "tiros_local": 16,
       "tiros_visitante": 7,
       "tiros_puerta_local": 5,
@@ -3378,7 +3310,7 @@
       "corners_local": 6,
       "corners_visitante": 4,
       "amarillas_local": 2.2,
-      "amarillas_visitante": 3.3,
+      "amarillas_visitante": 3.2,
       "prob_roja_local": 3.8,
       "prob_roja_visitante": 30.3,
       "goleadores_local": [
@@ -3398,7 +3330,7 @@
       "goleadores_visitante": [
         {
           "jugador": "Aymen Hussein",
-          "prob": 18
+          "prob": 20
         },
         {
           "jugador": "Ibrahim Bayesh",
@@ -3412,122 +3344,6 @@
     },
     {
       "grupo": "Group J",
-      "fecha": "2026-06-16",
-      "hora_col": "20:00",
-      "ciudad": "",
-      "local": "Argentina",
-      "visitante": "Algeria",
-      "bandera_local": "ar",
-      "bandera_visitante": "dz",
-      "elo_local": 2179,
-      "elo_visitante": 1883,
-      "xg_local": 1.73,
-      "xg_visitante": 0.48,
-      "marcador_local": 1,
-      "marcador_visitante": 0,
-      "prob_marcador": 18.9,
-      "prob_local": 68.1,
-      "prob_empate": 22.1,
-      "prob_visitante": 9.8,
-      "tiros_local": 18,
-      "tiros_visitante": 7,
-      "tiros_puerta_local": 8,
-      "tiros_puerta_visitante": 2,
-      "corners_local": 5,
-      "corners_visitante": 4,
-      "amarillas_local": 1.8,
-      "amarillas_visitante": 2.4,
-      "prob_roja_local": 2.6,
-      "prob_roja_visitante": 5.3,
-      "goleadores_local": [
-        {
-          "jugador": "Lionel Messi",
-          "prob": 43
-        },
-        {
-          "jugador": "Lautaro Martínez",
-          "prob": 33
-        },
-        {
-          "jugador": "Julián Álvarez",
-          "prob": 29
-        }
-      ],
-      "goleadores_visitante": [
-        {
-          "jugador": "Baghdad Bounedjah",
-          "prob": 32
-        },
-        {
-          "jugador": "Mohamed Youcef Belaïli",
-          "prob": 3
-        },
-        {
-          "jugador": "Mohamed El Amine Amoura",
-          "prob": 2
-        }
-      ]
-    },
-    {
-      "grupo": "Group J",
-      "fecha": "2026-06-16",
-      "hora_col": "23:00",
-      "ciudad": "",
-      "local": "Austria",
-      "visitante": "Jordan",
-      "bandera_local": "at",
-      "bandera_visitante": "jo",
-      "elo_local": 1885,
-      "elo_visitante": 1777,
-      "xg_local": 1.55,
-      "xg_visitante": 0.86,
-      "marcador_local": 1,
-      "marcador_visitante": 0,
-      "prob_marcador": 13.9,
-      "prob_local": 53.4,
-      "prob_empate": 25.6,
-      "prob_visitante": 21.0,
-      "tiros_local": 15,
-      "tiros_visitante": 9,
-      "tiros_puerta_local": 6,
-      "tiros_puerta_visitante": 3,
-      "corners_local": 5,
-      "corners_visitante": 4,
-      "amarillas_local": 2.8,
-      "amarillas_visitante": 2.2,
-      "prob_roja_local": 5.2,
-      "prob_roja_visitante": 10.2,
-      "goleadores_local": [
-        {
-          "jugador": "Marko Arnautović",
-          "prob": 34
-        },
-        {
-          "jugador": "Christoph Baumgartner",
-          "prob": 26
-        },
-        {
-          "jugador": "Michael Gregoritsch",
-          "prob": 24
-        }
-      ],
-      "goleadores_visitante": [
-        {
-          "jugador": "Yazan Al-Naimat",
-          "prob": 25
-        },
-        {
-          "jugador": "Ali Olwan",
-          "prob": 25
-        },
-        {
-          "jugador": "Musa Al-Taamari",
-          "prob": 11
-        }
-      ]
-    },
-    {
-      "grupo": "Group J",
       "fecha": "2026-06-22",
       "hora_col": "12:00",
       "ciudad": "",
@@ -3535,18 +3351,18 @@
       "visitante": "Austria",
       "bandera_local": "ar",
       "bandera_visitante": "at",
-      "elo_local": 2179,
-      "elo_visitante": 1885,
-      "xg_local": 1.72,
+      "elo_local": 2195,
+      "elo_visitante": 1917,
+      "xg_local": 1.66,
       "xg_visitante": 0.52,
       "marcador_local": 1,
       "marcador_visitante": 0,
-      "prob_marcador": 18.2,
-      "prob_local": 66.7,
-      "prob_empate": 22.5,
-      "prob_visitante": 10.8,
+      "prob_marcador": 18.8,
+      "prob_local": 65.3,
+      "prob_empate": 23.4,
+      "prob_visitante": 11.2,
       "tiros_local": 18,
-      "tiros_visitante": 6,
+      "tiros_visitante": 7,
       "tiros_puerta_local": 8,
       "tiros_puerta_visitante": 3,
       "corners_local": 5,
@@ -3558,15 +3374,15 @@
       "goleadores_local": [
         {
           "jugador": "Lionel Messi",
-          "prob": 43
+          "prob": 42
         },
         {
           "jugador": "Lautaro Martínez",
-          "prob": 33
+          "prob": 32
         },
         {
           "jugador": "Julián Álvarez",
-          "prob": 29
+          "prob": 28
         }
       ],
       "goleadores_visitante": [
@@ -3593,17 +3409,17 @@
       "visitante": "Algeria",
       "bandera_local": "jo",
       "bandera_visitante": "dz",
-      "elo_local": 1777,
-      "elo_visitante": 1883,
-      "xg_local": 0.87,
-      "xg_visitante": 1.42,
+      "elo_local": 1745,
+      "elo_visitante": 1867,
+      "xg_local": 0.86,
+      "xg_visitante": 1.47,
       "marcador_local": 0,
       "marcador_visitante": 1,
-      "prob_marcador": 14.4,
-      "prob_local": 22.9,
-      "prob_empate": 27.0,
-      "prob_visitante": 50.1,
-      "tiros_local": 10,
+      "prob_marcador": 14.2,
+      "prob_local": 22.1,
+      "prob_empate": 26.5,
+      "prob_visitante": 51.5,
+      "tiros_local": 9,
       "tiros_visitante": 15,
       "tiros_puerta_local": 3,
       "tiros_puerta_visitante": 5,
@@ -3611,26 +3427,26 @@
       "corners_visitante": 6,
       "amarillas_local": 2.2,
       "amarillas_visitante": 2.7,
-      "prob_roja_local": 10.1,
+      "prob_roja_local": 10.0,
       "prob_roja_visitante": 5.9,
       "goleadores_local": [
         {
-          "jugador": "Yazan Al-Naimat",
-          "prob": 25
+          "jugador": "Ali Olwan",
+          "prob": 28
         },
         {
-          "jugador": "Ali Olwan",
-          "prob": 25
+          "jugador": "Yazan Al-Naimat",
+          "prob": 24
         },
         {
           "jugador": "Musa Al-Taamari",
-          "prob": 11
+          "prob": 10
         }
       ],
       "goleadores_visitante": [
         {
           "jugador": "Baghdad Bounedjah",
-          "prob": 68
+          "prob": 69
         },
         {
           "jugador": "Mohamed Youcef Belaïli",
@@ -3651,30 +3467,30 @@
       "visitante": "Austria",
       "bandera_local": "dz",
       "bandera_visitante": "at",
-      "elo_local": 1883,
-      "elo_visitante": 1885,
-      "xg_local": 1.01,
-      "xg_visitante": 1.11,
-      "marcador_local": 1,
+      "elo_local": 1867,
+      "elo_visitante": 1917,
+      "xg_local": 0.93,
+      "xg_visitante": 1.16,
+      "marcador_local": 0,
       "marcador_visitante": 1,
-      "prob_marcador": 13.5,
-      "prob_local": 32.8,
-      "prob_empate": 29.8,
-      "prob_visitante": 37.5,
+      "prob_marcador": 14.3,
+      "prob_local": 29.3,
+      "prob_empate": 29.7,
+      "prob_visitante": 41.0,
       "tiros_local": 12,
-      "tiros_visitante": 12,
+      "tiros_visitante": 13,
       "tiros_puerta_local": 4,
       "tiros_puerta_visitante": 5,
       "corners_local": 5,
       "corners_visitante": 4,
-      "amarillas_local": 3.0,
-      "amarillas_visitante": 3.1,
-      "prob_roja_local": 6.5,
-      "prob_roja_visitante": 5.7,
+      "amarillas_local": 2.9,
+      "amarillas_visitante": 3.0,
+      "prob_roja_local": 6.4,
+      "prob_roja_visitante": 5.6,
       "goleadores_local": [
         {
           "jugador": "Baghdad Bounedjah",
-          "prob": 55
+          "prob": 52
         },
         {
           "jugador": "Mohamed Youcef Belaïli",
@@ -3688,7 +3504,7 @@
       "goleadores_visitante": [
         {
           "jugador": "Marko Arnautović",
-          "prob": 25
+          "prob": 26
         },
         {
           "jugador": "Christoph Baumgartner",
@@ -3709,34 +3525,34 @@
       "visitante": "Argentina",
       "bandera_local": "jo",
       "bandera_visitante": "ar",
-      "elo_local": 1777,
-      "elo_visitante": 2179,
-      "xg_local": 0.41,
-      "xg_visitante": 2.42,
+      "elo_local": 1745,
+      "elo_visitante": 2195,
+      "xg_local": 0.39,
+      "xg_visitante": 2.61,
       "marcador_local": 0,
       "marcador_visitante": 2,
-      "prob_marcador": 17.2,
-      "prob_local": 4.6,
-      "prob_empate": 13.4,
-      "prob_visitante": 82.0,
-      "tiros_local": 5,
+      "prob_marcador": 17.0,
+      "prob_local": 3.7,
+      "prob_empate": 11.5,
+      "prob_visitante": 84.8,
+      "tiros_local": 4,
       "tiros_visitante": 20,
-      "tiros_puerta_local": 2,
-      "tiros_puerta_visitante": 8,
+      "tiros_puerta_local": 1,
+      "tiros_puerta_visitante": 9,
       "corners_local": 3,
       "corners_visitante": 6,
       "amarillas_local": 1.8,
       "amarillas_visitante": 1.7,
-      "prob_roja_local": 8.4,
+      "prob_roja_local": 8.3,
       "prob_roja_visitante": 2.4,
       "goleadores_local": [
         {
-          "jugador": "Yazan Al-Naimat",
-          "prob": 13
+          "jugador": "Ali Olwan",
+          "prob": 14
         },
         {
-          "jugador": "Ali Olwan",
-          "prob": 13
+          "jugador": "Yazan Al-Naimat",
+          "prob": 11
         },
         {
           "jugador": "Musa Al-Taamari",
@@ -3746,15 +3562,15 @@
       "goleadores_visitante": [
         {
           "jugador": "Lionel Messi",
-          "prob": 54
+          "prob": 57
         },
         {
           "jugador": "Lautaro Martínez",
-          "prob": 43
+          "prob": 46
         },
         {
           "jugador": "Julián Álvarez",
-          "prob": 38
+          "prob": 40
         }
       ]
     },
@@ -3769,14 +3585,14 @@
       "bandera_visitante": "cd",
       "elo_local": 2051,
       "elo_visitante": 1766,
-      "xg_local": 1.96,
-      "xg_visitante": 0.49,
+      "xg_local": 1.94,
+      "xg_visitante": 0.48,
       "marcador_local": 1,
       "marcador_visitante": 0,
-      "prob_marcador": 17.0,
-      "prob_local": 72.6,
-      "prob_empate": 19.1,
-      "prob_visitante": 8.2,
+      "prob_marcador": 17.2,
+      "prob_local": 72.4,
+      "prob_empate": 19.3,
+      "prob_visitante": 8.3,
       "tiros_local": 18,
       "tiros_visitante": 7,
       "tiros_puerta_local": 6,
@@ -3828,13 +3644,13 @@
       "elo_local": 1829,
       "elo_visitante": 2056,
       "xg_local": 0.52,
-      "xg_visitante": 1.85,
+      "xg_visitante": 1.84,
       "marcador_local": 0,
       "marcador_visitante": 1,
-      "prob_marcador": 17.3,
-      "prob_local": 9.6,
-      "prob_empate": 20.7,
-      "prob_visitante": 69.7,
+      "prob_marcador": 17.4,
+      "prob_local": 9.7,
+      "prob_empate": 20.9,
+      "prob_visitante": 69.5,
       "tiros_local": 6,
       "tiros_visitante": 17,
       "tiros_puerta_local": 2,
@@ -3885,19 +3701,19 @@
       "bandera_visitante": "uz",
       "elo_local": 2051,
       "elo_visitante": 1829,
-      "xg_local": 1.79,
+      "xg_local": 1.78,
       "xg_visitante": 0.52,
       "marcador_local": 1,
       "marcador_visitante": 0,
-      "prob_marcador": 17.7,
-      "prob_local": 68.3,
-      "prob_empate": 21.5,
-      "prob_visitante": 10.1,
+      "prob_marcador": 17.8,
+      "prob_local": 68.1,
+      "prob_empate": 21.7,
+      "prob_visitante": 10.2,
       "tiros_local": 19,
       "tiros_visitante": 7,
       "tiros_puerta_local": 7,
       "tiros_puerta_visitante": 2,
-      "corners_local": 7,
+      "corners_local": 6,
       "corners_visitante": 3,
       "amarillas_local": 1.6,
       "amarillas_visitante": 1.9,
@@ -3943,13 +3759,13 @@
       "bandera_visitante": "cd",
       "elo_local": 2056,
       "elo_visitante": 1766,
-      "xg_local": 2.02,
+      "xg_local": 2.01,
       "xg_visitante": 0.48,
       "marcador_local": 2,
       "marcador_visitante": 0,
       "prob_marcador": 16.7,
-      "prob_local": 73.9,
-      "prob_empate": 18.3,
+      "prob_local": 73.7,
+      "prob_empate": 18.5,
       "prob_visitante": 7.8,
       "tiros_local": 17,
       "tiros_visitante": 6,
@@ -4002,13 +3818,13 @@
       "elo_local": 2056,
       "elo_visitante": 2051,
       "xg_local": 1.14,
-      "xg_visitante": 1.1,
+      "xg_visitante": 1.09,
       "marcador_local": 1,
       "marcador_visitante": 1,
-      "prob_marcador": 13.3,
+      "prob_marcador": 13.4,
       "prob_local": 36.7,
-      "prob_empate": 28.8,
-      "prob_visitante": 34.5,
+      "prob_empate": 28.9,
+      "prob_visitante": 34.4,
       "tiros_local": 12,
       "tiros_visitante": 13,
       "tiros_puerta_local": 4,
@@ -4040,7 +3856,7 @@
         },
         {
           "jugador": "Bruno Fernandes",
-          "prob": 20
+          "prob": 19
         },
         {
           "jugador": "Bernardo Silva",
@@ -4059,13 +3875,13 @@
       "bandera_visitante": "uz",
       "elo_local": 1766,
       "elo_visitante": 1829,
-      "xg_local": 0.79,
+      "xg_local": 0.78,
       "xg_visitante": 0.92,
       "marcador_local": 0,
       "marcador_visitante": 0,
-      "prob_marcador": 18.0,
-      "prob_local": 29.3,
-      "prob_empate": 33.8,
+      "prob_marcador": 18.2,
+      "prob_local": 29.2,
+      "prob_empate": 33.9,
       "prob_visitante": 36.9,
       "tiros_local": 13,
       "tiros_visitante": 12,
@@ -4084,7 +3900,7 @@
         },
         {
           "jugador": "Silas Katompa Mvumpa",
-          "prob": 11
+          "prob": 10
         },
         {
           "jugador": "Cédric Bakambu",
@@ -4121,9 +3937,9 @@
       "xg_visitante": 0.7,
       "marcador_local": 1,
       "marcador_visitante": 0,
-      "prob_marcador": 17.6,
-      "prob_local": 50.0,
-      "prob_empate": 29.4,
+      "prob_marcador": 17.7,
+      "prob_local": 49.9,
+      "prob_empate": 29.5,
       "prob_visitante": 20.6,
       "tiros_local": 15,
       "tiros_visitante": 9,
@@ -4175,14 +3991,14 @@
       "bandera_visitante": "pa",
       "elo_local": 1630,
       "elo_visitante": 1843,
-      "xg_local": 0.75,
-      "xg_visitante": 1.73,
+      "xg_local": 0.74,
+      "xg_visitante": 1.71,
       "marcador_local": 0,
       "marcador_visitante": 1,
-      "prob_marcador": 14.5,
-      "prob_local": 15.8,
-      "prob_empate": 23.3,
-      "prob_visitante": 60.9,
+      "prob_marcador": 14.7,
+      "prob_local": 15.9,
+      "prob_empate": 23.5,
+      "prob_visitante": 60.7,
       "tiros_local": 7,
       "tiros_visitante": 16,
       "tiros_puerta_local": 3,
@@ -4214,7 +4030,7 @@
         },
         {
           "jugador": "Eduardo Antonio Guerrero Lozcano",
-          "prob": 22
+          "prob": 21
         },
         {
           "jugador": "César Blackman",
@@ -4233,13 +4049,13 @@
       "bandera_visitante": "gh",
       "elo_local": 2100,
       "elo_visitante": 1630,
-      "xg_local": 2.7,
+      "xg_local": 2.68,
       "xg_visitante": 0.35,
       "marcador_local": 2,
       "marcador_visitante": 0,
-      "prob_marcador": 17.2,
-      "prob_local": 86.5,
-      "prob_empate": 10.4,
+      "prob_marcador": 17.4,
+      "prob_local": 86.4,
+      "prob_empate": 10.6,
       "prob_visitante": 3.1,
       "tiros_local": 19,
       "tiros_visitante": 4,
@@ -4292,13 +4108,13 @@
       "elo_local": 1843,
       "elo_visitante": 1976,
       "xg_local": 0.81,
-      "xg_visitante": 1.49,
+      "xg_visitante": 1.48,
       "marcador_local": 0,
       "marcador_visitante": 1,
-      "prob_marcador": 14.9,
+      "prob_marcador": 15.0,
       "prob_local": 20.5,
-      "prob_empate": 26.3,
-      "prob_visitante": 53.2,
+      "prob_empate": 26.4,
+      "prob_visitante": 53.1,
       "tiros_local": 10,
       "tiros_visitante": 14,
       "tiros_puerta_local": 3,
@@ -4349,14 +4165,14 @@
       "bandera_visitante": "gh",
       "elo_local": 1976,
       "elo_visitante": 1630,
-      "xg_local": 2.23,
-      "xg_visitante": 0.53,
+      "xg_local": 2.21,
+      "xg_visitante": 0.52,
       "marcador_local": 2,
       "marcador_visitante": 0,
-      "prob_marcador": 15.8,
-      "prob_local": 76.4,
-      "prob_empate": 16.3,
-      "prob_visitante": 7.2,
+      "prob_marcador": 15.9,
+      "prob_local": 76.2,
+      "prob_empate": 16.5,
+      "prob_visitante": 7.3,
       "tiros_local": 18,
       "tiros_visitante": 6,
       "tiros_puerta_local": 7,
@@ -4370,7 +4186,7 @@
       "goleadores_local": [
         {
           "jugador": "Andrej Kramarić",
-          "prob": 33
+          "prob": 32
         },
         {
           "jugador": "Luka Modrić",
@@ -4378,7 +4194,7 @@
         },
         {
           "jugador": "Nikola Vlašić",
-          "prob": 24
+          "prob": 23
         }
       ],
       "goleadores_visitante": [
@@ -4407,13 +4223,13 @@
       "bandera_visitante": "gb-eng",
       "elo_local": 1843,
       "elo_visitante": 2100,
-      "xg_local": 0.55,
+      "xg_local": 0.54,
       "xg_visitante": 1.8,
       "marcador_local": 0,
       "marcador_visitante": 1,
-      "prob_marcador": 17.2,
-      "prob_local": 10.6,
-      "prob_empate": 21.5,
+      "prob_marcador": 17.3,
+      "prob_local": 10.5,
+      "prob_empate": 21.6,
       "prob_visitante": 67.9,
       "tiros_local": 7,
       "tiros_visitante": 16,
@@ -4436,7 +4252,7 @@
         },
         {
           "jugador": "César Blackman",
-          "prob": 7
+          "prob": 6
         }
       ],
       "goleadores_visitante": [
