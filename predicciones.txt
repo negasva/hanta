@@ -37,10 +37,14 @@
   2026-06-19  17:00 COL                Scotland  0-1  Morocco                [Group C]
   2026-06-19  19:30 COL                  Brazil  3-0  Haiti                  [Group C]
   2026-06-19  22:00 COL                  Turkey  0-1  Paraguay               [Group D]
+  2026-06-20  12:00 COL             Netherlands  5-1  Sweden                 [Group F]
+  2026-06-20  15:00 COL                 Germany  2-1  Ivory Coast            [Group E]
+  2026-06-20  19:00 COL                 Ecuador  0-0  Curaçao                [Group E]
+  2026-06-20  23:00 COL                 Tunisia  0-4  Japan                  [Group F]
 
 --- Group A ---
   2026-06-24  20:00 COL          Czech Republic   0-1   Mexico                 (L 14% E 23% V 63%)
-                                 tiros 8-18 (a puerta 3-6) · córners 4-6 · amarillas 3.0-2.3 | goleador: Patrik Schick 26% / Henry Martín 33%
+                                 tiros 8-18 (a puerta 3-6) · córners 4-6 · amarillas 3.0-2.3 | goleador: Patrik Schick 25% / Henry Martín 33%
   2026-06-24  20:00 COL            South Africa   0-1   South Korea            (L 14% E 23% V 64%)
                                  tiros 8-17 (a puerta 4-6) · córners 4-5 · amarillas 1.3-1.8 | goleador: Teboho Mokoena 13% / Cho Kyu-Sung 49%
 
@@ -51,45 +55,37 @@
                                  tiros 14-11 (a puerta 5-4) · córners 5-4 · amarillas 2.3-2.9 | goleador: Breel Embolo 32% / Jonathan David 28%
 
 --- Group C ---
-  2026-06-24  17:00 COL                 Morocco   2-0   Haiti                  (L 74% E 18% V 8%)
-                                 tiros 17-6 (a puerta 6-2) · córners 5-4 · amarillas 1.6-1.0 | goleador: Youssef En-Nesyri 45% / Duckens Nazon 14%
-  2026-06-24  17:00 COL                Scotland   0-1   Brazil                 (L 17% E 25% V 57%)
-                                 tiros 7-18 (a puerta 2-7) · córners 3-6 · amarillas 2.0-2.0 | goleador: Scott McTominay 36% / Vinícius Júnior 23%
+  2026-06-24  17:00 COL                 Morocco   2-0   Haiti                  (L 76% E 17% V 7%)
+                                 tiros 17-6 (a puerta 6-2) · córners 5-4 · amarillas 1.6-1.0 | goleador: Youssef En-Nesyri 47% / Duckens Nazon 14%
+  2026-06-24  17:00 COL                Scotland   0-1   Brazil                 (L 16% E 24% V 60%)
+                                 tiros 7-18 (a puerta 2-7) · córners 3-6 · amarillas 1.9-2.0 | goleador: Scott McTominay 35% / Vinícius Júnior 24%
 
 --- Group D ---
-  2026-06-25  21:00 COL                Paraguay   0-1   Australia              (L 24% E 29% V 47%)
-                                 tiros 11-12 (a puerta 4-4) · córners 4-4 · amarillas 2.5-2.2 | goleador: Julio Enciso 19% / Mitchell Duke 31%
-  2026-06-25  21:00 COL                  Turkey   1-1   United States          (L 36% E 27% V 37%)
-                                 tiros 12-13 (a puerta 4-4) · córners 4-4 · amarillas 3.4-1.9 | goleador: Kerem Aktürkoglu 30% / Christian Pulisic 27%
+  2026-06-25  21:00 COL                Paraguay   0-1   Australia              (L 29% E 30% V 41%)
+                                 tiros 12-11 (a puerta 4-4) · córners 4-4 · amarillas 2.6-2.3 | goleador: Julio Enciso 22% / Mitchell Duke 28%
+  2026-06-25  21:00 COL                  Turkey   1-1   United States          (L 30% E 27% V 43%)
+                                 tiros 11-13 (a puerta 3-4) · córners 4-5 · amarillas 3.3-1.9 | goleador: Kerem Aktürkoglu 27% / Christian Pulisic 30%
 
 --- Group E ---
-  2026-06-20  15:00 COL                 Germany   1-0   Ivory Coast            (L 62% E 24% V 14%)
-                                 tiros 18-8 (a puerta 6-2) · córners 6-4 · amarillas 2.3-2.2 | goleador: Kai Havertz 42% / Sébastien Haller 15%
-  2026-06-20  19:00 COL                 Ecuador   2-0   Curaçao                (L 76% E 17% V 7%)
-                                 tiros 18-6 (a puerta 6-2) · córners 5-4 · amarillas 1.6-1.9 | goleador: Enner Valencia 39% / Gervane Kastaneer 7%
-  2026-06-25  15:00 COL                 Curaçao   0-1   Ivory Coast            (L 13% E 22% V 64%)
-                                 tiros 7-17 (a puerta 3-5) · córners 4-5 · amarillas 2.1-2.2 | goleador: Gervane Kastaneer 11% / Sébastien Haller 35%
-  2026-06-25  15:00 COL                 Ecuador   0-1   Germany                (L 25% E 31% V 44%)
-                                 tiros 10-16 (a puerta 3-6) · córners 4-6 · amarillas 1.9-2.5 | goleador: Enner Valencia 17% / Kai Havertz 31%
+  2026-06-25  15:00 COL                 Curaçao   0-1   Ivory Coast            (L 15% E 24% V 61%)
+                                 tiros 8-17 (a puerta 3-5) · córners 4-5 · amarillas 2.2-2.3 | goleador: Gervane Kastaneer 11% / Sébastien Haller 34%
+  2026-06-25  15:00 COL                 Ecuador   0-1   Germany                (L 23% E 30% V 47%)
+                                 tiros 9-16 (a puerta 3-6) · córners 4-6 · amarillas 1.8-2.4 | goleador: Enner Valencia 16% / Kai Havertz 33%
 
 --- Group F ---
-  2026-06-20  12:00 COL             Netherlands   1-0   Sweden                 (L 63% E 22% V 16%)
-                                 tiros 16-8 (a puerta 5-3) · córners 5-4 · amarillas 2.1-1.6 | goleador: Cody Gakpo 36% / Viktor Gyökeres 29%
-  2026-06-20  23:00 COL                 Tunisia   0-2   Japan                  (L 8% E 17% V 75%)
-                                 tiros 6-17 (a puerta 2-6) · córners 4-6 · amarillas 1.4-1.7 | goleador: Hamza Rafia 13% / Takuma Asano 49%
-  2026-06-25  18:00 COL                   Japan   1-0   Sweden                 (L 60% E 23% V 16%)
-                                 tiros 15-9 (a puerta 5-3) · córners 5-4 · amarillas 1.9-1.6 | goleador: Takuma Asano 42% / Viktor Gyökeres 27%
-  2026-06-25  18:00 COL                 Tunisia   0-2   Netherlands            (L 7% E 15% V 78%)
-                                 tiros 6-17 (a puerta 2-5) · córners 4-6 · amarillas 1.4-1.9 | goleador: Hamza Rafia 14% / Cody Gakpo 42%
+  2026-06-25  18:00 COL                   Japan   1-0   Sweden                 (L 64% E 22% V 14%)
+                                 tiros 16-9 (a puerta 6-3) · córners 5-4 · amarillas 1.9-1.6 | goleador: Takuma Asano 44% / Viktor Gyökeres 25%
+  2026-06-25  18:00 COL                 Tunisia   0-2   Netherlands            (L 6% E 14% V 80%)
+                                 tiros 5-17 (a puerta 2-6) · córners 4-6 · amarillas 1.4-1.8 | goleador: Hamza Rafia 13% / Cody Gakpo 44%
 
 --- Group G ---
   2026-06-21  14:00 COL                 Belgium   1-0   Iran                   (L 49% E 28% V 23%)
                                  tiros 14-10 (a puerta 5-3) · córners 5-4 · amarillas 2.1-2.3 | goleador: Romelu Lukaku 32% / Mehdi Taremi 36%
   2026-06-21  20:00 COL             New Zealand   0-1   Egypt                  (L 31% E 30% V 38%)
-                                 tiros 11-15 (a puerta 4-5) · córners 4-5 · amarillas 2.3-2.1 | goleador: Chris Wood 18% / Mostafa Mohamed 32%
+                                 tiros 11-15 (a puerta 4-5) · córners 4-5 · amarillas 2.3-2.1 | goleador: Chris Wood 17% / Mostafa Mohamed 32%
   2026-06-26  22:00 COL                   Egypt   0-0   Iran                   (L 27% E 33% V 40%)
                                  tiros 13-12 (a puerta 4-4) · córners 5-4 · amarillas 2.1-2.5 | goleador: Mostafa Mohamed 24% / Mehdi Taremi 42%
-  2026-06-26  22:00 COL             New Zealand   0-1   Belgium                (L 15% E 21% V 64%)
+  2026-06-26  22:00 COL             New Zealand   0-1   Belgium                (L 14% E 21% V 64%)
                                  tiros 9-16 (a puerta 3-6) · córners 4-5 · amarillas 1.9-1.8 | goleador: Chris Wood 15% / Romelu Lukaku 43%
 
 --- Group H ---
