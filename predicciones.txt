@@ -49,11 +49,15 @@
   2026-06-22  16:00 COL                  France  3-0  Iraq                   [Group I]
   2026-06-22  19:00 COL                  Norway  3-2  Senegal                [Group I]
   2026-06-22  22:00 COL                  Jordan  1-2  Algeria                [Group J]
+  2026-06-23  12:00 COL                Portugal  5-0  Uzbekistan             [Group K]
+  2026-06-23  15:00 COL                 England  0-0  Ghana                  [Group L]
+  2026-06-23  18:00 COL                  Panama  0-1  Croatia                [Group L]
+  2026-06-23  21:00 COL                Colombia  1-0  DR Congo               [Group K]
 
 --- Group A ---
   2026-06-24  20:00 COL          Czech Republic   0-1   Mexico                 (L 14% E 23% V 63%)
                                  tiros 8-18 (a puerta 3-6) · córners 4-6 · amarillas 3.0-2.3 | goleador: Patrik Schick 26% / Henry Martín 33%
-  2026-06-24  20:00 COL            South Africa   0-1   South Korea            (L 14% E 23% V 64%)
+  2026-06-24  20:00 COL            South Africa   0-1   South Korea            (L 14% E 23% V 63%)
                                  tiros 8-17 (a puerta 4-6) · córners 4-5 · amarillas 1.3-1.8 | goleador: Teboho Mokoena 13% / Cho Kyu-Sung 49%
 
 --- Group B ---
@@ -87,7 +91,7 @@
                                  tiros 5-17 (a puerta 2-6) · córners 4-6 · amarillas 1.4-1.8 | goleador: Hamza Rafia 13% / Cody Gakpo 44%
 
 --- Group G ---
-  2026-06-26  22:00 COL                   Egypt   0-0   Iran                   (L 28% E 34% V 38%)
+  2026-06-26  22:00 COL                   Egypt   0-0   Iran                   (L 29% E 34% V 38%)
                                  tiros 13-12 (a puerta 4-4) · córners 5-4 · amarillas 2.1-2.5 | goleador: Mostafa Mohamed 24% / Mehdi Taremi 40%
   2026-06-26  22:00 COL             New Zealand   0-2   Belgium                (L 13% E 20% V 67%)
                                  tiros 8-16 (a puerta 3-6) · córners 4-5 · amarillas 1.9-1.8 | goleador: Chris Wood 14% / Romelu Lukaku 45%
@@ -99,35 +103,27 @@
                                  tiros 7-18 (a puerta 3-6) · córners 3-5 · amarillas 1.8-1.9 | goleador: Rodrigo Bentancur 8% / Daniel Olmo 29%
 
 --- Group I ---
-  2026-06-26  14:00 COL                  Norway   0-1   France                 (L 27% E 28% V 44%)
-                                 tiros 10-15 (a puerta 3-5) · córners 4-5 · amarillas 2.0-1.7 | goleador: Erling Haaland 36% / Kylian Mbappé 37%
-  2026-06-26  14:00 COL                 Senegal   1-0   Iraq                   (L 61% E 26% V 14%)
-                                 tiros 16-7 (a puerta 5-2) · córners 6-4 · amarillas 2.2-3.2 | goleador: Ismaïla Sarr 28% / Aymen Hussein 20%
+  2026-06-26  14:00 COL                  Norway   0-1   France                 (L 28% E 29% V 44%)
+                                 tiros 10-15 (a puerta 3-5) · córners 4-5 · amarillas 2.1-1.7 | goleador: Erling Haaland 36% / Kylian Mbappé 37%
+  2026-06-26  14:00 COL                 Senegal   1-0   Iraq                   (L 60% E 26% V 14%)
+                                 tiros 16-7 (a puerta 5-2) · córners 6-4 · amarillas 2.2-3.3 | goleador: Ismaïla Sarr 28% / Aymen Hussein 20%
 
 --- Group J ---
-  2026-06-27  21:00 COL                 Algeria   0-1   Austria                (L 29% E 30% V 41%)
-                                 tiros 12-13 (a puerta 4-5) · córners 5-4 · amarillas 2.9-3.0 | goleador: Baghdad Bounedjah 53% / Marko Arnautović 27%
-  2026-06-27  21:00 COL                  Jordan   0-2   Argentina              (L 4% E 12% V 85%)
-                                 tiros 4-20 (a puerta 1-9) · córners 3-6 · amarillas 1.8-1.7 | goleador: Ali Olwan 14% / Lionel Messi 57%
+  2026-06-27  21:00 COL                 Algeria   0-1   Austria                (L 32% E 30% V 38%)
+                                 tiros 12-12 (a puerta 4-5) · córners 5-4 · amarillas 3.0-3.1 | goleador: Baghdad Bounedjah 54% / Marko Arnautović 25%
+  2026-06-27  21:00 COL                  Jordan   0-2   Argentina              (L 3% E 10% V 87%)
+                                 tiros 4-20 (a puerta 1-9) · córners 3-6 · amarillas 1.8-1.7 | goleador: Ali Olwan 12% / Lionel Messi 59%
 
 --- Group K ---
-  2026-06-23  12:00 COL                Portugal   1-0   Uzbekistan             (L 69% E 21% V 10%)
-                                 tiros 19-7 (a puerta 7-2) · córners 6-3 · amarillas 1.6-1.9 | goleador: Cristiano Ronaldo 42% / Abbosbek Fayzullaev 16%
-  2026-06-23  21:00 COL                Colombia   1-0   DR Congo               (L 73% E 19% V 8%)
-                                 tiros 17-6 (a puerta 6-2) · córners 4-3 · amarillas 2.0-1.5 | goleador: Luis Díaz 35% / Yoane Wissa 12%
-  2026-06-27  18:30 COL                Colombia   1-1   Portugal               (L 40% E 29% V 32%)
-                                 tiros 13-12 (a puerta 4-4) · córners 4-5 · amarillas 2.3-2.0 | goleador: Luis Díaz 23% / Cristiano Ronaldo 27%
-  2026-06-27  18:30 COL                DR Congo   0-0   Uzbekistan             (L 32% E 34% V 34%)
-                                 tiros 13-12 (a puerta 4-4) · córners 5-4 · amarillas 1.8-2.5 | goleador: Yoane Wissa 20% / Abbosbek Fayzullaev 25%
+  2026-06-27  18:30 COL                Colombia   1-1   Portugal               (L 38% E 29% V 33%)
+                                 tiros 13-12 (a puerta 4-4) · córners 4-5 · amarillas 2.4-2.0 | goleador: Luis Díaz 23% / Cristiano Ronaldo 27%
+  2026-06-27  18:30 COL                DR Congo   0-0   Uzbekistan             (L 34% E 34% V 33%)
+                                 tiros 14-11 (a puerta 4-4) · córners 5-4 · amarillas 1.8-2.5 | goleador: Yoane Wissa 21% / Abbosbek Fayzullaev 25%
 
 --- Group L ---
-  2026-06-23  15:00 COL                 England   2-0   Ghana                  (L 85% E 12% V 3%)
-                                 tiros 19-4 (a puerta 7-1) · córners 5-3 · amarillas 1.5-2.3 | goleador: Harry Kane 54% / Jordan Ayew 12%
-  2026-06-23  18:00 COL                  Panama   0-1   Croatia                (L 20% E 26% V 55%)
-                                 tiros 10-15 (a puerta 3-5) · córners 4-4 · amarillas 2.3-2.0 | goleador: José Fajardo Nelson 25% / Andrej Kramarić 24%
-  2026-06-27  16:00 COL                 Croatia   1-0   Ghana                  (L 70% E 20% V 10%)
-                                 tiros 18-6 (a puerta 7-2) · córners 5-4 · amarillas 1.9-2.7 | goleador: Andrej Kramarić 30% / Jordan Ayew 18%
-  2026-06-27  16:00 COL                  Panama   0-2   England                (L 8% E 18% V 74%)
+  2026-06-27  16:00 COL                 Croatia   1-0   Ghana                  (L 69% E 20% V 10%)
+                                 tiros 18-7 (a puerta 7-2) · córners 5-4 · amarillas 1.9-2.7 | goleador: Andrej Kramarić 29% / Jordan Ayew 18%
+  2026-06-27  16:00 COL                  Panama   0-2   England                (L 8% E 19% V 73%)
                                  tiros 6-16 (a puerta 2-6) · córners 3-5 · amarillas 1.9-1.5 | goleador: José Fajardo Nelson 16% / Harry Kane 46%
 
 NOTA: marcador = resultado más probable (Poisson). Estimación, no certeza.
