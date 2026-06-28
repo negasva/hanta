@@ -71,24 +71,12 @@
   2026-06-26  19:00 COL                 Uruguay  0-1  Spain                  [Group H]
   2026-06-26  22:00 COL                   Egypt  1-1  Iran                   [Group G]
   2026-06-26  22:00 COL             New Zealand  1-5  Belgium                [Group G]
-
---- Group J ---
-  2026-06-27  21:00 COL                 Algeria   0-1   Austria                (L 32% E 30% V 38%)
-                                 tiros 12-12 (a puerta 4-5) · córners 5-4 · amarillas 3.0-3.1 | goleador: Baghdad Bounedjah 54% / Marko Arnautović 25%
-  2026-06-27  21:00 COL                  Jordan   0-2   Argentina              (L 3% E 10% V 87%)
-                                 tiros 4-20 (a puerta 1-9) · córners 3-6 · amarillas 1.8-1.7 | goleador: Ali Olwan 12% / Lionel Messi 59%
-
---- Group K ---
-  2026-06-27  18:30 COL                Colombia   1-1   Portugal               (L 38% E 29% V 33%)
-                                 tiros 13-12 (a puerta 4-4) · córners 4-5 · amarillas 2.4-2.0 | goleador: Luis Díaz 23% / Cristiano Ronaldo 27%
-  2026-06-27  18:30 COL                DR Congo   0-0   Uzbekistan             (L 33% E 34% V 33%)
-                                 tiros 13-11 (a puerta 4-4) · córners 5-4 · amarillas 1.8-2.5 | goleador: Yoane Wissa 21% / Abbosbek Fayzullaev 25%
-
---- Group L ---
-  2026-06-27  16:00 COL                 Croatia   1-0   Ghana                  (L 69% E 20% V 10%)
-                                 tiros 18-7 (a puerta 6-2) · córners 5-4 · amarillas 1.9-2.7 | goleador: Andrej Kramarić 29% / Jordan Ayew 18%
-  2026-06-27  16:00 COL                  Panama   0-2   England                (L 8% E 19% V 73%)
-                                 tiros 6-16 (a puerta 2-6) · córners 3-5 · amarillas 1.9-1.5 | goleador: José Fajardo Nelson 16% / Harry Kane 46%
+  2026-06-27  16:00 COL                  Panama  0-2  England                [Group L]
+  2026-06-27  16:00 COL                 Croatia  2-1  Ghana                  [Group L]
+  2026-06-27  18:30 COL                Colombia  0-0  Portugal               [Group K]
+  2026-06-27  18:30 COL                DR Congo  3-1  Uzbekistan             [Group K]
+  2026-06-27  21:00 COL                 Algeria  3-3  Austria                [Group J]
+  2026-06-27  21:00 COL                  Jordan  1-3  Argentina              [Group J]
 
 NOTA: marcador = resultado más probable (Poisson). Estimación, no certeza.
       El modelo acierta ~61% del resultado (1X2) y ~12% del marcador exacto.
