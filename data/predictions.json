@@ -2,909 +2,6 @@
   "generado": "2026-06-13",
   "promedio_liga": 1.407,
   "equipos": {
-    "Ecuador": {
-      "bandera": "ec",
-      "elo": 1962,
-      "grupo": "Group E",
-      "top_goleador": "Enner Valencia",
-      "top_goleador_goles": 6,
-      "tasa_penal": 19,
-      "tandas": [
-        2,
-        4
-      ],
-      "mundial": [
-        16,
-        5
-      ],
-      "exp_wc": 46,
-      "forma_wc22": 44,
-      "goles_wc_pm": 0.94,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 1.033
-    },
-    "Bosnia and Herzegovina": {
-      "bandera": "ba",
-      "elo": 1687,
-      "grupo": "Group B",
-      "top_goleador": "Edin Džeko",
-      "top_goleador_goles": 8,
-      "tasa_penal": 0,
-      "tandas": [
-        3,
-        4
-      ],
-      "mundial": [
-        3,
-        1
-      ],
-      "exp_wc": 23,
-      "forma_wc22": 0,
-      "goles_wc_pm": 1.33,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 1.059
-    },
-    "Sweden": {
-      "bandera": "se",
-      "elo": 1804,
-      "grupo": "Group F",
-      "top_goleador": "Viktor Gyökeres",
-      "top_goleador_goles": 14,
-      "tasa_penal": 6,
-      "tandas": [
-        4,
-        6
-      ],
-      "mundial": [
-        91,
-        43
-      ],
-      "exp_wc": 23,
-      "forma_wc22": 0,
-      "goles_wc_pm": 1.62,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 1.075
-    },
-    "Austria": {
-      "bandera": "at",
-      "elo": 1885,
-      "grupo": "Group J",
-      "top_goleador": "Marko Arnautović",
-      "top_goleador_goles": 13,
-      "tasa_penal": 10,
-      "tandas": [
-        0,
-        2
-      ],
-      "mundial": [
-        29,
-        12
-      ],
-      "exp_wc": 0,
-      "forma_wc22": 0,
-      "goles_wc_pm": 1.41,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 0.977
-    },
-    "Switzerland": {
-      "bandera": "ch",
-      "elo": 2002,
-      "grupo": "Group B",
-      "top_goleador": "Breel Embolo",
-      "top_goleador_goles": 8,
-      "tasa_penal": 16,
-      "tandas": [
-        3,
-        9
-      ],
-      "mundial": [
-        45,
-        15
-      ],
-      "exp_wc": 46,
-      "forma_wc22": 67,
-      "goles_wc_pm": 1.42,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 1.059
-    },
-    "Brazil": {
-      "bandera": "br",
-      "elo": 2074,
-      "grupo": "Group C",
-      "top_goleador": "Vinícius Júnior",
-      "top_goleador_goles": 8,
-      "tasa_penal": 16,
-      "tandas": [
-        9,
-        16
-      ],
-      "mundial": [
-        148,
-        100
-      ],
-      "exp_wc": 56,
-      "forma_wc22": 67,
-      "goles_wc_pm": 2.03,
-      "pos_wc_hist": 4.0,
-      "factor_wc": 1.04
-    },
-    "DR Congo": {
-      "bandera": "cd",
-      "elo": 1813,
-      "grupo": "Group K",
-      "top_goleador": "Cédric Bakambu",
-      "top_goleador_goles": 5,
-      "tasa_penal": 8,
-      "tandas": [
-        5,
-        8
-      ],
-      "mundial": [
-        0,
-        0
-      ],
-      "exp_wc": 0,
-      "forma_wc22": 0,
-      "goles_wc_pm": 0.0,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 0.94
-    },
-    "Morocco": {
-      "bandera": "ma",
-      "elo": 2038,
-      "grupo": "Group C",
-      "top_goleador": "Ismael Saibari",
-      "top_goleador_goles": 7,
-      "tasa_penal": 6,
-      "tandas": [
-        7,
-        15
-      ],
-      "mundial": [
-        23,
-        6
-      ],
-      "exp_wc": 41,
-      "forma_wc22": 78,
-      "goles_wc_pm": 0.87,
-      "pos_wc_hist": 4.0,
-      "factor_wc": 1.013
-    },
-    "Uzbekistan": {
-      "bandera": "uz",
-      "elo": 1737,
-      "grupo": "Group K",
-      "top_goleador": "Abbosbek Fayzullaev",
-      "top_goleador_goles": 5,
-      "tasa_penal": 6,
-      "tandas": [
-        2,
-        5
-      ],
-      "mundial": [
-        0,
-        0
-      ],
-      "exp_wc": 0,
-      "forma_wc22": 0,
-      "goles_wc_pm": 0.0,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 0.94
-    },
-    "Australia": {
-      "bandera": "au",
-      "elo": 1912,
-      "grupo": "Group D",
-      "top_goleador": "Nishan Velupillay",
-      "top_goleador_goles": 3,
-      "tasa_penal": 5,
-      "tandas": [
-        5,
-        9
-      ],
-      "mundial": [
-        46,
-        11
-      ],
-      "exp_wc": 57,
-      "forma_wc22": 67,
-      "goles_wc_pm": 1.15,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 1.059
-    },
-    "Qatar": {
-      "bandera": "qa",
-      "elo": 1553,
-      "grupo": "Group B",
-      "top_goleador": "Almoez Ali",
-      "top_goleador_goles": 5,
-      "tasa_penal": 5,
-      "tandas": [
-        5,
-        9
-      ],
-      "mundial": [
-        3,
-        0
-      ],
-      "exp_wc": 26,
-      "forma_wc22": 0,
-      "goles_wc_pm": 0.33,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 0.968
-    },
-    "Curaçao": {
-      "bandera": "cw",
-      "elo": 1603,
-      "grupo": "Group E",
-      "top_goleador": "Gervane Kastaneer",
-      "top_goleador_goles": 4,
-      "tasa_penal": 8,
-      "tandas": [
-        0,
-        2
-      ],
-      "mundial": [
-        0,
-        0
-      ],
-      "exp_wc": 0,
-      "forma_wc22": 0,
-      "goles_wc_pm": 0.0,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 0.94
-    },
-    "Colombia": {
-      "bandera": "co",
-      "elo": 2082,
-      "grupo": "Group K",
-      "top_goleador": "Luis Díaz",
-      "top_goleador_goles": 8,
-      "tasa_penal": 10,
-      "tandas": [
-        7,
-        13
-      ],
-      "mundial": [
-        29,
-        10
-      ],
-      "exp_wc": 36,
-      "forma_wc22": 0,
-      "goles_wc_pm": 1.24,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 1.074
-    },
-    "Paraguay": {
-      "bandera": "py",
-      "elo": 1906,
-      "grupo": "Group D",
-      "top_goleador": "Julio Enciso",
-      "top_goleador_goles": 5,
-      "tasa_penal": 5,
-      "tandas": [
-        7,
-        14
-      ],
-      "mundial": [
-        27,
-        8
-      ],
-      "exp_wc": 0,
-      "forma_wc22": 0,
-      "goles_wc_pm": 1.04,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 0.942
-    },
-    "Saudi Arabia": {
-      "bandera": "sa",
-      "elo": 1711,
-      "grupo": "Group H",
-      "top_goleador": "Firas Al-Buraikan",
-      "top_goleador_goles": 3,
-      "tasa_penal": 15,
-      "tandas": [
-        7,
-        9
-      ],
-      "mundial": [
-        19,
-        4
-      ],
-      "exp_wc": 40,
-      "forma_wc22": 33,
-      "goles_wc_pm": 0.74,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 1.016
-    },
-    "Germany": {
-      "bandera": "de",
-      "elo": 1994,
-      "grupo": "Group E",
-      "top_goleador": "Florian Wirtz",
-      "top_goleador_goles": 7,
-      "tasa_penal": 10,
-      "tandas": [
-        6,
-        9
-      ],
-      "mundial": [
-        94,
-        64
-      ],
-      "exp_wc": 51,
-      "forma_wc22": 44,
-      "goles_wc_pm": 2.31,
-      "pos_wc_hist": 1.0,
-      "factor_wc": 1.077
-    },
-    "France": {
-      "bandera": "fr",
-      "elo": 2145,
-      "grupo": "Group I",
-      "top_goleador": "Kylian Mbappé",
-      "top_goleador_goles": 18,
-      "tasa_penal": 10,
-      "tandas": [
-        5,
-        11
-      ],
-      "mundial": [
-        92,
-        52
-      ],
-      "exp_wc": 55,
-      "forma_wc22": 67,
-      "goles_wc_pm": 1.75,
-      "pos_wc_hist": 1.6,
-      "factor_wc": 1.064
-    },
-    "Uruguay": {
-      "bandera": "uy",
-      "elo": 1919,
-      "grupo": "Group H",
-      "top_goleador": "Maximiliano Araújo",
-      "top_goleador_goles": 4,
-      "tasa_penal": 0,
-      "tandas": [
-        9,
-        17
-      ],
-      "mundial": [
-        59,
-        26
-      ],
-      "exp_wc": 48,
-      "forma_wc22": 44,
-      "goles_wc_pm": 1.49,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 1.055
-    },
-    "Haiti": {
-      "bandera": "ht",
-      "elo": 1654,
-      "grupo": "Group C",
-      "top_goleador": "Duckens Nazon",
-      "top_goleador_goles": 5,
-      "tasa_penal": 0,
-      "tandas": [
-        1,
-        2
-      ],
-      "mundial": [
-        3,
-        0
-      ],
-      "exp_wc": 0,
-      "forma_wc22": 0,
-      "goles_wc_pm": 0.67,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 0.92
-    },
-    "Croatia": {
-      "bandera": "hr",
-      "elo": 1952,
-      "grupo": "Group L",
-      "top_goleador": "Andrej Kramarić",
-      "top_goleador_goles": 8,
-      "tasa_penal": 7,
-      "tandas": [
-        7,
-        11
-      ],
-      "mundial": [
-        30,
-        17
-      ],
-      "exp_wc": 51,
-      "forma_wc22": 56,
-      "goles_wc_pm": 1.37,
-      "pos_wc_hist": 2.6,
-      "factor_wc": 1.02
-    },
-    "Czech Republic": {
-      "bandera": "cz",
-      "elo": 1760,
-      "grupo": "Group A",
-      "top_goleador": "Patrik Schick",
-      "top_goleador_goles": 6,
-      "tasa_penal": 6,
-      "tandas": [
-        3,
-        4
-      ],
-      "mundial": [
-        3,
-        1
-      ],
-      "exp_wc": 0,
-      "forma_wc22": 0,
-      "goles_wc_pm": 1.0,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 0.929
-    },
-    "Senegal": {
-      "bandera": "sn",
-      "elo": 1878,
-      "grupo": "Group I",
-      "top_goleador": "Ismaïla Sarr",
-      "top_goleador_goles": 6,
-      "tasa_penal": 5,
-      "tandas": [
-        11,
-        21
-      ],
-      "mundial": [
-        12,
-        5
-      ],
-      "exp_wc": 43,
-      "forma_wc22": 67,
-      "goles_wc_pm": 1.25,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 1.063
-    },
-    "Algeria": {
-      "bandera": "dz",
-      "elo": 1855,
-      "grupo": "Group J",
-      "top_goleador": "Mohamed Amoura",
-      "top_goleador_goles": 8,
-      "tasa_penal": 10,
-      "tandas": [
-        7,
-        15
-      ],
-      "mundial": [
-        13,
-        3
-      ],
-      "exp_wc": 23,
-      "forma_wc22": 0,
-      "goles_wc_pm": 1.0,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 1.039
-    },
-    "Egypt": {
-      "bandera": "eg",
-      "elo": 1857,
-      "grupo": "Group G",
-      "top_goleador": "Mohamed Salah",
-      "top_goleador_goles": 9,
-      "tasa_penal": 12,
-      "tandas": [
-        16,
-        27
-      ],
-      "mundial": [
-        7,
-        0
-      ],
-      "exp_wc": 23,
-      "forma_wc22": 0,
-      "goles_wc_pm": 0.71,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 1.021
-    },
-    "Iran": {
-      "bandera": "ir",
-      "elo": 1885,
-      "grupo": "Group G",
-      "top_goleador": "Mehdi Taremi",
-      "top_goleador_goles": 5,
-      "tasa_penal": 0,
-      "tandas": [
-        10,
-        23
-      ],
-      "mundial": [
-        18,
-        3
-      ],
-      "exp_wc": 48,
-      "forma_wc22": 33,
-      "goles_wc_pm": 0.67,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 1.013
-    },
-    "Turkey": {
-      "bandera": "tr",
-      "elo": 1933,
-      "grupo": "Group D",
-      "top_goleador": "Kerem Aktürkoğlu",
-      "top_goleador_goles": 9,
-      "tasa_penal": 7,
-      "tandas": [
-        1,
-        1
-      ],
-      "mundial": [
-        10,
-        5
-      ],
-      "exp_wc": 0,
-      "forma_wc22": 0,
-      "goles_wc_pm": 2.0,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 1.008
-    },
-    "Spain": {
-      "bandera": "es",
-      "elo": 2329,
-      "grupo": "Group H",
-      "top_goleador": "Mikel Oyarzabal",
-      "top_goleador_goles": 16,
-      "tasa_penal": 8,
-      "tandas": [
-        7,
-        14
-      ],
-      "mundial": [
-        74,
-        33
-      ],
-      "exp_wc": 55,
-      "forma_wc22": 44,
-      "goles_wc_pm": 1.51,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 1.072
-    },
-    "Tunisia": {
-      "bandera": "tn",
-      "elo": 1662,
-      "grupo": "Group F",
-      "top_goleador": "Hazem Mastouri",
-      "top_goleador_goles": 3,
-      "tasa_penal": 20,
-      "tandas": [
-        7,
-        13
-      ],
-      "mundial": [
-        18,
-        3
-      ],
-      "exp_wc": 39,
-      "forma_wc22": 44,
-      "goles_wc_pm": 0.78,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 1.027
-    },
-    "Japan": {
-      "bandera": "jp",
-      "elo": 1979,
-      "grupo": "Group F",
-      "top_goleador": "Daichi Kamada",
-      "top_goleador_goles": 6,
-      "tasa_penal": 3,
-      "tandas": [
-        5,
-        12
-      ],
-      "mundial": [
-        58,
-        22
-      ],
-      "exp_wc": 54,
-      "forma_wc22": 67,
-      "goles_wc_pm": 1.07,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 1.056
-    },
-    "Iraq": {
-      "bandera": "iq",
-      "elo": 1682,
-      "grupo": "Group I",
-      "top_goleador": "Aymen Hussein",
-      "top_goleador_goles": 6,
-      "tasa_penal": 6,
-      "tandas": [
-        11,
-        15
-      ],
-      "mundial": [
-        3,
-        0
-      ],
-      "exp_wc": 0,
-      "forma_wc22": 0,
-      "goles_wc_pm": 0.33,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 0.9
-    },
-    "Mexico": {
-      "bandera": "mx",
-      "elo": 2024,
-      "grupo": "Group A",
-      "top_goleador": "Raúl Jiménez",
-      "top_goleador_goles": 6,
-      "tasa_penal": 5,
-      "tandas": [
-        7,
-        14
-      ],
-      "mundial": [
-        69,
-        17
-      ],
-      "exp_wc": 48,
-      "forma_wc22": 44,
-      "goles_wc_pm": 0.99,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 1.035
-    },
-    "England": {
-      "bandera": "gb-eng",
-      "elo": 2204,
-      "grupo": "Group L",
-      "top_goleador": "Harry Kane",
-      "top_goleador_goles": 20,
-      "tasa_penal": 11,
-      "tandas": [
-        4,
-        12
-      ],
-      "mundial": [
-        100,
-        48
-      ],
-      "exp_wc": 54,
-      "forma_wc22": 78,
-      "goles_wc_pm": 1.44,
-      "pos_wc_hist": 4.0,
-      "factor_wc": 1.027
-    },
-    "South Africa": {
-      "bandera": "za",
-      "elo": 1696,
-      "grupo": "Group A",
-      "top_goleador": "Lyle Foster",
-      "top_goleador_goles": 4,
-      "tasa_penal": 12,
-      "tandas": [
-        13,
-        28
-      ],
-      "mundial": [
-        12,
-        2
-      ],
-      "exp_wc": 0,
-      "forma_wc22": 0,
-      "goles_wc_pm": 1.0,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 0.94
-    },
-    "Cape Verde": {
-      "bandera": "cv",
-      "elo": 1698,
-      "grupo": "Group H",
-      "top_goleador": "Dailon Livramento",
-      "top_goleador_goles": 4,
-      "tasa_penal": 0,
-      "tandas": [
-        2,
-        5
-      ],
-      "mundial": [
-        0,
-        0
-      ],
-      "exp_wc": 0,
-      "forma_wc22": 0,
-      "goles_wc_pm": 0.0,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 0.94
-    },
-    "Scotland": {
-      "bandera": "gb-sct",
-      "elo": 1838,
-      "grupo": "Group C",
-      "top_goleador": "Scott McTominay",
-      "top_goleador_goles": 6,
-      "tasa_penal": 4,
-      "tandas": [
-        2,
-        2
-      ],
-      "mundial": [
-        26,
-        4
-      ],
-      "exp_wc": 0,
-      "forma_wc22": 0,
-      "goles_wc_pm": 1.12,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 0.934
-    },
-    "Belgium": {
-      "bandera": "be",
-      "elo": 2020,
-      "grupo": "Group G",
-      "top_goleador": "Kevin De Bruyne",
-      "top_goleador_goles": 10,
-      "tasa_penal": 11,
-      "tandas": [
-        2,
-        2
-      ],
-      "mundial": [
-        51,
-        22
-      ],
-      "exp_wc": 41,
-      "forma_wc22": 44,
-      "goles_wc_pm": 1.31,
-      "pos_wc_hist": 3.0,
-      "factor_wc": 1.013
-    },
-    "Panama": {
-      "bandera": "pa",
-      "elo": 1767,
-      "grupo": "Group L",
-      "top_goleador": "Ismael Díaz",
-      "top_goleador_goles": 8,
-      "tasa_penal": 13,
-      "tandas": [
-        5,
-        7
-      ],
-      "mundial": [
-        3,
-        0
-      ],
-      "exp_wc": 23,
-      "forma_wc22": 0,
-      "goles_wc_pm": 0.33,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 0.999
-    },
-    "Ghana": {
-      "bandera": "gh",
-      "elo": 1686,
-      "grupo": "Group L",
-      "top_goleador": "Jordan Ayew",
-      "top_goleador_goles": 3,
-      "tasa_penal": 6,
-      "tandas": [
-        5,
-        13
-      ],
-      "mundial": [
-        24,
-        6
-      ],
-      "exp_wc": 47,
-      "forma_wc22": 33,
-      "goles_wc_pm": 1.0,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 1.027
-    },
-    "Canada": {
-      "bandera": "ca",
-      "elo": 1850,
-      "grupo": "Group B",
-      "top_goleador": "Jonathan David",
-      "top_goleador_goles": 7,
-      "tasa_penal": 4,
-      "tandas": [
-        3,
-        8
-      ],
-      "mundial": [
-        33,
-        8
-      ],
-      "exp_wc": 26,
-      "forma_wc22": 0,
-      "goles_wc_pm": 1.06,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 0.997
-    },
-    "Ivory Coast": {
-      "bandera": "ci",
-      "elo": 1848,
-      "grupo": "Group E",
-      "top_goleador": "Amad Diallo",
-      "top_goleador_goles": 6,
-      "tasa_penal": 4,
-      "tandas": [
-        10,
-        18
-      ],
-      "mundial": [
-        12,
-        3
-      ],
-      "exp_wc": 23,
-      "forma_wc22": 0,
-      "goles_wc_pm": 1.33,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 1.059
-    },
-    "Argentina": {
-      "bandera": "ar",
-      "elo": 2243,
-      "grupo": "Group J",
-      "top_goleador": "Lionel Messi",
-      "top_goleador_goles": 14,
-      "tasa_penal": 2,
-      "tandas": [
-        15,
-        23
-      ],
-      "mundial": [
-        97,
-        53
-      ],
-      "exp_wc": 57,
-      "forma_wc22": 67,
-      "goles_wc_pm": 1.59,
-      "pos_wc_hist": 1.3,
-      "factor_wc": 1.082
-    },
-    "Jordan": {
-      "bandera": "jo",
-      "elo": 1720,
-      "grupo": "Group J",
-      "top_goleador": "Ali Olwan",
-      "top_goleador_goles": 6,
-      "tasa_penal": 11,
-      "tandas": [
-        0,
-        3
-      ],
-      "mundial": [
-        0,
-        0
-      ],
-      "exp_wc": 0,
-      "forma_wc22": 0,
-      "goles_wc_pm": 0.0,
-      "pos_wc_hist": 0.0,
-      "factor_wc": 0.94
-    },
-    "Netherlands": {
-      "bandera": "nl",
-      "elo": 2049,
-      "grupo": "Group F",
-      "top_goleador": "Cody Gakpo",
-      "top_goleador_goles": 13,
-      "tasa_penal": 14,
-      "tandas": [
-        2,
-        11
-      ],
-      "mundial": [
-        66,
-        38
-      ],
-      "exp_wc": 46,
-      "forma_wc22": 78,
-      "goles_wc_pm": 1.65,
-      "pos_wc_hist": 3.0,
-      "factor_wc": 1.048
-    },
     "New Zealand": {
       "bandera": "nz",
       "elo": 1683,
@@ -968,26 +65,677 @@
       "pos_wc_hist": 0.0,
       "factor_wc": 1.084
     },
-    "South Korea": {
-      "bandera": "kr",
-      "elo": 1846,
-      "grupo": "Group A",
-      "top_goleador": "Oh Hyeon-gyu",
+    "England": {
+      "bandera": "gb-eng",
+      "elo": 2204,
+      "grupo": "Group L",
+      "top_goleador": "Harry Kane",
+      "top_goleador_goles": 20,
+      "tasa_penal": 11,
+      "tandas": [
+        4,
+        12
+      ],
+      "mundial": [
+        100,
+        48
+      ],
+      "exp_wc": 54,
+      "forma_wc22": 78,
+      "goles_wc_pm": 1.44,
+      "pos_wc_hist": 4.0,
+      "factor_wc": 1.027
+    },
+    "Bosnia and Herzegovina": {
+      "bandera": "ba",
+      "elo": 1687,
+      "grupo": "Group B",
+      "top_goleador": "Edin Džeko",
+      "top_goleador_goles": 8,
+      "tasa_penal": 0,
+      "tandas": [
+        3,
+        4
+      ],
+      "mundial": [
+        3,
+        1
+      ],
+      "exp_wc": 23,
+      "forma_wc22": 0,
+      "goles_wc_pm": 1.33,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 1.059
+    },
+    "Germany": {
+      "bandera": "de",
+      "elo": 1994,
+      "grupo": "Group E",
+      "top_goleador": "Florian Wirtz",
+      "top_goleador_goles": 7,
+      "tasa_penal": 10,
+      "tandas": [
+        6,
+        9
+      ],
+      "mundial": [
+        94,
+        64
+      ],
+      "exp_wc": 51,
+      "forma_wc22": 44,
+      "goles_wc_pm": 2.31,
+      "pos_wc_hist": 1.0,
+      "factor_wc": 1.077
+    },
+    "Turkey": {
+      "bandera": "tr",
+      "elo": 1933,
+      "grupo": "Group D",
+      "top_goleador": "Kerem Aktürkoğlu",
+      "top_goleador_goles": 9,
+      "tasa_penal": 7,
+      "tandas": [
+        1,
+        1
+      ],
+      "mundial": [
+        10,
+        5
+      ],
+      "exp_wc": 0,
+      "forma_wc22": 0,
+      "goles_wc_pm": 2.0,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 1.008
+    },
+    "Sweden": {
+      "bandera": "se",
+      "elo": 1804,
+      "grupo": "Group F",
+      "top_goleador": "Viktor Gyökeres",
+      "top_goleador_goles": 14,
+      "tasa_penal": 6,
+      "tandas": [
+        4,
+        6
+      ],
+      "mundial": [
+        91,
+        43
+      ],
+      "exp_wc": 23,
+      "forma_wc22": 0,
+      "goles_wc_pm": 1.62,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 1.075
+    },
+    "Egypt": {
+      "bandera": "eg",
+      "elo": 1857,
+      "grupo": "Group G",
+      "top_goleador": "Mohamed Salah",
+      "top_goleador_goles": 9,
+      "tasa_penal": 12,
+      "tandas": [
+        16,
+        27
+      ],
+      "mundial": [
+        7,
+        0
+      ],
+      "exp_wc": 23,
+      "forma_wc22": 0,
+      "goles_wc_pm": 0.71,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 1.021
+    },
+    "Croatia": {
+      "bandera": "hr",
+      "elo": 1952,
+      "grupo": "Group L",
+      "top_goleador": "Andrej Kramarić",
+      "top_goleador_goles": 8,
+      "tasa_penal": 7,
+      "tandas": [
+        7,
+        11
+      ],
+      "mundial": [
+        30,
+        17
+      ],
+      "exp_wc": 51,
+      "forma_wc22": 56,
+      "goles_wc_pm": 1.37,
+      "pos_wc_hist": 2.6,
+      "factor_wc": 1.02
+    },
+    "Paraguay": {
+      "bandera": "py",
+      "elo": 1906,
+      "grupo": "Group D",
+      "top_goleador": "Julio Enciso",
       "top_goleador_goles": 5,
       "tasa_penal": 5,
       "tandas": [
-        15,
-        25
+        7,
+        14
       ],
       "mundial": [
-        48,
+        27,
+        8
+      ],
+      "exp_wc": 0,
+      "forma_wc22": 0,
+      "goles_wc_pm": 1.04,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 0.942
+    },
+    "Japan": {
+      "bandera": "jp",
+      "elo": 1979,
+      "grupo": "Group F",
+      "top_goleador": "Daichi Kamada",
+      "top_goleador_goles": 6,
+      "tasa_penal": 3,
+      "tandas": [
+        5,
+        12
+      ],
+      "mundial": [
+        58,
+        22
+      ],
+      "exp_wc": 54,
+      "forma_wc22": 67,
+      "goles_wc_pm": 1.07,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 1.056
+    },
+    "Iraq": {
+      "bandera": "iq",
+      "elo": 1682,
+      "grupo": "Group I",
+      "top_goleador": "Aymen Hussein",
+      "top_goleador_goles": 6,
+      "tasa_penal": 6,
+      "tandas": [
+        11,
+        15
+      ],
+      "mundial": [
+        3,
+        0
+      ],
+      "exp_wc": 0,
+      "forma_wc22": 0,
+      "goles_wc_pm": 0.33,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 0.9
+    },
+    "Colombia": {
+      "bandera": "co",
+      "elo": 2082,
+      "grupo": "Group K",
+      "top_goleador": "Luis Díaz",
+      "top_goleador_goles": 8,
+      "tasa_penal": 10,
+      "tandas": [
+        7,
+        13
+      ],
+      "mundial": [
+        29,
+        10
+      ],
+      "exp_wc": 36,
+      "forma_wc22": 0,
+      "goles_wc_pm": 1.24,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 1.074
+    },
+    "Curaçao": {
+      "bandera": "cw",
+      "elo": 1603,
+      "grupo": "Group E",
+      "top_goleador": "Gervane Kastaneer",
+      "top_goleador_goles": 4,
+      "tasa_penal": 8,
+      "tandas": [
+        0,
+        2
+      ],
+      "mundial": [
+        0,
+        0
+      ],
+      "exp_wc": 0,
+      "forma_wc22": 0,
+      "goles_wc_pm": 0.0,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 0.94
+    },
+    "Iran": {
+      "bandera": "ir",
+      "elo": 1885,
+      "grupo": "Group G",
+      "top_goleador": "Mehdi Taremi",
+      "top_goleador_goles": 5,
+      "tasa_penal": 0,
+      "tandas": [
+        10,
+        23
+      ],
+      "mundial": [
+        18,
+        3
+      ],
+      "exp_wc": 48,
+      "forma_wc22": 33,
+      "goles_wc_pm": 0.67,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 1.013
+    },
+    "Haiti": {
+      "bandera": "ht",
+      "elo": 1654,
+      "grupo": "Group C",
+      "top_goleador": "Duckens Nazon",
+      "top_goleador_goles": 5,
+      "tasa_penal": 0,
+      "tandas": [
+        1,
+        2
+      ],
+      "mundial": [
+        3,
+        0
+      ],
+      "exp_wc": 0,
+      "forma_wc22": 0,
+      "goles_wc_pm": 0.67,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 0.92
+    },
+    "Morocco": {
+      "bandera": "ma",
+      "elo": 2038,
+      "grupo": "Group C",
+      "top_goleador": "Ismael Saibari",
+      "top_goleador_goles": 7,
+      "tasa_penal": 6,
+      "tandas": [
+        7,
+        15
+      ],
+      "mundial": [
+        23,
+        6
+      ],
+      "exp_wc": 41,
+      "forma_wc22": 78,
+      "goles_wc_pm": 0.87,
+      "pos_wc_hist": 4.0,
+      "factor_wc": 1.013
+    },
+    "France": {
+      "bandera": "fr",
+      "elo": 2145,
+      "grupo": "Group I",
+      "top_goleador": "Kylian Mbappé",
+      "top_goleador_goles": 18,
+      "tasa_penal": 10,
+      "tandas": [
+        5,
+        11
+      ],
+      "mundial": [
+        92,
+        52
+      ],
+      "exp_wc": 55,
+      "forma_wc22": 67,
+      "goles_wc_pm": 1.75,
+      "pos_wc_hist": 1.6,
+      "factor_wc": 1.064
+    },
+    "Canada": {
+      "bandera": "ca",
+      "elo": 1850,
+      "grupo": "Group B",
+      "top_goleador": "Jonathan David",
+      "top_goleador_goles": 7,
+      "tasa_penal": 4,
+      "tandas": [
+        3,
+        8
+      ],
+      "mundial": [
+        33,
+        8
+      ],
+      "exp_wc": 26,
+      "forma_wc22": 0,
+      "goles_wc_pm": 1.06,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 0.997
+    },
+    "Senegal": {
+      "bandera": "sn",
+      "elo": 1878,
+      "grupo": "Group I",
+      "top_goleador": "Ismaïla Sarr",
+      "top_goleador_goles": 6,
+      "tasa_penal": 5,
+      "tandas": [
+        11,
+        21
+      ],
+      "mundial": [
+        12,
+        5
+      ],
+      "exp_wc": 43,
+      "forma_wc22": 67,
+      "goles_wc_pm": 1.25,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 1.063
+    },
+    "Tunisia": {
+      "bandera": "tn",
+      "elo": 1662,
+      "grupo": "Group F",
+      "top_goleador": "Hazem Mastouri",
+      "top_goleador_goles": 3,
+      "tasa_penal": 20,
+      "tandas": [
+        7,
+        13
+      ],
+      "mundial": [
+        18,
+        3
+      ],
+      "exp_wc": 39,
+      "forma_wc22": 44,
+      "goles_wc_pm": 0.78,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 1.027
+    },
+    "Spain": {
+      "bandera": "es",
+      "elo": 2329,
+      "grupo": "Group H",
+      "top_goleador": "Mikel Oyarzabal",
+      "top_goleador_goles": 16,
+      "tasa_penal": 8,
+      "tandas": [
+        7,
+        14
+      ],
+      "mundial": [
+        74,
+        33
+      ],
+      "exp_wc": 55,
+      "forma_wc22": 44,
+      "goles_wc_pm": 1.51,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 1.072
+    },
+    "Switzerland": {
+      "bandera": "ch",
+      "elo": 2002,
+      "grupo": "Group B",
+      "top_goleador": "Breel Embolo",
+      "top_goleador_goles": 8,
+      "tasa_penal": 16,
+      "tandas": [
+        3,
         9
       ],
-      "exp_wc": 56,
-      "forma_wc22": 44,
-      "goles_wc_pm": 0.94,
+      "mundial": [
+        45,
+        15
+      ],
+      "exp_wc": 46,
+      "forma_wc22": 67,
+      "goles_wc_pm": 1.42,
       "pos_wc_hist": 0.0,
-      "factor_wc": 1.033
+      "factor_wc": 1.059
+    },
+    "Brazil": {
+      "bandera": "br",
+      "elo": 2074,
+      "grupo": "Group C",
+      "top_goleador": "Vinícius Júnior",
+      "top_goleador_goles": 8,
+      "tasa_penal": 16,
+      "tandas": [
+        9,
+        16
+      ],
+      "mundial": [
+        148,
+        100
+      ],
+      "exp_wc": 56,
+      "forma_wc22": 67,
+      "goles_wc_pm": 2.03,
+      "pos_wc_hist": 4.0,
+      "factor_wc": 1.04
+    },
+    "Jordan": {
+      "bandera": "jo",
+      "elo": 1720,
+      "grupo": "Group J",
+      "top_goleador": "Ali Olwan",
+      "top_goleador_goles": 6,
+      "tasa_penal": 11,
+      "tandas": [
+        0,
+        3
+      ],
+      "mundial": [
+        0,
+        0
+      ],
+      "exp_wc": 0,
+      "forma_wc22": 0,
+      "goles_wc_pm": 0.0,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 0.94
+    },
+    "Ghana": {
+      "bandera": "gh",
+      "elo": 1686,
+      "grupo": "Group L",
+      "top_goleador": "Jordan Ayew",
+      "top_goleador_goles": 3,
+      "tasa_penal": 6,
+      "tandas": [
+        5,
+        13
+      ],
+      "mundial": [
+        24,
+        6
+      ],
+      "exp_wc": 47,
+      "forma_wc22": 33,
+      "goles_wc_pm": 1.0,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 1.027
+    },
+    "Ivory Coast": {
+      "bandera": "ci",
+      "elo": 1848,
+      "grupo": "Group E",
+      "top_goleador": "Amad Diallo",
+      "top_goleador_goles": 6,
+      "tasa_penal": 4,
+      "tandas": [
+        10,
+        18
+      ],
+      "mundial": [
+        12,
+        3
+      ],
+      "exp_wc": 23,
+      "forma_wc22": 0,
+      "goles_wc_pm": 1.33,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 1.059
+    },
+    "Netherlands": {
+      "bandera": "nl",
+      "elo": 2049,
+      "grupo": "Group F",
+      "top_goleador": "Cody Gakpo",
+      "top_goleador_goles": 13,
+      "tasa_penal": 14,
+      "tandas": [
+        2,
+        11
+      ],
+      "mundial": [
+        66,
+        38
+      ],
+      "exp_wc": 46,
+      "forma_wc22": 78,
+      "goles_wc_pm": 1.65,
+      "pos_wc_hist": 3.0,
+      "factor_wc": 1.048
+    },
+    "DR Congo": {
+      "bandera": "cd",
+      "elo": 1813,
+      "grupo": "Group K",
+      "top_goleador": "Cédric Bakambu",
+      "top_goleador_goles": 5,
+      "tasa_penal": 8,
+      "tandas": [
+        5,
+        8
+      ],
+      "mundial": [
+        0,
+        0
+      ],
+      "exp_wc": 0,
+      "forma_wc22": 0,
+      "goles_wc_pm": 0.0,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 0.94
+    },
+    "Belgium": {
+      "bandera": "be",
+      "elo": 2020,
+      "grupo": "Group G",
+      "top_goleador": "Kevin De Bruyne",
+      "top_goleador_goles": 10,
+      "tasa_penal": 11,
+      "tandas": [
+        2,
+        2
+      ],
+      "mundial": [
+        51,
+        22
+      ],
+      "exp_wc": 41,
+      "forma_wc22": 44,
+      "goles_wc_pm": 1.31,
+      "pos_wc_hist": 3.0,
+      "factor_wc": 1.013
+    },
+    "Qatar": {
+      "bandera": "qa",
+      "elo": 1553,
+      "grupo": "Group B",
+      "top_goleador": "Almoez Ali",
+      "top_goleador_goles": 5,
+      "tasa_penal": 5,
+      "tandas": [
+        5,
+        9
+      ],
+      "mundial": [
+        3,
+        0
+      ],
+      "exp_wc": 26,
+      "forma_wc22": 0,
+      "goles_wc_pm": 0.33,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 0.968
+    },
+    "Saudi Arabia": {
+      "bandera": "sa",
+      "elo": 1711,
+      "grupo": "Group H",
+      "top_goleador": "Firas Al-Buraikan",
+      "top_goleador_goles": 3,
+      "tasa_penal": 15,
+      "tandas": [
+        7,
+        9
+      ],
+      "mundial": [
+        19,
+        4
+      ],
+      "exp_wc": 40,
+      "forma_wc22": 33,
+      "goles_wc_pm": 0.74,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 1.016
+    },
+    "Uzbekistan": {
+      "bandera": "uz",
+      "elo": 1737,
+      "grupo": "Group K",
+      "top_goleador": "Abbosbek Fayzullaev",
+      "top_goleador_goles": 5,
+      "tasa_penal": 6,
+      "tandas": [
+        2,
+        5
+      ],
+      "mundial": [
+        0,
+        0
+      ],
+      "exp_wc": 0,
+      "forma_wc22": 0,
+      "goles_wc_pm": 0.0,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 0.94
+    },
+    "Cape Verde": {
+      "bandera": "cv",
+      "elo": 1698,
+      "grupo": "Group H",
+      "top_goleador": "Dailon Livramento",
+      "top_goleador_goles": 4,
+      "tasa_penal": 0,
+      "tandas": [
+        2,
+        5
+      ],
+      "mundial": [
+        0,
+        0
+      ],
+      "exp_wc": 0,
+      "forma_wc22": 0,
+      "goles_wc_pm": 0.0,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 0.94
     },
     "Norway": {
       "bandera": "no",
@@ -1009,6 +757,258 @@
       "goles_wc_pm": 1.98,
       "pos_wc_hist": 0.0,
       "factor_wc": 0.999
+    },
+    "Ecuador": {
+      "bandera": "ec",
+      "elo": 1962,
+      "grupo": "Group E",
+      "top_goleador": "Enner Valencia",
+      "top_goleador_goles": 6,
+      "tasa_penal": 19,
+      "tandas": [
+        2,
+        4
+      ],
+      "mundial": [
+        16,
+        5
+      ],
+      "exp_wc": 46,
+      "forma_wc22": 44,
+      "goles_wc_pm": 0.94,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 1.033
+    },
+    "Austria": {
+      "bandera": "at",
+      "elo": 1885,
+      "grupo": "Group J",
+      "top_goleador": "Marko Arnautović",
+      "top_goleador_goles": 13,
+      "tasa_penal": 10,
+      "tandas": [
+        0,
+        2
+      ],
+      "mundial": [
+        29,
+        12
+      ],
+      "exp_wc": 0,
+      "forma_wc22": 0,
+      "goles_wc_pm": 1.41,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 0.977
+    },
+    "Panama": {
+      "bandera": "pa",
+      "elo": 1767,
+      "grupo": "Group L",
+      "top_goleador": "Ismael Díaz",
+      "top_goleador_goles": 8,
+      "tasa_penal": 13,
+      "tandas": [
+        5,
+        7
+      ],
+      "mundial": [
+        3,
+        0
+      ],
+      "exp_wc": 23,
+      "forma_wc22": 0,
+      "goles_wc_pm": 0.33,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 0.999
+    },
+    "Algeria": {
+      "bandera": "dz",
+      "elo": 1855,
+      "grupo": "Group J",
+      "top_goleador": "Mohamed Amoura",
+      "top_goleador_goles": 8,
+      "tasa_penal": 10,
+      "tandas": [
+        7,
+        15
+      ],
+      "mundial": [
+        13,
+        3
+      ],
+      "exp_wc": 23,
+      "forma_wc22": 0,
+      "goles_wc_pm": 1.0,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 1.039
+    },
+    "Uruguay": {
+      "bandera": "uy",
+      "elo": 1919,
+      "grupo": "Group H",
+      "top_goleador": "Maximiliano Araújo",
+      "top_goleador_goles": 4,
+      "tasa_penal": 0,
+      "tandas": [
+        9,
+        17
+      ],
+      "mundial": [
+        59,
+        26
+      ],
+      "exp_wc": 48,
+      "forma_wc22": 44,
+      "goles_wc_pm": 1.49,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 1.055
+    },
+    "South Africa": {
+      "bandera": "za",
+      "elo": 1696,
+      "grupo": "Group A",
+      "top_goleador": "Lyle Foster",
+      "top_goleador_goles": 4,
+      "tasa_penal": 12,
+      "tandas": [
+        13,
+        28
+      ],
+      "mundial": [
+        12,
+        2
+      ],
+      "exp_wc": 0,
+      "forma_wc22": 0,
+      "goles_wc_pm": 1.0,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 0.94
+    },
+    "South Korea": {
+      "bandera": "kr",
+      "elo": 1846,
+      "grupo": "Group A",
+      "top_goleador": "Oh Hyeon-gyu",
+      "top_goleador_goles": 5,
+      "tasa_penal": 5,
+      "tandas": [
+        15,
+        25
+      ],
+      "mundial": [
+        48,
+        9
+      ],
+      "exp_wc": 56,
+      "forma_wc22": 44,
+      "goles_wc_pm": 0.94,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 1.033
+    },
+    "Australia": {
+      "bandera": "au",
+      "elo": 1912,
+      "grupo": "Group D",
+      "top_goleador": "Nishan Velupillay",
+      "top_goleador_goles": 3,
+      "tasa_penal": 5,
+      "tandas": [
+        5,
+        9
+      ],
+      "mundial": [
+        46,
+        11
+      ],
+      "exp_wc": 57,
+      "forma_wc22": 67,
+      "goles_wc_pm": 1.15,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 1.059
+    },
+    "Argentina": {
+      "bandera": "ar",
+      "elo": 2243,
+      "grupo": "Group J",
+      "top_goleador": "Lionel Messi",
+      "top_goleador_goles": 14,
+      "tasa_penal": 2,
+      "tandas": [
+        15,
+        23
+      ],
+      "mundial": [
+        97,
+        53
+      ],
+      "exp_wc": 57,
+      "forma_wc22": 67,
+      "goles_wc_pm": 1.59,
+      "pos_wc_hist": 1.3,
+      "factor_wc": 1.082
+    },
+    "Scotland": {
+      "bandera": "gb-sct",
+      "elo": 1838,
+      "grupo": "Group C",
+      "top_goleador": "Scott McTominay",
+      "top_goleador_goles": 6,
+      "tasa_penal": 4,
+      "tandas": [
+        2,
+        2
+      ],
+      "mundial": [
+        26,
+        4
+      ],
+      "exp_wc": 0,
+      "forma_wc22": 0,
+      "goles_wc_pm": 1.12,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 0.934
+    },
+    "Czech Republic": {
+      "bandera": "cz",
+      "elo": 1760,
+      "grupo": "Group A",
+      "top_goleador": "Patrik Schick",
+      "top_goleador_goles": 6,
+      "tasa_penal": 6,
+      "tandas": [
+        3,
+        4
+      ],
+      "mundial": [
+        3,
+        1
+      ],
+      "exp_wc": 0,
+      "forma_wc22": 0,
+      "goles_wc_pm": 1.0,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 0.929
+    },
+    "Mexico": {
+      "bandera": "mx",
+      "elo": 2024,
+      "grupo": "Group A",
+      "top_goleador": "Raúl Jiménez",
+      "top_goleador_goles": 6,
+      "tasa_penal": 5,
+      "tandas": [
+        7,
+        14
+      ],
+      "mundial": [
+        69,
+        17
+      ],
+      "exp_wc": 48,
+      "forma_wc22": 44,
+      "goles_wc_pm": 0.99,
+      "pos_wc_hist": 0.0,
+      "factor_wc": 1.035
     }
   },
   "ya_jugados": [
