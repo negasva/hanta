@@ -4,100 +4,210 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Pictures">
+<meta name="theme-color" content="#fdfcf9">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
 <title>Pictures</title>
 <style>
-  html, body { margin: 0; height: 100%; background: #000; color: #fff; font-family: -apple-system, system-ui, sans-serif; }
-  video { position: fixed; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: scaleX(-1); }
-  .top { position: fixed; top: calc(env(safe-area-inset-top) + 24px); left: 20px; right: 20px; text-align: center; text-shadow: 0 1px 4px #000; }
-  #msg { font-size: 18px; font-weight: 600; margin: 0 0 14px; }
-  .bar { height: 8px; border-radius: 4px; background: rgba(255,255,255,.3); overflow: hidden; }
-  #fill { height: 100%; width: 0; background: #34c759; }
-  #count { margin-top: 8px; font-size: 16px; }
-  .actions { position: fixed; bottom: calc(env(safe-area-inset-bottom) + 50px); left: 0; right: 0; display: flex; flex-direction: column; align-items: center; gap: 12px; }
-  button { background: #fff; color: #000; border: 0; border-radius: 30px; padding: 16px 40px; font-size: 18px; font-weight: 600; }
-  button.secondary { background: rgba(255,255,255,.25); color: #fff; }
+  :root { --bg: #fdfcf9; --ink: #1a2038; --muted: #5b6070; --line: #e4e2dc; --navy: #151b33; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100%; background: var(--bg); color: var(--ink); font-family: Inter, -apple-system, system-ui, sans-serif; -webkit-text-size-adjust: 100%; }
+  header { border-bottom: 1px solid var(--line); padding: calc(env(safe-area-inset-top) + 16px) 24px 14px; }
+  .brand { font-family: "Playfair Display", Georgia, serif; font-size: 30px; line-height: 1; }
+  main { max-width: 480px; margin: 0 auto; padding: 28px 24px calc(env(safe-area-inset-bottom) + 32px); }
+  .back { background: none; border: 0; padding: 0; color: var(--muted); font: inherit; font-size: 16px; cursor: pointer; margin-bottom: 36px; }
+  h1 { font-family: "Playfair Display", Georgia, serif; font-weight: 400; font-size: 34px; line-height: 1.15; margin: 0 0 10px; }
+  h1.center, p.center { text-align: center; }
+  h1.small { font-size: 28px; min-height: 2.3em; }
+  p { margin: 0; font-size: 17px; color: var(--muted); line-height: 1.45; }
+  .count { text-align: center; font-size: 16px; color: var(--muted); margin-bottom: 18px; }
+  .circle-wrap { position: relative; width: 100%; aspect-ratio: 1; }
+  .circle { position: absolute; inset: 0; border-radius: 50%; overflow: hidden; background: #e9e7e1; }
+  .circle video { width: 100%; height: 100%; object-fit: cover; transform: scaleX(-1); }
+  .dot { position: absolute; width: 40px; height: 40px; margin: -20px 0 0 -20px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 4px rgba(0,0,0,.18), 0 2px 8px rgba(0,0,0,.3); transition: left .45s ease-out, top .45s ease-out; left: 50%; top: 50%; }
+  .line { height: 1px; background: var(--line); margin: 24px 0 0; position: relative; }
+  .line > i { position: absolute; left: 0; top: -1px; height: 3px; background: var(--ink); width: 0; transition: width .3s linear; }
+  .link { display: block; margin: 28px auto 0; background: none; border: 0; color: var(--ink); font: inherit; font-size: 17px; text-decoration: underline; cursor: pointer; }
+  .btn { display: block; width: 100%; padding: 20px; background: var(--navy); color: #fff; border: 1px solid var(--navy); font: inherit; font-size: 18px; cursor: pointer; margin-top: 16px; }
+  .btn.outline { background: #fff; color: var(--ink); border-color: var(--line); }
+  .btn:disabled { opacity: .5; }
+  .grid { display: grid; grid-template-columns: repeat(10, 1fr); gap: 2px; margin: 26px 0 28px; }
+  .grid img { width: 100%; aspect-ratio: 1; object-fit: cover; transform: scaleX(-1); display: block; background: #e9e7e1; }
   [hidden] { display: none !important; }
 </style>
 </head>
 <body>
-<video id="video" playsinline muted autoplay></video>
-<div class="top">
-  <p id="msg">Tap Start, then slowly turn your head in every direction.</p>
-  <div class="bar"><div id="fill"></div></div>
-  <div id="count">0 / 90</div>
-</div>
-<div class="actions">
-  <button id="start">Start</button>
-  <button id="save" hidden>Save ZIP</button>
-  <button id="again" class="secondary" hidden>Start again</button>
-</div>
+<header><div class="brand">Pictures</div></header>
+<main>
+
+  <section id="intro">
+    <h1>Every angle of your head.</h1>
+    <p>Follow the dot with your head. We take 90 photos in about 45 seconds, then you save them as a ZIP. Nothing is uploaded.</p>
+    <button class="btn" id="start">Start</button>
+    <p id="introError" style="margin-top:16px;color:#a33" hidden></p>
+  </section>
+
+  <section id="capture" hidden>
+    <button class="back" id="back">← Back</button>
+    <h1 class="center small" id="title">Follow the dot with your head. Get every angle.</h1>
+    <div class="count" id="count">0 of 90 frames</div>
+    <div class="circle-wrap">
+      <div class="circle"><video id="video" playsinline muted autoplay></video></div>
+      <div class="dot" id="dot"></div>
+    </div>
+    <div class="line"><i id="bar"></i></div>
+    <button class="link" id="early" hidden>I'm done early</button>
+  </section>
+
+  <section id="review" hidden>
+    <button class="back" id="redoTop">← Back</button>
+    <h1 id="reviewTitle">Looking good.</h1>
+    <p id="reviewSub">0 frames captured.</p>
+    <div class="grid" id="grid"></div>
+    <button class="btn" id="save" disabled>Preparing ZIP…</button>
+    <button class="btn outline" id="redo">Redo capture</button>
+    <p class="center" id="hint" style="margin-top:18px;font-size:15px"></p>
+  </section>
+
+</main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <script>
-const TOTAL = 90, INTERVAL_MS = 500;
+const TOTAL = 90, INTERVAL_MS = 500, MIN_EARLY = 20;
 const $ = (id) => document.getElementById(id);
-const video = $('video'), msg = $('msg'), fill = $('fill'), count = $('count');
-const startBtn = $('start'), saveBtn = $('save'), againBtn = $('again');
+const screens = { intro: $('intro'), capture: $('capture'), review: $('review') };
+const video = $('video'), dot = $('dot'), bar = $('bar');
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-let stream = null, wakeLock = null, zipFile = null;
 
-function show(btns) {
-  for (const b of [startBtn, saveBtn, againBtn]) b.hidden = !btns.includes(b);
-}
-function progress(n) {
-  fill.style.width = (n / TOTAL * 100) + '%';
-  count.textContent = n + ' / ' + TOTAL;
+let stream = null, wakeLock = null, runId = 0, stopEarly = false;
+let blobs = [], urls = [], zipFile = null;
+
+function show(name) {
+  for (const [k, el] of Object.entries(screens)) el.hidden = k !== name;
+  window.scrollTo(0, 0);
 }
 
-async function run() {
-  zipFile = null;
-  progress(0);
-  show([]);
+// Dot path: look straight, then three loops of growing radius, then a tight loop.
+function dotFor(i) {
+  let loop, r;
+  if (i < 6) return [0, 0];
+  if (i < 36) { loop = (i - 6) / 30; r = 0.5; }
+  else if (i < 66) { loop = (i - 36) / 30; r = 0.92; }
+  else { loop = (i - 66) / 24; r = 0.4; }
+  const a = -Math.PI / 2 + loop * 2 * Math.PI;
+  return [Math.cos(a) * r, Math.sin(a) * r];
+}
+function titleFor(i) {
+  if (i < 6) return 'Follow the dot with your head. Get every angle.';
+  if (i < 40) return 'Keep going. Turn slowly.';
+  if (i < 66) return 'Keep going. Profile shots too.';
+  return 'Perfect. Almost there.';
+}
+function moveDot(i) {
+  const [x, y] = dotFor(i);
+  dot.style.left = (50 + x * 40) + '%';
+  dot.style.top = (50 + y * 40) + '%';
+}
+function setProgress(n) {
+  $('count').textContent = n + ' of ' + TOTAL + ' frames';
+  bar.style.width = (n / TOTAL * 100) + '%';
+  $('early').hidden = n < MIN_EARLY;
+}
+
+function stopCamera() {
+  stream?.getTracks().forEach((t) => t.stop());
+  stream = null;
+  try { wakeLock?.release(); } catch {}
+}
+function clearPhotos() {
+  urls.forEach((u) => URL.revokeObjectURL(u));
+  urls = []; blobs = []; zipFile = null;
+  $('grid').replaceChildren();
+}
+
+async function startCapture() {
+  const id = ++runId;
+  stopEarly = false;
+  clearPhotos();
+  setProgress(0);
+  moveDot(0);
+  $('title').textContent = titleFor(0);
+  $('introError').hidden = true;
   try {
     stream = await navigator.mediaDevices.getUserMedia({
       video: { facingMode: 'user', width: { ideal: 1920 }, height: { ideal: 1080 } },
       audio: false,
     });
-    video.srcObject = stream;
-    await video.play();
-    try { wakeLock = await navigator.wakeLock.request('screen'); } catch {}
+  } catch {
+    $('introError').textContent = 'Could not use the camera. Allow camera access in Safari and try again.';
+    $('introError').hidden = false;
+    show('intro');
+    return;
+  }
+  show('capture');
+  video.srcObject = stream;
+  await video.play();
+  try { wakeLock = await navigator.wakeLock.request('screen'); } catch {}
+  await sleep(800); // let exposure settle
 
-    msg.textContent = 'Keep turning: left, right, up, down, diagonals.';
-    await sleep(800); // let exposure settle
-    const canvas = document.createElement('canvas');
-    canvas.width = video.videoWidth;
-    canvas.height = video.videoHeight;
-    const ctx = canvas.getContext('2d');
-    const blobs = [];
-    while (blobs.length < TOTAL) {
-      const t0 = Date.now();
-      ctx.drawImage(video, 0, 0);
-      blobs.push(await new Promise((r) => canvas.toBlob(r, 'image/jpeg', 0.9)));
-      progress(blobs.length);
-      await sleep(Math.max(0, INTERVAL_MS - (Date.now() - t0)));
-    }
-    stream.getTracks().forEach((t) => t.stop());
-    try { await wakeLock?.release(); } catch {}
+  const canvas = document.createElement('canvas');
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+  const ctx = canvas.getContext('2d');
+  while (blobs.length < TOTAL && !stopEarly) {
+    if (id !== runId) return; // cancelled
+    const t0 = Date.now();
+    const i = blobs.length;
+    ctx.drawImage(video, 0, 0);
+    const blob = await new Promise((r) => canvas.toBlob(r, 'image/jpeg', 0.9));
+    if (id !== runId) return;
+    blobs.push(blob);
+    setProgress(blobs.length);
+    $('title').textContent = titleFor(i + 1);
+    moveDot(i + 1);
+    await sleep(Math.max(0, INTERVAL_MS - (Date.now() - t0)));
+  }
+  stopCamera();
+  showReview(id);
+}
 
-    msg.textContent = 'Building ZIP…';
+async function showReview(id) {
+  const n = blobs.length;
+  $('reviewSub').textContent = n + ' frames captured.';
+  $('hint').textContent = '';
+  const frag = document.createDocumentFragment();
+  for (const b of blobs) {
+    const u = URL.createObjectURL(b);
+    urls.push(u);
+    const img = new Image();
+    img.src = u;
+    frag.appendChild(img);
+  }
+  $('grid').appendChild(frag);
+  const save = $('save');
+  save.disabled = true;
+  save.textContent = 'Preparing ZIP…';
+  show('review');
+  try {
     const zip = new JSZip();
     blobs.forEach((b, i) => zip.file('photo-' + String(i + 1).padStart(2, '0') + '.jpg', b));
     const blob = await zip.generateAsync({ type: 'blob', compression: 'STORE' });
+    if (id !== runId) return;
     zipFile = new File([blob], 'pictures-' + new Date().toISOString().slice(0, 19).replace(/[:T]/g, '-') + '.zip', { type: 'application/zip' });
-    msg.textContent = 'Done. Tap Save ZIP and choose "Save to Files".';
-    show([saveBtn, againBtn]);
-  } catch (e) {
-    stream?.getTracks().forEach((t) => t.stop());
-    msg.textContent = stream && video.videoWidth
-      ? 'Could not build the ZIP. Check your connection and try again.'
-      : 'Could not use the camera. Allow camera access and try again.';
-    show([startBtn]);
+    save.disabled = false;
+    save.textContent = 'Looks good →';
+    $('hint').textContent = 'Tap "Looks good" and choose Save to Files.';
+  } catch {
+    if (id !== runId) return;
+    save.textContent = 'Could not build the ZIP';
+    $('hint').textContent = 'Check your connection and redo the capture.';
   }
 }
 
-saveBtn.onclick = async () => {
+$('save').onclick = async () => {
+  if (!zipFile) return;
   try {
     if (navigator.canShare?.({ files: [zipFile] })) {
       await navigator.share({ files: [zipFile] });
@@ -111,7 +221,18 @@ saveBtn.onclick = async () => {
   a.download = zipFile.name;
   a.click();
 };
-startBtn.onclick = againBtn.onclick = run;
+
+function backToIntro() {
+  runId++;
+  stopCamera();
+  clearPhotos();
+  show('intro');
+}
+$('start').onclick = startCapture;
+$('redo').onclick = startCapture;
+$('early').onclick = () => { stopEarly = true; };
+$('back').onclick = backToIntro;
+$('redoTop').onclick = backToIntro;
 </script>
 </body>
 </html>
