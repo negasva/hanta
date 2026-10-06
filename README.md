@@ -1,10 +1,5 @@
 # Pictures
 
-Opens the front camera, asks you to turn your head in every direction and takes one photo every 0.5 s until it reaches 90. Photos are saved only to the iPhone photo library; nothing is uploaded.
+Web app that opens the front camera, asks you to turn your head in every direction and takes one photo every 0.5 s until it reaches 90. The photos are zipped in the browser; nothing is uploaded. At the end, tap **Save ZIP** and choose **Save to Files** in the iOS share sheet.
 
-## Run on iPhone
-
-1. Install **Expo Go** from the App Store.
-2. `npm install`
-3. `npx expo start`
-4. Scan the QR code with the iPhone camera.
+Single static file: `index.html`. Needs HTTPS (camera access). On iPhone: open the URL in Safari, then Share > Add to Home Screen.

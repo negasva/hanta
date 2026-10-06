@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Pictures">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<title>Pictures</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #000; color: #fff; font-family: -apple-system, system-ui, sans-serif; }
+  video { position: fixed; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: scaleX(-1); }
+  .top { position: fixed; top: calc(env(safe-area-inset-top) + 24px); left: 20px; right: 20px; text-align: center; text-shadow: 0 1px 4px #000; }
+  #msg { font-size: 18px; font-weight: 600; margin: 0 0 14px; }
+  .bar { height: 8px; border-radius: 4px; background: rgba(255,255,255,.3); overflow: hidden; }
+  #fill { height: 100%; width: 0; background: #34c759; }
+  #count { margin-top: 8px; font-size: 16px; }
+  .actions { position: fixed; bottom: calc(env(safe-area-inset-bottom) + 50px); left: 0; right: 0; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  button { background: #fff; color: #000; border: 0; border-radius: 30px; padding: 16px 40px; font-size: 18px; font-weight: 600; }
+  button.secondary { background: rgba(255,255,255,.25); color: #fff; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<video id="video" playsinline muted autoplay></video>
+<div class="top">
+  <p id="msg">Tap Start, then slowly turn your head in every direction.</p>
+  <div class="bar"><div id="fill"></div></div>
+  <div id="count">0 / 90</div>
+</div>
+<div class="actions">
+  <button id="start">Start</button>
+  <button id="save" hidden>Save ZIP</button>
+  <button id="again" class="secondary" hidden>Start again</button>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script>
+const TOTAL = 90, INTERVAL_MS = 500;
+const $ = (id) => document.getElementById(id);
+const video = $('video'), msg = $('msg'), fill = $('fill'), count = $('count');
+const startBtn = $('start'), saveBtn = $('save'), againBtn = $('again');
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+let stream = null, wakeLock = null, zipFile = null;
+
+function show(btns) {
+  for (const b of [startBtn, saveBtn, againBtn]) b.hidden = !btns.includes(b);
+}
+function progress(n) {
+  fill.style.width = (n / TOTAL * 100) + '%';
+  count.textContent = n + ' / ' + TOTAL;
+}
+
+async function run() {
+  zipFile = null;
+  progress(0);
+  show([]);
+  try {
+    stream = await navigator.mediaDevices.getUserMedia({
+      video: { facingMode: 'user', width: { ideal: 1920 }, height: { ideal: 1080 } },
+      audio: false,
+    });
+    video.srcObject = stream;
+    await video.play();
+    try { wakeLock = await navigator.wakeLock.request('screen'); } catch {}
+
+    msg.textContent = 'Keep turning: left, right, up, down, diagonals.';
+    await sleep(800); // let exposure settle
+    const canvas = document.createElement('canvas');
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    const ctx = canvas.getContext('2d');
+    const blobs = [];
+    while (blobs.length < TOTAL) {
+      const t0 = Date.now();
+      ctx.drawImage(video, 0, 0);
+      blobs.push(await new Promise((r) => canvas.toBlob(r, 'image/jpeg', 0.9)));
+      progress(blobs.length);
+      await sleep(Math.max(0, INTERVAL_MS - (Date.now() - t0)));
+    }
+    stream.getTracks().forEach((t) => t.stop());
+    try { await wakeLock?.release(); } catch {}
+
+    msg.textContent = 'Building ZIP…';
+    const zip = new JSZip();
+    blobs.forEach((b, i) => zip.file('photo-' + String(i + 1).padStart(2, '0') + '.jpg', b));
+    const blob = await zip.generateAsync({ type: 'blob', compression: 'STORE' });
+    zipFile = new File([blob], 'pictures-' + new Date().toISOString().slice(0, 19).replace(/[:T]/g, '-') + '.zip', { type: 'application/zip' });
+    msg.textContent = 'Done. Tap Save ZIP and choose "Save to Files".';
+    show([saveBtn, againBtn]);
+  } catch (e) {
+    stream?.getTracks().forEach((t) => t.stop());
+    msg.textContent = stream && video.videoWidth
+      ? 'Could not build the ZIP. Check your connection and try again.'
+      : 'Could not use the camera. Allow camera access and try again.';
+    show([startBtn]);
+  }
+}
+
+saveBtn.onclick = async () => {
+  try {
+    if (navigator.canShare?.({ files: [zipFile] })) {
+      await navigator.share({ files: [zipFile] });
+      return;
+    }
+  } catch (e) {
+    if (e.name === 'AbortError') return;
+  }
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(zipFile);
+  a.download = zipFile.name;
+  a.click();
+};
+startBtn.onclick = againBtn.onclick = run;
+</script>
+</body>
+</html>
