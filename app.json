@@ -1,0 +1,28 @@
+{
+  "expo": {
+    "name": "Pictures",
+    "slug": "pictures",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.negasva.pictures"
+    },
+    "plugins": [
+      [
+        "expo-camera",
+        { "cameraPermission": "Pictures uses the front camera to capture photos of your head from every angle." }
+      ],
+      [
+        "expo-media-library",
+        {
+          "photosPermission": "Pictures saves the captured photos to your photo library.",
+          "savePhotosPermission": "Pictures saves the captured photos to your photo library.",
+          "isAccessMediaLocationEnabled": false
+        }
+      ]
+    ]
+  }
+}
