@@ -1,22 +1,41 @@
-# Datos crudos descargados (regenerables con predict.py)
-data/results.csv
-data/fifa_ranking.csv
-data/worldcup_2026.json
-data/goalscorers.csv
-data/shootouts.csv
-data/former_names.csv
-data/wc_history.csv
-data/wc_squads.csv
-data/worldcup_2022.json
-data/wc_goals.csv
-data/wc_standings.csv
-data/euro_2024.json
-data/wc_bookings.csv
+# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
 
-# NOTA: data/event_rates.json y data/player_rates.json SÍ se versionan (los
-# genera agregar_eventos.py desde StatsBomb; son pequeños y evitan descargar
-# ~360 MB en cada corrida).
+# dependencies
+node_modules/
 
-# Python
-__pycache__/
-*.pyc
+# Expo
+.expo/
+dist/
+web-build/
+expo-env.d.ts
+
+# Native
+.kotlin/
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# Metro
+.metro-health-check*
+
+# debug
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# macOS
+.DS_Store
+*.pem
+
+# local env files
+.env*.local
+
+# typescript
+*.tsbuildinfo
+
+# generated native folders
+/ios
+/android
